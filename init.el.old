@@ -1,0 +1,33 @@
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
+(package-initialize)
+
+;; Powerline
+(require 'powerline)
+(powerline-center-theme)
+
+;; set file for custom variables
+(setq custom-file (locate-user-emacs-file ".emacs-custom.el"))
+(unless (file-exists-p custom-file)
+  (write-region "" nil custom-file))
+(load custom-file)
+
+;; This needs to be before loading config.org so I don't have to give
+;; permission to load the file when it is symlinked.
+(customize-set-variable
+ 'vc-follow-symlinks t "Follow Symlinks without asking")
+
+;; We load cask early to allow overriding built-in packages.
+;;
+;; Specifically, we need to initialize cask before calling
+;; 'org-babel-load-file, in order to prevent the built-in org
+;; being loaded.
+(add-to-list 'load-path (locate-user-emacs-file "cask/elpa"))
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
+(org-babel-load-file (locate-user-emacs-file "config.org"))
+
+;;; init.el ends here
