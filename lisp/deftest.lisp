@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/opt/homebrew/bin/clisp
+=======
+#!/usr/local/bin/clisp
+>>>>>>> b3d08f2b7b7969fcc8e0f0c1f1af39f38341eb63
 (defun demo-function (flag)
    (print 'entering-outer-block)
    

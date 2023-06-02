@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/clisp
+#!/usr/local/bin/sbcl --script
 (defun demo-function (flag)
    (print 'entering-outer-block)
    
