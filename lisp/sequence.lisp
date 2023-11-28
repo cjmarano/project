@@ -1,4 +1,4 @@
-(setq x (vector 'a 'b 'c 'a 'b 'c 'd 'e 'f 'a))
+(setq x (vector 'a 'b 'c 'a 'b 'c 'd 'e 'f 'g))
 (write (length x))
 (terpri)
 (write (elt x 0))
@@ -21,7 +21,7 @@
 (terpri)
 (write (elt x 9))
 (terpri)
-(write (count 9 '(0 1 2 3 4 5 6 7 9 9)))
+(write (count 9 '(0 1 2 3 4 5 6 7 8 9)))
 
 
 

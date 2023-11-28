@@ -11,7 +11,7 @@
             (return-from inner-block 5)
          )
 
-         (print 'This-wil--not-be-printed))
+         (print 'This-will--not-be-printed))
       )
 
       (print 'left-inner-block)
