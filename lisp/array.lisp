@@ -12,3 +12,4 @@
 (setf (aref my-array 8) 67)
 (setf (aref my-array 9) 30)
 (write my-array)
+(write my-array)
