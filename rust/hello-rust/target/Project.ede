@@ -1,0 +1,17 @@
+;; Object Guess
+;; EDE Project Files are auto generated: Do Not Edit
+(ede-proj-project "Guess"
+  :file "Project.ede"
+  :name "Guess"
+  :targets
+  (list
+    (ede-proj-target-makefile-program "Guessing_game"
+      :object-name "Guessing_game"
+      :name "Guessing_game"
+      :path ""
+      :source '(".rustc_info.json")
+      :configuration-variables '("debug" ("CFLAGS" . "-g") ("LDFLAGS" . "-g"))))
+  :configurations '("debug" "release")
+  :object-name "Guess"
+  :makefile-type Makefile
+  :configuration-variables '("debug" (("DEBUG" . "1"))))
