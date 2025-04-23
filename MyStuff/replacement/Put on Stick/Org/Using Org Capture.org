@@ -1,0 +1,74 @@
+* Using Org Capture
+C-c @ agenda
+C-c e capture
+C-c C-c execute src block
+C- C-, insert template
+<li insert lisp src block
+<p insert python src block
+etc.
+C-c / m <name of tag>
+C-c @ m   is org-tags-view
+C-c .    is timestamps
+C-c C-t   is todo state (or t or Shift --> or Shift <--
+C-c t   is sparse tree
+C-c T  is search
+Shift-M-<RET>   is insert TODO
+C-c C-q  is org-set-tag command <-- will also re-align tags press <TAB> to overide defautl tags
+M-x org-agenda t   is show TODO for all files.
+
+M-<RET> at beginning of line puts headline above.
+
+C-c * promote item to headline/demote headline to plain text.
+
+Org Capture (Part 1)
+
+
+1. Intro 
+Org Capture allows one to capture notes, todos, journal entries, etc. in your org-agenda file system with minimal interruption to your work.
+
+Inspired by John Wiegley's Remember package, which has many features Org Capture does not have and is still worth exploring on its own.
+
+2. Template of Basic Settings 
+(setq org-default-notes-file (concat org-directory "/capture.org")) ;; You can set a global default location for notes this way:
+
+
+(global-set-key (kbd "C-c c") #'org-capture) ;; The Main command
+
+
+(setq org-capture-templates
+        '(("t" "Todo" entry (file "~/Files-2024/org-agenda-files/todo.org")
+           "* TODO %? %t  %i\n")
+          ("n" "Note" entry (file "/home/yal/Files-2024/org-agenda-files/notes.org")
+           "* %^{Title}: %^{Tags}:\n%U%i%?" :jump-to-captured t :empty-lines-before 1 :empty-lines-after 1)))
+
+OR
+
+(setq org-capture-templates
+      '(("t" "TODO" entry (file+headline "~/org/gtd.org" "Tasks")
+      "* TODO %?\n %i\n %a")
+      ("j" "Journal" entry
+      (file+datetree "~/org/journal.org")
+                "* %?\nEntered on %U\n %i\n %a"
+)))
+
+
+3. The Main Commands 
+   1. M-x org-capture (org-capture) 
+Displays the capture templates menu. Also allows you to customize your capture templates from this selection menu.
+
+You choose a template and input information into a "capture buffer".
+
+The information is then copied to a target file with C-c C-c
+
+   2. C-c C-c (org-capture-finalize) 
+"Banks" the captured information. With a prefix key, also jumps to the newly captured item. DEMO
+
+   3. C-c C-w (org-capture-refile) 
+Tip You can use also use org-refile from the capture buffer (see my video), which allows you to specify a location for the information.
+
+   4. C-c C-k (org-capture-kill) 
+Aborts capture process.
+
+Tip You can also use org-capture from the org-agenda buffer using k. It will use the date under the cursor as default date. DEMO
+
+Tip when you invoke org-capture with 1 prefix key it will take you to the captured item after finalizing. With 2 prefix keys you visit the last stored capture item in its buffer.

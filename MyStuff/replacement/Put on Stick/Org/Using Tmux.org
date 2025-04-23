@@ -1,0 +1,33 @@
+* Using Tmux.
+
+Tmux prefix key is C-b
+
+To start new session:   tmux new n -s<Session name>
+
+tmux ls to list active sessions.
+
+tmux a -t <session> to attach to a running session.
+
+tmux kill-session -t <session>
+
+C-b % new pane (vertical split)
+
+C-b " new pane (horizontal split)
+
+C-b up/dwn/left/right arrows move between panes.
+
+C-b q show index.
+
+C-b alt 1 to 5 <-- predefined layouts.
+
+C-b c new window.
+
+C-b n jump to new window.
+
+C-b , rename window.
+
+C-b w window & session list.
+
+C-b alt <----> resize pane.
+
+C-b alt change size of pane in larger steps.

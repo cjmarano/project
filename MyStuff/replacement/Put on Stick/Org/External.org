@@ -1,0 +1,20 @@
+* External programs.
+
+rbenv local
+rbenv shell
+rbenv install -l
+rbenv sync (or rbenv-sync ?)
+
+pyenv-sync
+
+setup-ruby
+
+shellenv zsh
+
+brew doctor
+brew update
+brew list
+brew autoremove --dry-run
+brew desc
+brew docs
+

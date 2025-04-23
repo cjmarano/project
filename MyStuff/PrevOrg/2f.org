@@ -1,0 +1,73 @@
+Org file for September.
+
+* DONE Try rationalizing init.el with System Crafters version.
+CLOSED: [2024-09-25 Wed 10:38]
+- State "DONE"       from "WAITING"    [2024-09-25 Wed 10:38]
+** Regarding Org Mode specifically but also package and use-package.
+Various fails. Wound up backing out of most of the changes.
+Did add: (set-face-attribute (car face) nil :font "Iosevka Nerd Font" :weight 'regular :height (cdr face))  <-- but see below under Tried Inconsolate...
+* DONE added FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+CLOSED: [2024-09-25 Wed 10:38]
+- State "DONE"       from "WAITING"    [2024-09-25 Wed 10:38]
+to .zshrc. This makes brew keywords avaiable for completions.
+* DONE Changed default font to hack nerd font.
+CLOSED: [2024-09-25 Wed 10:38]
+- State "DONE"       from "WAITING"    [2024-09-25 Wed 10:38]
+Basic variable pitch is now Harck Nerd Font Propo.
+Fixed pitch font is HacK Nerd Font.
+Seems to work as intended.
+
+* DONE Tried various emacs themes.
+CLOSED: [2024-09-25 Wed 10:38]
+- State "DONE"       from "WAITING"    [2024-09-25 Wed 10:38]
+Didn't find aything that improved on sanityinc-tomorrow-eighties.
+* DONE Note: ruby is in different locations on Big and Round.
+CLOSED: [2024-09-25 Wed 10:38]
+- State "DONE"       from "WAITING"    [2024-09-25 Wed 10:38]
+So .zshrc reflects this.
+Also brew added to $PATH.
+* DONE Freeze init on both Big and Round.
+CLOSED: [2024-09-30 Mon 10:51]
+- State "DONE"       from "WAITING"    [2024-09-30 Mon 10:51]
+** Cleanup and logical organization
+** Older init replaced latest init on both Big and Round.
+Eglot, pylsp, and flyouts working for Python on both machines now.
+* DONE org-emphasis not working. appears to be gone from init.el
+CLOSED: [2024-09-30 Mon 10:52]
+- State "DONE"       from "WAITING"    [2024-09-30 Mon 10:52]
+* DONE Deleted exec-path-from-shell and cmake-mode.
+CLOSED: [2024-09-30 Mon 10:52]
+- State "DONE"       from "WAITING"    [2024-09-30 Mon 10:52]
+* TODO Need to test Rust -Projects- on Big.
+seems to be working on Round.  *red* *red* *red* +green+ /italic/ _underline_ =verbatim= ~code~
+todo <-- Company works/
+company-box NOT showing icons.
+* Yasnippet.
+Get used to it. Same yas-snippet-dirs pn Big and Round.
+Seems overly complicated and not useful to me.
+* Cleaned up init.el on Round. This is now the template.
+put copies of init, zshrc, elpa, path, brew list, early init on OneDrive.
+* Issue with Dashboard resolved.
+There was random text in the Dashboard section that prevented init from fully configuring Dashboard.
+* Yas-snippet - more trouble than it's worth?
+Have to memorize triggers first.
+* Misc rebuild font cache.
+fc-chache -f -v
+* Dired jump i C-x C-j
+Jump to Dired buffer corresponding to current buffer.
+* lf is ls -lath
+* exec-path-from-shell and cmake-mode removed.
+* C-[RET] add headline at same level.
+* M-[RET] add headline above current level.
+* C-c, C-q Org set tags.
+* Describe-char, describe-face list-colors-disply
+* emacs is /usr/local/bin/emacs on Round
+. is /opt/homebrew/bin/emacs on Big.
+
+* (package-some-package
+: defer t
+: init -do this before you load the package
+(something)
+:config -do this after you load the package
+(something)
+

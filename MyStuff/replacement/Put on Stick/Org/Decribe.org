@@ -1,0 +1,4 @@
+* Describe.
+C-h v describe variable.
+C-h f describe function.
+C-h c describe character (keystroke)

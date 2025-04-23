@@ -1,0 +1,55 @@
+* Using find.
+find . -name "something"
+
+find . -exec "something"
+
+find . -name "*.txt" -exec |grep -l "words" {} +
+
+find . -iname "filename"
+
+find . type f
+
+find . -type d
+
+* match preceding for 0 or more times.
++   "      "       "  1 or more times.
+{} repeat "   " for number of times in brackets.
+. takes place of any other char.
+? preceding may or may not be present.
+^ match must start at the beginning.
+$ match must be at end of string or before \n
+\ escape any of the above special characters.
+
+* find command
+find ./ -name "*.ext" -type f -print0
+
+find -L <path> -name "name.ext"     < -- follow symbolic links.
+
+find <path> -type f -name name.ext
+
+find <path> -type f -iname name.ext  <-- case insensitive.
+
+find . -type -d  <-- find directories.
+
+find /tmp -type f -size -1024 <-- find smaller than 1024.
+
+find . -type f -size +1M <-- find over 1M files.
+
+find . -size +1000M
+
+find . -name "something"
+find . -exec "something"
+find . -name "*.txt" -exec | grep -l "words" {} +
+find . -iname "filename"
+find . type f
+find . -type d
+  * match preceding for 0 or more times.
+  +   "      "       "    or more times.
+  {} repeat "   " for number of times in brackets.
+  . takes place of any other char.
+ ? preceding may or may not be present.
+ ^ match must start at the beginning.
+ $ match must be at end of string or before \n
+ \ escape any of the above special characters.
+
+

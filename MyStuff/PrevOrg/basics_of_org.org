@@ -1,0 +1,88 @@
+PROJECT -*- mode: org -*-
+#+TAGS: { @OFFICE(o) @HOME(h) } COMPUTER(c) PHONE(p) READING(r)
+#+STARTUP: showall
+
+* Tasks
+** DONE [#A] Start working with org mode.
+** DONE [#B] Why no date done?
+CLOSED: [2022-07-14 Thu 09:56]
+** DONE [#C] Testing date
+CLOSED: [2021-10-25 Mon 14:40]
+** Well, that worked --- (setq org-log-done 'time)
+
+* This is from a tutorial about Dates and org.
+This is some test that's under the top level headline above.
+Here's some more text.
+ 
+* TODO Work with todo lists
+Cycle with Control-c, Control-t.
+
+   1. this is the first item.
+   2. M-ret inserts another item at the same level.
+      1. Hitting return inserts a tabbed item.
+      2. Or not. Weird.
+	 3. No, hitting return tabs to next line.
+	    4. Forever.
++ Unordered list item.
+  + second item.
+    + third unordered item.
+
+ * bulleted, unordered list
+   First item.
+   Second item.
+   Third item.
+
+  + unordered list.
+    One.
+    Two.
+    Three.
+
+
+* Tables
+
+Tables NOT working as expected!
+
+Table not justified and table-justify doesn't seem to work.
+
+
+
+* WAITING Call Fred <2021-10-21 Thu 07:00>
+Can also cycle with Shift--> or Shift<--
+
+
+* Insert Hyperlinks <2021-10-23 Sat>
+
+[[https://en.wikipedia.org][Wikipedia]]
+Control-c, Control-l to insert a hyperlink. or edit a hyperlink.
+Control-c, Control-o to open a hyperlink.
+
+* TODO world domination*                                            :@OFFICE:
+Control-c / t view todo only if not done.
+
+
+* DONE [[*Working with lists][Working with lists]]
+CLOSED: [2022-07-14 Thu 09:56]
+
+
+- State "WAITING"    from "TODO"       [2021-10-28 Thu 10:27] \\
+  This is a progress note.
+* DONE [#A] try to log progress
+CLOSED: [2022-07-14 Thu 09:56]
+That's Control-u, Control-c, Control-t.
+Set priority is Shift-up or Shift-down
+
+* More stuff <2021-10-28 Thu>
+Control-c . to insert timestamp.
+Control-c ! to timestamp that doesn't show up in agenda.
+** DONE working with checkboxes.
+CLOSED: [2022-07-14 Thu 09:56]
+- [X] Do a thing.
+  - [X] do another thing.
+    - [X] one more thing.
+      Note: checking last item checks all!
+- [ ] last thing.
+- [X] oops another thing.
+  Control-c, Control-c to toggle checkbox.
+
+
+

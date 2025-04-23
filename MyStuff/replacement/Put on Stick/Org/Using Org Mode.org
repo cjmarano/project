@@ -1,0 +1,6 @@
+* Using Org Mode
+** C-c, C-q Org, set tags.
+M- --> demote headline.
+M- <-- promote headline.
+C-[RET] add Headline same level.
+M-[RET] add Headline above current level.

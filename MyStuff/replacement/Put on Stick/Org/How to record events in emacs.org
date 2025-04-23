@@ -1,0 +1,15 @@
+* How to record events in Org.
+* Org Mode is an outline tool.
+Items should be organized hierarchically.
+Org contains:
+** agenda
+** tasks
+** daily
+** journal
+*** There are also templates, source blocks and tangle
+
+* C-c j is journal (Org-capture)
+* Org-tempo
+expands structure templates
+per org-structure-templates-alist
+C-c, C-s prg-insert-structure-template

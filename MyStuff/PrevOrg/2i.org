@@ -1,0 +1,82 @@
+* January 2025
+
+* DONE Installed GitHub Desktop on Big and New.
+CLOSED: [2025-01-30 Thu 14:19]
+- State "DONE"       from "WAITING"    [2025-01-30 Thu 14:19]
+** Couldn't clone python repo to new - wouldn't take token or passwd.
+Installing GitHub Desktop enabled clong the repo to New.
+After cloning cli tools worked correctly.
+
+* DONE Removed New from all peripherals.
+CLOSED: [2025-01-30 Thu 14:20]
+- State "DONE"       from "WAITING"    [2025-01-30 Thu 14:20]
+** and it failed to connect to the USB hub devices.
+When re-plugging everything nothing connected to the Startech Hub worked.
+Tried various combos of ports/devices it was the hub.
+** Tried Lenovo Hub, which works on Big.
+Did not work with New but didn't spend a lot of time on it.
+** Finally swapped around and got Startech working.
+No idea why it was failing.
+
+* DONE Big wouldn't accept password.
+CLOSED: [2025-01-30 Thu 14:20]
+- State "DONE"       from "WAITING"    [2025-01-30 Thu 14:20]
+** Had to disconnect all devices, restart.
+Put it  on a different drop. Is this a problem with our switch?
+
+* DONE Fixing you must use org gnu on new.
+CLOSED: [2025-01-30 Thu 14:20]
+- State "DONE"       from "WAITING"    [2025-01-30 Thu 14:20]
+** Had to uninstall org-roam and org-bullets then delete org, org-bullets and org-roam
+from ~/.emacs.d/elpa/ Restarted and added org-bullets and org-roam back.
+* DONE New was complaing it couldn't compile Vterm because Cmake not available.
+CLOSED: [2025-01-30 Thu 14:20]
+- State "DONE"       from "WAITING"    [2025-01-30 Thu 14:20]
+removed line: (setq vterm-always-compile-module t) then added it back.
+** The above line is NOT in Big's init.el no idea why.
+* DONE New doesn't show 3.0rg in Dashboard as a recently opened file.
+CLOSED: [2025-01-30 Thu 14:23]
+- State "DONE"       from "WAITING"    [2025-01-30 Thu 14:23]
+The files it does show are stale. Dest. Dir. for file history wrong or doesn't exist?
+It does show 3.org in Recent Files (C-x C-r).la
+* DONE Can't do git push password deprecated.
+CLOSED: [2025-01-30 Thu 14:20]
+- State "DONE"       from "WAITING"    [2025-01-30 Thu 14:20]
+** Long struggle. Had to pbcopy ssh key then go to Github website.
+Profile, settings, ssh and gpg keys. then add ssh key and paste in key that pbcopy put on clipboard.
+
+* DONE Brew Doctor complained about Rust dylibs.
+CLOSED: [2025-01-30 Thu 14:20]
+- State "DONE"       from "WAITING"    [2025-01-30 Thu 14:20]
+in /usr/local/lib/ moved them to a temp directory in Downloads.
+ran Brew Doctor again and it reported no problems.
+Tested compiling and running hellow-world's main.rs
+main.rs comiled successfully.
+
+* DONE List-packages asked to remove sql and org-roam.
+CLOSED: [2025-01-30 Thu 14:24]
+- State "DONE"       from "WAITING"    [2025-01-30 Thu 14:24]
+did remove sqlite but not org-roam.
+* DONE Testing python.
+CLOSED: [2025-02-04 Tue 11:32]
+- State "DONE"       from "WAITING"    [2025-02-04 Tue 11:32]
+** Elpy is installing the RPC dependencies.
+
+** Ran Elpy-config on both Macs
+Had to install Black, other packages on Big.
+Had to use pyenv to install 3.13.1 on New.
+
+** Installed lsp-pyright on New.
+Eglot complaing no lang server so installed lsp-pyright.
+Didn't resolve problem.
+Installed python-lsp-server.
+No good.
+Added path to pylsp to .zshrc --  ~ /opt/homebrew/bin ~
+That fixed it.
+
+* Both big AND new are now opening with no warnings or errors.
+* TODO Eglot can't find rust-analyzer.
+eglot--guess-contact] 4]): (file-missing "Searching for program" "No such file or directory" "rust-analyzer")
+which shows: /Users/charles.marano/.cargo/bin//rust-analyzer
+* TODO emacs throwing Vertico errors.
+** Restart fixes. Need to capture error message.

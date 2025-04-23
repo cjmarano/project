@@ -1,0 +1,233 @@
+* If embark then no which key. which-key is now a default emacs package.
+
+* C-h m show active modes (doom-modeline now set to show minor modes as well.)
+
+* Org-modern? Maybe in the future.
+** Embark? Maybe later, looks fat.
+** Margianlia working as intended.
+** company-mode is currently global.
+** C-x {  is shrink region.
+** C-x p projectile mode map.
+** global-auto-revert-mode.
+** text scale C-x, C-+ (or C--)
+** C-x 3 new window on right.
+** C-x 2 new window below.
+* Orderless, Consult, Embark -- maybe later
+#+begin_src lisp
+
+#+end_src
+
+#+begin_src ruby
+
+#+end_src
+C-h v describe variable.
+C-h f describe function.
+C-h c describe character (keystroke)
+
+ls -li give inode number of file
+
+<F1> is org-self-insert
+
+<F10> is open menu
+
+<F3> and <F4> are begin / end macro
+
+(global-set-key (kbd "  ") #' some command)
+* keymap-set replaces
+
+* Corfu is newer completion framework
+hooks into emacs, smaller, simpler. replaces Company-mode.
+Not installed. Company is better for Org.
+* Note says pyright - eglot not lsp
+no idea what that means.
+** Round running pyright? with eglot installed.
+
+* ielm - inferior lisp mode
+
+C-h i help-info
+
+* Change font size
+
+C-x C-M-+ (larger) 
+C-x C-M-= (larger)
+C-x C-M-- (smaller)
+C-x C-M-0 (is restore)
+Doesn't work?
+
+* Company and Vertico
+Company is horizontal.
+Vertico is vertical.
+
+* test
+this is a *test*
+
+* Fonts
+                             Face     Frame  other args
+(set-face-attribute 'default nil
+              :family "some font"
+              :height 180
+              :weight 'light)   <-- or bold or other
+
+ (set-face-attribute 'variable-pitch nil :family "DevaVu Seriff")
+                              'fixed-pitches
+
+                              
+variable-pith-mode C-x x V
+
+(add-hook 'text-mode-hook #'variable-pitch-mode)
+* Org Journal
+C-c ndn create daily
+C-c C-c commit daily
+C-c ndd show daily
+* Org-babel-tangle
+org-execute-src-block C-c C -c
+org-edit-src-code C-c '
+
+#+begin_src <name oflanguage>
+
+#+end_src
+
+org-tempo templates
+
+M-x check-parens-mode
+* Org-capture
+C-c @ agenda
+C-c e capture
+C-c C-c execute src block
+C- C-, insert template
+<li insert lisp src block
+<p insert python src block
+etc.
+C-c / m <name of tag>
+C-c @ m   is org-tags-view
+C-c .    is timestamps
+C-c C-t   is todo state (or t or Shift --> or Shift <--
+C-c t   is sparse tree
+C-c T  is search
+Shift-M-<RET>   is insert TODO
+C-c C-q  is org-set-tag command <-- will also re-align tags press <TAB> to overide defautl tags
+M-x org-agenda t   is show TODO for all files.
+
+M-<RET> at beginning of line puts headline above.
+
+C-c * promote item to headline/demote headline to plain text.
+
+* 
+
+* dired
+%-m mark items
+k kill items you marked
+g refresh buffer
+t toggle mark
+up arrow move up in dired
+down arrow movie down in dired
+( hide details mode
+
+* Lisp
+** language server
+efs/lsp-mode
+breadcrumb-mode
+lsp-mode
+
+** ls-lisp ?is ls shortcuts?
+lsp-ui  - expands info from lsp mode
+
+Slynk <-- M-x slly starts slynk server.
+
+
+
+
+* Rust lang server?
+** rustanalyzer
+** toml-mode
+** rust-mode
+* Eglot
+is language server CLIENT for use with lsp
+** python-lsp -> eglot <- lsp-mode
+
+
+* find command
+find ./ -name "*.ext" -type f -print0
+
+find -L <path> -name "name.ext"     < -- follow symbolic links.
+
+find <path> -type f -name name.ext
+
+find <path> -type f -iname name.ext  <-- case insensitive.
+
+find . -type -d  <-- find directories.
+
+find /tmp -type f -size -1024 <-- find smaller than 1024.
+
+find . -type f -size +1M <-- find over 1M files.
+
+find . -size +1000M
+
+* Misc0
+** Projectile: C-x p show files in project.
+C-x pp show files in all Projects.
+** Other useful commands.
+C-M-i completion at point.
+C-M-tab   same.
+M-C-\ format region.
+
+M-p prev buffer.
+M-n next buffer.
+
+C-xC-r open recent.
+
+M - j Comment region? <-- M-;
+
+C-c n d n Journal entry.
+
+C-c j journal entry.nt
+
+* Misc1
+src/emacs -Q
+(active-comp-available-p)
+
+** Edited .zshrc for path - again.
+* Misc2
+>>> C-h v  describe variable
+
+C-h f describe function
+
+ediff;
+
+n next diff or down arrow
+
+p prev diff or up arrow
+
+type a to mirror left to right.
+
+type b to mirror right ot left.
+
+? for quick help (? again to hide)
+
+q quit ediff session
+
+M-x eval-region ^x^early
+
+c-h k describe key
+
+* Misc3
+rbenv local
+rbenv shell
+rbenv install -l
+rbenv sync (or rbenv-sync ?)
+
+pyenv-sync
+
+setup-ruby
+
+shellenv zsh
+
+brew doctor
+brew update
+brew list
+brew autoremove --dry-run
+brew desc
+brew docs
+
+
+* 

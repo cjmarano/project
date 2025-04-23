@@ -1,0 +1,7 @@
+rustc is the complier
+rustup - install and update rust
+Cargo.lock
+Cargo.toml -- configuration file
+src
+target
+

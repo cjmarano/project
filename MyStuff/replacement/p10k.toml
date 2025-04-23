@@ -1,0 +1,35 @@
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    template = '{{ .Path }} '
+    foreground = '#77E4F7'
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    template = '{{ .HEAD }} '
+    foreground = '#FFE700'
+
+  [[blocks.segments]]
+    type = "text"
+    style = "plain"
+    align = 'left'
+    template = "\n"
+    foreground = '#43D426'
+    
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    template = '> '
+    foreground = '#D42686'
+    

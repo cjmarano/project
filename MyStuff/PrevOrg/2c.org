@@ -1,0 +1,231 @@
+#+STARTUP: overview
+
+* DONE Need to learn more about fonts. See org-modern.
+CLOSED: [2024-05-14 Tue 12:26]
+- State "DONE"       from "TODO"       [2024-05-14 Tue 12:26]
+** Problem was with Material theme - in Emacs 29 fonts should not have a specifiction = nil.
+Changing theme to sanintyinc-tomorrow-eighties eliminated all font error messages.
+
+* DONE Cleaned up zshrc $Path
+CLOSED: [2024-06-04 Tue 10:06]
+- State "DONE"       from "NEXT"       [2024-06-04 Tue 10:06]
+
+* DONE Ran rbenv-sync setup-ruby shellenv zsh pyenv-sync and doctor in brew
+CLOSED: [2024-06-04 Tue 10:07]
+- State "DONE"       from "NEXT"       [2024-06-04 Tue 10:07]
+
+* DONE Set up Rust again on Round.
+CLOSED: [2024-06-06 Thu 13:45]
+- State "DONE"       from "NEXT"       [2024-06-06 Thu 13:45]
+** Set up Rust again on Big.
+
+rustup update on both.
+
+also ran brew cleanup and brew doctor.
+
+Installed are; ob-rust flycheck-for-rust org-babel-rust (approx names).
+
+Installed rustic. Some variables mentioned in rustic docs not found.
+rustic was last updated in 2022 so may not be as up-to-date as it could be.
+
+Rustic appears to be working correctly.
+
+* DONE Re-installed colorls ruby, rbenv,powerlevel10k on Round.
+CLOSED: [2024-06-10 Mon 08:46]
+- State "DONE"       from "NEXT"       [2024-06-10 Mon 08:46]
+zsh now throws no errors on Round or Big.
+.zshrc on Round is now cleanest version.
+[2024-06-06 Thu 13:45]* init.el on Round mysteriously blew-up. Could not find problem.
+wound up copying Big init to Round then commenting out blocks until I found the issue.
+wound up with a diferent init on Round. Will do a diff with Big's init to see what's going on.
+Did diff w/ init.el from Big and only issue I found was with exec path.
+** Commented out lines 179 to 185 in init.el on Round.
+No idea why this throws an error but commenting out resolved issue.
+
+* DONE NOTE: init.el on Round and Big. --> enabled Tree-sitter.
+CLOSED: [2024-06-10 Mon 08:47]
+- State "DONE"       from "NEXT"       [2024-06-10 Mon 08:47]
+it appears to be working correctly.
+
+* DONE Installed ruby 3.3.2 via brew but which reports 2.6.10 so ran brew re-install ruby.
+CLOSED: [2024-06-11 Tue 10:30]
+
+- State "DONE"       from "NEXT"       [2024-06-11 Tue 10:30]
+By default, binaries installed by gem will be placed into:
+  /usr/local/lib/ruby/gems/3.3.0/bin
+
+You may want to add this to your PATH.
+
+ruby is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have ruby first in your PATH, run:
+  echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find ruby you may need to set:
+  export LDFLAGS="-L/usr/local/opt/ruby/lib"
+  export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+For pkg-config to find ruby you may need to set:
+  export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+
+  Re-install powerlevel10k, ruby, chruby on Big after moving .zshrc from Round to Big.
+  Round had all the homebrew stuff in a non-standard location so re-installed everything on big
+  in the same location, which was silly. Should have fixed Round's non-standard location.
+
+
+** rbenv will let me choose ruby 3.3.2 as opposed to built in 2.6.5
+use rbenv local <version number> so as not to mess with OS X's built in ruby stuff.
+* DONE Next: retest Python, Lisp, Ruby and Rust on Big and Round.
+CLOSED: [2024-06-11 Tue 10:29]
+- State "DONE"       from "NEXT"       [2024-06-11 Tue 10:29]
+* DONE Copied init.el from Round to init.el_freeze_06JUNE2024
+CLOSED: [2024-06-10 Mon 10:10]
+- State "DONE"       from "NEXT"       [2024-06-10 Mon 10:10]
+[2024-06-06 Thu 13:58]
+and moved a copy to OneDrive.
+ol;/]-+90.
+* DONE Big and Round should have same init.el as of 10JUN2024.
+CLOSED: [2024-06-12 Wed 14:41]
+- State "DONE"       from "NEXT"       [2024-06-12 Wed 14:41]
+* DONE Checked file that were in .emacs.d/elpa versus files listed in init.el's packages.
+CLOSED: [2024-06-12 Wed 14:41]
+- State "DONE"       from "NEXT"       [2024-06-12 Wed 14:41]
+synched Big and round and determined that most files that were in elpa but not listed in the init.el file were built ins
+or dependencies.
+* DONE sbcl different Big/Round
+CLOSED: [2024-06-12 Wed 14:42]
+
+- State "DONE"       from "NEXT"       [2024-06-12 Wed 14:42]
+** Big is /opt/homebrew/bin/sbcl Round is /usr/loca/bin/sbcl.
+** SBCL -- on Big is /opt/homebrew/bin/sbcl
+
+** also Quicklisp seems to be a problem with setup - no Quicklisp setup.
+** on Round it's /usr/local/bin/sbcl
+
+This is due to Round being Intel and Big being Apple silicon and is deliberate.
+
+* DONE iTerm2 --> disable showing offscreen prompt.
+CLOSED: [2024-06-20 Thu 14:12]
+- State "DONE"       from "WAITING"    [2024-06-20 Thu 14:12]
+right-click in the bar at top of term window and select this.
+
+* DONE After setting up rust tools in init.el on Round blew up the init.el file
+CLOSED: [2024-06-20 Thu 14:13]
+- State "DONE"       from "WAITING"    [2024-06-20 Thu 14:13]
+No idea what happened but top 60% gone. Had to restore init.el from Big to Round then
+mod it. Lost all the work on rust put in.
+***  [2024-06-14 Fri 09:57] re-synched .zshrc and init.el on Big and Round.
+Note: homebrew location still different since Apple Silicon has brew in /opt/homebrew and Intel
+Mac has brew in /usr/local.
+*** [2024-06-17 Mon] synched inits again (Big and Round)
+
+* DONE Copied init.el to init.el_working
+CLOSED: [2024-06-20 Thu 14:13]
+- State "DONE"       from "WAITING"    [2024-06-20 Thu 14:13]
+** Will make changes to this init then test it.
+** DONE structure templates for Org files (src blocks) not working.
+CLOSED: [2024-06-20 Thu 07:50]
+- State "DONE"       from "WAITING"    [2024-06-20 Thu 07:50]
+** Check capture templates.
+Key combo is C-c, C-, then choose from list. Done!
+Okay. Now typing <li TAB gives lisp code block, <p TAB gives Python code block, etc. 
+
+#+begin_ruby
+#+end_ruby
+
+#+begin_src python
+#+end_src
+
+** NOT working on Big. Same init.el on both. What's going on?
+
+#+begin_src lisp
+
+#+end_src
+** Okay, now it IS working on Big. No idea what's going on here.
+* DONE Had error message about clisp when launching zsh on Round
+CLOSED: [2024-06-14 Fri 09:57]
+- State "DONE"       from "NEXT"       [2024-06-14 Fri 09:57]
+/usr/local/bin/clisp:8: unmatched "
+so re-installed clisp via brew into: /usr/local/share/emacs/site-lisp/clisp
+then created a symbolic link to that clisp in /usr/local/share/emacs/site-lisp/clisp
+but now clisp not found! had to chmod +x in /usr/local/Cellar/clisp/2.49.92_1/bin
+clisp now can be found with wich command but unmatched " is back.
+** Clisp now shows as /user/local/bin error remains.
+did a bunch of looking but can't find the file that contains the error.
+same .zshrc works fine on Big.
+[2024-06-13 Thu 09:57]* Had to re-synch init.el on Big and Round again.
+June 13 init in OneDrive is current best.
+
+* DONE Org-Babel
+CLOSED: [2024-06-20 Thu 14:15]
+
+- State "DONE"       from "WAITING"    [2024-06-20 Thu 14:15]
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("li" . "src lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+(add-to-list 'org-structure-template-alist '("rb" . "ruby"))
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+
+-- Don't work. doing <li TAB for instance does offer completions but doesn't show the template
+(should expand into #+begin_src lisp) Not sure why.
+#+begin_src 
+
+#+end_src
+NOTE: default (built in) templates do work.
+#+latex:
+
+Okay, that's weird. tried changing lisp to Capital L. typin <L TAB got me Latex.
+
+Now fixed. No idea how. see  ~/OneDrive - Regeneron Pharmaceuticals, Inc/1_notes.org
+
+#+begin_src ruby
+#+end_src
+
+* Fooling around with Projectile.
+** Changed init:
+;;  (keymap-set projectile-mode-map "C-x p" 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(projectile-mode +1)
+
+.git folders are projects by default.
+add .projectile to a folder to make it a project.
+cargo.toml files inidicate project folder
+* Changed user-emacs-directory
+** Changed it to ~/.cache/emacs/
+
+
+* So structure templates now working as intended.
+
+#+begin_src lisp
+
+#+end_src
+
+#+begin_python
+
+#+end_python
+
+#+begin_src emacs-lisp
+
+#+end_src
+
+#+begin_src 
+
+#+end_src
+* Put a clean copy of init into git.
+Should be possible to pull it down on the little Macbook and Plucky.
+
+
+* Add to init.el ?
+(advice-add 'org-refile :after 'org-save-all-buffers)
+
+Around structure templates:
+
+(with-eval-after-load 'org
+)
+
+
+* Tried org-modern - didn't like.
+** Could have been I didn't tweak it correctly but not impressed.
+not worth wasting time with.

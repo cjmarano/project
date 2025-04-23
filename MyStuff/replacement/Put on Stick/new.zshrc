@@ -1,0 +1,85 @@
+export PATH=/opt/homebrew/opt/ruby/bin:/Users/charles.marano/tree-sitter/:/Users/charles.marano/.pyenv/shims/:/Users/charles.marano/.rbenv/shims:/Users/charles.marano/.pyenv/bin:/Users/charles.marano/.cargo/bin:/Users/charles.marano/.local/bin:/Users/charles.marano/.pyenv/versions/3.12.0/bin/:/opt/homebrew/opt/ruby/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/lib/ruby/gems/3.3.0/bin/:/usr/local/jamf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin:/Library/Apple/usr/bin:Users/charles.marano/.cache/emacs/tree-sitter/
+
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  # If you're using macOS, you'll want this enabled
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# Set the directory we want to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Download Zinit, if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
+
+set rtp+=/opt/homebrew/opt/fzf
+
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh)"
+fi
+
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+zinit snippet OMZP::command-not-found
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
+alias myip="curl http://ipecho.net/plain; echo"
+alias lc='colorls -lA --sd'
+alias lt='colorls --tree'
+alias lg='colorls --gs'
+alias la='colorls -all'
+alias lb='cd ..'
+alias ld='colorls -ltr'
+alias ll='colorls -loa --sd'
+alias lf='colorls -lath'
+alias ee='emacsclient -c -a'
+
+
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/powerlevel10k_mod.omp.json)"
+
+# ----------------------------------------------------------
+
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+# pyenv config
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+ZSH_DISABLE_COMPFIX="true"
+
+Default_USER=$(whoami)
+
+# User configuration
+
+eval "$(rbenv init - zsh)"
+
+FPATH=~/.rbenv/completions:"$FPATH"
+
+autoload -U compinit
+compinit
+
+zinit cdreplay -q
+
+export MANPATH="/usr/local/share/man/:usr/share/man:$MANPATH"
+
+
+
+

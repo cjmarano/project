@@ -1,0 +1,49 @@
+50blayout
+all-the-icons ==
+all-the-icons-nerd-fonts ==
+cargo
+cargo-mode
+--- cl-lib
+ color-theme-sanityinc-tomorrow
+ company-box
+ consult
+ dash
+ dashboard
+ denote
+ diffview
+ ---dired-single
+ doom-modeline
+ doom-themes
+ eglot
+ eldoc
+ elpy
+ exec-path-from-shell ==
+ flycheck
+ flycheck-pyflakes
+ flycheck-rust
+--- gnu-elpa-keyring-update
+ llama ==
+ lsp-mode
+ lsp-ui
+ magit
+ marginalia
+ nerd-icons ==
+ nerd-icons-dired
+ no-littering
+ ob-rust
+ org-bullets
+ org-modern ==
+ org-roam
+ paredit
+ project
+ rainbow-delimiters
+ rust-mode
+ rustic
+ tree-sitter
+ tree-sitter-langs
+ treesit-auto ===
+ use-package
+ vertico
+ vterm
+ which-key
+ yasnippet-snippets

@@ -1,0 +1,13 @@
+* Help Commands
+C-h m show active modes.
+(Doom Modeline now set to show minor modes as well.)
+
+C-h V Describe Variable.
+
+C-h k Descrive Key.
+
+C-h c Decribe Character.
+
+C-h f Describe Function.
+
+C-h m Describe Mode.

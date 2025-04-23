@@ -1,0 +1,20 @@
+source $(dirname $(gem which colorls))/tab_complete.sh
+
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git
+         zsh-autosuggestions
+	     zsh-syntax-highlighting
+	     common-aliases
+)
+
+source $ZSH/oh-my-zsh.sh
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/Cellar/clisp
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

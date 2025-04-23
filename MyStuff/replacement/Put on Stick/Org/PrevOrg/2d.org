@@ -1,0 +1,107 @@
+* New Org file for July.
+
+* DONE Did minor clean-up on init.el on Round.
+CLOSED: [2024-07-09 Tue 08:50]
+
+- State "DONE"       from "WAITING"    [2024-07-09 Tue 08:50]
+* DONE On Big: installed Emacs 30, via Hombrew.
+CLOSED: [2024-07-17 Wed 12:33]
+- State "DONE"       from "WAITING"    [2024-07-17 Wed 12:33]
+30 works but having trouble creating a launcher using Automator.
+emacs 30 can be lauched using an Applescript that I created in
+Automator but the Script also throws an error.
+
+Not sure why but it *looks* like emacs+ made changes to init.el when it was installed.
+Did not keep copy of the broken init.el that resulted.
+
+* DONE updated the emacs *app*
+CLOSED: [2024-07-17 Wed 12:34]
+- State "DONE"       from "WAITING"    [2024-07-17 Wed 12:34]
+Deleted the emacs app from the Applications Folder and d.l.'d
+a new copy from emacs for mac. That took emacs from 29.2
+to 29.3
+
+* COMPLETED omz update issue. 
+Zsh complains: plugins/rtx/rtx.plugin.zsh: needs merge
+error: you need to resolve your current index first
+solution is:
+cd ~/.oh-my-zsh; git reset --hard
+
+* DONE Brew stuff
+CLOSED: [2024-07-29 Mon 10:32]
+- State "DONE"       from "WAITING"    [2024-07-29 Mon 10:32]
+pyenv sync
+rbenv sync
+ran cleanup on both Big and Round.
+ran doctor
+openssl@1.1 is deprecated but can't be removed on Round because it's also
+dependency for GTK4.
+
+* DONE Cleaning up brew on Round and Big
+CLOSED: [2024-07-19 Fri 11:56]
+- State "DONE"       from "WAITING"    [2024-07-19 Fri 11:56]
+** ran brew list > brew_list_<Mac name>.txt
+compared output
+** Ran brew deps --tree --installed
+** shows what dependencies installed packages have.
+Uninstalled gtk4 on Round which allowed remove openssl@1.100%
+Uninstalled some small items on Big.
+Both Machines, brew doctor now reports 'ready to brew'.
+
+ran brew list on Plucky. Very few packages installed compared to Big and Round.
+
+* DONE Brew Doctor reports ready on Big and Round.
+CLOSED: [2024-07-29 Mon 10:14]
+
+- State "DONE"       from "WAITING"    [2024-07-29 Mon 10:14]
+* If I load a rust program main.rs alone eglot fails
+to set up workspace.
+If I load the associated cargo.toml first then open the main.rs
+I don't get a message about eglot.
+
+* DONE tried byte compling everything on Round.
+CLOSED: [2024-07-29 Mon 10:14]
+- State "DONE"       from "WAITING"    [2024-07-29 Mon 10:14]
+big fail. Vterm would not compile properly and hung emacs startup.
+tried deleting Vterm but couldn't get rid of it.
+Finally cp Big's latest init.el to get a working emacs.
+VTerm DID compile with that new init.el so... ?
+
+* DONE Had to copy vterm-module.so
+CLOSED: [2024-07-29 Mon 10:31]
+- State "DONE"       from "WAITING"    [2024-07-29 Mon 10:31]
+** On Round - vterm compiled every time. adding a copy of
+vterm-module.so, copied from Big, fixed the issue.
+* TODO Denote, Rust and Python.
+** things to test.
+
+* DONE Had to clean up PATH on round and big
+CLOSED: [2024-08-01 Thu 09:46]
+- State "DONE"       from "WAITING"    [2024-08-01 Thu 09:46]
+** to fix tab_complete.sh not found.
+** also updated gem, updated ruby.
+** Re-installed colorls.
+* DONE Python - eglot now working.
+CLOSED: [2024-08-01 Thu 09:46]
+- State "DONE"       from "WAITING"    [2024-08-01 Thu 09:46]
+** had to remove pyright and pylsp.
+*** pyright-language-server
+Python working on both big and round.
+* DONE Note: cmd key IS super key.
+CLOSED: [2024-08-01 Thu 09:55]
+- State "DONE"       from "WAITING"    [2024-08-01 Thu 09:55]
+* DONE Ediff change
+CLOSED: [2024-08-01 Thu 09:55]
+- State "DONE"       from "WAITING"    [2024-08-01 Thu 09:55]
+** (setq ediff-diff-options "--text")
+
+* DONE Reminder: M-g g is goto line #
+CLOSED: [2024-08-01 Thu 09:56]
+
+- State "DONE"       from "WAITING"    [2024-08-01 Thu 09:56]
+* Tried auto-compile package with early-init.el* DONE Removed next/previous buffer key binding
+CLOSED: [2024-08-01 Thu 09:51]
+- State "DONE"       from "WAITING"    [2024-08-01 Thu 09:51]
+M-p prev buffer
+M-n next buffer
+Never use them. May conflict with something else.

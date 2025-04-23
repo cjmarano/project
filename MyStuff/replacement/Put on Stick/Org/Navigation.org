@@ -1,0 +1,14 @@
+
+* Navigation
+M-g g is goto line # (so it S-l)
+
+M-% in Dired is mark files.
+t toggle mark
+k kill marked
+g refresh
+
+
+* Frames
+** text scale C-x, C-+ (or C--)
+** C-x 3 new window on right.
+** C-x 2 new window below.

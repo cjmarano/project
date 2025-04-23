@@ -1,0 +1,12 @@
+* Using Oh-My-Posh
+eval "$(oh-my-posh init zsh -- config ~/.config/ohmyposh/<sometheme>.omp.json
+
+themes stored in:  $(brew --prefix  oh-my-posh)/themes
+
+on big this is /opt/homebrew/opt/ohmyposh/themes
+
+on round this is /usr/local/Cellar/oh-my-posh/23.20.3/themes
+
+oh-my-posh config export --output ~/.mytheme.omp.json
+
+newline =  true

@@ -1,0 +1,40 @@
+ Org file for November and December.
+* DONE issue with early-init
+CLOSED: [2024-11-08 Fri 14:47]
+- State "DONE"       from "WAITING"    [2024-11-08 Fri 14:47]
+auto-compile emacs package was not installed.
+
+* DONE removed items from .zshrc on Big and Round.
+CLOSED: [2024-11-08 Fri 14:47]
+- State "DONE"       from "WAITING"    [2024-11-08 Fri 14:47]
+* COMPLETED Multipe issues with vterm
+CLOSED: [2024-12-05 Thu 08:49]
+- State "DONE"       from "WAITING"    [2024-12-05 Thu 08:49]
+keeps compiling every time
+fixed with: (setq vterm-always-compile-module t)
+
+* DONE Problem with org-bullets on Round.
+CLOSED: [2024-11-11 Mon 10:11]
+- State "DONE"       from "WAITING"    [2024-11-11 Mon 10:11]
+This has happenaed before. Org-bullets showing as
+some random character.
+** Reverted to old init. Has compile issues,
+various missing items. Repeated restarts of emacs
+fixed the issue. No idea what's going on here.
+
+* COMPLETED Setting up new 14 inch MacBook for self.
+CLOSED: [2024-12-05 Thu 08:50]
+- State "DONE"       from "WAITING"    [2024-12-05 Thu 08:50]
+** Had to install rbenv then use it to install ruby 3.3.6 then was able to:
+gem install colorls
+** was not able to find tab_complete.sh on new but:
+source $(dirname $(gem which colorls))/tab_complete.sh
+evals w/o issue when I do source ~/.zshrc
+** zshrc of new okay put copy on OneDrive.
+
+* DONE Copied .zshrc and init.el to OneDrive as new.
+CLOSED: [2024-12-05 Thu 08:51]
+- State "DONE"       from "WAITING"    [2024-12-05 Thu 08:51]
+* TODO issues with rust mode
+Eglot can't find rust-analyzer. it is installed and I added path.
+

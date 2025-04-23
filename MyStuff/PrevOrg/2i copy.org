@@ -1,0 +1,65 @@
+#*startup: content indent
+* February.
+* DONE Network drop failing for New.
+CLOSED: [2025-02-10 Mon 10:27]
+- State "DONE"       from "COMPLETED"  [2025-02-10 Mon 10:27]
+- State "DONE"       from "WAITING"    [2025-02-10 Mon 10:27]
+After dis/re-connect 2x drop is up.
+* DONE notice startup command to add indents to Org file.
+CLOSED: [2025-02-10 Mon 10:28]
+- State "DONE"       from "WAITING"    [2025-02-10 Mon 10:28]
+* DONE Had to change .zshrc and init.el
+CLOSED: [2025-02-12 Wed 10:26]
+- State "DONE"       from "WAITING"    [2025-02-12 Wed 10:26]
+** pruned $PATH, a number of dupes found.
+** removed items from .zshrc involving python.
+* DONE removed auto-compile from New's init.el
+CLOSED: [2025-02-12 Wed 10:27]
+- State "DONE"       from "WAITING"    [2025-02-12 Wed 10:27]
+** Should be in early-init.el
+* DONE CREATED ~/notes directory and tested denote.
+CLOSED: [2025-02-12 Wed 10:59]
+- State "DONE"       from "WAITING"    [2025-02-12 Wed 10:59]
+* DONE Auto-compile was updated.
+CLOSED: [2025-02-24 Mon 12:10]
+- State "DONE"       from "WAITING"    [2025-02-24 Mon 12:10]
+Had to change version in early-init.el
+* DONE Eglot can't find pylsp.
+CLOSED: [2025-02-26 Wed 09:59]
+- State "DONE"       from "WAITING"    [2025-02-26 Wed 09:59]
+- State "DONE"       from "WAITING"    [2025-02-24 Mon 14:28]
+** same as Rust, Eglot can't find pylsp.
+** Problem with eglot-server
+** Making many temp. changes to see if this can be fixed.
+*** 1st wave of changes did not resolve can't find pylsp issue.
+** pylsp is in .pyenv/shims/pylsp on Big
+but is in /opt/homebrew/bin/ on New.
+removed pylsp from homebrew and installed it via pip to:
+/Users/charles.marano/.pyenv/shims/pylsp
+*** this did not resolve the issue.
+Homogulated brew installs on New.
+Many libs and applications were not on New that were on Big.
+** thinking about chopping down init.el and starting over.
+*** on New, just simplify. Save old init.el in case.
+** Installing pyright (pip install pyright) suppressed lsp message and
+two python files opened with tree-sitter support.
+** Message came back after I had to revert to olderinit.el
+*** Ran pip install "python-lsp-server[all]"
+ This appeared to work. Will test further.
+** Fixed.
+eglot] Waiting in background for server ‘EGLOT (python/(python-mode python-ts-mode))’
+[eglot] Connected! Server ‘pylsp’ now managing ‘(python-mode python-ts-mode)’ buffers in project ‘python’.
+* DONE As of 28 Feb init.el on NEW: python working.
+** created ~/.tree-sitter/tree-sitter-python/ 
+CLOSED: [2025-02-28 Fri 12:53]
+- State "DONE"       from "WAITING"    [2025-02-28 Fri 12:53]
+* Rust threw errors.
+** Opening the Cargo.toml for the program before opening the src/main.rs file
+appears to have resolved the issue:
+[eglot] Connected! Server ‘rust-analyzer’ now managing ‘(rustic-mode)’ buffers in project ‘project’.
+Not getting completions though. Syntax highlighting appears to be working correctly.
+** Eglot was using Rustic so rust-analyzer is a change.
+** Eglot does not support the rust-analyzer extensions to the language-server protocol
+and does not aim to do so in the future. 
+* How necessary is Magit? Yasnippet? Projectile? Consult? Eldoc for ielm? Elpy? Org Roam?
+** Possibly create a separate init.el with only basics or dupe init.el then comment out large sections of it, test, and restore as necessary.

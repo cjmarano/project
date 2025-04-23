@@ -1,0 +1,60 @@
+#+TODO: TODO IN-PROGRESS WAITING DONE
+#+TAGS: { @tasks(t) @notes(n) @incidents(i)
+#-*- mode: org -*-
+#+STARTUP: showall
+
+* Working with lists
+** Moving around in our outline
+** Moving around headlines
+
+
+TAB / S-TAB – (un)fold
+M-up/down – move a headline up or down
+M-left/right – promote or demote a headline
+M-RET – insert a new headline
+C-x C-s – save file
+C-h t – Emacs tutorial
+
+** This is an added headline created using meta-return
+** This is a headline, it starts with one or more stars
+  A heading has one star, a sub-heading two, etc.
+
+  You can make words *bold*, /italic/, _underlined_, =code= and ~verbatim~,
+  and, if you must, +strike-through+.
+
+** TODO some stuff                                                   :@tasks:
+** TODO more stuff                                                   :@notes:
+** TODO most stuff                                                   :@ideas:
+Ctrl-C, Ctrl-C to open Tags menu.
+C-c a m (org-agenda, org-tags.view)
+C-c a M (show tasks that have that tag)
+
+
+#+BEGIN_SRC python
+
+def main():
+    name = input("What's your name? ")
+    hello(name)
+
+
+def hello(to="world"):
+    print("hello,", to)
+
+
+main()
+  
+#+End_SRC
+
+#+BEGIN_SRC lisp
+
+#!/usr/local/bin/clisp
+
+(defun roller (num)
+  (pprint (random (parse-integer (nth 0 num))))
+  )
+
+(setf userput *args*)
+(setf *random-state* (make-random-state t))
+(roller userput)
+  
+#+END_SRC

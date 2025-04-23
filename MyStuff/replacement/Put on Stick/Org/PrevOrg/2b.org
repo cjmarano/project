@@ -1,0 +1,221 @@
+#+STARTUP: overview
+
+* DONE Need to learn more about fonts. See org-modern.
+CLOSED: [2024-05-14 Tue 12:26]
+- State "DONE"       from "TODO"       [2024-05-14 Tue 12:26]
+** Problem was with Material theme - in Emacs 29 fonts should not have a specifiction = nil.
+Changing theme to sanintyinc-tomorrow-eighties eliminated all font error messages.
+
+
+* DONE Added Marginalia to Big and Round.
+CLOSED: [2024-05-14 Tue 12:50]
+
+
+- State "DONE"       from              [2024-05-14 Tue 12:50]
+[tree-sitter-langs] Running (git rev-parse --show-toplevel) in /Users/charles.marano/.emacs.d/elpa/tree-sitter-langs-20240415.2347/
+
+The directory /Users/charles.marano/.emacs.d/elpa/tree-sitter-langs-20240415.2347/ doesn’t seem to be a git working dir. Grammar-building functions will not work.
+
+
+* DONE Installed ripgrep via Hombrew.
+CLOSED: [2024-05-14 Tue 12:27]
+- State "DONE"       from              [2024-05-14 Tue 12:27]
+Did not install rg emacs package. Not sure how useful rg is to me.
+
+
+* DONE Org bullets sometimes turn into non-US characters. Restarting emac fixes this.
+CLOSED: [2024-05-14 Tue 12:28]
+
+
+- State "DONE"       from              [2024-05-14 Tue 12:28]
+
+
+* COMPLETED Don't know what I changed but buffers are now  previewed when I C-x b.
+CLOSED: [2024-05-14 Tue 12:50]
+
+
+* COMPLETED Docstrings: form is """Explain what the function is for""" (that's 3 "s)
+CLOSED: [2024-05-14 Tue 12:50]
+
+
+
+* DONE Sanity-tomorrow-eighties theme threw 'nil' errors but, after restart, stopped.
+CLOSED: [2024-05-14 Tue 12:48]
+
+
+- State "DONE"       from              [2024-05-14 Tue 12:48]
+* DONE Opening a python file and messages buffer shows:
+CLOSED: [2024-05-15 Wed 07:53]
+- State "DONE"       from              [2024-05-15 Wed 07:53]
+[eglot] Connected! Server `pylsp' now managing `(python-mode python-ts-mode)' buffers in project `python'.
+
+
+* DONE Added consult package.                                         :@task:
+CLOSED: [2024-05-17 Fri 08:45]
+- State "DONE"       from "NEXT"       [2024-05-17 Fri 08:45]
+Package autoremove showed consult. why?
+* DONE Removed 0blayout ob-rust pkg-info
+CLOSED: [2024-05-17 Fri 08:46]
+- State "DONE"       from "NEXT"       [2024-05-17 Fri 08:46]
+No idea why.
+
+
+* DONE Global-auto-revert-mode.
+CLOSED: [2024-05-17 Fri 09:20]
+- State "DONE"       from "NEXT"       [2024-05-17 Fri 09:20]
+Seems to be working after changing notification to t.
+
+* DONE user-emacs-directory is ~/.cache.emacs/var/
+CLOSED: [2024-05-17 Fri 09:21]
+- State "DONE"       from "NEXT"       [2024-05-17 Fri 09:21]
+had to add trailing / since it wasn't there.
+* DONE Exploring Projectile
+CLOSED: [2024-05-31 Fri 09:49]
+- State "DONE"       from "NEXT"       [2024-05-31 Fri 09:49]
+M-x projectile-discover-projects-in-directory
+
+(setq projectile-project-search-path '("~/projects/" "~/work/" ("~/github" . 1)))
+
+Just open some file in a version-controlled (e.g. git) or a project (e.g. maven) directory that’s recognized by Projectile and you’re ready for action.
+
+So... not currently usefull
+
+
+
+* DONE font-lock-mode
+CLOSED: [2024-05-17 Fri 09:20]
+- State "DONE"       from "NEXT"       [2024-05-17 Fri 09:20]
+pretifies with color and font style according to major mode.
+* DONE Selectrum ?
+CLOSED: [2024-05-31 Fri 13:45]
+- State "DONE"       from "NEXT"       [2024-05-31 Fri 13:45]
+has been replaced by Vertico
+
+* DONE Test Consult
+CLOSED: [2024-05-31 Fri 13:45]
+- State "DONE"       from "NEXT"       [2024-05-31 Fri 13:45]
+Previews Buffers (unless files) puts list of buffers, files and bookmarks into mini-buffer.
+
+* DONE Synched all inits between Big, Round, Plucky and Small.
+CLOSED: [2024-05-31 Fri 13:46]
+- State "DONE"       from "NEXT"       [2024-05-31 Fri 13:46]
+synched on May 30 all devices.
+
+* DONE Tree-Sitter still an issue.
+CLOSED: [2024-05-31 Fri 12:26]
+- State "DONE"       from "NEXT"       [2024-05-31 Fri 12:26]
+** Tried Prot's setup - didn't work. Went back to System Crafters, still issues.
+
+** Also, on Round langs are in ~/.cache/emacs/var/tree-sitter  instead of ~/.emacs.d/tree-sitter
+*** Commented out all references to Tree-Sitter and un-installed Tree-sitter. Should be built in. Will test.
+Seems to work for Python. Ruby gives error, want Solargraph (Launguage server for Ruby? Don't know).
+Installing Solargraph Make failed. Usual cert issues. Make failed after re-installing Ruby.
+Tried brew install Solargraph. Appears to be working.
+(Note Make failed for ruby install Solargrah because:
+"current directory: /Library/Ruby/Gems/2.6.0/gems/racc-1.7.3/ext/racc/cparse
+make "DESTDIR="
+make: *** No rule to make target `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/universal-darwin21/ruby/config.h', needed by `cparse.o'.  Stop.
+
+make failed, exit code 2"
+
+** Commented out  all tree-sitter items in init.el on Big and Round.
+* DONE Cleaned up zshrc $Path
+CLOSED: [2024-06-04 Tue 10:06]
+- State "DONE"       from "NEXT"       [2024-06-04 Tue 10:06]
+
+* DONE Ran rbenv-sync setup-ruby shellenv zsh pyenv-sync and doctor in brew
+CLOSED: [2024-06-04 Tue 10:07]
+- State "DONE"       from "NEXT"       [2024-06-04 Tue 10:07]
+* NEXT Doom Modeline Enab
+- State "DONE"       from "NEXT"       [2024-05-31 Fri 13:44]
+led more items. Modeline is more informative but...
+Org mode (here) showing an a with a carrot over instead of a circle. Weird. Okay. It worked after a restart.
+
+Note: ob-rust necessay because org-babel is active.
+
+** Added to doom modeline minor-modes t and lsp-t
+added more:
+
+#+begin_src  emacs-lisp
+
+(setq doom-modeline-major-mode-color-icon t)
+(setq doom-modeline-buffer-state-icon t)
+(setq doom-modeline-minor-modes t)
+;; (setq doom-modeline-lsp t)
+(setq doom-modeline-lsp-icon t)
+
+#+end_src
+
+** Doom-Modeline was showing icons, isn't now. The items I added may have killed that.
+
+added doom-modeline-env-enable-rust and doom-modeline-env-enable-ruby to init.el
+
+** Still only seeing icons when it's a Python File.
+
+had to re-add pkg-info. no idea why.
+
+
+
+* Set up Rust again on Round.
+** Set up Rust again on Big.
+
+rustup update on both.
+
+also ran brew cleanup and brew doctor.
+
+Installed are; ob-rust flycheck-for-rust org-babel-rust (approx names).
+
+Installed rustic. Some variables mentioned in rustic docs not found.
+rustic was last updated in 2022 so may not be as up-to-date as it could be.
+
+Rustic appears to be working correctly.
+
+
+* Rust is extremely frustrating.
+syntax is obscure.
+will skip rustlings for now and try Basics excercizes.
+
+
+* NOTE: init.el on Round and Big. --> enabled Tree-sitter.
+it appears to be working correctly.
+
+* Installed ruby 3.3.2 via brew but which reports 2.6.10 so ran brew re-install ruby.
+
+By default, binaries installed by gem will be placed into:
+  /usr/local/lib/ruby/gems/3.3.0/bin
+
+You may want to add this to your PATH.
+
+ruby is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have ruby first in your PATH, run:
+  echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find ruby you may need to set:
+  export LDFLAGS="-L/usr/local/opt/ruby/lib"
+  export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+For pkg-config to find ruby you may need to set:
+  export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+
+  Re-install powerlevel10k, ruby, chruby on Big after moving .zshrc from Round to Big.
+  Round had all the homebrew stuff in a non-standard location so re-installed everything on big
+  in the same location, which was silly. Should have fixed Round's non-standard location.
+
+
+** rbenv will let me choose ruby 3.3.2 as opposed to built in 2.6.5
+use rbenv local <version number> so as not to mess with OS X's built in ruby stuff.
+* Re-installed colorls ruby, rbenv,powerlevel10k on Round.
+zsh now throws no errors on Round or Big.
+.zshrc on Round is now cleanest version.
+* init.el on Round mysteriously blew-up. Could not find problem.
+wound up copying Big init to Round then commenting out blocks until I found the issue.
+wound up with a diferent init on Round. Will do a diff with Big's init to see what's going on.
+Did diff w/ init.el from Big and only issue I found was with exec path.
+** Commented out lines 179 to 185 in init.el on Round.
+No idea why this throws an error but commenting out resolved issue.
+
+* Copied init.el from Round to init.el_freeze_06JUNE2024
+and moved a copy to OneDrive.

@@ -1,0 +1,5 @@
+* Using Org Journal.
+C-c ndn create daily
+C-c C-c commit daily
+C-c ndd show daily
+C- j journal entry

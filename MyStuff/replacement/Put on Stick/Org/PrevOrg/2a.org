@@ -1,0 +1,416 @@
+* TODO chruby.sh issue in .zshrc
+check this next after Python issues are resolved.
+* COMPLETED Added vterm to Big and Round, which works with zsh and my .zshrc
+CLOSED: [2023-05-16 Tue 12:15]
+- State "DONE"       from "TODO"       [2023-04-10 Mon 08:05]
+** term did not work with my .zshrc, even with eterm-256 installed.
+
+
+
+#+BEGIN_SRC python
+
+added /Users/charles.marano/.local/bin to PATH
+
+#+END_
+
+* COMPLETED Updated Small to use latest init.el
+CLOSED: [2023-06-06 Tue 13:19]
+
+* COMPLETED clisp broken in .zshrc
+CLOSED: [2023-06-06 Tue 13:19]
+- State "DONE"       from "NEXT"       [2023-04-19 Wed 13:35]
+switched to sbcl.
+* COMPLETED .zshrc broken on Small. Had to remove.
+CLOSED: [2023-06-06 Tue 13:19]
+- State "DONE"       from "NEXT"       [2023-04-17 Mon 09:54]
+* COMPLETED Had to add typeset -g POWERLEVEL9K_INSTANT_PROMPT=off to .zshrc
+CLOSED: [2023-06-06 Tue 13:19]
+- State "DONE"       from "NEXT"       [2023-05-04 Thu 07:16]
+** also had to do  sudo gem pristine clocale --version 0.0.4
+
+* COMPLETED Figure out Yasnippet directory.
+CLOSED: [2023-06-26 Mon 14:50]
+
+- State "DONE"       from "NEXT"       [2023-06-26 Mon 14:50]
+CLOSED: [2023-06-06 Tue 13:19]
+- State "DONE"       from "NEXT"       [2023-05-09 Tue 11:04]
+- State "DONE"       from "NEXT"       [2023-04-10 Mon 08:02]
+There are several directories.
+Yasnippet package is in ~/.emacs.d/plugins/yashippet
+~/.emacs.d/elpa/yasnippet* (there are 3 different packages).
+
+~/.emacs.d/snippets is empty. <-- yes, it is. Delete?
+Yasnippet github page says snippet go in ~/.emacs.d/snippets.
+Used customize to add ~/.emacs.d/snippets.
+
+Deleted ~/.cache/emacs/etc/yasnippet/snippets from yas-snippet-dirs
+
+Guessing that user-created snippets to in ~/.emacs.d/yassnippet so leave it.
+only other snippet dir currently enabled is ~/,emacs.d/elpa/elpy-20230402.1946/snippets
+
+had to change on Big *again* disabled every yas-sniipet-dir and changed all to ~/,emacs.d/elpa/elpy-20230402.1946/
+ See below.
+
+* Yasnippet two.
+Deleted all dirs from yas-snippet-dirs then added by name from ~/.emacs.d/elpa
+note: one dir in elpa would not load. Now, that directory is gone after updating yas-snippet-dirs.
+Are these dirs *created* by the variable?
+
+* DONE Copied init.el to onedrive init.el_before_eglot
+CLOSED: [2023-05-15 Mon 13:59]
+- State "DONE"       from "NEXT"       [2023-05-15 Mon 13:59]
+** DONE Have to put Comany mode back in without hooks.
+CLOSED: [2023-04-28 Fri 08:29]
+
+- State "DONE"       from "NEXT"       [2023-04-28 Fri 08:29]
+** DONE Pyright appears to be working with eglot for python files.
+CLOSED: [2023-05-09 Tue 11:05]
+- State "DONE"       from "NEXT"       [2023-05-09 Tue 11:05]
+** DONE commented out ALL lsp entries and removed any lsp items from package list in init.el
+CLOSED: [2023-05-09 Tue 11:05]
+- State "DONE"       from "NEXT"       [2023-05-09 Tue 11:05]
+Disabling Flymake (toward bottom of init.el) was spelled wrong. Fixing spelling disabled Flymake.
+Not seeing the correct pop-ups when in Python mode. What went wrong. They were there.
+
+* DONE Python: on Round, pyright and lsp-mode appears to be working properly.
+** it looks like adding (use-package eglot) to (add-hook 'python-mode-hook 'eglot-ensure)
+appears to have corrected the issue and I now see pop-up box when I type code in a .py file.
+** I think I now want to look at lisp and eldoc mode.
+
+* DONE Stripped out company-mode code replaced with global company-mode which appears to work with orgmode.
+CLOSED: [2023-06-01 Thu 09:46]
+- State "DONE"       from "NEXT"       [2023-06-01 Thu 09:46]
+** will try with lisp and python when I have time.
+
+CLOSED: [2023-05-09 Tue 11:05]
+- State "DONE"       from "NEXT"       [2023-05-09 Tue 11:05]
+** on Big Eglot
+** Python files okay - show completion and hints.
+
+
+ * Note on Packages.
+** Round has flycheck-pyflakes,  eglot, eldoc.
+** Big has lsp-ui, lsp-pyright, lsp-mode.
+** Roswel is advanced scripting for lisp. Leave for now.
+** Is Roswell slowing down startup times?
+Try removing it?
+
+* DONE Python fixed 'Can't guess offset'. Updated pip. Removed all references to pyflakes in init.el on Round. Round Python now ** opens files without any error messages. Python on Big w/ LSP appears to be working correctly and did not throw 'can't guess offset' msg.
+CLOSED: [2023-06-01 Thu 09:48]
+- State "DONE"       from "NEXT"       [2023-06-01 Thu 09:48]
+
+
+* DONE Updated Python to 3.12.0b1
+CLOSED: [2023-06-07 Wed 07:51]
+  
+- State "DONE"       from "NEXT"       [2023-06-07 Wed 07:51]
+* DONE Lisp is broken or incorrectly set up.
+CLOSED: [2023-06-09 Fri 13:11]
+- State "DONE"       from "NEXT"       [2023-06-09 Fri 13:11]
+- State "DONE"       from "NEXT"       [2023-06-01 Thu 11:32]
+
+
+** Quicklisp-helper - this line broke init: (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+message was: Loading /Users/charles.marano/.quicklisp/slime-helper.el (source)...
+Eager macro-expansion failure: (wrong-number-of-arguments (3 . 4) 2) [2 times]
+define-obsolete-variable-alias: Wrong number of arguments: (3 . 4), 2
+* DONE lsp mode not working correctly
+CLOSED: [2023-04-27 Thu 10:03]
+- State "DONE"       from "NEXT"       [2023-04-27 Thu 10:03]
+pylsp server was still running? but was not installed?
+
+Should be using python-language-server not older pylsp
+
+Once the pylsp server was stopped lsp worked as intended.
+I keep getting warningas about flake8 but flake8 is up to date.
+
+Kept getting errors. Installed pyright (via pip) and lsp-pyright (emacs package).
+
+The following clients were selected based on priority: (server-id pyright, priority 2)
+Pyright language server 1.1.303 starting
+Server root directory: /Users/charles.marano/.cache/pyright-python/1.1.303/node_modules/pyright/dist/
+Starting service instance "python"
+Creating watchers for following 1 folders:
+  /Users/charles.marano/python
+Setting pythonPath for service "python": "/Users/charles.marano/.pyenv/shims/python"
+Assuming Python version 3.11
+Found 23 source files
+
+
+* DONE added Eldoc mode hooks for ielm.
+CLOSED: [2023-04-17 Mon 09:54]
+- State "DONE"       from "NEXT"       [2023-04-17 Mon 09:54]
+
+** eldoc mode only works for .el files - as expected by the name.
+* DONE Lisp mode and Roswel?
+CLOSED: [2023-05-18 Thu 13:25]
+- State "DONE"       from "NEXT"       [2023-05-18 Thu 13:25]
+- State "DONE"       from "NEXT"       [2023-05-16 Tue 12:16]
+- State "DONE"       from "NEXT"       [2023-05-16 Tue 12:15]
+*** Or is it? Need more testing.
+
+
+** Roswell is a scripting language for lisp. Leave this aside.
+
+
+ * Added (setq mac-command-modifier 'super) to init
+** TODO Now need to do a bind key to super to test.
+
+
+* DONE Removed Slime from init.el on Round
+CLOSED: [2023-11-09 Thu 10:40]
+- State "DONE"       from              [2023-11-09 Thu 10:40]
+** Deleted slime from ~/.emacs.d/elpa
+** Deleted all references to Slime from init.eldoc
+** Tested, appears to work correctly, including Company.
+
+* DONE Had to clean up yashippet dirs again.
+CLOSED: [2023-11-09 Thu 10:41]
+- State "DONE"       from              [2023-11-09 Thu 10:41]
+** removed two bad dirs, added one new dir (updates?)
+
+
+
+* Tree-sitter grammar won't compile.
+** Messge says dir in which grammar lives is not git repo.
+Doesn't matter since I'm loading a precomiled grammar.
+
+
+
+
+* DONE Various Face warnings
+CLOSED: [2023-11-09 Thu 10:41]
+- State "DONE"       from              [2023-11-09 Thu 10:41]
+** Lots of Face attr warnings about new and mail on emacs launch.
+This appears to be related to one of the snippets packages.
+ No idea which package. Look into this later.
+ Turned out to be yasnippet dirs that didn't exist.
+
+
+* DONE Updated Python/Python3 to 3.12
+CLOSED: [2023-11-09 Thu 10:42]
+- State "DONE"       from              [2023-11-09 Thu 10:42]
+pyenv install python 3.12
+Pyenv global 3.12
+
+* Had to clean $PATH on Big and add the correct ~/.pyenv/shims location so pyright would be recognized.
+
+
+
+
+* On Big - snippets missing AGAIN.
+Oh, they're back. After restarting Emcas. Weird.
+
+
+* On Round python seems to show correct completions and suggestions/help.
+
+* On Round - went back to early System Crafters setup.
+Merged it wth Round's init.el to see if I could get a cleaner init.el
+changes include adding org-babel.
+** Need to test to see of everything works correctly.
+
+
+* Started with old, working, init.el removed things..,
+** Followed https://www.adventuresinwhy.com/posts/eglot
+Installed pyslp via pip added the executable to the path
+~/.pyenv/shims/
+Had to do the --trusted-host thing to get pip to install
+cleaned up (commented out) a lot of Python stuff then followed instruction for above website.
+** Python code suggestions and expanded descriptions now work.
+** Need to see if all completion frameworks are functioning;
+Company, lsp-up, tree-sitter, eglot, etc.
+
+
+*  <2023-12-15 Fri> Went back to original init.el Eglot and tree-sitter now working.
+** I'm now seeing suggested completions and company info on Round.
+** Seeing same situation on Big. Eglot and Tree-sitter working.
+
+
+
+*  RubyPython zsh elisp works
+#+begin_src ruby :results output
+puts "Hello, World!"
+#+end_src
+
+#+RESULTS:
+: Hello, World!
+
+#+name: elisp
+#+begin_src emacs-lisp
+(+ 2 3)
+#+end_src
+
+#+RESULTS: elisp
+: 5
+
+#+name: basic-python
+#+begin_src python :results output
+print('hellorld')
+#+end_src
+
+#+RESULTS: basic-python
+: hellorld
+
+#+name: hello-world-prefix
+#+begin_src zsh :exports none
+  echo "/--------------------------foo------------------------------\\"
+#+end_src
+
+#+RESULTS: hello-world-prefix
+: /--------------------------foo------------------------------\
+
+#+begin_src zsh
+  echo "This file takes up `du -h ~/python 's/\([0-9k]*\)[ ]*org-babel.org/\1/'`"
+#+end_src
+
+#+RESULTS:
+| This file takes up 8.0K | /Users/charles.marano/python/project1/.idea/inspectionProfiles |
+| 32K                     | /Users/charles.marano/python/project1/.idea                    |
+|                         |                                                                ||                                                                                         |
+
+
+#+begin_src rust
+fn main() {
+    println!("Hello, world!");
+}
+#+end_src
+
+#+RESULTS:
+: Hello, world!
+
+#+begin_src rust
+fn main() {
+    let greetings = ["Hello", "Hola", "Bonjour",
+                     "Ciao", "こんにちは", "안녕하세요",
+                     "Cześć", "Olá", "Здравствуйте",
+                     "chào bạn", "您好"];
+
+    for (num, greeting) in greetings.iter().enumerate() {
+        print!("{} : ", greeting);
+        match num {
+            0 =>  println!("This code is editable and runnable!"),
+            1 =>  println!("Este código es editable y ejecutable!"),
+            2 =>  println!("Ce code est modifiable et exécutable!"),
+            3 =>  println!("Questo codice è modificabile ed eseguibile!"),
+            4 =>  println!("このコードは編集して実行出来ます！"),
+            5 =>  println!("여기에서 코드를 수정하고 실행할 수 있습니다!"),
+            6 =>  println!("Ten kod można edytować oraz uruchomić!"),
+            7 =>  println!("Esse código é editável e executável!"),
+            8 =>  println!("Этот код можно отредактировать и запустить!"),
+            9 =>  println!("Bạn có thể edit và run code trực tiếp!"),
+            10 =>  println!("这段代码是可以编辑并且能够运行的！"),
+            _ =>  {},
+        }
+    }
+}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Hello : This code is editable and runnable!
+Hola : Este código es editable y ejecutable!
+Bonjour : Ce code est modifiable et exécutable!
+Ciao : Questo codice è modificabile ed eseguibile!
+こんにちは : このコードは編集して実行出来ます！
+안녕하세요 : 여기에서 코드를 수정하고 실행할 수 있습니다!
+Cześć : Ten kod można edytować oraz uruchomić!
+Olá : Esse código é editável e executável!
+Здравствуйте : Этот код можно отредактировать и запустить!
+chào bạn : Bạn có thể edit và run code trực tiếp!
+您好 : 这段代码是可以编辑并且能够运行的！
+#+end_example
+
+
+* Rust fixed.
+** Installed Rust, including rustc and rust-script from Rust website after uninstalling brew's Rust.
+** odd situation where * in this Org file showed as carret a. Restart of emacs fixed this.
+
+* On 13 inch MacBook kept getting pygmentize error in terminal from
+Zshell. Traceback (most recent call last):
+  File "/opt/homebrew/bin/pygmentize", line 5, in <module>
+    from pygments.cmdline import main
+ModuleNotFoundError: No module named 'pygments'
+Traceback (most recent call last):
+  File "/opt/homebrew/bin/pygmentize", line 5, in <module>
+    from pygments.cmdline import main
+ModuleNotFoundError: No
+
+gems install colorls
+zsh: command not found: gems
+Traceback (most recent call last):
+  File "/opt/homebrew/bin/pygmentize", line 5, in <module>
+    from pygments.cmdline import main
+ModuleNotFoundError: No module named 'pygments'
+Traceback (most recent call last):
+  File "/opt/homebrew/bin/pygmentize", line 5, in <module>
+    from pygments.cmdline import main
+ModuleNotFoundError: No module named 'pygments'
+ ~/Downloads/rubygems-3.5.4
+> man gems
+No manual entry for gems
+Traceback (most recent call last):
+  File "/opt/homebrew/bin/pygmentize", line 5, in <module>
+    from pygments.cmdline import main
+ModuleNotFoundError: No module named 'pygments'
+Traceback (most recent call last):
+  File "/opt/homebrew/bin/pygmentize", line 5, in <module>
+    from pygments.cmdline import main
+ModuleNotFoundError: No module named 'pygments'
+ ~/Downloads/rubygems-3.5.4
+ ~/Downloads/rubygems-3.5.4
+> pip install pygments
+pyenv: pip: command not found
+
+The `pip' command exists in these Python versions:
+  3.12.0
+
+Note: See 'pyenv help global' for tips on allowing both
+      python2 and python3 to be found.
+Traceback (most recent call last):
+  File "/opt/homebrew/bin/pygmentize", line 5, in <module>
+    from pygments.cmdline import main
+ModuleNotFoundError: No module named 'pygments'
+Traceback (most recent call last):
+  File "/opt/homebrew/bin/pygmentize", line 5, in <module>
+    from pygments.cmdline import main
+ModuleNotFoundError: No module named 'pygments'
+ ~/Downloads/rubygems-3.5.4
+> pyenv global 3.12.0
+Traceback (most recent call last):
+  File "/opt/homebrew/bin/pygmentize", line 5, in <module>
+    from pygments.cmdline import main
+ModuleNotFoundError: No module named 'pygments'
+Traceback (most recent call last):
+  File "/opt/homebrew/bin/pygmentize", line 5, in <module>
+    from pygments.cmdline import main
+ModuleNotFoundError: No module named 'pygments'
+ ~/Downloads/rubygems-3.5.4
+> pip install pygments
+Collecting pygments
+  Obtaining dependency information for pygments from https://files.pythonhosted.org/packages/97/9c/372fef8377a6e340b1704768d20daaded98bf13282b5327beb2e2fe2c7ef/pygments-2.17.2-py3-none-any.whl.metadata
+  Downloading pygments-2.17.2-py3-none-any.whl.metadata (2.6 kB)
+Downloading pygments-2.17.2-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 12.6 MB/s eta 0:00:00
+Installing collected packages: pygments
+Successfully installed pygments-2.17.2
+
+[notice] A new release of pip is available: 23.2.1 -> 23.3.2
+[notice] To update, run: pip install --upgrade pip
+ ~/Downloads/rubygems-3.5.4                                 took 9s
+> pip install --upgrade pip
+Requirement already satisfied: pip in /Users/charles.marano/.pyenv/versions/3.12.0/lib/python3.12/site-packages (23.2.1)
+Collecting pip
+  Obtaining dependency information for pip from https://files.pythonhosted.org/packages/15/aa/3f4c7bcee2057a76562a5b33ecbd199be08cdb4443a02e26bd2c3cf6fc39/pip-23.3.2-py3-none-any.whl.metadata
+  Downloading pip-23.3.2-py3-none-any.whl.metadata (3.5 kB)
+Downloading pip-23.3.2-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 15.8 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 23.2.1
+    Uninstalling pip-23.2.1:
+      Successfully uninstalled pip-23.2.1
+Successfully installed pip-23.3.2
+ ~/Downloads/rubygems-3.5.4                                 took 5s
+> pip install pygments
+Requirement already satisfied: pygments in /Users/charles.marano/.pyenv/versions/3.12.0/lib/python3.12/site-packages (2.17.2)
+ ~/Downloads/rubygems-3.5.4

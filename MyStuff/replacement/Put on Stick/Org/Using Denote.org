@@ -1,0 +1,10 @@
+* Using Denote
+M-x denote-type C-c n N
+
+Allowable types are yaml, toml, org, test
+
+C-c n r denote-dired-rename-file
+
+C-c n l link note to other notes.
+
+Denote is for notes BUT notes can be linked (like Roam).

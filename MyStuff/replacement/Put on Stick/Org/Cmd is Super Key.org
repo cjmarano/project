@@ -1,0 +1,30 @@
+* Note: *cmd key* IS super key.
+
+- State "DONE"       from "WAITING"    [2024-08-01 Thu 09:55]
+  S-a mark set
+  *S-b Denote (my binding not default)*
+  S-c ns-copy-including-secondary.
+  S-d isearch back
+  S-e isearch-yank-kill
+  S-f isearch-forward
+  S-g isearch-repeat-forward
+  S-h ns-do-hide-emacs
+  S-i     undefined
+  S-j exchange point and mark  (same as C-x C-x)
+  *S-k kill current buffer*
+  *S-l goto line  (same as M-g g or M-g M-g)*
+  S-m iconify frame
+  S-n make frame
+  S-o ns-open-file-using-panel
+  *S-p     is projectile-mode-map*
+  S-q save-buffers-kill-emacs
+  S-r      Undefined
+  *S-s save-buffer  (same as C-c C-s)*
+  *S-t menu-set-font*
+  S-u revert buffer
+  S-v org-yank  (same as C-y)
+  S-w delete-frame
+  S-x kill region   (same as C-y)
+  S-y <OS X uses this as show desktop>
+  *S-z undo  (same as C-/ or C-x u or C-_)*
+  c- t transpose characters.

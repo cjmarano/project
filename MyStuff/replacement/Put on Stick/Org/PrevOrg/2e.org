@@ -1,0 +1,169 @@
+* New Org file for August.
+* DONE modes                                                          :@note:
+CLOSED: [2024-08-19 Mon 14:12]
+- State "DONE"       from "WAITING"    [2024-08-19 Mon 14:12]
+M-X describe-mode
+minor-mode-alist
+minor-mode-list
+* DONE See which modes are active.
+CLOSED: [2024-08-09 Fri 13:34]
+- State "DONE"       from "WAITING"    [2024-08-09 Fri 13:34]
+C-h m   is describe-mode
+
+* DONE Reminder: M-g g is goto line # so is s-l
+CLOSED: [2024-08-01 Thu 09:56]
+
+- State "DONE"       from "WAITING"    [2024-08-01 Thu 09:56]
+* DONE Confirmed that pyslp is working with eglot for python files
+CLOSED: [2024-08-06 Tue 14:01]
+- State "DONE"       from "WAITING"    [2024-08-06 Tue 14:01]
+is tree-sitter working as well? Yes, after some adjustments.
+Note:   ~/.emacs.d/tree-sitter directory on Big and Round may not be needed.
+* DONE Tried auto-compile with early-init.elpa
+CLOSED: [2024-08-09 Fri 10:41]
+- State "DONE"       from "WAITING"    [2024-08-09 Fri 10:41]
+Load time went from less than 4 seconds to over 10 seconds.
+Worth it?
+** Will probably try on Big.
+* DONE Added early-init.el and auto-complete to Big.
+CLOSED: [2024-08-09 Fri 10:41]
+- State "DONE"       from "WAITING"    [2024-08-09 Fri 10:41]
+this changed load time from 3.4 to 4.6 secs. Acceptable.
+
+* DONE To get vterm on Round had to install lib-vterm via brew.
+CLOSED: [2024-08-14 Wed 10:37]
+- State "DONE"       from "WAITING"    [2024-08-14 Wed 10:37]
+* DONE Python broken again. now working.
+CLOSED: [2024-08-20 Tue 10:25]
+
+- State "DONE"       from "WAITING"    [2024-08-20 Tue 10:25]
+- State "DONE"       from "WAITING"    [2024-08-19 Mon 10:21]
+says, No language registered for major mode ‘python-mode’)
+** On Plucky re-starting server fixed issue.
+** On Round, M-x lsp-mode fixed issue. Sort of
+*** lsp-mode started the pylsp server and everyting worked.
+LSP :: Connected to [pylsp:39423/starting /Users/charles.marano/python].
+still seems buggy,
+** On Big, things just work. What's different?
+[eglot] Waiting in background for server `EGLOT (python/(python-mode python-ts-mode))'
+[eglot] Connected! Server `pylsp' now managing `(python-mode python-ts-mode)' buffers in project `python'.
+still seems buggy - hit or miss.
+** Synced Round to working init on Big.
+** after sync buffer still needed M-x lsp-mode to function correctly.
+
+*** Why does pylsp need to be manually started for the buffer?
+Tree-stter mode killed pylsp. Restarting wiht lsp-mode fixed it but why did it stop.
+rebuilt language grammer for python. it's in:
+~/.cache/emacs/tree-sitter/libtree-sitter-python.dylib
+
+added:
+(require 'lsp-mode)
+(add-hook 'python-ts-mode-hook #'lsp)
+(add-hook 'rust-ts-mode-hook #'lsp)
+
+to Round. Will check to see if that resolved issue. It did not.
+
+** pip install -trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org   --upgrade pip
+pip install -trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org python-lsp-server[all]
+
+lsp-mode still not starting automatically.
+
+** try adding an :init section to the lsp-mode hooks section above.
+* DONE Synched brew installs on Big. Round.
+CLOSED: [2024-08-21 Wed 08:39]
+
+- State "DONE"       from "WAITING"    [2024-08-21 Wed 08:39]
+* DONE Synched elpa on Big Round.
+CLOSED: [2024-08-21 Wed 09:04]
+
+- State "DONE"       from "WAITING"    [2024-08-21 Wed 09:04]
+* DONE Testing Meta-[RET] in Org - open new headline above current line.
+CLOSED: [2024-08-29 Thu 12:08]
+- State "DONE"       from "WAITING"    [2024-08-29 Thu 12:08]
+* DONE Testing Ctrl-[RET] in Org - open new headline below current line.
+CLOSED: [2024-08-29 Thu 12:08]
+- State "DONE"       from "WAITING"    [2024-08-29 Thu 12:08]
+* DONE Markdown
+CLOSED: [2024-08-26 Mon 07:32]
+- State "DONE"       from "WAITING"    [2024-08-26 Mon 07:32]
+- State "DONE"       from "WAITING"    [2024-08-12 Mon 14:47]
+*bold* +strikethrough+ _underline_ ~code~ =verbatim=  /italic/ *, +, _, ~, =,/
+
+M-s h r <string> [RET] [RET]    -- highlight text that matches regular expression.
+
+M-s h u <string> [RET] - un-hilight test that matches regular expression
+
+(add-to-list 'org-emphasis-alist
+             '("*" (:foreground "red")
+               ))
+
+(add-to-list 'org-emphasis-alist
+             '("/" (:foreground "LightGreen")
+               ))
+* DONE Added alias bl for clear screen.
+CLOSED: [2024-08-26 Mon 12:22]
+- State "DONE"       from "WAITING"    [2024-08-26 Mon 12:22]
+* DONE Note: cmd key IS super key.
+CLOSED: [2024-08-01 Thu 09:55]
+- State "DONE"       from "WAITING"    [2024-08-01 Thu 09:55]
+  S-a mark set
+  *S-b Denote (my binding not default)*
+  S-c ns-copy-including-secondary.
+  S-d isearch back
+  S-e isearch-yank-kill
+  S-f isearch-forward
+  S-g isearch-repeat-forward
+  S-h ns-do-hide-emacs
+  S-i     undefined
+  S-j exchange point and mark  (same as C-x C-x)
+  *S-k kill current buffer*
+  *S-l goto line  (same as M-g g or M-g M-g)*
+  S-m iconify frame
+  S-n make frame
+  S-o ns-open-file-using-panel
+  *S-p     is projectile-mode-map*
+  S-q save-buffers-kill-emacs
+  S-r      Undefined
+  *S-s save-buffer  (same as C-c C-s)*
+  *S-t menu-set-font*
+  S-u revert buffer
+  S-v org-yank  (same as C-y)
+  S-w delete-frame
+  S-x kill region   (same as C-y)
+  S-y <OS X uses this as show desktop>
+  *S-z undo  (same as C-/ or C-x u or C-_)*
+  c- t transpose characters.
+* Try rationalizing init.el with System Crafters version.
+** Regarding Org Mode specifically but also package and use-package.
+Various fails. Wound up backing out of most of the changes.
+Did add: (set-face-attribute (car face) nil :font "Iosevka Nerd Font" :weight 'regular :height (cdr face))  <-- but see below under Tried Inconsolate...
+* DONE Tried Iconsolata and Iosevka...
+CLOSED: [2024-08-29 Thu 12:09]
+- State "DONE"       from "WAITING"    [2024-08-29 Thu 12:09]
+** After adding:
+;; Font Configuration ----------------------------------------------------------
+
+(set-face-attribute 'default nil :font "Hack" :height 180)
+
+;; Set the fixed pitch face
+(set-face-attribute 'fixed-pitch nil :font "Hack" :height 180)
+
+;; Set the variable pitch face
+(set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font Propo" :height 180 :weight 'regular)
+--
+Not Sure. Iosevka is too narrow. Inconsolata isnt bad. Will leave it at"Inconsolata LGC Nerd Font" for now.
+* NEXT Denote, Rust and Python.
+** TODO things to test.
+*** Python appears to be working as of 19AUG2024.
+Well... Python was working on Round but not Big so...
+Copied init.el from Round to Big.
+Installed all packages that were on Round onto Big.
+Had to run M-x eglot to get things started.
+*** Need to test Rust.
+** If I load a rust program main.rs alone eglot fails
+to set up workspace.
+If I load the associated cargo.toml first then open the main.rs
+I don't get a message about eglot.
+This is probably a Project issue. Look at emacs projects.
+
++green+ *red*

@@ -1,0 +1,40 @@
+keymap during active completions (‘company-active-map’):
+
+key             binding
+---             -------
+
+C-d             company-show-doc-buffer
+C-g             company-abort
+C-h             company-show-doc-buffer
+TAB             company-complete-common
+RET             company-complete-selection
+C-n             company-select-next-or-abort
+C-p             company-select-previous-or-abort
+C-s             company-search-candidates
+C-w             company-show-location
+ESC             Prefix Command
+<down>          company-select-next-or-abort
+<down-mouse-1>  ignore
+<down-mouse-3>  ignore
+<f1>            company-show-doc-buffer
+<mouse-1>       company-complete-mouse
+<mouse-3>       company-select-mouse
+<remap>         Prefix Command
+<return>        company-complete-selection
+<tab>           company-complete-selection
+<up>            company-select-previous-or-abort
+<up-mouse-1>    ignore
+<up-mouse-3>    ignore
+
+<remap> <company-show-doc-buffer>
+                                company-box-doc-manually
+<remap> <scroll-down-command>   company-previous-page
+<remap> <scroll-up-command>     company-next-page
+
+C-M-s           company-filter-candidates
+ESC ESC         Prefix Command
+M-0 .. M-9      company-complete-quick-access
+M-n             company--select-next-and-warn
+M-p             company--select-previous-and-warn
+
+M-ESC ESC       company-abort

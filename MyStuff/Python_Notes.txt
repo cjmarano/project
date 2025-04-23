@@ -1,0 +1,5 @@
+format
+print!
+println! <-- adds newline.
+eprint! <-- print to stderr
+eprintln! <-- to stderr w/ newline.

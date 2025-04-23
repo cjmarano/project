@@ -1,0 +1,8 @@
+* Using Org Agenda
+C-c a is Org Agenda menu
+t todo list
+T to do list, must have TODO tag keyword
+m view by tag
+M same but TODOs only
+s search by keyword
+S same but TODOs only

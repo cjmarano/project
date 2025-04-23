@@ -1,0 +1,4 @@
+To restart emacs after an upgrade:
+  brew services restart emacs
+Or, if you don't want/need a background service you can just run:
+  /usr/local/opt/emacs/bin/emacs --fg-daemon

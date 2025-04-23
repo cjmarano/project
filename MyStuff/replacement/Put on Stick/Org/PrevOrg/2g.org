@@ -1,0 +1,188 @@
+#+STARTUP: overview
+Org file for October.
+
+* DONE Jamf Connect gone on Big
+CLOSED: [2024-10-15 Tue 13:50]
+- State "DONE"       from "WAITING"    [2024-10-15 Tue 13:50]
+just dissapeared.
+
+* DONE Testing terminal apps
+CLOSED: [2024-10-15 Tue 09:44]
+- State "DONE"       from "WAITING"    [2024-10-15 Tue 09:44]
+** Testing Terminal apps that are available on Mac and Linux.
+the ides is to find a good iTerm2 substitute for the linux machines.
+*** Alacrity terminal - too minimal not signed
+*** Hyper - okay. Nothing special. Uses .js file for configuration.
+*** Tabby - appears to be the best of the pack.has themes, includes material.
+* DONE Powerlevel10k is deprecated.
+CLOSED: [2024-10-15 Tue 09:45]
+- State "DONE"       from "WAITING"    [2024-10-15 Tue 09:45]
+Test Oh My Posh.
+Got Oh My Posh working.
+Best theme is powerlevel10k_lean
+but would  like 2 line prompt with [____
+material theme colors make it snd choice.
+>> was able to get two line prompt.
+** on Round added zoxide plugin to .zshrc
+
+* DONE Zoxide added to Big and Round.
+CLOSED: [2024-10-15 Tue 09:45]
+- State "DONE"       from "WAITING"    [2024-10-15 Tue 09:45]
+** in addition zinit, zoxide added to .zshrc on Round
+but Oh-My-Zsh still used, not Oh-My-Posh.
+* DONE Tried oh-my-posh on Big.
+CLOSED: [2024-10-15 Tue 09:12]
+- State "DONE"       from "WAITING"    [2024-10-15 Tue 09:12]
+** This is a replacement for Oh-My-Zshrc.
+Oh-My-Zsh not updated/maintained?
+
+* DONE org-bullets not showing on Round.
+CLOSED: [2024-10-21 Mon 14:42]
+- State "DONE"       from "WAITING"    [2024-10-21 Mon 14:42]
+Tried re-installing. Didn't fix.
+Will check init.el
+So tried editing init.el with no results but did fix some other issues
+Round comiles init.el every time a change to it is saved.
+Edited init.el in nano. Can now see org-bullets BUT still get garbage
+chars at end of headlines - when they're collapsed. Expanding
+headlines removes the garbage chars. Somehow org-bullets section
+of init.el was ;; out. fixed that, then lost the Trefoil.png in Dashboard.
+Finally reverted init.el on Round to an older version then did an
+ediff between the init.el on Big and the init.el on Round.
+
+That appeared to fix all issues and init.el on Round seems to be
+working properly. Will double-check init.el on round to make sure.
+* DONE Added error color to p10k.tom
+CLOSED: [2024-10-23 Wed 13:34]
+- State "DONE"       from "WAITING"    [2024-10-23 Wed 13:34]
+type = "status"
+style = "diamond"
+foreground = "#ffffff"
+background = "#00897b"
+background_templates = [ "{{ if .Error }}#e91e63{{ end }}" ]
+trailing_diamond = ""
+template = "<#193549></>  "
+
+[properties]
+always_enabled = true
+* DONE note: exa disabled in brew as not maintained.
+* DONE test zoxode CLOSED: [2024-10-23 Wed 13:59]
+* DONE z, zi aliased to cd cdi CLOSED: [2024-10-24 Thu 08:12]
+* DONE Rationalize all .zshrc files.
+CLOSED: [2024-10-24 Thu 08:24]
+- State "DONE"       from "WAITING"    [2024-10-24 Thu 08:24]
+zshrc_best_21OCT2024 is now the definitive zshrc. Is in OneDrive.
+** TODO Need to compare it w/ Big's zshrc and rationalize.
+** TODO Need to copy it to Ducky and Plucky and the 14 in MacBook.
+Cleaned dupe entries from PATH in .zshrc on both Big and Round.
+
+entry in .zshrc:
+source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
+does seem to be executed but removing it does not affect much.
+commenting it out does not see to make any difference.
+
+* DONE On Round & Brew - added bat.
+CLOSED: [2024-10-24 Thu 08:36]
+- State "DONE"       from "WAITING"    [2024-10-24 Thu 08:36]
+** bat
+* DONE test rg (ripgrep)
+CLOSED: [2024-10-24 Thu 10:29]
+- State "DONE"       from "WAITING"    [2024-10-24 Thu 10:29]
+See:   https://linuxhandbook.com/ripgrep/*
+ DONE Markdown
+CLOSED: [2024-10-28 Mon 09:03]
+- State "DONE"       from "WAITING"    [2024-10-28 Mon 09:03]
+** bold * is red
+** strike through + is green
+** /italic/
+** _underline_
+** =verbatim=
+* DONE Misc keystrokes.
+CLOSED: [2024-10-28 Mon 12:32]
+- State "DONE"       from "WAITING"    [2024-10-28 Mon 12:32]
+C-c, C-j is quoated insert and [RETURN] key.
+
+Snippets is [TAB]
+says C-c, C-s but thats Calendar.
+
+M-%
+[SPACE] replace next
+! replace all
+
+fpath is path to check if a function is available when invoked
+looks for shell function to load & execute.
+
+* DONE Company --> across, Vertico V down
+CLOSED: [2024-10-29 Tue 13:39]
+
+- State "DONE"       from "WAITING"    [2024-10-29 Tue 13:39]
+* DONE 2a.org is full or programming info and template examples.
+CLOSED: [2024-10-30 Wed 07:26]
+
+- State "DONE"       from "WAITING"    [2024-10-30 Wed 07:26]
+  *red* +green+ /italic/ _underline_ =verbatim= ~code~
+* DONE Compfix and Compinit
+CLOSED: [2024-10-30 Wed 07:27]
+- State "DONE"       from "WAITING"    [2024-10-30 Wed 07:27]
+Compfix flags insecure directories
+Compinit is a completion too.
+
+* TODO Big slowing way down, needs replacement
+- State "DONE"       from "WAITING"    [2024-10-09 Wed 07:31]
+* TODO Snippets?
+Is it working/how does it work?
+see: https://www.youtube.com/watch?v=W-bRZlseNm0
+mainly useful for programming.
+
+* TODO Consult?
+- State "DONE"       from "WAITING"    [2024-10-15 Tue 09:44]
+- State "DONE"       from "COMPLETED"  [2024-10-15 Tue 09:44]
+Is consult working/how should it work?
+* WAITING Org-babel Tangle not in .init 
+- State "DONE"       from "WAITING"    [2024-10-24 Thu 14:36]
+* zinit home is:  "${XDG_DATA_HOME:- ${HOME}/.local/share}/zinit.zinit.git
+
+* M-X check-parens-mode
+
+* Super Key
+  S-a mark set (same as Alt-shift-A)
+  *S-b Denote (my binding not default)*
+  S-c ns-copy-including-secondary.
+  S-d isearch back (same as C-m-r)
+  S-e isearch-yank-kill
+  S-f isearch-forward (same as C-m-s)
+  S-g isearch-repeat-forward
+  S-h ns-do-hide-emacs
+  S-i  +undefined+
+  S-j exchange point and mark  (same as C-x C-x)
+  *S-k kill current buffer*
+  *S-l goto line  (same as M-g g or M-g M-g)*
+  S-m iconify frame
+  S-n make frame
+  S-o ns-open-file-using-panel
+  *S-p     is projectile-mode-map*
+  S-q save-buffers-kill-emacs
+  S-r  +Undefined+
+  *S-s save-buffer  (same as C-c C-s)*
+  *S-t menu-set-font*
+  S-u revert buffer
+  S-v org-yank  (same as C-y)
+  S-w delete-frame
+  S-x kill region   (same as C-y)
+  S-y <OS X uses this as show desktop>
+  *S-z undo  (same as C-/ or C-x u or C-_)*
+  c- t transpose characters. 
+
+* C-c, C-f compiles
+
+* ToDo Denote
+- State "DONE"       from "WAITING"    [2024-10-30 Wed 07:26]
+* test fzf
+
+----
+* End of Month.
+** Created index.org in OneDrive..../Org/
+this page links to Org files on specific emacs/linux topics.
+* Installed tmux. Will experiment with it.
+* .zshrc w/ Oh-My-Posh and init.el on Round both okay.
+** copy of init.el to OneDrive - this will be the template.

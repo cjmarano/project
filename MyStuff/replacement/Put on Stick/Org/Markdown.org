@@ -1,0 +1,16 @@
+* Markdown
+- State "DONE"       from "WAITING"    [2024-08-26 Mon 07:32]
+- State "DONE"       from "WAITING"    [2024-08-12 Mon 14:47]
+*bold* +strikethrough+ _underline_ ~code~ =verbatim=  /italic/ *, +, _, ~, =,/
+
+M-s h r <string> [RET] [RET]    -- highlight text that matches regular expression.
+
+M-s h u <string> [RET] - un-hilight test that matches regular expression
+
+(add-to-list 'org-emphasis-alist
+             '("*" (:foreground "red")
+               ))
+
+(add-to-list 'org-emphasis-alist
+             '("/" (:foreground "LightGreen")
+               ))

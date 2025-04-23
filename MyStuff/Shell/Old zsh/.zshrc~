@@ -1,0 +1,77 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source $(dirname $(gem which colorls))/tab_complete.sh
+
+export PATH=/Users/charles.marano/.pyenv/shims:/Users/charles.marano/.pyenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/local/jamf/bin:/bin:/usr/bin:/sbin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/charles.marano/.cargo/bin:/Users/charles.marano/.local/bin:/Users/charles.marano/.pyenv/versions/3.12.0/bin/:/Users/charles.marano/.pyenv/shims/pip/:/opt/homebrew/lib/ruby/gems/3.3.0/bin/
+
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+
+# pyenv config
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+ZSH_DISABLE_COMPFIX="true"
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/charles.marano/.oh-my-zsh"
+
+Default_USER=$(whoami)
+
+zstyle ':omz:update' mode reminder
+
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+plugins=(git
+         zsh-autosuggestions
+	     zsh-syntax-highlighting
+	     common-aliases
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+eval "$(rbenv init - zsh)"
+
+FPATH=~/.rbenv/completions:"$FPATH"
+
+autoload -U compinit
+compinit
+
+
+export MANPATH="/usr/local/share/man/:usr/share/man:$MANPATH"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# Note: some of these replace aliases in the common-alias plugin.
+alias myip="curl http://ipecho.net/plain; echo"
+alias lc='colorls -lA --sd'
+alias lt='colorls --tree'
+alias lg='colorls --gs'
+alias la='colorls -all'
+alias lb='cd ..'
+alias ld='colorls -ltr'
+alias ll='colorls -loa --sd'
+alias ee='emacsclient -c -a'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# source /usr/local/bin/clisp
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
+
+
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"

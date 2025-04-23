@@ -1,0 +1,5 @@
+* Describe
+Describe-char
+Describe-face
+List-colors-display
+fc-cache -f -v rebuild font cache.

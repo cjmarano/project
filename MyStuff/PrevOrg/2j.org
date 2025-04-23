@@ -1,0 +1,144 @@
+#*startup: overview indent
+* March.
+* reminder:
+
+*Asterisk* was bold
+/Forward slash/ is italic
+_Underscore_
+=Equals= is verbatim?
+~Tilde~ is code.
++Plus+ was strikethrough
+
+
+* DONE Had to edit p10k.toml on New to eliminate unwanted header.
+CLOSED: [2025-03-06 Thu 08:25]
+- State "DONE"       from "WAITING"    [2025-03-06 Thu 08:25]
+* DONE No icons in iTerm2.
+CLOSED: [2025-03-06 Thu 10:42]
+- State "DONE"       from "WAITING"    [2025-03-06 Thu 10:42]
+Blew up .zshrc and had to restore from backup.
+Had to remove all p10k items from .zshrc
+* DONE Added Vterm-mode-hook to kill ln #s in Vterm buffers.
+CLOSED: [2025-03-06 Thu 10:50]
+- State "DONE"       from "WAITING"    [2025-03-06 Thu 10:50]
+* DONE Misc items
+CLOSED: [2025-03-28 Fri 14:37]
+- State "DONE"       from "WAITING"    [2025-03-28 Fri 14:37]
+* DONE Magit wasn't working. Re-installed llama and its working now.
+CLOSED: [2025-03-06 Thu 13:40]
+- State "DONE"       from "WAITING"    [2025-03-06 Thu 13:40]
+** added (keymap-global-set "C-x g" 'magit-status) and that works.
+* DONE Brought Plucky init over and homogulated.
+CLOSED: [2025-03-06 Thu 13:40]
+- State "DONE"       from "WAITING"    [2025-03-06 Thu 13:40]
+** No real changes to New but added item to plucky init.
+*** Emailed Plucky init home. Will do a diff on Plucky then decide.
+* DONE Sucessfully used pylint to clean up sieve.py
+CLOSED: [2025-03-10 Mon 07:32]
+- State "DONE"       from "WAITING"    [2025-03-10 Mon 07:32]
+** hello_world.py also clean.
+
+* DONE Brief init.el - python ok w/ completion & marginalia.
+CLOSED: [2025-03-17 Mon 13:14]
+- State "DONE"       from "WAITING"    [2025-03-17 Mon 13:14]
+** Even though marginalia package not installed. .
+Tree-sitter can't find language grammer _file ending in .so_ long standing problems.
+** Look at ~/.tree-sitter/tree-sitter-python/ that's got everything.
+*** DONE no, it doesn't where is the folder with the python .so files?
+CLOSED: [2025-03-17 Mon 13:11]
+- State "DONE"       from "WAITING"    [2025-03-17 Mon 13:11]
+~/tree-sitter/ has the .dylib files
+* DONE Update pip on both New and Big.
+CLOSED: [2025-03-17 Mon 13:16]
+- State "DONE"       from "WAITING"    [2025-03-17 Mon 13:16]
+** Installed tree-sitter language-pack via pip on both Big and New.
+* DONE Installed org-modern to see if it can replace custom org.
+- State "DONE"       from "WAITING"    [2025-03-20 Thu 10:42]
+**  Didn't care for it's look.
+* DONE Copyied 3 dylibs from ~/tree-sitter/ to ~/.cache/emacs/tree-sitter/
+** seems to have resolved issue. I don't see marginalia though (additional .el needed ?)
+- State "DONE"       from "WAITING"    [2025-03-20 Thu 10:42]
+- State "DONE"       from "WAITING"    [2025-03-17 Mon 13:15]
+* DONE added (keymap-global-set "M-o" 'other-window) & M-g 'recentf)
+CLOSED: [2025-03-27 Thu 12:54]
+- State "DONE"       from "WAITING"    [2025-03-27 Thu 12:54]
+** tested storing custom items in ~/.custom but lost that. Re-do?
+** Removed several items from init.el on New.
+Will use to seems if they made any substantial difference. Load time down
+from 8-12 seconds to 2-4 seconds.
+** Eglot w/ flymake seems to work on emacs-solo init.el but:
+completeions and marginalia either don't work or work way differently.
+
+** Trimmed emacs-solo down (kept originals untouched) it works, loads fast but needs other trims and adjustments.
+* NEXT Will look at simplifying init.el as per System Crafters.
+** DONE Python works fine with completion and marginalia.
+CLOSED: [2025-03-27 Thu 12:54]
+- State "DONE"       from "WAITING"    [2025-03-27 Thu 12:54]
+See Prot's basic setup https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration/#h:1e4fde73-a2a2-4dc5-82ad-02cf3884ece6
+** DONE Tried Prot's init.el not bad but lacks programming tools.
+CLOSED: [2025-03-27 Thu 12:54]
+- State "DONE"       from "WAITING"    [2025-03-27 Thu 12:54]
+
+**  
+* WAITING Rust threw errors.
+** DONE Newer rust IDE setup found but uses older tools:
+- State "DONE"       from "WAITING"    [2025-03-21 Fri 08:56]
+https://arjenwiersma.nl/notes/rust-emacs/
+This setup failed out of box no syntax highlighting.
+*** DONE Delete rust analyzer refs in the init.el?
+- State "DONE"       from "WAITING"    [2025-03-21 Fri 08:56]
+and does not aim to do so in the future. 
+*** DONE Rust doesn't do completions or marginalia.
+- State "DONE"       from "WAITING"    [2025-03-21 Fri 08:56]
+*** NEXT How about delete all rust items, start from scratch?
+*** See: https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/
+*** Opening the Cargo.toml for the program before opening the src/main.rs file
+appears to have resolved the issue:
+[eglot] Connected! Server ‘rust-analyzer’ now managing ‘(rustic-mode)’ buffers in project ‘project’.
+Not getting completions though. Syntax highlighting appears to be working correctly.
+** DONE Really annoyed that Rust programming intro was not up to date.
+CLOSED: [2025-03-28 Fri 11:38]
+- State "DONE"       from "WAITING"    [2025-03-28 Fri 11:38]
+compiler complained that rnd methods shown in intro were deprecated.
+Will pause work on rust and focus on Python.
+** Eglot was using Rustic so rust-analyzer is a change.
+*** Removed all rust items then installed from
+https://unwoundstack.com/blog/emacs-as-a-rust-ide.html
+his rust config using eglot clippy flymake but not rustic or rust-ts-mode.
+appears to work well. will see using. config was from 7/30/23 so maybe
+look for something more recent with ts-mode, eglot, etc.
+*** why didn't I like it? Probably because no completions or marginalia.
+** Eglot does not support the rust-analyzer extensions to the language-server protocol
+Maybe that's why things aren't working.
+** used info in https://rust-analyzer.github.io/book/other_editors.html#eglot
+this gave eglot with a main.rs file and eglot menu.
+** so no completions or marginalia with Rust yet.
+** had issues with rustic-mode-map:
+ (setq rustic-lsp-client 'eglot)
+   ;; :bind (:map rustic-mode-map
+   ;;     ("M-j" . lsp-ui-imenu)
+   ;;     ("M-?" . lsp-find-references)
+   ;;     ("C-c C-c s" . lsp-rust-analyzer-status)
+   ;;     ("C-c C-c l" . flycheck-list-errors)
+   ;;     ("C-c C-c a" . lsp-execute-code-action)
+   ;;     ("C-c C-c r" . lsp-rename)
+   ;;     ("C-c C-c q" . lsp-workspace-restart)
+   ;;     ("C-c C-c Q" . lsp-workspace-shutdown))
+-- looks like the :bind or :map is messed up.
+-- how about using keymap-global-set instead?
+
+* NEXT Monday, March 31st emacs hung on launch.
+** Hung after loading yasnippets successfuly.
+ This was after package-list-packages and a message from emacs
+ that 17 packages needed to be removed via package-autoremove.
+ Tried older init.el didn't work. Issue was obviously with a deleted
+ package that was needed.
+ Commented out large sections of init.el got emacs running then
+ uncommented section by section.
+ Startup time was less than 3 seconds.
+ Org-babel, org-tempo still commented out. Those areas may be then
+ problem.
+ 
+** After removing Org-babel and Org-tempo got under 3 sec. starts.
+*** Python programs working 100% with completion and marginalia.
+** Eglot shows active in both python and rust.
