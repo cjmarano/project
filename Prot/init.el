@@ -58,19 +58,18 @@ The DWIM behaviour of this command is as follows:
 ;; as the init.el, then Emacs will read+evaluate it before moving to
 ;; the init.el.
 (menu-bar-mode 1)
-(scroll-bar-mode 1)
 (tool-bar-mode -1)
 
-(let ((mono-spaced-font "Monospace")
-      (proportionately-spaced-font "Sans"))
-  (set-face-attribute 'default nil :family mono-spaced-font :height 100)
+(let ((mono-spaced-font "Hack Nerd Font Mono")
+      (proportionately-spaced-font "Hack Nerd Font Propo))
+  (set-face-attribute 'default nil :family mono-spaced-font :height 180)
   (set-face-attribute 'fixed-pitch nil :family mono-spaced-font :height 1.0)
   (set-face-attribute 'variable-pitch nil :family proportionately-spaced-font :height 1.0))
 
 (use-package modus-themes
   :ensure t
   :config
-  (load-theme 'modus-vivendi-tinted :no-confirm-loading))
+  (load-theme 'doom-snazzy :no-confirm-loading))
 
 ;; Remember to do M-x and run `nerd-icons-install-fonts' to get the
 ;; font files.  Then restart Emacs to see the effect.
@@ -82,12 +81,6 @@ The DWIM behaviour of this command is as follows:
   :after marginalia
   :config
   (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
-
-(use-package nerd-icons-corfu
-  :ensure t
-  :after corfu
-  :config
-  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package nerd-icons-dired
   :ensure t
@@ -114,18 +107,6 @@ The DWIM behaviour of this command is as follows:
 (use-package savehist
   :ensure nil ; it is built-in
   :hook (after-init . savehist-mode))
-
-(use-package corfu
-  :ensure t
-  :hook (after-init . global-corfu-mode)
-  :bind (:map corfu-map ("<tab>" . corfu-complete))
-  :config
-  (setq tab-always-indent 'complete)
-  (setq corfu-preview-current nil)
-  (setq corfu-min-width 20)
-
-  (setq corfu-popupinfo-delay '(1.25 . 0.5))
-  (corfu-popupinfo-mode 1) ; shows documentation after `corfu-popupinfo-delay'
 
   ;; Sort by input history (no need to modify `corfu-sort-function').
   (with-eval-after-load 'savehist
