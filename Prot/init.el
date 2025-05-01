@@ -60,8 +60,8 @@ The DWIM behaviour of this command is as follows:
 (menu-bar-mode 1)
 (tool-bar-mode -1)
 
-(let ((mono-spaced-font "Hack Nerd Font Mono")
-      (proportionately-spaced-font "Hack Nerd Font Propo))
+(let  ((mono-spaced-font "Hack Nerd Font Mono")
+      (proportionately-spaced-font "Hack Nerd Font Propo"))
   (set-face-attribute 'default nil :family mono-spaced-font :height 180)
   (set-face-attribute 'fixed-pitch nil :family mono-spaced-font :height 1.0)
   (set-face-attribute 'variable-pitch nil :family proportionately-spaced-font :height 1.0))
@@ -108,12 +108,12 @@ The DWIM behaviour of this command is as follows:
   :ensure nil ; it is built-in
   :hook (after-init . savehist-mode))
 
-  ;; Sort by input history (no need to modify `corfu-sort-function').
-  (with-eval-after-load 'savehist
-    (corfu-history-mode 1)
-    (add-to-list 'savehist-additional-variables 'corfu-history)))
+;;   ;; Sort by input history (no need to modify `corfu-sort-function').
+;;   (with-eval-after-load 'savehist
+;;     (corfu-history-mode 1)
+;;     (add-to-list 'savehist-additional-variables 'corfu-history)))
 
-;;; The file manager (Dired)
+;; ;;; The file manager (Dired)
 
 (use-package dired
   :ensure nil
