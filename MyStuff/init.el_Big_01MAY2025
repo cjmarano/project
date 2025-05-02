@@ -32,7 +32,7 @@
          ))
 
 (setq load-prefer-newer t)
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250406.1103")
+(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250414.1548")
 (require 'auto-compile)
 (auto-compile-on-load-mode)
 (auto-compile-on-save-mode)
@@ -163,7 +163,6 @@
 ;; added for testing 17APR2025
 (setopt doom-modeline-project-detection 'auto)
 (setopt doom-modeline-buffer-modification-icon t)
-
 
 ;; isearch enhancements (from Prot) -----------
 (setopt isearch-lazy-count t)
@@ -603,7 +602,7 @@
               doom-themes eglot elpy exec-path-from-shell
               flycheck-pyflakes flycheck-rust lsp-ui magit marginalia
               material-theme modus-themes nerd-icons-completion
-              nerd-icons-dired no-littering ob-rust org-bullets
+nerd-icons-dired no-littering ob-rust org-bullets
               org-modern org-roam paredit rainbow-delimiters
               rust-playground rustic show-font toml-mode
               tree-sitter-langs treesit-auto use-package vertico vterm

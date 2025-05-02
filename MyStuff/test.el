@@ -41,21 +41,21 @@
 
 (use-package no-littering)
 
+
 (require 'no-littering)
-(setopt auto-save-file-name-transforms
+(setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
 (add-to-list 'default-frame-alist '(height . 60))
 (add-to-list 'default-frame-alist '(width . 100))
 
-(setopt savehist-mode t)
-;; (setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
+(setq savehist-mode t)
 (setq org-indent-mode t)
 (setq-default cursor-type 'bar)
 (setq set-cursor-color "Cyan")
-(setopt ring-bell-function 'ignore)
-(setopt inhibit-splash-screen t)
-(setopt inhibit-startup-screen t)
+(setq ring-bell-function 'ignore)
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-screen t)
 (global-font-lock-mode 1)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -64,15 +64,13 @@
 (column-number-mode t)
 (tool-bar-mode -1)
 (global-hl-line-mode +1)
-(setopt global-auto-revert-mode 1)
-(setopt auto-revert-use-notify t) 
-(setopt use-short-answers t)
-(setopt ediff-split-window-function 'split-window-horizontally)
-;; removes ediff control window put controls in window at bottom of frame.
-;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(setq global-auto-revert-mode 1)
+(setq auto-revert-use-notify t) 
+(setq use-short-answers t)
+(setq ediff-split-window-function 'split-window-horizontally)
+
 (keymap-global-set "M-p" 'previous-buffer)
 (keymap-global-set "M-n" 'next-buffer)
-;; from emacs-solo -----------------------------------------
 (keymap-global-set "M-o" 'other-window)
 (keymap-global-set "M-g" 'recentf)
 
@@ -83,55 +81,51 @@
                 vterm-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-;; M-x recentf-open-files
 (recentf-mode 1)
-(setopt recentf-max-menu-items 10)
-(setopt recentf-max-saved-items 25)
+(setq recentf-max-menu-items 10)
+(setq recentf-max-saved-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-;; Contextual menu with right mouse button
+
 (when (display-graphic-p)
   (context-menu-mode))
 
-;; Prot additions ------------------------------------------
-;; when C-x,C-f clears old pathe so you can just type new one.
+
 (file-name-shadow-mode 1)
 (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
-(setopt delete-by-moving-to-trash t)
-(setopt dired-dwim-target t)
+(setq delete-by-moving-to-trash t)
+(setq dired-dwim-target t)
 
-(setopt ls-lisp-use-insert-directory-program nil)
+(setq ls-lisp-use-insert-directory-program nil)
      (require 'ls-lisp)
 
-;; ---------------------------------------------------------
-;; Fix ediff problem with text files.
-(setopt ediff-diff-options "--text")
-;; ---------------------------------------------------------
+
+(setq ediff-diff-options "--text")
 
 (use-package dashboard
 :ensure t
 :init
 (progn
-  (setopt dashboard-items '((recents   . 5)
+  (setq dashboard-items '((recents   . 10)
                         (bookmarks . 5)
                         (projects  . 5)
                         (agenda    . 5)))
-  (setopt dashboard-item-shortcuts '((recents   . "r")
+  (setq dashboard-item-shortcuts '((recents   . "r")
                                    (bookmarks . "m")
                                    (projects  . "p")
                                    (agenda    . "a")))
   
   ;; (setq dashboard-footer-messages '("")) ;not needed after startupify list added. see below.
-  (setopt dashboard-show-shortcuts nil)
-  (setopt dashboard-center-contents nil)
-  (setopt dashboard-banner-logo-title "New")
-  (setopt dashboard-set-file-icons t)
-  (setopt dashboard-set-heading-icons t)
-  (setopt dashboard-display-icons-p t)     ; display icons on both GUI and terminal
-  (setopt dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
-  (setopt dashboard-startup-banner "~/Pictures/Trefoil.png")
-  (setopt initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-  (setopt dashboard-set-init-info t)
+  (setq dashboard-show-shortcuts nil)
+  (setq dashboard-center-contents nil)
+  (setq dashboard-banner-logo-title "New")
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
+  (setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
+  (setq dashboard-startup-banner "~/Pictures/Trefoil.png")
+  (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+  (setq dashboard-set-init-info t)
 ;;  (setq dashboard-set-footer nil) ; not needed after startupify list see below.
 
 (setq dashboard-startupify-list '(dashboard-insert-banner
@@ -153,56 +147,50 @@
 (doom-modeline-mode 1)
 (use-package nerd-icons
   :ensure t)
-(setopt doom-modeline-buffer-file-name-style 'file-name)
-(setopt doom-modeline-major-mode-color-icon t)
-(setopt doom-modeline-major-mode-icon t)
-(setopt doom-modeline-buffer-encoding nil)
-(setopt doom-modeline-env-version t)
-(setopt doom-modeline-env-enable-python t)
-(setopt doom-modeline-env-enable-ruby t)
-(setopt doom-modeline-env-enable-rust t)
-(setopt doom-modeline-minor-modes t)
-(setopt doom-modeline-lsp t)
-(setopt doom-modeline-lsp-icon t)
-(setopt doom-modeline-buffer-name t)
-;; added for testing 17APR2025
-(setopt doom-modeline-project-detection 'auto)
-(setopt doom-modeline-buffer-modification-icon t)
+(setq doom-modeline-buffer-file-name-style 'file-name)
+(setq doom-modeline-major-mode-color-icon t)
+(setq doom-modeline-major-mode-icon t)
+(setq doom-modeline-buffer-encoding nil)
+(setq doom-modeline-env-version t)
+(setq doom-modeline-env-enable-python t)
+(setq doom-modeline-env-enable-ruby t)
+(setq doom-modeline-env-enable-rust t)
+(setq doom-modeline-minor-modes t)
+(setq doom-modeline-lsp t)
+(setq doom-modeline-lsp-icon t)
+(setq doom-modeline-buffer-name t)
+(setq doom-modeline-project-detection 'auto)
 
-;; isearch enhancements (from Prot) -----------
-(setopt isearch-lazy-count t)
-(setopt lazy-count-prefix-format "(%s/%s) ")
-(setopt lazy-count-suffix-format nil)
+(setq isearch-lazy-count t)
+(setq lazy-count-prefix-format "(%s/%s) ")
+(setq lazy-count-suffix-format nil)
 
 ;; Make regular Isearch interpret the empty space as regular
 ;; expression matching any character between words you give it.
-(setopt search-whitespace-regexp ".*?")
+(setq search-whitespace-regexp ".*?")
 
 (use-package orderless
-  :ensure t
-  :custom
-  (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles basic partial-completion)))))
+  :ensure t :custom (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles  basic partial-completion)))))
 
-(use-package magit
-  :commands magit-status
-  :custom
-  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+   (use-package magit
+     :commands magit-status
+     :custom
+     (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
      (keymap-global-set "C-x g" 'magit-status) 
 
-   ;; ;; yasnippet
+   ;; yasnippet
    ;; (add-to-list 'load-path
    ;;              "~/.emacs.d/snippets")
    ;; (require 'yasnippet)
    ;; (yas-global-mode 1)
-   ;; which key built in as of 30.1 but still needed this.
 
-(use-package which-key
+    (use-package which-key
      :defer 0
      :diminish which-key-mode
      :config
      (which-key-mode)
-     (setopt which-key-idle-delay .9))
+     (setq which-key-idle-delay .9))
 
    (use-package vterm
        :ensure t)
@@ -211,21 +199,17 @@
      :init
      (vertico-mode))
 
-;; added 25AUG2023 to solve image type issue ---------------
-;; (add-to-list 'image-types 'svg)
 
 (use-package nerd-icons-dired
   :hook (dired-mode . nerd-icons-dired-mode))
 
-;; Denote --------------------------------------------------
-  (setopt denote-directory (expand-file-name "~/notes/"))
-  (setopt denotes-known-keywords '("emacs" "init" "general" "shell"))
-  (setopt denote-file-type nil)
+  (setq denote-directory (expand-file-name "~/notes/"))
+  (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
+  (setq denote-file-type nil)
   (add-hook 'dired-mode-hook #'denote-dired-mode)
   (keymap-global-set "s-b" 'denote)
 
-;(require 'consult)
-(setopt completion-styles '(substring basic))
+(setq completion-styles '(substring basic))
 
 (use-package consult
   ;; Replace bindings. Lazily loaded due by `use-package'.
@@ -264,7 +248,7 @@
   :commands (org-capture org-agenda)
   :hook (org-mode . efs/org-mode-setup)
   :config
-  (setopt org-ellipsis " ▾")
+  (setq org-ellipsis " ▾")
 
   (defun efs/org-font-setup ()
     ;; Replace list hyphen with dot
@@ -291,43 +275,39 @@
       (set-face-attribute 'org-special-keyword unspecified :inherit '(font-lock-comment-face fixed-pitch))
       (set-face-attribute 'org-meta-line unspecified :inherit '(font-lock-comment-face fixed-pitch))
       (set-face-attribute 'org-checkbox unspecified :inherit 'fixed-pitch)))
-  
-  ;; end Org fonts              
 
-  (setopt org-hide-emphasis-markers t)
+  (setq org-hide-emphasis-markers t)
 
   (add-to-list 'org-emphasis-alist
                '("_" (:foreground "red")
                  ))
 
-  (add-to-list 'org-emphasis-alist
-               '("+" (:foreground "LightGreen")
-                 ))
+    (add-to-list 'org-emphasis-alist
+                 '("+" (:foreground "LightGreen")
+                   ))
 
-  ;; function defined but not used?
-  ;; ---------------------------------------------------------
-  (defun efs/org-mode-setup ()
+(defun efs/org-mode-setup ()
 ;;    (org-indent-mode)
     (variable-pitch-mode 1)
     (visual-line-mode 1))
   ;; ---------------------------------------------------------
 
   
-  (setopt org-agenda-files
+  (setq org-agenda-files
         '("~/org/journal/journal.org"
           "~/org/notes/notes.org"
           "~/org/tasks/tasks.org"
           "~/org/daily/daily.org"))
 
-  (setopt org-todo-keywords
+  (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "DONE(d)")
           (sequence "COMPLETED(c)")))
 
-  (setopt org-refile-targets
+  (setq org-refile-targets
         '(("Archive.org" :maxlevel . 1)
           ("Tasks.org" :maxlevel . 1)))
 
-  (setopt org-tag-alist                   
+  (setq org-tag-alist                   
         '((:startgroup)
                                         ; Put mutually exclusive tags here
           (:endgroup)
@@ -336,7 +316,7 @@
           ("@init" . ?i)))
 
 
-  (setopt org-capture-templates
+  (setq org-capture-templates
         `(("t" "Tasks / Projects")
           ("tt" "Task" entry (file+olp "~/org/tasks/tasks.org" "Inbox")
            "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
@@ -362,36 +342,34 @@
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-
 (use-package org-roam
-  :ensure t
-  :init
-  (setopt org-roam-v2-ack t)
-  :custom
-  (org-roam-directory "~/org/roam")
-  (org-roam-completion-everywhere t)
+    :ensure t
+    :init
+    (setq org-roam-v2-ack t)
+    :custom
+    (org-roam-directory "~/org/roam")
+    (org-roam-completion-everywhere t)
 
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
-         ("C-c n i" . org-roam-node-insert)
-         :map org-mode-map
-         ("C-M-i" . completion-at-point)
-         :map org-roam-dailies-map
-         ("Y" . org-roam-dailies-capture-yesterday)
-         ("T" . org-roam-dailies-capture-tomorrow))
-  :bind-keymap
-  ("C-c n d" . org-roam-dailies-map)
-  :config
-  (require 'org-roam-dailies) ;; Ensure the keymap is available
-  (org-roam-db-autosync-mode))
+    :bind (("C-c n l" . org-roam-buffer-toggle)
+           ("C-c n f" . org-roam-node-find)
+           ("C-c n i" . org-roam-node-insert)
+           :map org-mode-map
+           ("C-M-i" . completion-at-point)
+           :map org-roam-dailies-map
+           ("Y" . org-roam-dailies-capture-yesterday)
+           ("T" . org-roam-dailies-capture-tomorrow))
+    :bind-keymap
+    ("C-c n d" . org-roam-dailies-map)
+    :config
+    (require 'org-roam-dailies) ;; Ensure the keymap is available
+    (org-roam-db-autosync-mode))
 
 ;; entries below seem to be additional, not required
 (keymap-set global-map "C-c l" 'org-store-link)
 (keymap-set global-map "C-c a" 'org-agenda)
 (keymap-set global-map "C-c c" 'org-capture)
-(setopt org-log-done 'time)
+(setq org-log-done 'time)
 
-; ;; active Babel languages
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python . t)
@@ -424,12 +402,11 @@
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))  
 
-;; added to suppress "Python can't guess indent"
-(setopt python-indent-guess-indent-offset t)  
-(setopt python-indent-guess-indent-offset-verbose nil)
+(setq python-indent-guess-indent-offset t)  
+(setq python-indent-guess-indent-offset-verbose nil)
 
-(setopt python-python-command "Users/charles.marano/.pyenv/shims/python3")
-(setopt python-shell-completion-native-enable nil)
+(setq python-python-command "Users/charles.marano/.pyenv/shims/python3")
+(setq python-shell-completion-native-enable nil)
 
 (use-package rustic
   :ensure
@@ -448,9 +425,9 @@
 
   :config
   ;; uncomment for less flashiness
-  ;; (setopt lsp-eldoc-hook nil)
-  ;; (setopt lsp-enable-symbol-highlighting nil)
-  ;; (setopt lsp-signature-auto-activate nil)
+  ;; (setq lsp-eldoc-hook nil)
+  ;; (setq lsp-enable-symbol-highlighting nil)
+  ;; (setq lsp-signature-auto-activate nil)
 
   ;; comment to disable rustfmt on save
   (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
@@ -468,13 +445,13 @@
 
 (use-package toml-mode :ensure)
 
-(setopt-local lsp-inlay-hint-enable t)
+(setq-local lsp-inlay-hint-enable t)
 ;; below from https://github.com/rksm/emacs-rust-config
 (use-package lsp-mode
   :ensure
   :commands lsp
   :init
-  (setopt lsp-keymap-prefix "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
   :custom
   ;; what to use when checking on-save. "check" is default, I prefer clippy
   (lsp-rust-analyzer-cargo-watch-command "clippy")
@@ -529,7 +506,7 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
-(setopt inferior-lisp-program "/usr/local/bin/sbcl")
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
 
 ;; Enable Paredit.
 (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
@@ -566,7 +543,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:height 180 :family "Hack Nerd Font Mono"))))
- '(cursor ((t (:background "light green"))))
  '(org-headline-done ((t (:foreground "gray80"))))
  '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
  '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
@@ -580,12 +556,21 @@
  '(company-box-icons-alist 'company-box-icons-images)
  '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
  '(custom-safe-themes
-   '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
-     "2b20b4633721cc23869499012a69894293d49e147feeb833663fdc968f240873"
-     "2e7dc2838b7941ab9cabaa3b6793286e5134f583c04bde2fba2f4e20f2617cf7"
-     "0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1"
+     '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
+     "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
+     "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
      "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
+     
      default))
+ '(dashboard-startupify-list
+   '(dashboard-insert-banner dashboard-insert-newline
+                             dashboard-insert-banner-title
+                             dashboard-insert-newline
+                             dashboard-insert-init-info
+                             dashboard-insert-items
+                             dashboard-insert-newline))
+ '(denote-known-keywords '("emacs" "init" "general" "testing"))
+ '(elpy-rpc-python-command "python3")
  '(flycheck-python-flake8-executable "python3")
  '(flycheck-python-pycompile-executable "python3")
  '(flycheck-python-pylint-executable "python3")
@@ -595,22 +580,18 @@
  '(org-id-locations-file
    "/Users/charles.marano/.cache/emacs/var/org/id-locations.el")
  '(org-startup-folded 'fold)
- '(org-structure-template-alist
-   '(("l" . "src emacs-lisp") ("L" . "lisp") ("p" . "python")
-     ("r" . "ruby") ("s" . "src")))
  '(org-tempo-keywords-alist nil)
  '(package-selected-packages
    '(0blayout all-the-icons-nerd-fonts auto-compile cargo cargo-mode
               color-theme-sanityinc-tomorrow company-box consult
-              dashboard denote diffview dired-subtree doom-modeline
-              doom-themes eglot elpy exec-path-from-shell
-              flycheck-pyflakes flycheck-rust lsp-ui magit marginalia
-              material-theme modus-themes nerd-icons-completion
-              nerd-icons-dired no-littering ob-rust orderless
-              org-bullets org-modern org-roam paredit
-              rainbow-delimiters rust-playground rustic show-font
-              toml-mode tree-sitter-langs treesit-auto use-package
-              vertico vterm which-key))
+              dashboard denote diffview doom-modeline doom-themes
+              eglot elpy exec-path-from-shell flycheck-pyflakes
+              flycheck-rust lsp-ui magit marginalia material-theme
+              nerd-icons-dired no-littering ob-rust org-bullets
+              org-roam paredit rainbow-delimiters rust-playground
+              rustic show-font toml-mode tree-sitter-langs
+              treesit-auto use-package vertico vterm which-key
+              ))
  '(savehist-additional-variables '(kill-ring register-alist\ ))
  '(warning-suppress-log-types '((use-package))))
 
@@ -623,7 +604,7 @@
 
 ;; Enable Flycheck
 (when (require 'flycheck nil t)
-  (setopt elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 ;; added to supress flymake error message when compliing python (12AUG2022)
 (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
