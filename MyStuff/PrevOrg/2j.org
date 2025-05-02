@@ -1,86 +1,168 @@
-#*startup: overview indent
-* March.
-* reminder:
-
-*Asterisk* was bold
-/Forward slash/ is italic
-_Underscore_
-=Equals= is verbatim?
-~Tilde~ is code.
-+Plus+ was strikethrough
-
-
-* DONE Had to edit p10k.toml on New to eliminate unwanted header.
-CLOSED: [2025-03-06 Thu 08:25]
-- State "DONE"       from "WAITING"    [2025-03-06 Thu 08:25]
-* DONE No icons in iTerm2.
-CLOSED: [2025-03-06 Thu 10:42]
-- State "DONE"       from "WAITING"    [2025-03-06 Thu 10:42]
-Blew up .zshrc and had to restore from backup.
-Had to remove all p10k items from .zshrc
-* DONE Added Vterm-mode-hook to kill ln #s in Vterm buffers.
-CLOSED: [2025-03-06 Thu 10:50]
-- State "DONE"       from "WAITING"    [2025-03-06 Thu 10:50]
-* DONE Misc items
-CLOSED: [2025-03-28 Fri 14:37]
-- State "DONE"       from "WAITING"    [2025-03-28 Fri 14:37]
-* DONE Magit wasn't working. Re-installed llama and its working now.
-CLOSED: [2025-03-06 Thu 13:40]
-- State "DONE"       from "WAITING"    [2025-03-06 Thu 13:40]
-** added (keymap-global-set "C-x g" 'magit-status) and that works.
-* DONE Brought Plucky init over and homogulated.
-CLOSED: [2025-03-06 Thu 13:40]
-- State "DONE"       from "WAITING"    [2025-03-06 Thu 13:40]
-** No real changes to New but added item to plucky init.
-*** Emailed Plucky init home. Will do a diff on Plucky then decide.
-* DONE Sucessfully used pylint to clean up sieve.py
-CLOSED: [2025-03-10 Mon 07:32]
-- State "DONE"       from "WAITING"    [2025-03-10 Mon 07:32]
-** hello_world.py also clean.
-
-* DONE Brief init.el - python ok w/ completion & marginalia.
-CLOSED: [2025-03-17 Mon 13:14]
-- State "DONE"       from "WAITING"    [2025-03-17 Mon 13:14]
-** Even though marginalia package not installed. .
-Tree-sitter can't find language grammer _file ending in .so_ long standing problems.
-** Look at ~/.tree-sitter/tree-sitter-python/ that's got everything.
-*** DONE no, it doesn't where is the folder with the python .so files?
-CLOSED: [2025-03-17 Mon 13:11]
-- State "DONE"       from "WAITING"    [2025-03-17 Mon 13:11]
-~/tree-sitter/ has the .dylib files
-* DONE Update pip on both New and Big.
-CLOSED: [2025-03-17 Mon 13:16]
-- State "DONE"       from "WAITING"    [2025-03-17 Mon 13:16]
-** Installed tree-sitter language-pack via pip on both Big and New.
-* DONE Installed org-modern to see if it can replace custom org.
-- State "DONE"       from "WAITING"    [2025-03-20 Thu 10:42]
-**  Didn't care for it's look.
-* DONE Copyied 3 dylibs from ~/tree-sitter/ to ~/.cache/emacs/tree-sitter/
-** seems to have resolved issue. I don't see marginalia though (additional .el needed ?)
-- State "DONE"       from "WAITING"    [2025-03-20 Thu 10:42]
-- State "DONE"       from "WAITING"    [2025-03-17 Mon 13:15]
-* DONE added (keymap-global-set "M-o" 'other-window) & M-g 'recentf)
-CLOSED: [2025-03-27 Thu 12:54]
-- State "DONE"       from "WAITING"    [2025-03-27 Thu 12:54]
-** tested storing custom items in ~/.custom but lost that. Re-do?
-** Removed several items from init.el on New.
-Will use to seems if they made any substantial difference. Load time down
-from 8-12 seconds to 2-4 seconds.
-** Eglot w/ flymake seems to work on emacs-solo init.el but:
-completeions and marginalia either don't work or work way differently.
-
-** Trimmed emacs-solo down (kept originals untouched) it works, loads fast but needs other trims and adjustments.
-* NEXT Will look at simplifying init.el as per System Crafters.
+* April
+** 
+* Start times around 3 seconds.
+** New taking 3+ seconds. Big now taking 9+ seconds.
+- State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
+* COMPLETED Monday, March 31st emacs hung on launch.
+CLOSED: [2025-04-02 Wed 10:03]
+- State "DONE"       from "WAITING"    [2025-04-02 Wed 10:03]
+** Hung after loading yasnippets successfuly.
+ This was after package-list-packages and a message from emacs
+ that 17 packages needed to be removed via package-autoremove.
+ Tried older init.el didn't work. Issue was obviously with a deleted
+ package that was needed.
+ Commented out large sections of init.el got emacs running then
+ uncommented section by section.
+ Startup time was less than 3 seconds.
+ Org-Babel, or-tempo still commented out. Those areas may be then
+ problem.
+ 
+** After removing Org-Babel and Org-tempo got under 3 sec. starts.
+*** Python programs working 100% with completion and marginalia.
+** Eglot shows active in both python and rust.
+** Issues with init.el on New, Big and Plucky. Need to homogulate.
+on 03APR did homogulate Big and New init.el files.
+* COMPLETED Installed Prot's show-fonts package.
+CLOSED: [2025-04-09 Wed 09:04]
+- State "DONE"       from "COMPLETED"  [2025-04-09 Wed 09:04]
+- State "DONE"       from "WAITING"    [2025-04-09 Wed 09:04]
+** DONE Added emacs version of ls. Built in doesn't support dired.
+CLOSED: [2025-04-15 Tue 13:52]
+- State "DONE"       from "WAITING"    [2025-04-14 Mon 13:09]
+- State "DONE"       from "WAITING"    [2025-04-10 Thu 13:39]
+Had coreutils installed already but builtin version of ls is default and didn't want to
+chage that (alias ?). Will look at chaging to GNU's ls in the future.
+(setq ls-lisp-use-insert-directory-program nil)
+     (require 'ls-lisp)
+** DONE Tried various themes. Sanity still preffered.
+CLOSED: [2025-04-15 Tue 13:52]
+- State "DONE"       from "WAITING"    [2025-04-09 Wed 12:42]
+** DONE Created Prot and put a slimmed down version of Prot's basic init there.
+CLOSED: [2025-04-15 Tue 13:54]
+- State "DONE"       from "WAITING"    [2025-04-14 Mon 13:05]
+- State "DONE"       from "WAITING"    [2025-04-14 Mon 13:05]
+- State "DONE"       from "WAITING"    [2025-04-11 Fri 10:56]
+** This is his intro init.el removed Corfu.
+** It works and could be a starting point or a back if my regular init.el gets corrupted.
+** DONE Changed cursor type to bar (may change to hbar and color to green.                     
+CLOSED: [2025-04-15 Tue 14:30]
+** COMPLETED change org-emphasis * to _ on New.
+- State "DONE"       from "WAITING"    [2025-04-07 Mon 10:59]
+CLOSED: [2025-04-03 Thu 08:22]
+- State "DONE"       from "WAITING"    [2025-04-03 Thu 08:22]
+test and see. .org docs will need to be search/replaced.
+** 99% of init.el on bother machines is the same.
+**  DONE Will look at simplifying init.el as per System Crafters.    :@note:
+CLOSED: [2025-04-15 Tue 13:53]
+- State "DONE"       from "WAITING"    [2025-04-09 Wed 09:05]
+- State "DONE"       from "WAITING"    [2025-04-02 Wed 10:03]
 ** DONE Python works fine with completion and marginalia.
 CLOSED: [2025-03-27 Thu 12:54]
 - State "DONE"       from "WAITING"    [2025-03-27 Thu 12:54]
 See Prot's basic setup https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration/#h:1e4fde73-a2a2-4dc5-82ad-02cf3884ece6
 ** DONE Tried Prot's init.el not bad but lacks programming tools.
 CLOSED: [2025-03-27 Thu 12:54]
-- State "DONE"       from "WAITING"    [2025-03-27 Thu 12:54]
+- State "DONE"       from "WAITING"    [2025-03-27 Thu 12:
+** COMPLETED Changed back to Hack from FiraCode Nerd Font Mono.
+** Didn't like it, changed back.
+CLOSED: [2025-04-09 Wed 10:13]
+- State "DONE"       from "WAITING"    [2025-04-09 Wed 10:13]
+* COMPLETED _ tangled init.el.org on New to get current init.el_
+CLOSED: [2025-04-16 Wed 11:09]
+** blocks should begin w/  #+begin_src emacs-lisp and should end with #+end_src
+the blocks that I used C-C C-, l on looked like this: #+begin_emacs-lisp
+#+end_emacs-lisp
+that's why no syntax highlighting. Look at org-structure-template-alist.
+** fixed org-structure-template-alist by chaging it in custom then eliminating it ib org babel section of init.el 
+it remains in custom near bottom of init.el since I changed it in custome.l
+** tangling init.el.org tangled 20 blocks out of 22. Org and... Marginalia? Weren't tangled.
+** Why did those two blocks fail to tangle?
+** cut org block in half tangled org, lost marginalia 21 blocks.
+** tried again, moving block in init.el.org lost syntax hilighting, showing org/emacs didn't recognize them as lisp - fixed.
+tangling again gave 19 blocks out of 23, missing Marginalia, Org Fonts, Org Setup and Org roam.
+** Tried again w/ changes and got 20 w/ Org Fonts, Org Setup and Org Roam missing.
+** Problem was single ; in front of #+begin_src emacs-lisp.  That was the whole problem w/ tagle failing to do all.
+** so tangling init.orgmodern.org worked. tangling init.el.org only did 21 of 23. Must be more corruption.
+** sucessfully tangled init.orgmodern.org but don't care for the styling.
+** COMPLETED init.el on Big and New reconciled.
+CLOSED: [2025-04-07 Mon 10:59]
+** COMPLETED Re-enabled org tempo and org babel.
+CLOSED: [2025-04-14 Mon 10:35]
+- State "DONE"       from "WAITING"    [2025-04-14 Mon 10:35]
+* COMPLETED Yasnippet and Auto-Compile need frequent update.
+CLOSED: [2025-04-10 Thu 10:53]
+- State "DONE"       from "WAITING"    [2025-04-10 Thu 10:53]
+- State "DONE"       from "WAITING"    [2025-04-09 Wed 09:46]
+** Both have be to changed in init.el and early-init.el (Auto-Compile) when updated.
+** COMPLETED Deleted empy yassnippet dir from init and removed using customize.
+CLOSED: [2025-04-10 Thu 13:37]
+- State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
+* COMPLETED Big: auto-remove shows packages I need.
+CLOSED: [2025-04-07 Mon 10:06]
+- State "DONE"       from "WAITING"    [2025-04-07 Mon 10:06]
+toml-mode popup exec-path-from-shell auto-complete auto-compiler
+** removed popup and auto-complete
+* COMPLETED lsp-mode?
+CLOSED: [2025-04-07 Mon 07:59]
+- State "DONE"       from "WAITING"    [2025-04-07 Mon 07:59]
+init.el on New = line 394-433 are two seperate lsp-mode entries. Combine?
+* COMPLETED Tweaks
+CLOSED: [2025-04-17 Thu 14:36]
+** COMPLETED Changed cursor to hbar from bar and face cursor to Light Green.
+CLOSED: [2025-04-16 Wed 13:58]
+** Problem w/ cursor color keeps old value.
+CLOSED: [2025-04-16 Wed 12:48] 
 
-**  
-* WAITING Rust threw errors.
+** COMPLETED Added Contextual menu with right mouse button.
+CLOSED: [2025-04-10 Thu 10:28]
+- State "DONE"       from "WAITING"    [2025-04-10 Thu 10:28]
+** DONE Made additions to Doom Modeline.
+CLOSED: [2025-04-17 Thu 14:29]
+(setq doom-modeline-project-detection 'auto)
+(setq doom-modeline-buffer-modification-icon t)
+** installed ispell via homebrew.
+** COMPLETED Took cut down version of Prot's basic init.el and made a zsh script to launch it.
+CLOSED: [2025-04-16 Wed 13:59]
+This gives me a file on the Desktop I can run in Terminal I can use to launch emacs if my normal init.el is corrupted.
+**  COMPLETED Have Prot's init.el as good backup. init.el w/ org-modern is in test.el
+CLOSED: [2025-04-16 Wed 13:59]
+** Have to start a new init.el.org and copy/paste into it from existing init.el.org
+** COMPLETED Added startupify list to Dashboard to fix footer issue.
+CLOSED: [2025-04-17 Thu 13:57]
+Couldn't get rid of footer icon so added a starupify list to Dashboard and didn't put footer in it.
+This removed the footer icon. Also added registers to navigation.
+**  COMPLETED Time to move MyStuff to github.
+CLOSED: [2025-04-23 Wed 12:37]
+** had keys in the commit so commit failed. took a while to find and move keys.
+Was finally able to move MyStuff and Prot to github and synch Big and New. Will have to sync plucky.
+** COMPLETED Want to look at Bookmarks and text formatting.
+CLOSED: [2025-04-30 Wed 12:53]
+** https://protesilaos.com/codelog/2023-06-28-emacs-mark-register-basics/
+** DONE Set org-indent-mode t
+CLOSED: [2025-04-17 Thu 14:32]
+*** this sets indenting of headline levets.
+****** Also look at font size setup on org fonts.
+*** org-indent-mode is in 2 paces in init. Commented out one.
+that's is defun efs/org-mode-setup.
+** DONE Registers not persisting across sessions.
+CLOSED: [2025-04-17 Thu 14:33]
+Even though registers added to savhist a-list.
+** DONE use Bookmarks instead of registers.
+CLOSED: [2025-04-17 Thu 14:33]
+can save bookmarks in ~/.cache/emacs/var/bookmark-default.el so they are persistant.
+** Text formatting -
+** Zsh Scripting. there don't seem to be any yasnippet entries for zsh.
+* COMPLETED Downloaded Prot's lisp book. 
+CLOSED: [2025-04-17 Thu 14:34]
+** https://github.com/protesilaos/emacs-lisp-elements
+* COMPLETED Rust: there's a rust directory in ~/project and one in ~/ :@code:
+CLOSED: [2025-04-02 Wed 10:55]
+- State "DONE"       from "WAITING"    [2025-04-02 Wed 10:55]
+use the ~/rust folder for testing and learning. Leave ~/project/rust/ alone.
+**  DONE Rust threw errors.                                          :@code:
+CLOSED: [2025-04-02 Wed 09:03]
+- State "DONE"       from "COMPLETED"  [2025-04-02 Wed 09:03]
+- State "DONE"       from "WAITING"    [2025-04-02 Wed 09:03]
 ** DONE Newer rust IDE setup found but uses older tools:
 - State "DONE"       from "WAITING"    [2025-03-21 Fri 08:56]
 https://arjenwiersma.nl/notes/rust-emacs/
@@ -114,6 +196,7 @@ Maybe that's why things aren't working.
 this gave eglot with a main.rs file and eglot menu.
 ** so no completions or marginalia with Rust yet.
 ** had issues with rustic-mode-map:
+
  (setq rustic-lsp-client 'eglot)
    ;; :bind (:map rustic-mode-map
    ;;     ("M-j" . lsp-ui-imenu)
@@ -126,19 +209,127 @@ this gave eglot with a main.rs file and eglot menu.
    ;;     ("C-c C-c Q" . lsp-workspace-shutdown))
 -- looks like the :bind or :map is messed up.
 -- how about using keymap-global-set instead?
+** Deleted rust stuff in New's init.el and added:
+- State "DONE"       from "WAITING"    [2025-04-02 Wed 09:03]
+https://github.com/rksm/emacs-rust-config
+Seems to work well with suggestions and marginalia.
+** Now have suggestions when working with rust files.
+**  DONE Rust program failed - couldn't find crate.                  :@code:
+CLOSED: [2025-04-04 Fri 08:11]
+- State "DONE"       from "WAITING"    [2025-04-04 Fri 08:11]
+Crate was updated. Had to;
 
-* NEXT Monday, March 31st emacs hung on launch.
-** Hung after loading yasnippets successfuly.
- This was after package-list-packages and a message from emacs
- that 17 packages needed to be removed via package-autoremove.
- Tried older init.el didn't work. Issue was obviously with a deleted
- package that was needed.
- Commented out large sections of init.el got emacs running then
- uncommented section by section.
- Startup time was less than 3 seconds.
- Org-babel, org-tempo still commented out. Those areas may be then
- problem.
- 
-** After removing Org-babel and Org-tempo got under 3 sec. starts.
-*** Python programs working 100% with completion and marginalia.
-** Eglot shows active in both python and rust.
+cargo install cargo-edit
+
+cargo new myproject
+
+cd myproject
+
+cargo add rand@0.9.0
+
+cargo update -p rand --precise 0.9.0
+
+cargo fetch
+* COMPLETED Try org/journal vs. Denote for recording progress.
+CLOSED: [2025-04-21 Mon 07:38]
+** Journal is just that and is good for keeping track of flow of ideas.
+Basic Org file if good as a To-Do list.
+Will test dentoe more. Main diff is denote notes are individual files, journal is one file.
+** Denote is good for seperate notes to record specific items.
+** To-Do? Belongs in Master Org file so they can be crosed off.
+* COMPLETED Trashed .zshrc and wrote new one using oh-my-posh and powerline 10k.
+CLOSED: [2025-04-24 Thu 08:45]
+** .zshrc.pre-oh-my-zsh copied to last_oh-my-posh in ~/ and on Onedrive.
+** So, no oh-my-posh, no Zoxide, no zinit. May add some of these back later.
+*** Zinit is a flexible and fast Zshell plugin manager that will allow you to install everything from GitHub and other sites.
+*** zoxide is a smarter cd command, inspired by z and autojump.It remembers which directories you use most frequently, so you can "jump" to them in just a few keystrokes.zoxide works on all major shells.
+*** fzf “Powerful Searching tool on Terminal, MacOS, iterm2” -- _added back but defaults n.g._
+* DONE Removed all yasnippet from init.el
+CLOSED: [2025-04-29 Tue 12:14]
+** then broke init.el had to debug. Changed Doom Modeline while I was at it.
+**  DONE Trying yasnippet.
+CLOSED: [2025-04-29 Tue 12:14]
+** Every key seems be already taken.
+the snippets I want are already in yasnippet-snippets but don't seem to trigger.
+** Got python snippets to trigger. _set for instance. Shortcut doesn't work though
+had to use context menu.
+
+
+<S# -*- mode: snippet -*-
+# name: emacs-lisp-src
+# key: <S
+#+begin_src emacs-lisp
+
+#* end-src
+
+<ti* April
+* COMPLETED Script to launch Prot emacs fails on Big. works on New.
+CLOSED: [2025-04-24 Thu 08:00]
+** Running emacs -q -l ~/project/Prot/init.el in iTerm2 launches GUI Prot emacs.
+** Tried making it an actual script, various tweaks.
+emacs -q -l ~/project/Prot/init.el
+No good. It will open in terminal instead of GUI. Also not loading theme, probably not fonts.
+** Problem is only on Big, Works fine GUI on New.
+Tried comparing Prot/init.el on Big and New - no differences.
+* COMPLETED Consult is working as intended?
+CLOSED: [2025-04-30 Wed 14:36]
+For instance: when switching buffers with C-x b Consult shows previews of buffers.
+
+*bold* is *
+/italic/ is /
+#+begin_emacs-lisp
+#+end_emacs-lisp
+_underline_ is _
+=verbatim= is =
+~code~ is ~
++strike-through+ is +
+ * NEXT Changed setq to setopt for customizable variables in init.el on Big
+** Don't see any downside yet. Will try on New later.
+* COMPLETED Added Orderless to New.
+CLOSED: [2025-05-01 Thu 13:57]
+* DONE Init.el tangled from init.el.org successfully.
+CLOSED: [2025-05-02 Fri 08:17]
+** Tangled test.el has issues. Do a diff with current init.el to see why.
+
+** Problem was with Org Startup src block. Removing it and recreating it by cut and paste resolved issue.
+a couple of other minor issues found in test.el after tangle that were unrelated to babe/tangling.
+test.el is now in synch with working init.el on New - which is the primary init.el for now.
+* DONE In init.el.org move ;; comments out of src blocks and move to sub headlines.
+CLOSED: [2025-05-02 Fri 12:51]
+** Moved org fonts, org setup, org roam src blocks out of init.el.org and tangle was 100%
+problem exists in those blocks. Need to check them then add one by one.
+
+** slight changes to Prot_Basic.init.el pushed to github.
+* DONE Put xah_lee.el on New Desktop. Bare bones, works. Simple.
+CLOSED: [2025-05-02 Fri 14:32]
+* WAITING emacs server / client.
+** emacs --daemon   emacs --fg-daemon emacsclient -cache
+** client starts is 8+ Seconds.
+** Use C-x 5 0 to kill instance.
+** emacs start 3.24 secs. emacsclient starts in 2.37 secs.
+** emacs takes 8+ seconds to start emacsclient *sometimes*.
+** how to start emacs-daemon automatically at logon?
+only advantage is should be able to force files to open quickly in emacsclient.
+** how to start emacsclient from a script.
+need to do more research.
+
+
+# begin_src emacs-lisp
+(defvar lawlist-context-menu-map
+  (let ((map (make-sparse-keymap "Context Menu")))
+    (define-key map [help-for-help] (cons "Help" 'help-for-help))
+    (define-key map [seperator-two] '(menu-item "--"))
+    (define-key map [my-menu] (cons "LAWLIST" (make-sparse-keymap "My Menu")))
+    (define-key map [my-menu 01] (cons "Next Line" 'next-line))
+    (define-key map [my-menu 02] (cons "Previous Line" 'previous-line))
+    (define-key map [seperator-one] '(menu-item "--"))
+  map) "Keymap for the LAWLIST context menu.")
+# end-src
+
+
+* NEXT Org Agenda? is just a menu for tasks, notes, journal, etc.
+** Org tags?
+** Org Capture-templates?
+** Org-refile
+
+
