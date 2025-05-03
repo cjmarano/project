@@ -41,7 +41,6 @@
 
 (use-package no-littering)
 
-
 (require 'no-littering)
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
@@ -68,7 +67,8 @@
 (setq auto-revert-use-notify t) 
 (setq use-short-answers t)
 (setq ediff-split-window-function 'split-window-horizontally)
-
+;; removes ediff control window put controls in window at bottom of frame.
+;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 (keymap-global-set "M-p" 'previous-buffer)
 (keymap-global-set "M-n" 'next-buffer)
 (keymap-global-set "M-o" 'other-window)
@@ -86,7 +86,7 @@
 (setq recentf-max-saved-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-
+;; Contextual menu with right mouse button
 (when (display-graphic-p)
   (context-menu-mode))
 
@@ -106,16 +106,9 @@
 :ensure t
 :init
 (progn
-  (setq dashboard-items '((recents   . 10)
-                        (bookmarks . 5)
-                        (projects  . 5)
-                        (agenda    . 5)))
-  (setq dashboard-item-shortcuts '((recents   . "r")
-                                   (bookmarks . "m")
-                                   (projects  . "p")
-                                   (agenda    . "a")))
-  
-  ;; (setq dashboard-footer-messages '("")) ;not needed after startupify list added. see below.
+  (setq dashboard-items '((recents . 10)
+                          (projects . 5)
+                          (agenda . 5)))
   (setq dashboard-show-shortcuts nil)
   (setq dashboard-center-contents nil)
   (setq dashboard-banner-logo-title "New")
@@ -128,18 +121,17 @@
   (setq dashboard-set-init-info t)
 ;;  (setq dashboard-set-footer nil) ; not needed after startupify list see below.
 
-(setq dashboard-startupify-list '(dashboard-insert-banner
-                                  dashboard-insert-newline
-                                  dashboard-insert-banner-title
-                                  dashboard-insert-newline
-                                  dashboard-insert-navigator
-                                  dashboard-insert-newline
-                                  dashboard-insert-init-info
-                                  dashboard-insert-items
-                                  dashboard-insert-newline))
+(setq dashboard-startupify-list
+      '(dashboard-insert-banner
+        dashboard-insert-newline
+        dashboard-insert-banner-title
+        dashboard-insert-newline
+        dashboard-insert-navigator
+        dashboard-insert-newline
+        dashboard-insert-init-info
+        dashboard-insert-items
+        dashboard-insert-newline))
   )
-
-
 :config
 (dashboard-setup-startup-hook))
 
@@ -170,8 +162,10 @@
 (setq search-whitespace-regexp ".*?")
 
 (use-package orderless
-  :ensure t :custom (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles  basic partial-completion)))))
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
    (use-package magit
      :commands magit-status
