@@ -61,12 +61,12 @@ The DWIM behaviour of this command is as follows:
 (scroll-bar-mode 1)
 (tool-bar-mode -1)
 
-;; part after :family is worng for default, fixed-pitch and cariable-pitch.
+;; part after :family is wrong for default, fixed-pitch 
 ;; (let ((mono-spaced-font "Hack Nerd Font Mono")
 ;;       (proportionately-spaced-font "FiraCode Nerd Font"))
-;;   (set-face-attribute 'default nil :family hack-nerd-font-mono :height 100)
-;;   (set-face-attribute 'fixed-pitch nil :family hack-nerd-font-mono :height 1.0)
-;;   (set-face-attribute 'variable-pitch nil :family hack-nerd-font-propo :height 1.0))
+;;   (set-face-attribute 'default nil :family Hack Nerd Font Mono :height 100)
+;;   (set-face-attribute 'fixed-pitch nil :family Hack Nerd Font Mono :height 1.0)
+;;   (set-face-attribute 'variable-pitch nil :family Hack Nerd Font Propo :height 1.0))
 
 (use-package modus-themes
   :ensure t
