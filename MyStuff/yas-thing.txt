@@ -1,0 +1,23 @@
+(defvar lawlist-context-menu-map
+  (let ((map (make-sparse-keymap "Context Menu")))
+    (define-key map [help-for-help] (cons "Help" 'help-for-help))
+    (define-key map [seperator-two] '(menu-item "--"))
+    (define-key map [my-menu] (cons "LAWLIST" (make-sparse-keymap "My Menu")))
+    (define-key map [my-menu 01] (cons "Next Line" 'next-line))
+    (define-key map [my-menu 02] (cons "Previous Line" 'previous-line))
+    (define-key map [seperator-one] '(menu-item "--"))
+  map) "Keymap for the LAWLIST context menu.")
+
+(defun lawlist-popup-context-menu  (event &optional prefix)
+  "Popup a context menu."
+  (interactive "@e \nP")
+    (define-key lawlist-context-menu-map [lawlist-major-mode-menu]
+      `(menu-item ,(symbol-name major-mode)
+        ,(mouse-menu-major-mode-map) :visible t))
+    (define-key lawlist-context-menu-map (vector major-mode)
+      `(menu-item ,(concat "YAS " (symbol-name major-mode))
+        ,(gethash major-mode yas--menu-table)
+          :visible (yas--show-menu-p ',major-mode)))
+    (popup-menu lawlist-context-menu-map event prefix))
+
+(global-set-key [mouse-3] 'lawlist-popup-context-menu)
