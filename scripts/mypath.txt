@@ -1,1 +1,0 @@
-/Users/charles.marano/.pyenv/shims:/Users/charles.marano/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/local/jamf/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/charles.marano/.pyenv/versions/3.10.3/bin:/Users/charles.marano/.pyenv/shims/python
