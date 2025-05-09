@@ -1,0 +1,92 @@
+* May
+* Start times around 3 seconds.
+** New taking 3+ seconds. Big now taking 9+ seconds.
+- State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
+* COMPLETED Script to launch Prot emacs fails on Big. works on New.
+CLOSED: [2025-04-24 Thu 08:00]
+** Running emacs -q -l ~/project/Prot/init.el in iTerm2 launches GUI Prot emacs.
+** Tried making it an actual script, various tweaks.
+emacs -q -l ~/project/Prot/init.el
+No good. It will open in terminal instead of GUI. Also not loading theme, probably not fonts.
+** Problem is only on Big, Works fine GUI on New.
+Tried comparing Prot/init.el on Big and New - no differences.
+* COMPLETED Consult is working as intended?
+CLOSED: [2025-04-30 Wed 14:36]
+For instance: when switching buffers with C-x b Consult shows previews of buffers.
+
+*bold* is *
+/italic/ is /
+#+begin_emacs-lisp
+#+end_emacs-lisp
+_underline_ is _
+=verbatim= is =
+~code~ is ~
++strike-through+ is +
+ * NEXT Changed setq to setopt for customizable variables in init.el on Big
+** Don't see any downside yet. Will try on New later.
+* DONE Init.el tangled from init.el.org successfully.
+CLOSED: [2025-05-02 Fri 08:17]
+** Tangled test.el has issues. Do a diff with current init.el to see why.
+
+** Problem was with Org Startup src block. Removing it and recreating it by cut and paste resolved issue.
+a couple of other minor issues found in test.el after tangle that were unrelated to babe/tangling.
+test.el is now in synch with working init.el on New - which is the primary init.el for now.
+* DONE In init.el.org move ;; comments out of src blocks and move to sub headlines.
+CLOSED: [2025-05-02 Fri 12:51]
+** Moved org fonts, org setup, org roam src blocks out of init.el.org and tangle was 100%
+problem exists in those blocks. Need to check them then add one by one.
+
+** slight changes to Prot_Basic.init.el pushed to github.
+* DONE Put xah_lee.el on New Desktop. Bare bones, works. Simple.
+CLOSED: [2025-05-02 Fri 14:32]
+* COMPLETED Tweaks: Going through xah_lee's init.el, alos Prot's and emacs for writers.
+CLOSED: [2025-05-06 Tue 12:44]
+** DONE added dired-x C-c, C-j is jump to parent dir - opens dired in directory that holds buffer.
+CLOSED: [2025-05-06 Tue 12:44]
+** DONE added electric parens - if you type ( it adds closing paren automatically)
+CLOSED: [2025-05-06 Tue 12:43]
+* DONE Couldn't change cursor color using (setq-default cursor-color '"#00FF00")
+CLOSED: [2025-05-05 Mon 14:33]
+** changed cursor color via M-x change-face --> cursor --> 00FF00 might change cursor type to box.
+** Changed cursor type to box and color to IndianRed2.
+* COMPLETED Org Agenda? is just a menu for tasks, notes, journal, etc.
+CLOSED: [2025-05-06 Tue 12:45]
+** Org tags?
+** Org Capture-templates?
+** Org-refile
+* Prot init.el working on Big in terminal mode, theme and apps loading but no GUI.
+** Prot init.el in project/Prot is now the default aternate init.el if .emacs.d init .el gets corrupted.
+* WAITING emacs server / client.
+** emacs --daemon   emacs --fg-daemon emacsclient -cache
+** client starts is 8+ Seconds.
+** Use C-x 5 0 to kill instance.
+** emacs start 3.24 secs. emacsclient starts in 2.37 secs.
+** emacs takes 8+ seconds to start emacsclient *sometimes*.
+** how to start emacs-daemon automatically at logon?
+only advantage is should be able to force files to open quickly in emacsclient.
+** how to start emacsclient from a script.
+need to do more research.
+
+
+# begin_src emacs-lisp
+(defvar lawlist-context-menu-map
+  (let ((map (make-sparse-keymap "Context Menu")))
+    (define-key map [help-for-help] (cons "Help" 'help-for-help))
+    (define-key map [seperator-two] '(menu-item "--"))
+    (define-key map [my-menu] (cons "LAWLIST" (make-sparse-keymap "My Menu")))
+    (define-key map [my-menu 01] (cons "Next Line" 'next-line))
+    (define-key map [my-menu 02] (cons "Previous Line" 'previous-line))
+    (define-key map [seperator-one] '(menu-item "--"))
+  map) "Keymap for the LAWLIST context menu.")
+# end-src
+
+* do I want consult-notes or consult-denote?
+* _Projects/org dir created with notes, roam, tasks, journal dirs and a copy of 3.org_
+* DONE init.el.org brought up to date to match init.el on New.
+CLOSED: [2025-05-09 Fri 08:33]
+** init.el.org brought up to date and placed in ~/project.
+** +this is now the only template that should be tangled to produce init.el for all machines+*
+* zshrc - New wase using oh-my-zsh w/ p10k.
+** New is now using same .zshrc as Plucky plus pyenv and some iterm2 integration, some other items.
+** Big is using oh-my-posh w/o p10k.
+** Plucky is using neither oh-my-posh nor oh-my-zsh.

@@ -136,8 +136,14 @@ Fix ediff problem with text files.
     :init
     (progn
       (setq dashboard-items '((recents . 10)
+                              (bookmarks .5)
                               (projects . 5)
                               (agenda . 5)))
+      (setq dashboard-item-shortcuts '((recents   . "r")
+                                   (bookmarks . "m")
+                                   (projects  . "p")
+                                   (agenda    . "a")))
+      
       (setq dashboard-show-shortcuts nil)
       (setq dashboard-center-contents nil)
       (setq dashboard-banner-logo-title "New")
@@ -209,7 +215,7 @@ Fix ediff problem with text files.
 
   use-package nerd-icons-completion
   :config
-  
+
     (use-package orderless
         :ensure t :custom (completion-styles '(orderless basic))
         (completion-category-overrides '((file (styles  basic partial-completion)))))
@@ -241,7 +247,6 @@ Fix ediff problem with text files.
            (vertico-mode))
 
 
-
       (use-package nerd-icons-dired
         :hook (dired-mode . nerd-icons-dired-mode))
 
@@ -250,6 +255,8 @@ Fix ediff problem with text files.
         (setq denote-file-type nil)
         (add-hook 'dired-mode-hook #'denote-dired-mode)
         (keymap-global-set "s-b" 'denote)
+
+  (setq completion-styles '(substring basic))
 #+end_src
 
 * Consult
@@ -277,20 +284,69 @@ Fix ediff problem with text files.
 
 * Marginalia
 #+begin_src emacs-lisp
-(use-package marginalia
-  ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
-  ;; available in the *Completions* buffer, add it to the
-  ;; `completion-list-mode-map'.
-  :bind (:map minibuffer-local-map
-              ("M-A" . marginalia-cycle))
+  (use-package marginalia
+    ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
+    ;; available in the *Completions* buffer, add it to the
+    ;; `completion-list-mode-map'.
+    :bind (:map minibuffer-local-map
+                ("M-A" . marginalia-cycle))
 
-  ;; The :init section is always executed.
+    ;; The :init section is always executed.
+    :init
+    ;; Marginalia must be activated in the :init section of use-package such that
+    ;; the mode gets enabled right away. Note that this forces loading the
+    ;; package.
+    (marginalia-mode))
+
+  (use-package corfu
+  ;; Optional customizations
+  ;; :custom
+  ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+  ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
+  ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
+  ;; (corfu-preview-current nil)    ;; Disable current candidate preview
+  ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
+  ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
+
+  ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
+  ;; :hook ((prog-mode . corfu-mode)
+  ;;        (shell-mode . corfu-mode)
+  ;;        (eshell-mode . corfu-mode))
+
   :init
-  ;; Marginalia must be activated in the :init section of use-package such that
-  ;; the mode gets enabled right away. Note that this forces loading the
-  ;; package.
-  (marginalia-mode))
+
+  ;; Recommended: Enable Corfu globally.  Recommended since many modes provide
+  ;; Capfs and Dabbrev can be used globally (M-/).  See also the customization
+  ;; variable `global-corfu-modes' to exclude certain modes.
+  (global-corfu-mode)
+
+  ;; Enable optional extension modes:
+  ;; (corfu-history-mode)
+  ;; (corfu-popupinfo-mode)
+  )
+
+;; A few more useful configurations...
+(use-package emacs
+  :custom
+  ;; TAB cycle if there are only few candidates
+  ;; (completion-cycle-threshold 3)
+
+  ;; Enable indentation+completion using the TAB key.
+  ;; `completion-at-point' is often bound to M-TAB.
+  (tab-always-indent 'complete)
+
+  ;; Emacs 30 and newer: Disable Ispell completion function.
+  ;; Try `cape-dict' as an alternative.
+  (text-mode-ispell-word-completion nil)
+
+  ;; Hide commands in M-x which do not apply to the current mode.  Corfu
+  ;; commands are hidden, since they are not used via M-x. This setting is
+  ;; useful beyond Corfu.
+  (read-extended-command-predicate #'command-completion-default-include-p))
+
 #+end_src
+
+
 
 * Org fonts
 
@@ -401,7 +457,7 @@ Fix ediff problem with text files.
     :init
     (setq org-roam-v2-ack t)
     :custom
-    (org-roam-directory "~/org/roam")
+    (org-roam-directory "~/projects/org/roam")
     (org-roam-completion-everywhere t)
 
     :bind (("C-c n l" . org-roam-buffer-toggle)
@@ -639,25 +695,6 @@ Fix ediff problem with text files.
            "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
            "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
            "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
-           "603a831e0f2e466480cdc633ba37a0b1ae3c3e9a4e90183833bc4def3421a961"
-           "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8"
-           "8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098"
-           "0c860c4fe9df8cff6484c54d2ae263f19d935e4ff57019999edbda9c7eda50b8"
-           "4eb9462a8fff9153bfe88a9ef53aa043aec8b79c5298d2873e887e0c3a8b03de"
-           "37b6695bae243145fa2dfb41440c204cd22833c25cd1993b0f258905b9e65577"
-           "571661a9d205cb32dfed5566019ad54f5bb3415d2d88f7ea1d00c7c794e70a36"
-           "2b501400e19b1dd09d8b3708cefcb5227fda580754051a24e8abf3aff0601f87"
-           "ffafb0e9f63935183713b204c11d22225008559fa62133a69848835f4f4a758c"
-           "77fff78cc13a2ff41ad0a8ba2f09e8efd3c7e16be20725606c095f9a19c24d3d"
-           "81f53ee9ddd3f8559f94c127c9327d578e264c574cda7c6d9daddaec226f87bb"
-           "703a3469ae4d2a83fd5648cac0058d57ca215d0fea7541fb852205e4fae94983"
-           "f079ef5189f9738cf5a2b4507bcaf83138ad22d9c9e32a537d61c9aae25502ef"
-           "64045b3416d83e5eac0718e236b445b2b3af02ff5bcd228e9178088352344a92"
-           "da75eceab6bea9298e04ce5b4b07349f8c02da305734f7c0c8c6af7b5eaa9738"
-           "78e6be576f4a526d212d5f9a8798e5706990216e9be10174e3f3b015b8662e27"
-           "90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940"
-           "c4cecd97a6b30d129971302fd8298c2ff56189db0a94570e7238bc95f9389cfb"
-           "70cfdd2e7beaf492d84dfd5f1955ca358afb0a279df6bd03240c2ce74a578e9e"
            default))
        '(dashboard-startupify-list
          '(dashboard-insert-banner dashboard-insert-newline
@@ -704,14 +741,16 @@ Fix ediff problem with text files.
 
 * Development Setup
 #+begin_src emacs-lisp
-(elpy-enable)
+  (elpy-enable)
 
-;; Enable Flycheck
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-;; added to supress flymake error message when compliing python (12AUG2022)
-(remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
+  ;; Enable Flycheck
+  (when (require 'flycheck nil t)
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+    (add-hook 'elpy-mode-hook 'flycheck-mode))
+  ;; added to supress flymake error message when compliing python (12AUG2022)
+  (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
 
-;; User-Defined init.el ends here
+  (put 'dired-find-alternate-file 'disabled nil)
+  
+  ;; User-Defined init.el ends here
 #+end_src
