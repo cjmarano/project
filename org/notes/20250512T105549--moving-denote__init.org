@@ -1,0 +1,7 @@
+#+title:      Moving denote.
+#+date:       [2025-05-12 Mon 10:55]
+#+filetags:   :init:
+#+identifier: 20250512T105549
+
+Moved notes dir to ~/project/org/notes/ to prevent issues with git on all three machines.
+Since denote produces unique timestamps for every note there should be no collisions.
