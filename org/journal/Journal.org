@@ -1,0 +1,9 @@
+
+* 2025
+** 2025-05 May
+*** 2025-05-07 Wednesday
+*** 2025-05-12 Monday
+**** 02:22 PM - Journal                                             :journal:
+
+Moved older init and zshrc to Mystuff/Old... Generally cleaned up.
+Made sure paths in init.el on New all pointed to ~/project/org/ (tasks, notes, etc.)
