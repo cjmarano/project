@@ -1,3 +1,4 @@
+
 * May
 * Start times around 3 seconds.
 ** New taking 3+ seconds. Big now taking 9+ seconds.
@@ -58,9 +59,13 @@ CLOSED: [2025-05-06 Tue 12:45]
 CLOSED: [2025-05-09 Fri 08:33]
 ** init.el.org brought up to date and placed in ~/project.
 ** +this is now the only template that should be tangled to produce init.el for all machines+*
-* DONE _Projects/org dir created with notes, roam, tasks, journal dirs and a copy of 3.org_
-CLOSED: [2025-05-09 Fri 12:28]
-* DONE zshrc - New using oh-my-zsh w/ p10k.
+* COMPLETED projects/org/3.org is going to be a problem.
+CLOSED: [2025-05-12 Mon 14:48]
+look into merges in git.
+** Easier to just go to a denote format for all notes. Since each note is unique there won't be collisions.
+* COMPLETED _Projects/org dir created with notes, roam, tasks, journal dirs and a copy of 3.org_
+CLOSED: [2025-05-14 Wed 10:06]
+* COMPLETED zshrc - New using oh-my-zsh w/ p10k.
 CLOSED: [2025-05-09 Fri 12:28]
 ** New & Big now using same .zshrc as Plucky plus pyenv and some iterm2 integration, some other items.
 alias batcat doesn't work. bat is installed.
@@ -68,7 +73,11 @@ alias batcat doesn't work. bat is installed.
 *** Plucky was using neither oh-my-posh nor oh-my-zsh.
 ** Prot init.el working on Big in terminal mode, theme and apps loading but no GUI.
 ** Prot init.el in project/Prot is now the default aternate init.el if .emacs.d init .el gets corrupted.
-* WAITING emacs server / client.
+* DONE Replacing hard coded paths with $HOME could make init.el transportable.
+CLOSED: [2025-05-14 Wed 10:06]
+Big doesn't seem to like this. Had to set back to /Users/charles.marano/ 
+* TODO do I want consult-notes or consult-denote?
+* NEXT emacs server / client.
 ** emacs --daemon   emacs --fg-daemon emacsclient -cache
 ** client starts is 8+ Seconds.
 ** Use C-x 5 0 to kill instance.
@@ -76,23 +85,12 @@ alias batcat doesn't work. bat is installed.
 ** emacs takes 8+ seconds to start emacsclient *sometimes*.
 ** how to start emacs-daemon automatically at logon?
 only advantage is should be able to force files to open quickly in emacsclient.
-** how to start emacsclient from a script.
-need to do more research.
+** how to start emacsclient from a need to do more research.
+can do emacs -- daemon then emacsclient -c successfuly. Start time is 5+ secs.
 
-
-# begin_src emacs-lisp
-(defvar lawlist-context-menu-map
-  (let ((map (make-sparse-keymap "Context Menu")))
-    (define-key map [help-for-help] (cons "Help" 'help-for-help))
-    (define-key map [seperator-two] '(menu-item "--"))
-    (define-key map [my-menu] (cons "LAWLIST" (make-sparse-keymap "My Menu")))
-    (define-key map [my-menu 01] (cons "Next Line" 'next-line))
-    (define-key map [my-menu 02] (cons "Previous Line" 'previous-line))
-    (define-key map [seperator-one] '(menu-item "--"))
-  map) "Keymap for the LAWLIST context menu.")
-# end-src
-
-* TODO projects/org/3.org is going to be a problem.
-look into merges in git.
-** Easier to just go to a denote format for all notes. Since each note is unique there won't be collisions.
-* TODO do I want consult-notes or consult-denote?
+* NEXT Doing Zsh Scripting.
+** Debugging:
+1. Call the script with the -x option. Example: zsh -x myscript.
+2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
+3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
+** Completed into pdf: Scripting_Intro_Zsh.pdf
