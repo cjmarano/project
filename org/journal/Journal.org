@@ -7,3 +7,8 @@
 
 Moved older init and zshrc to Mystuff/Old... Generally cleaned up.
 Made sure paths in init.el on New all pointed to ~/project/org/ (tasks, notes, etc.)
+*** 2025-05-13 Tuesday
+**** 02:19 PM - Journal                                             :journal:
+
+Set init.el on Big to init.el_Big_slow then modified init,el - replacing at setopt lines with setq (the older form as used by init.el on New).
+Startup time went down by 3 seconds.
