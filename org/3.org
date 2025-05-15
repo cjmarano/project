@@ -63,7 +63,7 @@ CLOSED: [2025-05-09 Fri 08:33]
 CLOSED: [2025-05-12 Mon 14:48]
 look into merges in git.
 ** Easier to just go to a denote format for all notes. Since each note is unique there won't be collisions.
-* COMPLETED _Projects/org dir created with notes, roam, tasks, journal dirs and a copy of 3.org_
+* COMPLETED Projects/org dir created w/ notes, roam, tasks, journal dirs and copy of 3.org
 CLOSED: [2025-05-14 Wed 10:06]
 * COMPLETED zshrc - New using oh-my-zsh w/ p10k.
 CLOSED: [2025-05-09 Fri 12:28]
@@ -76,7 +76,17 @@ alias batcat doesn't work. bat is installed.
 * DONE Replacing hard coded paths with $HOME could make init.el transportable.
 CLOSED: [2025-05-14 Wed 10:06]
 Big doesn't seem to like this. Had to set back to /Users/charles.marano/ 
+* COMPLETED esup -  error'd out the emacs startup profiler.
+CLOSED: [2025-05-15 Thu 07:59]
+
 * TODO do I want consult-notes or consult-denote?
+* NEXT Doing Zsh Scripting.
+** No good intros to zsh programming found so far.
+** Debugging:
+1. Call the script with the -x option. Example: zsh -x myscript.
+2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
+3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
+** Completed into pdf: Scripting_Intro_Zsh.pdf
 * NEXT emacs server / client.
 ** emacs --daemon   emacs --fg-daemon emacsclient -cache
 ** client starts is 8+ Seconds.
@@ -88,9 +98,4 @@ only advantage is should be able to force files to open quickly in emacsclient.
 ** how to start emacsclient from a need to do more research.
 can do emacs -- daemon then emacsclient -c successfuly. Start time is 5+ secs.
 
-* NEXT Doing Zsh Scripting.
-** Debugging:
-1. Call the script with the -x option. Example: zsh -x myscript.
-2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
-3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
-** Completed into pdf: Scripting_Intro_Zsh.pdf
+* Lisp programming.
