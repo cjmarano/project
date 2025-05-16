@@ -1,0 +1,6 @@
+#+title:      Init.el notes 1
+#+date:       [2025-04-16 Wed 14:25]
+#+filetags:   :emacs:
+#+identifier: 20250416T142523
+
+Comparing org/journal with Denote for record keeping about init.el init.el.org and initorgmodern.org are good for keeping track of what parts of the init.el file do things. The init.el file should be as clean as possible.

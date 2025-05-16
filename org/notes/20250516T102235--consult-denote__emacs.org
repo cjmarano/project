@@ -1,0 +1,6 @@
+#+title:      Consult-denote
+#+date:       [2025-05-16 Fri 10:22]
+#+filetags:   :emacs:
+#+identifier: 20250516T102235
+
+Installed consult-denote. Might use this for daily notes instead of org-journal.
