@@ -1,6 +1,6 @@
 
 * May
-* Start times around 3 seconds.
+* Start times around 3 seconds. New is 7+ seconds.
 ** New taking 3+ seconds. Big now taking 9+ seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
 * COMPLETED Script to launch Prot emacs fails on Big. works on New.
@@ -32,20 +32,22 @@ CLOSED: [2025-05-02 Fri 08:17]
 ** Problem was with Org Startup src block. Removing it and recreating it by cut and paste resolved issue.
 a couple of other minor issues found in test.el after tangle that were unrelated to babe/tangling.
 test.el is now in synch with working init.el on New - which is the primary init.el for now.
-* COMPLETED In init.el.org move ;; comments out of src blocks and move to sub headlines.
+** COMPLETED In init.el.org move ;; comments out of src blocks and move to sub headlines.
 CLOSED: [2025-05-02 Fri 12:51]
 ** Moved org fonts, org setup, org roam src blocks out of init.el.org and tangle was 100%
 problem exists in those blocks. Need to check them then add one by one.
 
 ** slight changes to Prot_Basic.init.el pushed to github.
-* COMPLETED Put xah_lee.el on New Desktop. Bare bones, works. Simple.
-CLOSED: [2025-05-02 Fri 14:32]
 * COMPLETED Tweaks: Going through xah_lee's init.el, alos Prot's and emacs for writers.
 CLOSED: [2025-05-06 Tue 12:44]
 ** DONE added dired-x C-c, C-j is jump to parent dir - opens dired in directory that holds buffer.
 CLOSED: [2025-05-06 Tue 12:44]
 ** DONE added electric parens - if you type ( it adds closing paren automatically)
 CLOSED: [2025-05-06 Tue 12:43]
+** COMPLETED Put xah_lee.el on New Desktop. Bare bones, works. Simple.
+CLOSED: [2025-05-02 Fri 14:32]
+** COMPLETED esup -  error'd out the emacs startup profiler.
+CLOSED: [2025-05-15 Thu 07:59]
 * COMPLETED Couldn't change cursor color using (setq-default cursor-color '"#00FF00")
 CLOSED: [2025-05-05 Mon 14:33]
 ** changed cursor color via M-x change-face --> cursor --> 00FF00 might change cursor type to box.
@@ -59,12 +61,12 @@ CLOSED: [2025-05-06 Tue 12:45]
 CLOSED: [2025-05-09 Fri 08:33]
 ** init.el.org brought up to date and placed in ~/project.
 ** +this is now the only template that should be tangled to produce init.el for all machines+*
-* COMPLETED projects/org/3.org is going to be a problem.
+* COMPLETED Projects/org dir created w/ notes, roam, tasks, journal dirs and copy of 3.org
+CLOSED: [2025-05-14 Wed 10:06]
+** COMPLETED projects/org/3.org is going to be a problem.
 CLOSED: [2025-05-12 Mon 14:48]
 look into merges in git.
 ** Easier to just go to a denote format for all notes. Since each note is unique there won't be collisions.
-* COMPLETED Projects/org dir created w/ notes, roam, tasks, journal dirs and copy of 3.org
-CLOSED: [2025-05-14 Wed 10:06]
 * COMPLETED zshrc - New using oh-my-zsh w/ p10k.
 CLOSED: [2025-05-09 Fri 12:28]
 ** New & Big now using same .zshrc as Plucky plus pyenv and some iterm2 integration, some other items.
@@ -76,9 +78,8 @@ alias batcat doesn't work. bat is installed.
 * DONE Replacing hard coded paths with $HOME could make init.el transportable.
 CLOSED: [2025-05-14 Wed 10:06]
 Big doesn't seem to like this. Had to set back to /Users/charles.marano/ 
-* COMPLETED esup -  error'd out the emacs startup profiler.
-CLOSED: [2025-05-15 Thu 07:59]
-
+* COMPLETED Updated init.el on Big to match init.el on New.
+CLOSED: [2025-05-15 Thu 10:30]
 * TODO do I want consult-notes or consult-denote?
 * NEXT Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
