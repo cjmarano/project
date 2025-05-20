@@ -1,1 +1,0 @@
-emacs -Q -l /Users/charles.marano/.emacs.d/profile-dotemacs.el -f profile-dotemacs
