@@ -11,6 +11,20 @@ emacs -q -l ~/project/Prot/init.el
 No good. It will open in terminal instead of GUI. Also not loading theme, probably not fonts.
 ** Problem is only on Big, Works fine GUI on New.
 Tried comparing Prot/init.el on Big and New - no differences.
+* COMPLETED Tweaks: Going through xah_lee's init.el, alos Prot's and emacs for writers.
+CLOSED: [2025-05-06 Tue 12:44]
+** DONE added dired-x C-c, C-j is jump to parent dir - opens dired in directory that holds buffer.
+CLOSED: [2025-05-06 Tue 12:44]
+** DONE added electric parens - if you type ( it adds closing paren automatically)
+CLOSED: [2025-05-06 Tue 12:43]
+** COMPLETED Put xah_lee.el on New Desktop. Bare bones, works. Simple.
+CLOSED: [2025-05-02 Fri 14:32]
+** COMPLETED esup -  error'd out the emacs startup profiler.
+CLOSED: [2025-05-15 Thu 07:59]
+** COMPLETED Couldn't change cursor color using (setq-default cursor-color '"#00FF00")
+CLOSED: [2025-05-05 Mon 14:33]
+** changed cursor color via M-x change-face --> cursor --> 00FF00 might change cursor type to box.
+** Changed cursor type to box and color to IndianRed2.
 * COMPLETED Consult is working as intended?
 CLOSED: [2025-04-30 Wed 14:36]
 For instance: when switching buffers with C-x b Consult shows previews of buffers.
@@ -25,6 +39,12 @@ _underline_ is _
 +strike-through+ is +
  * NEXT Changed setq to setopt for customizable variables in init.el on Big
 ** Don't see any downside yet. Will try on New later.
+* COMPLETED Updated init.el on Big to match init.el on New.
+CLOSED: [2025-05-15 Thu 10:30]
+** COMPLETED init.el.org brought up to date to match init.el on New.
+CLOSED: [2025-05-09 Fri 08:33]
+** init.el.org brought up to date and placed in ~/project.
+** +this is now the only template that should be tangled to produce init.el for all machines+*
 * COMPLETED Init.el tangled from init.el.org successfully.
 CLOSED: [2025-05-02 Fri 08:17]
 ** Tangled test.el has issues. Do a diff with current init.el to see why.
@@ -39,29 +59,11 @@ problem exists in those blocks. Need to check them then add one by one.
 
 ** slight changes to Prot_Basic.init.el pushed to github.
 ** updated init.el.org to include changes to New.
-* COMPLETED Tweaks: Going through xah_lee's init.el, alos Prot's and emacs for writers.
-CLOSED: [2025-05-06 Tue 12:44]
-** DONE added dired-x C-c, C-j is jump to parent dir - opens dired in directory that holds buffer.
-CLOSED: [2025-05-06 Tue 12:44]
-** DONE added electric parens - if you type ( it adds closing paren automatically)
-CLOSED: [2025-05-06 Tue 12:43]
-** COMPLETED Put xah_lee.el on New Desktop. Bare bones, works. Simple.
-CLOSED: [2025-05-02 Fri 14:32]
-** COMPLETED esup -  error'd out the emacs startup profiler.
-CLOSED: [2025-05-15 Thu 07:59]
-* COMPLETED Couldn't change cursor color using (setq-default cursor-color '"#00FF00")
-CLOSED: [2025-05-05 Mon 14:33]
-** changed cursor color via M-x change-face --> cursor --> 00FF00 might change cursor type to box.
-** Changed cursor type to box and color to IndianRed2.
 * COMPLETED Org Agenda? is just a menu for tasks, notes, journal, etc.
 CLOSED: [2025-05-06 Tue 12:45]
 ** Org tags?
 ** Org Capture-templates?
 ** Org-refile
-* COMPLETED init.el.org brought up to date to match init.el on New.
-CLOSED: [2025-05-09 Fri 08:33]
-** init.el.org brought up to date and placed in ~/project.
-** +this is now the only template that should be tangled to produce init.el for all machines+*
 * COMPLETED Projects/org dir created w/ notes, roam, tasks, journal dirs and copy of 3.org
 CLOSED: [2025-05-14 Wed 10:06]
 ** COMPLETED projects/org/3.org is going to be a problem.
@@ -79,8 +81,6 @@ alias batcat doesn't work. bat is installed.
 * DONE Replacing hard cocdded paths with $HOME could make init.el transportable.
 CLOSED: [2025-05-14 Wed 10:06]
 Big doesn't seem to like this. Had to set back to /Users/charles.marano/ 
-* COMPLETED Updated init.el on Big to match init.el on New.
-CLOSED: [2025-05-15 Thu 10:30]
 * COMPLETED Search at point.
 CLOSED: [2025-05-16 Fri 11:48]
 Words C-s C-w
@@ -112,3 +112,4 @@ only advantage is should be able to force files to open quickly in emacsclient.
 ** alias erc='emacsclient -cn <filename> &'  <-- seems to work. For intial frame after emacs --daemon.
 ** emacsclient --no-wait -c <filename> <-- new GUI frame.
 ** emacsclient -n <filename>  <-- reuse frame, seems to work.
+** Still having issues with re-using frames.
