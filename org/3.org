@@ -1,6 +1,6 @@
 
 * May
-* Start times around 3 seconds. New is 7+ seconds.
+* Start times around 3 seconds.
 ** New taking 3+ seconds. Big now taking 9+ seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
 * COMPLETED Script to launch Prot emacs fails on Big. works on New.
@@ -38,6 +38,7 @@ CLOSED: [2025-05-02 Fri 12:51]
 problem exists in those blocks. Need to check them then add one by one.
 
 ** slight changes to Prot_Basic.init.el pushed to github.
+** updated init.el.org to include changes to New.
 * COMPLETED Tweaks: Going through xah_lee's init.el, alos Prot's and emacs for writers.
 CLOSED: [2025-05-06 Tue 12:44]
 ** DONE added dired-x C-c, C-j is jump to parent dir - opens dired in directory that holds buffer.
@@ -89,7 +90,8 @@ Characters C-s C-M-y
 Whole Lines C-s M-s C-e
 
 To begin a search and replace on the selected words, characters, or sentence M-%
-* TODO do I want consult-notes or consult-denote?
+* COMPLETED added consult-denote?
+CLOSED: [2025-05-19 Mon 09:44]
 * NEXT Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:

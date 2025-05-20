@@ -70,63 +70,67 @@ Contextual menu with right mouse button
 Fix ediff problem with text files.
 
 #+begin_src emacs-lisp
-     (add-to-list 'default-frame-alist '(height . 60))
-     (add-to-list 'default-frame-alist '(width . 100))
+   (add-to-list 'default-frame-alist '(height . 60))
+   (add-to-list 'default-frame-alist '(width . 100))
 
-    (setq savehit-mode t)
-    (setq org-indent-mode t)
-    (setq-default cursor-type 'box)
-    (setq ring-bell-function 'ignore)
-     (setq inhibit-splash-screen t)
-     (setq inhibit-startup-screen t)
-     (global-font-lock-mode 1)
-     (setq-default indent-tabs-mode nil)
-     (setq-default tab-width 4)
-     (transient-mark-mode t)
-     (global-display-line-numbers-mode t)
-     (column-number-mode t)
-     (tool-bar-mode -1)
-     (global-hl-line-mode +1)
-     (setq global-auto-revert-mode 1)
-     (setq auto-revert-use-notify t) 
-     (setq use-short-answers t)
-     (setq ediff-split-window-function 'split-window-horizontally)
-     (electric-pair-mode 1)
-     (require 'dired-x)
-
-    
-     (keymap-global-set "M-p" 'previous-buffer)
-     (keymap-global-set "M-n" 'next-buffer)
-     (keymap-global-set "M-o" 'other-window)
-     (keymap-global-set "M-g" 'recentf)
-
-     (dolist (mode '(org-mode-hook
-                     term-mode-hook
-                     shell-mode-hook
-                     eshell-mode-hook
-                     vterm-mode-hook))
-       (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
-     (recentf-mode 1)
-     (setq recentf-max-menu-items 10)
-     (setq recentf-max-saved-items 25)
-     (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+  (setq history-lenght 10 
+  (setq savehit-mode t)
+  (setq org-indent-mode t)
+  (setq-default cursor-type 'hbar)
+  (setq set-cursor-color "Cyan")
+  (setq ring-bell-function 'ignore)
+   (setq inhibit-splash-screen t)
+   (setq inhibit-startup-screen t)
+   (global-font-lock-mode 1)
+   (setq-default indent-tabs-mode nil)
+   (setq-default tab-width 4)
+   (transient-mark-mode t)
+   (global-display-line-numbers-mode t)
+   (column-number-mode t)
+   (tool-bar-mode -1)
+   (global-hl-line-mode +1)
+   (setq global-auto-revert-mode 1)
+   (setq auto-revert-use-notify t) 
+   (setq use-short-answers t)
+   (setq ediff-split-window-function 'split-window-horizontally)
+   ;; removes ediff control window put controls in window at bottom of frame.
+   ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+   (electric-pair-mode 1)
+   (require 'dired-x)
 
 
-     (when (display-graphic-p)
-       (context-menu-mode))
+   (keymap-global-set "M-p" 'previous-buffer)
+   (keymap-global-set "M-n" 'next-buffer)
+   (keymap-global-set "M-o" 'other-window)
+   (keymap-global-set "M-g" 'recentf)
+
+   (dolist (mode '(org-mode-hook
+                   term-mode-hook
+                   shell-mode-hook
+                   eshell-mode-hook
+                   vterm-mode-hook))
+     (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+   (recentf-mode 1)
+   (setq recentf-max-menu-items 10)
+   (setq recentf-max-saved-items 25)
+   (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 
-     (file-name-shadow-mode 1)
-     (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
-     (setq delete-by-moving-to-trash t)
-     (setq dired-dwim-target t)
+   (when (display-graphic-p)
+     (context-menu-mode))
 
-     (setq ls-lisp-use-insert-directory-program nil)
-          (require 'ls-lisp)
 
-     
-     (setq ediff-diff-options "--text")
+   (file-name-shadow-mode 1)
+   (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
+   (setq delete-by-moving-to-trash t)
+   (setq dired-dwim-target t)
+
+   (setq ls-lisp-use-insert-directory-program nil)
+        (require 'ls-lisp)
+
+   
+   (setq ediff-diff-options "--text")
 #+end_src
 
 * dashboard
@@ -261,25 +265,33 @@ Fix ediff problem with text files.
 
 * Consult
 #+begin_src emacs-lisp
-(setq completion-styles '(substring basic))
+  (setq completion-styles '(substring basic))
 
-(use-package consult
-  ;; Replace bindings. Lazily loaded due by `use-package'.
-  :bind (;; C-c bindings in `mode-specific-map'
-         ("C-c M-x" . consult-mode-command)
-         ("C-c h" . consult-history)
-         ("C-c k" . consult-kmacro)
-         ("C-c m" . consult-man)
-         ("C-c i" . consult-info)
-         ([remap Info-search] . consult-info)
-         ;; C-x bindings in `ctl-x-map'
-         ("C-x M-:" . consult-complex-command)    
-         ("C-x b" . consult-buffer)               
-         ("C-x 4 b" . consult-buffer-other-window)
-         ("C-x 5 b" . consult-buffer-other-frame) 
-         ("C-x t b" . consult-buffer-other-tab)   
-         ("C-x r b" . consult-bookmark)           
-         ("C-x p b" . consult-project-buffer)))     
+  (use-package consult
+    ;; Replace bindings. Lazily loaded due by `use-package'.
+    :bind (;; C-c bindings in `mode-specific-map'
+           ("C-c M-x" . consult-mode-command)
+           ("C-c h" . consult-history)
+           ("C-c k" . consult-kmacro)
+           ("C-c m" . consult-man)
+           ("C-c i" . consult-info)
+           ([remap Info-search] . consult-info)
+           ;; C-x bindings in `ctl-x-map'
+           ("C-x M-:" . consult-complex-command)    
+           ("C-x b" . consult-buffer)               
+           ("C-x 4 b" . consult-buffer-other-window)
+           ("C-x 5 b" . consult-buffer-other-frame) 
+           ("C-x t b" . consult-buffer-other-tab)   
+           ("C-x r b" . consult-bookmark)           
+           ("C-x p b" . consult-project-buffer)))
+
+  (use-package consult-denote
+  :ensure t
+  :bind
+  (("C-c n f" . consult-denote-find)
+   ("C-c n g" . consult-denote-grep))
+  :config
+  (consult-denote-mode 1))
 #+end_src
 
 * Marginalia
@@ -298,7 +310,7 @@ Fix ediff problem with text files.
     ;; package.
     (marginalia-mode))
 
-  (use-package corfu
+  ;; (use-package corfu
   ;; Optional customizations
   ;; :custom
   ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
@@ -318,12 +330,12 @@ Fix ediff problem with text files.
   ;; Recommended: Enable Corfu globally.  Recommended since many modes provide
   ;; Capfs and Dabbrev can be used globally (M-/).  See also the customization
   ;; variable `global-corfu-modes' to exclude certain modes.
-  (global-corfu-mode)
+  ;; (global-corfu-mode)
 
   ;; Enable optional extension modes:
   ;; (corfu-history-mode)
   ;; (corfu-popupinfo-mode)
-  )
+  ;; )
 
 ;; A few more useful configurations...
 (use-package emacs
@@ -337,7 +349,7 @@ Fix ediff problem with text files.
 
   ;; Emacs 30 and newer: Disable Ispell completion function.
   ;; Try `cape-dict' as an alternative.
-  (text-mode-ispell-word-completion nil)
+  ;; (text-mode-ispell-word-completion nil)
 
   ;; Hide commands in M-x which do not apply to the current mode.  Corfu
   ;; commands are hidden, since they are not used via M-x. This setting is
@@ -521,7 +533,7 @@ Fix ediff problem with text files.
 (setq python-indent-guess-indent-offset t)  
 (setq python-indent-guess-indent-offset-verbose nil)
 
-(setq python-python-command "Users/charles.marano/.pyenv/shims/python3")
+(setq python-python-command "$HOME/.pyenv/shims/python3")
 (setq python-shell-completion-native-enable nil)
 #+end_src
 
@@ -712,7 +724,7 @@ Fix ediff problem with text files.
        '(org-faces-easy-properties
          '((todo . :background) (tag . :foreground) (priority . :foreground)))
        '(org-id-locations-file
-         "/Users/charles.marano/.cache/emacs/var/org/id-locations.el")
+         "/$HOME/.cache/emacs/var/org/id-locations.el")
        '(org-startup-folded 'fold)
        '(org-tempo-keywords-alist nil)
        '(package-selected-packages
@@ -729,11 +741,10 @@ Fix ediff problem with text files.
        '(savehist-additional-variables '(kill-ring register-alist\ ))
        '(warning-suppress-log-types '((use-package)))
       ;;  '(yas-snippet-dirs
-      ;;    '("/Users/charles.marano/.emacs.d/elpa/yasnippet-snippets-20250225.950"
-      ;;      ""
-      ;;      "/Users/charles.marano/.emacs.d/elpa/elpy-20250404.2349/snippets/")))
+      ;;    '("/$HOME/.emacs.d/elpa/yasnippet-snippets-20250225.950"
+      ;;      "/$HOME/.emacs.d/elpa/elpy-20250404.2349/snippets/")))
 
-      (python-shell-interpeter "users/charles.marano/.pyenv/shims/python3")
+      (python-shell-interpeter "$HOME/.pyenv/shims/python3")
 
       ;; duplicate of above? add-hook is different than selected packages.
       (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
