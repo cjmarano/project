@@ -1,0 +1,19 @@
+Vertico/Consult author here. Thank you all for the insightful comments! It is interesting to see feedback regarding functionality which is particularly liked or disliked.
+
+I enjoy the integration with Embark and Marginalia for quickly looking up commands and keybindings and for orientation in unfamiliar modes. If you haven't already looked into Embark, I suggest you do that after you familiarized yourself with Vertico/Consult.
+
+I have a few favorites in the Consult package, which had some impact on my workflow. Most of them have already been listed in other comments I think.
+
+consult-buffer: This one is quite obvious. It is my main entry point to access buffers and files.
+
+consult-line: Searching, important when I am interested in all matches. For jumping I often use Isearch though.
+
+consult-(rip)grep: Search and replace (Embark + Wgrep!) in projects.
+
+consult-info: This one has made it much easier for me to quickly look up something in the Emacs manual. I am sure there exist other good alternatives to search the manual, but I always found the info system a bit inaccessible. The documentation is one of the main strengths of Emacs and this motivated me to add this command.
+
+consult-flymake: Jumping around, fixing compilation warnings and errors when coding.
+
+consult-history: I use Eshell, where I need this command the most.
+
+consult-locate: Searching my music collection and enqueuing via Embark. This is certainly an obscure use case you and you will likely fare better with some database approach.
