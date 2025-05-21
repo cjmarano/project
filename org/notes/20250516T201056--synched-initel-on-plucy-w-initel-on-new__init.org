@@ -1,0 +1,7 @@
+#+title:      Synched init.el on Plucy w/ init.el on New
+#+date:       [2025-05-16 Fri 20:10]
+#+filetags:   :init:
+#+identifier: 20250516T201056
+
+Saved init.el from New to project directory then used diff to synch Plucky's init.el with New's, which is also syched to Big. All three machines should now have similar init.els
+Now need to update init.el.org with recent changes (Consult-denote, etc.)
