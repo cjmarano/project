@@ -92,7 +92,13 @@ Whole Lines C-s M-s C-e
 To begin a search and replace on the selected words, characters, or sentence M-%
 * COMPLETED added consult-denote?
 CLOSED: [2025-05-19 Mon 09:44]
-* NEXT Doing Zsh Scripting.
+git update-index --no-assume-unchanged path/to/file* COMPLETED Big reorg of Project w/ 4 separate git commits from New.
+CLOSED: [2025-05-20 Tue 13:30]
+* COMPLETED Reconciled init.el.org with New. Big should be the same.
+CLOSED: [2025-05-21 Wed 13:56]
+** Master copy of init.el.org is now in ~/project/
+** tangling init.el.org will produce newtest.el in ~/.emacs.d/
+* Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
 1. Call the script with the -x option. Example: zsh -x myscript.
@@ -100,16 +106,16 @@ CLOSED: [2025-05-19 Mon 09:44]
 3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
 ** Completed into pdf: Scripting_Intro_Zsh.pdf
 * Lisp programming.
-* NEXT emacs server / client.
-** emacs --daemon   emacs --fg-daemon emacsclient -cache
-** client starts is 8+ Seconds. <-- using erc alias client starts instantly.
-using  emacsclient --no-wait -c gives sub 3 second open of file.
-** emacs start 3.24 secs. emacsclient starts in 2.37 secs.
-** Use C-x 5 0 to kill instance.
-** how to start emacs-daemon automatically at logon?
-only advantage is should be able to force files to open quickly in emacsclient.
-** emacsclient --no-wait -r <filename>   <-- should reuse existing frame, doesn't.
-** alias erc='emacsclient -cn <filename> &'  <-- seems to work. For intial frame after emacs --daemon.
-** emacsclient --no-wait -c <filename> <-- new GUI frame.
+* DONE emacs server / client.
+CLOSED: [2025-05-22 Thu 07:42]
+** DONE put plist into launch agents folder to start emacs --daemon automatically on restart.
+CLOSED: [2025-05-22 Thu 07:45]
+*** advantage is should be able to force files to open quickly in emacsclient.
+** emacs start ~3 secs. emacsclient starts in 2.37 secs.
 ** emacsclient -n <filename>  <-- reuse frame, seems to work.
-** Still having issues with re-using frames.
+*** emacsclient -a '' -c <--satarts daemon and client
+*** emacs --daemon   emacs --fg-daemon emacsclient -cache
+*** emacsclient --no-wait -r <filename>   <-- should reuse existing frame, doesn't.
+** emacsclient --no-wait -c <filename> <-- new GUI frame. _<--works_
+** alias erc='emacsclient -cn <filename> &'  <-- seems to work. For intial frame after emacs --daemon. _<--_
+** Use C-x 5 0 to kill instance. _<-- works_

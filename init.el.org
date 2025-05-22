@@ -42,7 +42,7 @@
 * compile if newer available
 #+begin_src emacs-lisp
 (setq load-prefer-newer t)
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250406.1103")
+(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250414.1548")
 (require 'auto-compile)
 (auto-compile-on-load-mode)
 (auto-compile-on-save-mode)
@@ -309,53 +309,6 @@ Fix ediff problem with text files.
     ;; the mode gets enabled right away. Note that this forces loading the
     ;; package.
     (marginalia-mode))
-
-  ;; (use-package corfu
-  ;; Optional customizations
-  ;; :custom
-  ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
-  ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
-  ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
-  ;; (corfu-preview-current nil)    ;; Disable current candidate preview
-  ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
-  ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
-
-  ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
-  ;; :hook ((prog-mode . corfu-mode)
-  ;;        (shell-mode . corfu-mode)
-  ;;        (eshell-mode . corfu-mode))
-
-  :init
-
-  ;; Recommended: Enable Corfu globally.  Recommended since many modes provide
-  ;; Capfs and Dabbrev can be used globally (M-/).  See also the customization
-  ;; variable `global-corfu-modes' to exclude certain modes.
-  ;; (global-corfu-mode)
-
-  ;; Enable optional extension modes:
-  ;; (corfu-history-mode)
-  ;; (corfu-popupinfo-mode)
-  ;; )
-
-;; A few more useful configurations...
-(use-package emacs
-  :custom
-  ;; TAB cycle if there are only few candidates
-  ;; (completion-cycle-threshold 3)
-
-  ;; Enable indentation+completion using the TAB key.
-  ;; `completion-at-point' is often bound to M-TAB.
-  (tab-always-indent 'complete)
-
-  ;; Emacs 30 and newer: Disable Ispell completion function.
-  ;; Try `cape-dict' as an alternative.
-  ;; (text-mode-ispell-word-completion nil)
-
-  ;; Hide commands in M-x which do not apply to the current mode.  Corfu
-  ;; commands are hidden, since they are not used via M-x. This setting is
-  ;; useful beyond Corfu.
-  (read-extended-command-predicate #'command-completion-default-include-p))
-
 #+end_src
 
 
@@ -684,70 +637,71 @@ Fix ediff problem with text files.
 
 * Custom
 #+begin_src emacs-lisp
-        (custom-set-faces
-       ;; custom-set-faces was added by Custom.
-       ;; If you edit it by hand, you could mess it up, so be careful.
-       ;; Your init file should contain only one such instance.
-       ;; If there is more than one, they won't work right.
-       '(default ((t (:height 180 :family "Hack Nerd Font Mono"))))
-       '(org-headline-done ((t (:foreground "gray80"))))
-       '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
-       '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
+    (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(default ((t (:height 180 :family "Hack Nerd Font Mono"))))
+   '(org-headline-done ((t (:foreground "gray80"))))
+   '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
+   '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
 
-      (custom-set-variables
-       ;; custom-set-variables was added by Custom.
-       ;; If you edit it by hand, you could mess it up, so be careful.
-       ;; Your init file should contain only one such instance.
-       ;; If there is more than one, they won't work right.
-       '(company-box-enable-icon t)
-       '(company-box-icons-alist 'company-box-icons-images)
-       '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
-       '(custom-safe-themes
-           '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
-           "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
-           "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
-           "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
-           default))
-       '(dashboard-startupify-list
-         '(dashboard-insert-banner dashboard-insert-newline
-                                   dashboard-insert-banner-title
-                                   dashboard-insert-newline
-                                   dashboard-insert-init-info
-                                   dashboard-insert-items
-                                   dashboard-insert-newline))
-       '(denote-known-keywords '("emacs" "init" "general" "testing"))
-       '(elpy-rpc-python-command "python3")
-       '(flycheck-python-flake8-executable "python3")
-       '(flycheck-python-pycompile-executable "python3")
-       '(flycheck-python-pylint-executable "python3")
-       '(org-agenda-files '("~/OneDrive - Regeneron Pharmaceuticals, Inc/3.org"))
-       '(org-faces-easy-properties
-         '((todo . :background) (tag . :foreground) (priority . :foreground)))
-       '(org-id-locations-file
-         "/$HOME/.cache/emacs/var/org/id-locations.el")
-       '(org-startup-folded 'fold)
-       '(org-tempo-keywords-alist nil)
-       '(package-selected-packages
-         '(0blayout all-the-icons-nerd-fonts auto-compile cargo cargo-mode
-                    color-theme-sanityinc-tomorrow company-box consult
-                    dashboard denote diffview doom-modeline doom-themes
-                    eglot elpy exec-path-from-shell flycheck-pyflakes
-                    flycheck-rust lsp-ui magit marginalia material-theme
-                    nerd-icons-dired no-littering ob-rust org-bullets
-                    org-roam paredit rainbow-delimiters rust-playground
-                    rustic show-font toml-mode tree-sitter-langs
-                    treesit-auto use-package vertico vterm which-key
-                    ))
-       '(savehist-additional-variables '(kill-ring register-alist\ ))
-       '(warning-suppress-log-types '((use-package)))
-      ;;  '(yas-snippet-dirs
-      ;;    '("/$HOME/.emacs.d/elpa/yasnippet-snippets-20250225.950"
-      ;;      "/$HOME/.emacs.d/elpa/elpy-20250404.2349/snippets/")))
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(company-box-enable-icon t)
+   '(company-box-icons-alist 'company-box-icons-images)
+   '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
+   '(custom-safe-themes
+       '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
+       "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
+       "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
+       "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
+       default))
+   '(dashboard-startupify-list
+     '(dashboard-insert-banner dashboard-insert-newline
+                               dashboard-insert-banner-title
+                               dashboard-insert-newline
+                               dashboard-insert-init-info
+                               dashboard-insert-items
+                               dashboard-insert-newline))
+   '(denote-known-keywords '("emacs" "init" "general" "testing"))
+   '(elpy-rpc-python-command "python3")
+   '(flycheck-python-flake8-executable "python3")
+   '(flycheck-python-pycompile-executable "python3")
+   '(flycheck-python-pylint-executable "python3")
+   '(org-agenda-files '("$HOME/project/org/3.org"))
+   '(org-faces-easy-properties
+     '((todo . :background) (tag . :foreground) (priority . :foreground)))
+   '(org-id-locations-file
+     "/$HOME/.cache/emacs/var/org/id-locations.el")
+   '(org-startup-folded 'fold)
+   '(org-tempo-keywords-alist nil)
+   '(package-selected-packages
+     '(0blayout all-the-icons-nerd-fonts auto-compile cargo cargo-mode
+                color-theme-sanityinc-tomorrow company-box consult
+                dashboard denote diffview doom-modeline doom-themes
+                eglot elpy exec-path-from-shell flycheck-pyflakes
+                flycheck-rust lsp-ui magit marginalia material-theme
+                nerd-icons-dired no-littering ob-rust org-bullets
+                org-roam paredit rainbow-delimiters rust-playground
+                rustic show-font toml-mode tree-sitter-langs
+                treesit-auto use-package vertico vterm which-key
+                ))
+   '(savehist-additional-variables '(kill-ring register-alist\ ))
+   '(sort-fold-case t)
+   '(warning-suppress-log-types '((use-package)))
+  ;;  '(yas-snippet-dirs
+  ;;    '("/$HOME/.emacs.d/elpa/yasnippet-snippets-20250225.950"
+  ;;      "/$HOME/.emacs.d/elpa/elpy-20250404.2349/snippets/")))
 
-      (python-shell-interpeter "$HOME/.pyenv/shims/python3")
+  (python-shell-interpeter "$HOME/.pyenv/shims/python3")
 
-      ;; duplicate of above? add-hook is different than selected packages.
-      (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+  ;; duplicate of above? add-hook is different than selected packages.
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 #+end_src
 
 * Development Setup
