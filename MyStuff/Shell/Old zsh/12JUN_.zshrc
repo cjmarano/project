@@ -1,21 +1,20 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-export PATH=/usr/local/opt/ruby/bin/:/usr/local/sbin/:/usr/local/opt/ruby/bin/:/Users/charles.marano/tree-sitter/:/Users/charles.marano/.rbenv/shims/:/Users/charles.marano/.pyenv/shims/:/Users/charles.marano/.pyenv/:/Users/charles.marano/.pyenv/bin/:/Users/charles.marano/.pyenv/shims/pip/:/Users/charles.marano/.pyenv/versions/3.12.0/bin/:/Users/charles.marano/.cargo/bin/:/Users/charles.marano/.local/bin/:/usr/local/opt/ruby/bin/:/usr/local/sbin/:/usr/local/bin/:/usr/local/lib/ruby/gems/3.3.0/bin/:/usr/bin/:/usr/sbin/:/bin/:/sbin/:/Users/charles.marano/.cache/emacs/tree-sitter/
+source $(dirname $(gem which colorls))/tab_complete.sh
 
-source /usr/local/lib/ruby/gems/3.3.0/bin/tab_complete.sh
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+export PATH=/Users/charles.marano/.pyenv/shims:/Users/charles.marano/.pyenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/local/jamf/bin:/bin:/usr/bin:/sbin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/charles.marano/.cargo/bin:/Users/charles.marano/.local/bin:/Users/charles.marano/.pyenv/versions/3.12.0/bin/:/Users/charles.marano/.pyenv/shims/pip/:/opt/homebrew/lib/ruby/gems/3.3.0/bin/
 
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 # pyenv config
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -35,7 +34,6 @@ plugins=(git
          zsh-autosuggestions
 	     zsh-syntax-highlighting
 	     common-aliases
-         zoxide
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -44,6 +42,7 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(rbenv init - zsh)"
 
+# assuming that rbenv was installed to `~/.rbenv`
 FPATH=~/.rbenv/completions:"$FPATH"
 
 autoload -U compinit
@@ -61,16 +60,17 @@ alias la='colorls -all'
 alias lb='cd ..'
 alias ld='colorls -ltr'
 alias ll='colorls -loa --sd'
-alias le='colorls -lt'
-alias lf='colorls -lath'
 alias ee='emacsclient -c -a'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# source /usr/local/bin/clisp
+source /usr/local/bin/clisp
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
-source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+

@@ -78,7 +78,7 @@ alias batcat doesn't work. bat is installed.
 *** Plucky was using neither oh-my-posh nor oh-my-zsh.
 ** Prot init.el working on Big in terminal mode, theme and apps loading but no GUI.
 ** Prot init.el in project/Prot is now the default aternate init.el if .emacs.d init .el gets corrupted.
-* DONE Replacing hard cocdded paths with $HOME could make init.el transportable.
+* DONE Replacing hard coded paths with $HOME could make init.el transportable.
 CLOSED: [2025-05-14 Wed 10:06]
 Big doesn't seem to like this. Had to set back to /Users/charles.marano/ 
 * COMPLETED Search at point.
@@ -111,11 +111,14 @@ CLOSED: [2025-05-22 Thu 07:42]
 ** DONE put plist into launch agents folder to start emacs --daemon automatically on restart.
 CLOSED: [2025-05-22 Thu 07:45]
 *** advantage is should be able to force files to open quickly in emacsclient.
-** emacs start ~3 secs. emacsclient starts in 2.37 secs.
-** emacsclient -n <filename>  <-- reuse frame, seems to work.
+*** emacs start ~3 secs. emacsclient starts in 2.37 secs.
+*** emacsclient -n <filename>  <-- reuse frame, seems to work.
 *** emacsclient -a '' -c <--satarts daemon and client
 *** emacs --daemon   emacs --fg-daemon emacsclient -cache
 *** emacsclient --no-wait -r <filename>   <-- should reuse existing frame, doesn't.
-** emacsclient --no-wait -c <filename> <-- new GUI frame. _<--works_
-** alias erc='emacsclient -cn <filename> &'  <-- seems to work. For intial frame after emacs --daemon. _<--_
+*** emacsclient -cn <filename> &  <-- seems to work. For intial frame after emacs --daemon. _<--_
+*** emacsclient --no-wait -c <filename> <-- new GUI frame. _<--works_
 ** Use C-x 5 0 to kill instance. _<-- works_
+**  added alias to .zshrc -->   alias ec='emacsclient -n $1' +<-- use this.+
+
+

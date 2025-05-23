@@ -1,16 +1,6 @@
-export PATH=/Users/charles.marano/.cache/emacs/:/Users/charles.marano/.cache/emacs/tree-sitter/:/Users/charles.marano/tree-sitter/:/Users/charles.marano/.pyenv/versions/3.12.0/bin/:/Users/charles.marano/.pyenv/shims/pip/:/Users/charles.marano/.rbenv/shims/:/Users/charles.marano/.pyenv/shims/:/Users/charles.marano/.pyenv/:/Users/charles.marano/.pyenv/bin/:/Users/charles.marano/.cargo/bin/:/Users/charles.marano/.local/bin/:/usr/local/sbin/:/usr/local/bin/:/usr/bin/:/usr/sbin/:/bin/:/sbin/:/opt/homebrew/opt/llvm/bin:/opt/homebrew/bin/:/usr/local/bin/:/usr/local/share/:/Users/charles.marano/.cargo/bin/
+export PATH=/Users/charles.marano/.cache/emacs/:/Users/charles.marano/.cache/emacs/tree-sitter/:/Users/charles.marano/tree-sitter/:/opt/homebrew/opt/ruby/bin/:/opt/homebrew/lib/ruby/gems/3.3.6/bin/:/Users/charles.marano/.pyenv/versions/3.13.1/bin/:/Users/charles.marano/.pyenv/shims/:/Users/charles.marano/.pyenv/shims/pip/:/Users/charles.marano/.rbenv/shims/:/Users/charles.marano/.cargo/bin/:/Users/charles.marano/.local/bin/:/opt/homebrew/bin/:/opt/homebrew/sbin/:/usr/local/jamf/bin/:/usr/local/sbin/:/usr/local/bin/:/usr/sbin/:/usr/bin/:/bin/:/sbin/:/Library/Apple/usr/bin/:/Users/charles.marano/.pyenv/versions/3.13.1/lib/python3.13/site-packages/:/opt/homebrew/opt/python-lsp-server/bin/:/Users/charles.marano/.pyenv/versions/3.13.1/lib/python3.13/site-packages/:/Users.charles.marano/.rbenv/bin/:/users/charles.marano/.pyenv/bin/
 
-# begin added to zshrc on new
 
-if command -v pyenv 1>/dev/null 2>&1; then
-                         eval "$(pyenv init -)"
-fi
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# end added to zshrc on new
 
 if [[ -f "/opt/homebrew/bin/brew" ]] then
   # If you're using macOS, you'll want this enabled
@@ -25,6 +15,8 @@ if [ ! -d "$ZINIT_HOME" ]; then
    mkdir -p "$(dirname $ZINIT_HOME)"
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
+
+eval "$(rbenv init - zsh)"
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
@@ -51,16 +43,15 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 alias myip="curl http://ipecho.net/plain; echo"
-alias lb='cd ..'
 alias la='colorls -all'
+alias lb='cd ..'
 alias lc='colorls -lA --sd'
 alias ld='colorls -ltr'
 alias lf='colorls -lath'
 alias lg='colorls --gs'
+alias lh='colorls'
 alias ll='colorls -loa --sd'
-alias ee='emacsclient -c -a'
-
-
+alias lt='colorls --tree' 
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/p10k.toml)"
 
 source $(dirname $(gem which colorls))/tab_complete.sh
@@ -73,7 +64,6 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 # pyenv config
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -84,20 +74,24 @@ Default_USER=$(whoami)
 
 # User configuration
 
-eval "$(rbenv init - zsh)"
-
 FPATH=~/.rbenv/completions:"$FPATH"
 
 autoload -U compinit
 compinit
 
+# Turn off all beeps
+unsetopt BEEP
+# Turn off autocomplete beeps
+# unsetopt LIST_BEEP
+
 zinit cdreplay -q
 
 # export MANPATH="/usr/local/share/man/:usr/share/man:$MANPATH"
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-source /opt/homebrew/share/emacs/site-lisp/clisp
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+# source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
