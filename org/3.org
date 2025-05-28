@@ -98,15 +98,7 @@ CLOSED: [2025-05-20 Tue 13:30]
 CLOSED: [2025-05-21 Wed 13:56]
 ** Master copy of init.el.org is now in ~/project/
 ** tangling init.el.org will produce newtest.el in ~/.emacs.d/
-* Doing Zsh Scripting.
-** No good intros to zsh programming found so far.
-** Debugging:
-1. Call the script with the -x option. Example: zsh -x myscript.
-2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
-3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
-** Completed into pdf: Scripting_Intro_Zsh.pdf
-* Lisp programming.
-* DONE emacs server / client.
+* COMPLETED emacs server / client.
 CLOSED: [2025-05-22 Thu 07:42]
 ** DONE put plist into launch agents folder to start emacs --daemon automatically on restart.
 CLOSED: [2025-05-22 Thu 07:45]
@@ -120,5 +112,16 @@ CLOSED: [2025-05-22 Thu 07:45]
 *** emacsclient --no-wait -c <filename> <-- new GUI frame. _<--works_
 ** Use C-x 5 0 to kill instance. _<-- works_
 **  added alias to .zshrc -->   alias ec='emacsclient -n $1' +<-- use this.+
-* Put Emacs Elements Tangle notes in Project.
+* COMPLETED Did big commits from New and Big to get rid of deleted files.
+CLOSED: [2025-05-28 Wed 12:55]
 
+* Doing Zsh Scripting.
+** No good intros to zsh programming found so far.
+** Debugging:
+1. Call the script with the -x option. Example: zsh -x myscript.
+2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
+3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
+** Completed into pdf: Scripting_Intro_Zsh.pdf
+* Lisp programming.
+* Put Emacs Elements Tangle notes in Project.
+* 
