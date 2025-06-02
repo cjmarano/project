@@ -36,3 +36,7 @@ CLOSED: [2025-05-22 Thu 07:45]
 * Lisp programming.
 * Put Emacs Elements Tangle notes in Project.
 ** 
+* Tried kitty terminal.  It is faster.
+** Forn default, too small, editor vi, etc. Edited ~/.config/kitty/kitty.conf
+** added kitty-themes to .config/kitty. Chose MaterialDark.
+** Not entirely happy with theming.
