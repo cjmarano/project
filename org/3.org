@@ -3,21 +3,12 @@
 * Start times around 3 seconds.
 ** New taking 3+ seconds. Big now taking 9+ seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
-* COMPLETED Search at point.
-CLOSED: [2025-05-16 Fri 11:48]
-Words C-s C-w
-
-Characters C-s C-M-y
-
-Whole Lines C-s M-s C-e
-
-To begin a search and replace on the selected words, characters, or sentence M-%
 * COMPLETED emacs server / client.
 CLOSED: [2025-05-22 Thu 07:42]
-** DONE put plist into launch agents folder to start emacs --daemon automatically on restart.
-CLOSED: [2025-05-22 Thu 07:45]
+** put plist into launch agents folder to start emacs --daemon automatically on restart.
+*** failed. using N-X server-start from emacs for now.
 *** advantage is should be able to force files to open quickly in emacsclient.
-*** emacs start ~3 secs. emacsclient starts in 2.37 secs.
+*** emacs start ~3 secs. emacsclient starts in 2.37 secs. ec opens files instantly.
 *** emacsclient -n <filename>  <-- reuse frame, seems to work.
 *** emacsclient -a '' -c <--satarts daemon and client
 *** emacs --daemon   emacs --fg-daemon emacsclient -cache
@@ -40,3 +31,9 @@ CLOSED: [2025-05-22 Thu 07:45]
 ** Forn default, too small, editor vi, etc. Edited ~/.config/kitty/kitty.conf
 ** added kitty-themes to .config/kitty. Chose MaterialDark.
 ** Not entirely happy with theming.
+** set up kitty on Big and have same themes on both - Tomorrow Night Eighties.
+* Trying Yasnippet again. Added code to init.el if successful add to
+init.el.org and tangle so resulting file can be put in projects dir for Big and Plucky (and Ducky?).
+additions to init.el are from ln 191 to ln 196.
+installed yas-snippets, which show up as elpy-20250404.2349 and have python snippets only.
+this and .emacs.d/snippets are only yas-snippet-dirs
