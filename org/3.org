@@ -1,8 +1,9 @@
-
 * June
 * Start times around 3 seconds.
 ** New taking 3+ seconds. Big now taking 9+ seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
+* zoxide does work. Did cd ~/.emacs.d then cd ~/project after could do cd .emacs.d
+and cd project.
 * COMPLETED emacs server / client.
 CLOSED: [2025-05-22 Thu 07:42]
 ** put plist into launch agents folder to start emacs --daemon automatically on restart.
@@ -27,13 +28,22 @@ CLOSED: [2025-05-22 Thu 07:42]
 * Lisp programming.
 * Put Emacs Elements Tangle notes in Project.
 ** 
-* Tried kitty terminal.  It is faster.
-** Forn default, too small, editor vi, etc. Edited ~/.config/kitty/kitty.conf
-** added kitty-themes to .config/kitty. Chose MaterialDark.
-** Not entirely happy with theming.
-** set up kitty on Big and have same themes on both - Tomorrow Night Eighties.
-* Trying Yasnippet again. Added code to init.el if successful add to
+* WAITING Trying Yasnippet again. Added code to init.el if successful add to
 init.el.org and tangle so resulting file can be put in projects dir for Big and Plucky (and Ducky?).
 additions to init.el are from ln 191 to ln 196.
 installed yas-snippets, which show up as elpy-20250404.2349 and have python snippets only.
 this and .emacs.d/snippets are only yas-snippet-dirs
+** got +some+ snippets in yasnippet-snippets-20250507.2002/snippets working.
+had to change < to +  since auto parens screw them up. This is a problem as any changes
+I make will be lost when the yasnippet-snippets packae is updated.
+** Other snippets not working. 
++remove again?+
+* Tried kitty terminal.  It is faster.
+** Forn default, too small, editor vi, etc. Edited ~/.config/kitty/kitty.conf
+** added kitty-themes to .config/kitty. Chose MaterialDark.
+** set up kitty on Big. Different themes on each. New = Materialdark. Big is Tomorrow_Night_Eighties.
+** kitten choose-fonts doesn't apper to work, doesn't modify kitty.conf3
+** It writes a separate Kitty fonts section at THE END of kitty.conf
+*** worked AFTER I gave kitty full disk access in Privacy & Security.
+*** Which is better? Materialdark or Tomorrow_Night_Eighties?
+*** currently using Tomorrow. May change back to Material.
