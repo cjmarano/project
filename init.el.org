@@ -70,67 +70,68 @@ Contextual menu with right mouse button
 Fix ediff problem with text files.
 
 #+begin_src emacs-lisp
-   (add-to-list 'default-frame-alist '(height . 60))
-   (add-to-list 'default-frame-alist '(width . 100))
+     (add-to-list 'default-frame-alist '(height . 60))
+     (add-to-list 'default-frame-alist '(width . 100))
 
-  (setq history-lenght 10 
-  (setq savehit-mode t)
-  (setq org-indent-mode t)
-  (setq-default cursor-type 'hbar)
-  (setq set-cursor-color "Cyan")
-  (setq ring-bell-function 'ignore)
-   (setq inhibit-splash-screen t)
-   (setq inhibit-startup-screen t)
-   (global-font-lock-mode 1)
-   (setq-default indent-tabs-mode nil)
-   (setq-default tab-width 4)
-   (transient-mark-mode t)
-   (global-display-line-numbers-mode t)
-   (column-number-mode t)
-   (tool-bar-mode -1)
-   (global-hl-line-mode +1)
-   (setq global-auto-revert-mode 1)
-   (setq auto-revert-use-notify t) 
-   (setq use-short-answers t)
-   (setq ediff-split-window-function 'split-window-horizontally)
-   ;; removes ediff control window put controls in window at bottom of frame.
-   ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-   (electric-pair-mode 1)
-   (require 'dired-x)
-
-
-   (keymap-global-set "M-p" 'previous-buffer)
-   (keymap-global-set "M-n" 'next-buffer)
-   (keymap-global-set "M-o" 'other-window)
-   (keymap-global-set "M-g" 'recentf)
-
-   (dolist (mode '(org-mode-hook
-                   term-mode-hook
-                   shell-mode-hook
-                   eshell-mode-hook
-                   vterm-mode-hook))
-     (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
-   (recentf-mode 1)
-   (setq recentf-max-menu-items 10)
-   (setq recentf-max-saved-items 25)
-   (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+    (setq history-lenght 10 
+    (setq savehit-mode t)
+    (setq org-indent-mode t)
+    (setq-default cursor-type 'hbar)
+    (setq set-cursor-color "Cyan")
+    (setq ring-bell-function 'ignore)
+     (setq inhibit-splash-screen t)
+     (setq inhibit-startup-screen t)
+     (global-font-lock-mode 1)
+     (setq-default indent-tabs-mode nil)
+     (setq-default tab-width 4)
+     (transient-mark-mode t)
+     (global-display-line-numbers-mode t)
+     (column-number-mode t)
+     (tool-bar-mode -1)
+     (global-hl-line-mode +1)
+     (setq global-auto-revert-mode 1)
+     (setq auto-revert-use-notify t) 
+     (setq use-short-answers t)
+     (setq ediff-split-window-function 'split-window-horizontally)
+     ;; removes ediff control window put controls in window at bottom of frame.
+     ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+     ;; below screw up Yasnippet use so disabled.
+     ;; (electric-pair-mode 1)
+     (require 'dired-x)
 
 
-   (when (display-graphic-p)
-     (context-menu-mode))
+     (keymap-global-set "M-p" 'previous-buffer)
+     (keymap-global-set "M-n" 'next-buffer)
+     (keymap-global-set "M-o" 'other-window)
+     (keymap-global-set "M-g" 'recentf)
+
+     (dolist (mode '(org-mode-hook
+                     term-mode-hook
+                     shell-mode-hook
+                     eshell-mode-hook
+                     vterm-mode-hook))
+       (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+     (recentf-mode 1)
+     (setq recentf-max-menu-items 10)
+     (setq recentf-max-saved-items 25)
+     (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 
-   (file-name-shadow-mode 1)
-   (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
-   (setq delete-by-moving-to-trash t)
-   (setq dired-dwim-target t)
+     (when (display-graphic-p)
+       (context-menu-mode))
 
-   (setq ls-lisp-use-insert-directory-program nil)
-        (require 'ls-lisp)
 
-   
-   (setq ediff-diff-options "--text")
+     (file-name-shadow-mode 1)
+     (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
+     (setq delete-by-moving-to-trash t)
+     (setq dired-dwim-target t)
+
+     (setq ls-lisp-use-insert-directory-program nil)
+          (require 'ls-lisp)
+
+     
+     (setq ediff-diff-options "--text")
 #+end_src
 
 * dashboard
@@ -254,7 +255,7 @@ Fix ediff problem with text files.
       (use-package nerd-icons-dired
         :hook (dired-mode . nerd-icons-dired-mode))
 
-        (setq denote-directory (expand-file-name "~/notes/"))
+        (setq denote-directory (expand-file-name "~/project/org/notes/"))
         (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
         (setq denote-file-type nil)
         (add-hook 'dired-mode-hook #'denote-dired-mode)

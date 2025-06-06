@@ -27,7 +27,8 @@ CLOSED: [2025-05-22 Thu 07:42]
 ** Completed into pdf: Scripting_Intro_Zsh.pdf
 * Lisp programming.
 * Put Emacs Elements Tangle notes in Project.
-** 
+** Tangled init.el.org and had lots of duplicate sections. Did tangle aadd to existing newest.el?
+instead of replacing it? Will try tangling again later.
 * WAITING Trying Yasnippet again. Added code to init.el if successful add to
 init.el.org and tangle so resulting file can be put in projects dir for Big and Plucky (and Ducky?).
 additions to init.el are from ln 191 to ln 196.
@@ -38,7 +39,7 @@ had to change < to +  since auto parens screw them up. This is a problem as any 
 I make will be lost when the yasnippet-snippets packae is updated.
 ** Other snippets not working. 
 +remove again?+
-* Tried kitty terminal.  It is faster.
+* Tried kitty terminal.  It may be faster, not sure.
 ** Forn default, too small, editor vi, etc. Edited ~/.config/kitty/kitty.conf
 ** added kitty-themes to .config/kitty. Chose MaterialDark.
 ** set up kitty on Big. Different themes on each. New = Materialdark. Big is Tomorrow_Night_Eighties.
@@ -47,3 +48,6 @@ I make will be lost when the yasnippet-snippets packae is updated.
 *** worked AFTER I gave kitty full disk access in Privacy & Security.
 *** Which is better? Materialdark or Tomorrow_Night_Eighties?
 *** currently using Tomorrow. May change back to Material.
+* Trying WezTerm and Ghostty.
+** WezTerm uses Lua to config and isn't hard. Colors look okay. Muted vs. ITerm2.
+** Ghostty is supposed to be zero config but I'd like two line prompt.
