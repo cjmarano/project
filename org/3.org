@@ -2,7 +2,8 @@
 * Start times around 3 seconds.
 ** New taking 3+ seconds. Big now taking 9+ seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
-* zoxide does work. Did cd ~/.emacs.d then cd ~/project after could do cd .emacs.d
+* COMPLETED zoxide does work. Did cd ~/.emacs.d then cd ~/project after could do cd .emacs.d
+CLOSED: [2025-06-09 Mon 10:27]
 and cd project.
 * COMPLETED emacs server / client.
 CLOSED: [2025-05-22 Thu 07:42]
@@ -18,18 +19,14 @@ CLOSED: [2025-05-22 Thu 07:42]
 *** emacsclient --no-wait -c <filename> <-- new GUI frame. _<--works_
 ** Use C-x 5 0 to kill instance. _<-- works_
 **  added alias to .zshrc -->   alias ec='emacsclient -n $1' +<-- use this.+
-* Doing Zsh Scripting.
-** No good intros to zsh programming found so far.
-** Debugging:
-1. Call the script with the -x option. Example: zsh -x myscript.
-2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
-3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
-** Completed into pdf: Scripting_Intro_Zsh.pdf
-* Lisp programming.
-* Put Emacs Elements Tangle notes in Project.
+* COMPLETED Tried Aerospace tiling WM. It immediately bugged out so leave for later.
+CLOSED: [2025-06-09 Mon 10:27]
+* COMPLETED Put Emacs Elements Tangle notes in Project.
+CLOSED: [2025-06-09 Mon 10:27]
 ** Tangled init.el.org and had lots of duplicate sections. Did tangle aadd to existing newest.el?
 instead of replacing it? Will try tangling again later.
-* WAITING Trying Yasnippet again. Added code to init.el if successful add to
+* DONE Trying Yasnippet again. Added code to init.el if successful add to
+CLOSED: [2025-06-09 Mon 10:27]
 init.el.org and tangle so resulting file can be put in projects dir for Big and Plucky (and Ducky?).
 additions to init.el are from ln 191 to ln 196.
 installed yas-snippets, which show up as elpy-20250404.2349 and have python snippets only.
@@ -39,6 +36,14 @@ had to change < to +  since auto parens screw them up. This is a problem as any 
 I make will be lost when the yasnippet-snippets packae is updated.
 ** Other snippets not working. 
 +remove again?+
+* Doing Zsh Scripting.
+** No good intros to zsh programming found so far.
+** Debugging:
+1. Call the script with the -x option. Example: zsh -x myscript.
+2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
+3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
+** Completed into pdf: Scripting_Intro_Zsh.pdf
+* Lisp programming.
 * Tried kitty terminal.  It may be faster, not sure.
 ** Forn default, too small, editor vi, etc. Edited ~/.config/kitty/kitty.conf
 ** added kitty-themes to .config/kitty. Chose MaterialDark.
@@ -51,3 +56,5 @@ I make will be lost when the yasnippet-snippets packae is updated.
 * Trying WezTerm and Ghostty.
 ** WezTerm uses Lua to config and isn't hard. Colors look okay. Muted vs. ITerm2.
 ** Ghostty is supposed to be zero config but I'd like two line prompt.
+** is doing two line prompt but is throwing error in shell integration file.
+error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
