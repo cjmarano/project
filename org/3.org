@@ -36,14 +36,14 @@ had to change < to +  since auto parens screw them up. This is a problem as any 
 I make will be lost when the yasnippet-snippets packae is updated.
 ** Other snippets not working. 
 +remove again?+
-* Doing Zsh Scripting.
+* WAITING Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
 1. Call the script with the -x option. Example: zsh -x myscript.
 2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
 3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
 ** Completed into pdf: Scripting_Intro_Zsh.pdf
-* Lisp programming.
+* NEXT Lisp programming.
 * Tried kitty terminal.  It may be faster, not sure.
 ** Forn default, too small, editor vi, etc. Edited ~/.config/kitty/kitty.conf
 ** added kitty-themes to .config/kitty. Chose MaterialDark.
@@ -53,8 +53,9 @@ I make will be lost when the yasnippet-snippets packae is updated.
 *** worked AFTER I gave kitty full disk access in Privacy & Security.
 *** Which is better? Materialdark or Tomorrow_Night_Eighties?
 *** currently using Tomorrow. May change back to Material.
-* Trying WezTerm and Ghostty.
+** Trying WezTerm and Ghostty.
 ** WezTerm uses Lua to config and isn't hard. Colors look okay. Muted vs. ITerm2.
-** Ghostty is supposed to be zero config but I'd like two line prompt.
-** is doing two line prompt but is throwing error in shell integration file.
+** Ghostty is supposed to be zero config but rquired some tweaks to config.
+ is doing two line prompt but is throwing error in shell integration file.
 error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
+modified kitty.conf to remove 'are you sure' dialog when closing.
