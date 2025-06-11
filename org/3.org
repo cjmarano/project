@@ -58,4 +58,17 @@ I make will be lost when the yasnippet-snippets packae is updated.
 ** Ghostty is supposed to be zero config but rquired some tweaks to config.
  is doing two line prompt but is throwing error in shell integration file.
 error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
-modified kitty.conf to remove 'are you sure' dialog when closing.
+was able to remove zsh integration.
+modified kitty.conf to remove 'are you sure' dialog when closing. Removing zsh integration was annoying.
+* Terminal testing.
+** Changed Wezterm theme to MaterialDesignColors but can't change background
+to 344449 <-- which is the color that the Material Design theme I d.l.'s for iTerm2 uses.
+I did change Ghostty and Kitty themes on New to use that color for background. I term already uses it.
+iTerm2 - 3s. Kitty - instant. Ghostty - instant. wezterm - instant.
+iTerm2 - fat, small icons. kitty -small icons. Ghostty small icons. Wezterm - small icons. - odd. MacOS specific?
+** Changed all terms to 263238
+this is from Martin Seeler's Material Design iTerm2 theme Material Design.
+** Changed font on wezterm to JetBrainsMono Nerd Font.
+Gave larger padding (space between lines) and larger icons, which is nice.
+** wezterm: config.window_close_confirmation = 'NeverPrompt'
+now wezterm does not prompt 'Are you sure?' when quitting.
