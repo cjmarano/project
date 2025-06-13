@@ -44,7 +44,7 @@ I make will be lost when the yasnippet-snippets packae is updated.
 3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
 ** Completed into pdf: Scripting_Intro_Zsh.pdf
 * NEXT Lisp programming.
-* Tried kitty terminal.  It may be faster, not sure.
+** Tried kitty terminal.  It may be faster, not sure.
 ** Forn default, too small, editor vi, etc. Edited ~/.config/kitty/kitty.conf
 ** added kitty-themes to .config/kitty. Chose MaterialDark.
 ** set up kitty on Big. Different themes on each. New = Materialdark. Big is Tomorrow_Night_Eighties.
@@ -61,14 +61,18 @@ error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergrati
 was able to remove zsh integration.
 modified kitty.conf to remove 'are you sure' dialog when closing. Removing zsh integration was annoying.
 * Terminal testing.
-** Changed Wezterm theme to MaterialDesignColors but can't change background
+** Changed Wezterm theme to MaterialDesignColors, trouble changing bg.
 to 344449 <-- which is the color that the Material Design theme I d.l.'s for iTerm2 uses.
 I did change Ghostty and Kitty themes on New to use that color for background. I term already uses it.
-iTerm2 - 3s. Kitty - instant. Ghostty - instant. wezterm - instant.
-iTerm2 - fat, small icons. kitty -small icons. Ghostty small icons. Wezterm - small icons. - odd. MacOS specific?
+Speed?. <-- variable all show lag at some point.
+icon size - Jetbrainsmono has larger icons. 
 ** Changed all terms to 263238
 this is from Martin Seeler's Material Design iTerm2 theme Material Design.
-** Changed font on wezterm to JetBrainsMono Nerd Font.
-Gave larger padding (space between lines) and larger icons, which is nice.
+** Changed font on all from Hack Nerd Font to JetBrainsMono Nerd Font.
+Gave larger padding (space between lines) and larger icons, which is nice. This is default on wezterm.
 ** wezterm: config.window_close_confirmation = 'NeverPrompt'
 now wezterm does not prompt 'Are you sure?' when quitting.
+*** wezterm can't get rid of tab bar.
+** All terms on New seem to have trouble picking up changes at some point.
+*** Ghostty on Big is not picking up changes to config.
+changed permissions to 666 sizing worked. Color seems fine on Big, not on new (moritor or app?)
