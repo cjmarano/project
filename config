@@ -46,13 +46,20 @@ shell-integration = none
 
 window-decoration = auto
 
-background = 344449
+background = 222a31
 
 window-height = 40
 window-width = 100
 
+# Can't grab to move or resize is this is hidden.
+# macos-titlebar-style = hidden
+
+confirm-close-surface = false
+
 theme = Tomorrow Night Eighties
 
-font-family = "Hack Nerd Font Mono"
+font-family = "JetBrainsMono Nerd Font Mono*"
 
 font-size = 18
+
+window-subtitle = working-directory
