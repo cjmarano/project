@@ -74,5 +74,6 @@ Gave larger padding (space between lines) and larger icons, which is nice. This 
 now wezterm does not prompt 'Are you sure?' when quitting.
 *** wezterm can't get rid of tab bar.
 ** All terms on New seem to have trouble picking up changes at some point.
-*** Ghostty on Big is not picking up changes to config.
+*** Ghostty on Big is not picking up changes to config. <-- wait, now it is. 
 changed permissions to 666 sizing worked. Color seems fine on Big, not on new (moritor or app?)
+* Ghostty on new not doing title, seems to not pick up config changes.
