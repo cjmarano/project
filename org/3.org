@@ -60,20 +60,44 @@ I make will be lost when the yasnippet-snippets packae is updated.
 error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
 was able to remove zsh integration.
 modified kitty.conf to remove 'are you sure' dialog when closing. Removing zsh integration was annoying.
-* Terminal testing.
-** Changed Wezterm theme to MaterialDesignColors, trouble changing bg.
+* WAITING Don't see the benefit of eza. Did alias it as lz will try it out.
+* WAITING Tmux or Kitty, etc. w/ split windows, tabs?
+** tmux.conf from YouTube unbound some key combos and rebound them. Fix it?
+
+unbind % # Split vertically
+unbind '"' # Split horizontally
+
+unbind v
+unbind h
+
+bind v split-window -h -c "#{pane_current_path}"
+bind h split-window -v -c "#{pane_current_path}"
+
+unbind n  #DEFAULT KEY: Move to next window
+unbind w  #DEFAULT KEY: change current window interactively
+
+bind n command-prompt "rename-window '%%'"
+bind w new-window -c "#{pane_current_path}"
+$
+bind -n M-p previous-window
+bind -n M-n next-window
+
+* NEXT Terminal testing.
+*** Changed Wezterm theme to MaterialDesignColors, trouble changing bg.
 to 344449 <-- which is the color that the Material Design theme I d.l.'s for iTerm2 uses.
 I did change Ghostty and Kitty themes on New to use that color for background. I term already uses it.
 Speed?. <-- variable all show lag at some point.
 icon size - Jetbrainsmono has larger icons. 
-** Changed all terms to 263238
+*** Changed all terms to 263238
 this is from Martin Seeler's Material Design iTerm2 theme Material Design.
-** Changed font on all from Hack Nerd Font to JetBrainsMono Nerd Font.
+*** Changed font on all from Hack Nerd Font to JetBrainsMono Nerd Font.
 Gave larger padding (space between lines) and larger icons, which is nice. This is default on wezterm.
-** wezterm: config.window_close_confirmation = 'NeverPrompt'
+*** wezterm: config.window_close_confirmation = 'NeverPrompt'
 now wezterm does not prompt 'Are you sure?' when quitting.
 *** wezterm can't get rid of tab bar.
-** All terms on New seem to have trouble picking up changes at some point.
+*** All terms on New seem to have trouble picking up changes at some point.
 *** Ghostty on Big is not picking up changes to config. <-- wait, now it is. 
 changed permissions to 666 sizing worked. Color seems fine on Big, not on new (moritor or app?)
 * Ghostty on new not doing title, seems to not pick up config changes.
+*** won't do path as title, even using same config as Big.
+*** Kitty seems reliable. tweaked config.

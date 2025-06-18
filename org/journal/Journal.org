@@ -12,3 +12,11 @@ Made sure paths in init.el on New all pointed to ~/project/org/ (tasks, notes, e
 
 Set init.el on Big to init.el_Big_slow then modified init,el - replacing at setopt lines with setq (the older form as used by init.el on New).
 Startup time went down by 3 seconds.
+** 2025-06 June
+*** 2025-06-18 Wednesday
+**** 08:23 AM - Journal                                             :journal:
+
+Playing around with terminals, KItty, Ghost, Weterm. Don't like weterm's Lua for config.
+Kitty seems useable. Ghosty may be nice but title issue on New, Big shows directory as title.
+Now I want to decide if Tmux is worth learning or if split panes, tabs, mutiple windows that
+terminal apps offer are enough.

@@ -1,0 +1,44 @@
+set-option -sa terminal-overrides ",xterm*:Tc"
+
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+
+unbind r
+bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
+
+# v and h are not bound by default, but we never know in the next versions...
+unbind v
+unbind h
+
+unbind % # Split vertically
+unbind '"' # Split horizontally
+
+bind v split-window -h -c "#{pane_current_path}"
+bind h split-window -v -c "#{pane_current_path}"
+
+unbind n  #DEFAULT KEY: Move to next window
+unbind w  #DEFAULT KEY: change current window interactively
+
+bind n command-prompt "rename-window '%%'"
+bind w new-window -c "#{pane_current_path}"
+
+bind -n M-p previous-window
+bind -n M-n next-window
+
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'github_username/plugin_name#branch'
+# set -g @plugin 'git@github.com:user/plugin'
+# set -g @plugin 'git@bitbucket.com:user/plugin'
+
+set -g @plugin 'dreamsofcode-io/catppuccin-tmux'
+
+run -b '~/.tmux/plugins/tpm/tpm'
+
+run-shell ~/tmux-plugins/tpm/sensible.tmux
