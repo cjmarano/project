@@ -107,7 +107,7 @@ changed permissions to 666 sizing worked. Color seems fine on Big, not on new (m
 Playing around with terminals, KItty, Ghost, Weterm. Don't like weterm's Lua for config.
 Kitty seems useable. Ghosty may be nice but title issue on New, Big shows directory as title.
 ** bg colors really inconsistent between monitors.
-* tmux.conf from YouTube unbound some key combos and rebound them. Fixed!
+* tmux.conf from YouTube unbound some key combos and rebound them. _Fixed!_
 ** Now I want to decide if Tmux is worth learning or if split panes, tabs, mutiple windows that
 terminal apps offer are enough.
 
