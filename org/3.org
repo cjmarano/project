@@ -53,13 +53,50 @@ error: environment variable `PROJECT_NAME_FOR_VERSION_STRING` not defined at com
     = help: use `std::env::var("PROJECT_NAME_FOR_VERSION_STRING")` to read the variable at run time
     = note: this error originates in the macro `env` which comes from the expansion of the macro `uucore::crate_version` (in Nightly builds, run with -Z macro-backtrace for more info)
 
-* DONE Installed eza - seems faster than ls.
+* COMPLETED Installed eza - seems faster than ls.
 CLOSED: [2025-06-19 Thu 08:22]
 ** created aliases:
 alias lz='eza -lh --color=always --icons=always'
 alias ly='eza -lha --color=always --icons=always --group-directories-first'
 *** WAITING Love eza. Did alias it as lz.
 Tmux or Kitty, etc. w/ split windows, tabs?
+* COMPLETED tmux.conf from YouTube unbound some key combos and rebound them. _Fixed!_
+CLOSED: [2025-06-25 Wed 08:54]
+** Now I want to decide if Tmux is worth learning or if split panes, tabs, mutiple windows that
+terminal apps offer are enough.
+
+unbind % # Split vertically
+unbind '"' # Split horizontally
+
+unbind v
+unbind h
+
+bind v split-window -h -c "#{pane_current_path}"
+bind h split-window -v -c "#{pane_current_path}"
+
+unbind n  #DEFAULT KEY: Move to next window
+unbind w  #DEFAULT KEY: change current window interactively
+
+bind n command-prompt "rename-window '%%'"
+bind w new-window -c "#{pane_current_path}"
+$
+bind -n M-p previous-window
+bind -n M-n next-window
+
+** tmux read ~/.tmux.conf - confirmed.
+** the only way I could change themes is to remove old theme folders from ~/tmux-plugins/ 
+* COMPLETED Still fighting w/ themes on Tmux. got Nord to load, see which .tmux.conf worked.
+CLOSED: [2025-06-26 Thu 09:46]
+** Can't get any theme to load for Tmux on Big. Strangely, it does accept C-a
+so it is reading a changed conf from somewhere. I've tried cp the .tmux.conf file to /opt/homebrew//etc and to
+~/.tmux/ with no change. Removed all except ~/.tmux.conf
+** theme was working on New but changing it and doing comand : source ~/.tmux.conf broke it.
+** Okay, weird. Changing back to Nord Them worked on New.
+** Running the command : source-file ~/.tmux.conf on Big put catppuccin theme in.
+run '~/.tmux/plugins/catppuccin/tmux/catppuccin.tmux'     <-- added to ~/.tmux.conf
+** Okay, so putting set -g @plugin "nordtheme/tmux'
+then run ~/.tmux/plugins/tpm/tpm did the trick. Now have Nord theme on both Big and new.
+** Next step: try powerline
 * WAITING Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
@@ -107,28 +144,4 @@ changed permissions to 666 sizing worked. Color seems fine on Big, not on new (m
 Playing around with terminals, KItty, Ghost, Weterm. Don't like weterm's Lua for config.
 Kitty seems useable. Ghosty may be nice but title issue on New, Big shows directory as title.
 ** bg colors really inconsistent between monitors.
-* tmux.conf from YouTube unbound some key combos and rebound them. _Fixed!_
-** Now I want to decide if Tmux is worth learning or if split panes, tabs, mutiple windows that
-terminal apps offer are enough.
-
-unbind % # Split vertically
-unbind '"' # Split horizontally
-
-unbind v
-unbind h
-
-bind v split-window -h -c "#{pane_current_path}"
-bind h split-window -v -c "#{pane_current_path}"
-
-unbind n  #DEFAULT KEY: Move to next window
-unbind w  #DEFAULT KEY: change current window interactively
-
-bind n command-prompt "rename-window '%%'"
-bind w new-window -c "#{pane_current_path}"
-$
-bind -n M-p previous-window
-bind -n M-n next-window
-
-** tmux read ~/.tmux.conf - confirmed.
-** the only way I could change themes is to remove old theme folders from ~/tmux-plugins/ 
-* Still fighting w/ themes on Tmux. got Nord to load, see which .tmux.conf worked.
+** Ghostty threw garbage. Hmn...
