@@ -158,5 +158,8 @@ Kitty will scroll with C-<shift> and page up, page down, home and end.
 ya pack -a yazi-rs/flavors:dracula
 ** other flavors don't seem to work.
 tried copying and renaming vscode-dark-plus to foo and setting that in theme.toml ... no good.
++so,,,+
+Okay, so took catppuccin-mocha-green.toml, copied it into ~/.config/yazi and changed its name to theme.toml
+that worked. Now have this theme (not flavor) on Big and New.
 * Installed kkp package for kitty-protocol in emacs.
 * Homebrew corrput on Big. Had to re-install.
