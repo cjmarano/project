@@ -144,3 +144,19 @@ changed permissions to 666 sizing worked. Color seems fine on Big, not on new (m
 ** Ghostty threw garbage. Hmn...
 ** Ghostty on New still won't show working directory.
 so Ghostty won't show CWD. Also, in Tmux on Ghostty can't +scroll+, neither can Kitty.
+Kitty will scroll with C-<shift> and page up, page down, home and end. 
+ in Tmux, have to go to copy mode C-a [ then q when ready to quit.
+
+*  Installed Yazi on New. Looks interesting. 
+** looks like a pain to customize. Will try it and see.
+
+** changed yazi proportions to 1, 3, 4.
+** downloade cattpuccin and dracula themes and got dracula set (Cattpuccin too dull.
+** yazi themes not working correctly on New. Can't set theme w/ any flavor.
+** was able to change flavor to dracula.
+** +was able to change yazi theme on big and new to dracula.+
+ya pack -a yazi-rs/flavors:dracula
+** other flavors don't seem to work.
+tried copying and renaming vscode-dark-plus to foo and setting that in theme.toml ... no good.
+* Installed kkp package for kitty-protocol in emacs.
+* Homebrew corrput on Big. Had to re-install.
