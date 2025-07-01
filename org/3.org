@@ -165,3 +165,4 @@ tried copying and renaming vscode-dark-plus to foo and setting that in theme.tom
 +so,,,+
 *** Okay, so +took catppuccin-mocha-green.toml, copied it into ~/.config/yazi and changed its name to theme.toml+
 that worked. Now have this theme (not flavor) on Big and New.
+* _Run this on Big_ git config --global credential.helper store
