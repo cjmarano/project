@@ -1,58 +1,11 @@
-* June
+* July
 * Start times around 3 seconds.
 ** New taking 3+ seconds. Big now taking 9+ seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
-* COMPLETED zoxide does work.
-Did cd ~/.emacs.d then cd ~/project after could do cd .emacs.d
-CLOSED: [2025-06-09 Mon 10:27]
-and cd project.* COMPLETED emacs server / client.
-CLOSED: [2025-05-22 Thu 07:42]
-** put plist into launch agents folder to start emacs --daemon automatically on restart.
-*** failed. using N-X server-start from emacs for now.
-*** advantage is should be able to force files to open quickly in emacsclient.
-*** emacs start ~3 secs. emacsclient starts in 2.37 secs. ec opens files instantly.
-*** emacsclient -n <filename>  <-- reuse frame, seems to work.
-*** emacsclient -a '' -c <--satarts daemon and client
-*** emacs --daemon   emacs --fg-daemon emacsclient -cache
-*** emacsclient --no-wait -r <filename>   <-- should reuse existing frame, doesn't.
-*** emacsclient -cn <filename> &  <-- seems to work. For intial frame after emacs --daemon. _<--_
-*** emacsclient --no-wait -c <filename> <-- new GUI frame. _<--works_
-** Use C-x 5 0 to kill instance. _<-- works_
-**  added alias to .zshrc -->   alias ec='emacsclient -n $1' +<-- use this.+
 * COMPLETED Tried Aerospace tiling WM. It immediately bugged out so leave for later.
 CLOSED: [2025-06-09 Mon 10:27]
-* COMPLETED Note: yazi is in brew if I want to try it uses vi keybinds so no.
-CLOSED: [2025-06-19 Thu 09:13]
-* COMPLETED Put Emacs Elements Tangle notes in Project.
-CLOSED: [2025-06-09 Mon 10:27]
-** Tangled init.el.org and had lots of duplicate sections. Did tangle aadd to existing newest.el?
-instead of replacing it? Will try tangling again later.
-* COMPLETED Trying Yasnippet again. Added code to init.el if successful add to
-CLOSED: [2025-06-09 Mon 10:27]
-init.el.org and tangle so resulting file can be put in projects dir for Big and Plucky (and Ducky?).
-additions to init.el are from ln 191 to ln 196.
-installed yas-snippets, which show up as elpy-20250404.2349 and have python snippets only.
-this and .emacs.d/snippets are only yas-snippet-dirs
-** got +some+ snippets in yasnippet-snippets-20250507.2002/snippets working.
-had to change < to +  since auto parens screw them up. This is a problem as any changes
-I make will be lost when the yasnippet-snippets packae is updated.
-** Other snippets not working. 
-+remove again?+
 * DONE installed fd very nice find replacement.
 CLOSED: [2025-06-19 Thu 08:22]
-* COMPLETED Compiled a little C program just to see if gcc was working.
-CLOSED: [2025-06-19 Thu 14:38]
-* COMPLETED Couldn't install uutils (written in Rust) compile failure.
-CLOSED: [2025-06-20 Fri 07:56]
-error: environment variable `PROJECT_NAME_FOR_VERSION_STRING` not defined at compile time
-   --> /Users/charles.marano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uu_uniq-0.1.0/src/uniq.rs:595:18
-    |
-595 |         .version(uucore::crate_version!())
-    |                  ^^^^^^^^^^^^^^^^^^^^^^^^
-    |
-    = help: use `std::env::var("PROJECT_NAME_FOR_VERSION_STRING")` to read the variable at run time
-    = note: this error originates in the macro `env` which comes from the expansion of the macro `uucore::crate_version` (in Nightly builds, run with -Z macro-backtrace for more info)
-
 * COMPLETED Installed eza - seems faster than ls.
 CLOSED: [2025-06-19 Thu 08:22]
 ** created aliases:
@@ -60,31 +13,6 @@ alias lz='eza -lh --color=always --icons=always'
 alias ly='eza -lha --color=always --icons=always --group-directories-first'
 *** WAITING Love eza. Did alias it as lz.
 Tmux or Kitty, etc. w/ split windows, tabs?
-* COMPLETED tmux.conf from YouTube unbound some key combos and rebound them. _Fixed!_
-CLOSED: [2025-06-25 Wed 08:54]
-** Now I want to decide if Tmux is worth learning or if split panes, tabs, mutiple windows that
-terminal apps offer are enough.
-
-unbind % # Split vertically
-unbind '"' # Split horizontally
-
-unbind v
-unbind h
-
-bind v split-window -h -c "#{pane_current_path}"
-bind h split-window -v -c "#{pane_current_path}"
-
-unbind n  #DEFAULT KEY: Move to next window
-unbind w  #DEFAULT KEY: change current window interactively
-
-bind n command-prompt "rename-window '%%'"
-bind w new-window -c "#{pane_current_path}"
-$
-bind -n M-p previous-window
-bind -n M-n next-window
-
-** tmux read ~/.tmux.conf - confirmed.
-** the only way I could change themes is to remove old theme folders from ~/tmux-plugins/ 
 * COMPLETED Still fighting w/ themes on Tmux. got Nord to load, see which .tmux.conf worked.
 CLOSED: [2025-06-26 Thu 09:46]
 ** Can't get any theme to load for Tmux on Big. Strangely, it does accept C-a
@@ -101,12 +29,20 @@ then run ~/.tmux/plugins/tpm/tpm did the trick. Now have Nord theme on both Big 
 ** Tried Catppuccin theme - won't load, stuck on Nord.
 * COMPLETED Installed kkp package for kitty-protocol in emacs.
 CLOSED: [2025-06-30 Mon 13:53]
-* COMPLETED Homebrew corrput on Big. Had to re-install.
-CLOSED: [2025-06-30 Mon 13:52]
 * COMPLETED Installed Yazi on New. Looks interesting. 
 CLOSED: [2025-06-30 Mon 14:00]
 ** looks like a pain to customize. Will try it and see.
 ** changed yazi proportions to 1, 3, 4.
+** +was able to change yazi theme on big and new to dracula, then mocha.+
+ya pack -a yazi-rs/flavors:dracula
+*** was able to change flavor to dracula.
+*** yazi themes not working correctly on New. Can't set theme w/ any flavor.
+*** downloaded cattpuccin and dracula themes and got dracula set (Cattpuccin too dull.
+*** other flavors don't seem to work.
+tried copying and renaming vscode-dark-plus to foo and setting that in theme.toml ... no good.
++so,,,+
+*** Okay, so +took catppuccin-mocha-green.toml, copied it into ~/.config/yazi and changed its name to theme.toml+
+that worked. Now have this theme (not flavor) on Big and New.
 * WAITING Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
@@ -126,11 +62,6 @@ CLOSED: [2025-06-30 Mon 14:00]
 *** currently using Tomorrow. May change back to Material.
 ** Trying WezTerm and Ghostty.
 ** WezTerm uses Lua to config and isn't hard. Colors look okay. Muted vs. ITerm2.
-** Ghostty is supposed to be zero config but rquired some tweaks to config.
- is doing two line prompt but is throwing error in shell integration file.
-error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
-was able to remove zsh integration.
-modified kitty.conf to remove 'are you sure' dialog when closing. Removing zsh integration was annoying.
 * NEXT Terminal testing.
 *** Changed Wezterm theme to MaterialDesignColors, trouble changing bg.
 to 344449 <-- which is the color that the Material Design theme I d.l.'s for iTerm2 uses.
@@ -154,15 +85,10 @@ changed permissions to 666 sizing worked. Color seems fine on Big, not on new (m
 so Ghostty won't show CWD. Also, in Tmux on Ghostty can't +scroll+, neither can Kitty.
 Kitty will scroll with C-<shift> and page up, page down, home and end. 
  in Tmux, have to go to copy mode C-a [ then q when ready to quit.
+** Ghostty is supposed to be zero config but rquired some tweaks to config.
+ is doing two line prompt but is throwing error in shell integration file.
+error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
+was able to remove zsh integration.
+modified kitty.conf to remove 'are you sure' dialog when closing. Removing zsh integration was annoying.
 
-* +was able to change yazi theme on big and new to dracula, then mocha-green.+
-ya pack -a yazi-rs/flavors:dracula
-*** was able to change flavor to dracula.
-*** yazi themes not working correctly on New. Can't set theme w/ any flavor.
-*** downloaded cattpuccin and dracula themes and got dracula set (Cattpuccin too dull.
-*** other flavors don't seem to work.
-tried copying and renaming vscode-dark-plus to foo and setting that in theme.toml ... no good.
-+so,,,+
-*** Okay, so +took catppuccin-mocha-green.toml, copied it into ~/.config/yazi and changed its name to theme.toml+
-that worked. Now have this theme (not flavor) on Big and New.
-* _Run this on Big_ git config --global credential.helper store
+<<<<<<< HEAD
