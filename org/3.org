@@ -90,5 +90,20 @@ Kitty will scroll with C-<shift> and page up, page down, home and end.
 error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
 was able to remove zsh integration.
 modified kitty.conf to remove 'are you sure' dialog when closing. Removing zsh integration was annoying.
-
-<<<<<<< HEAD
+* +was able to change yazi theme on big and new to dracula, then mocha-green.+
+ya pack -a yazi-rs/flavors:dracula
+*** was able to change flavor to dracula.
+*** yazi themes not working correctly on New. Can't set theme w/ any flavor.
+*** downloaded cattpuccin and dracula themes and got dracula set (Cattpuccin too dull.
+*** other flavors don't seem to work.
+tried copying and renaming vscode-dark-plus to foo and setting that in theme.toml ... no good.
++so,,,+
+*** Okay, so +took catppuccin-mocha-green.toml, copied it into ~/.config/yazi and changed its name to theme.toml+
+that worked. Now have this theme (not flavor) on Big and New.
+* _Run this on Big_ git config --global credential.helper store
+=======
+* Added to tmux.conf:
+set -g allow-passthrough on
+set -g update-environment TERM
+set -g update-environment TERM_PROGRAM
+>>>>>>> 5a7e4ca (Cycling through 3.org for July)
