@@ -4,7 +4,7 @@
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
 * COMPLETED Tried Aerospace tiling WM. It immediately bugged out so leave for later.
 CLOSED: [2025-06-09 Mon 10:27]
-* DONE installed fd very nice find replacement.
+* COMPLETED installed fd very nice find replacement.
 CLOSED: [2025-06-19 Thu 08:22]
 * COMPLETED Installed eza - seems faster than ls.
 CLOSED: [2025-06-19 Thu 08:22]
@@ -65,6 +65,10 @@ tried copying and renaming vscode-dark-plus to foo and setting that in theme.tom
 that worked. Now have this theme (not flavor) on Big and New.
 ** Still a little confused. catppuccin-mocha-green is on Big and New but other remnants of themes remain.
 investigate and clean up at some point.
+* COMPLETED Emacs on Big takes 7 secs. to open vs. 3 for New.
+CLOSED: [2025-07-03 Thu 08:30]
+** Do a diff on their init.el files. - New and Big homogulated July 2nd.
+** Check number of packages loaded. -- 61 pacakges Big and New.
 * WAITING Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
@@ -103,16 +107,19 @@ now wezterm does not prompt 'Are you sure?' when quitting.
 changed permissions to 666 sizing worked. Color seems fine on Big, not on new (moritor or app?)
 *** bg colors really inconsistent between monitors.
 * Ghostty on New still won't show working directory.  Okay, now it does on New and Big.
-** _in addition on Big shows icons alongside cwd.
-Kitty will scroll with C-<shift> and page up, page down, home and end. 
+** Kitty will scroll with C-<shift> and page up, page down, home and end. 
  in Tmux, have to go to copy mode C-a [ then q when ready to quit.
- 
-Ghostty doing two line prompt but is throwing error in shell integration file.
+** Ghostty doing two line prompt but is throwing error in shell integration file. - fixed?
 error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
 was able to remove zsh integration. Removing zsh integration was annoying.
-
 Modified kitty.conf to remove 'are you sure' dialog when closing. 
- 
-* Emacs on Big takes 7 secs. to open vs. 3 for New.
-** Do a diff on their init.el files.
-** Check number of packages loaded.
+
+**  Had to re-install Ghostty then added to .zshrc:
+*** added on both New and Big.
+
+ if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
+ source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+fi
+---------
+
+
