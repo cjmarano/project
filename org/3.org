@@ -43,6 +43,28 @@ tried copying and renaming vscode-dark-plus to foo and setting that in theme.tom
 +so,,,+
 *** Okay, so +took catppuccin-mocha-green.toml, copied it into ~/.config/yazi and changed its name to theme.toml+
 that worked. Now have this theme (not flavor) on Big and New.
+* COMPLETED  Run this on Big git config --global credential.helper store - didn't work.
+CLOSED: [2025-07-02 Wed 08:22]
+=======
+* COMPLETED Added to tmux.conf:
+CLOSED: [2025-07-02 Wed 13:09]
+set -g allow-passthrough on
+set -g update-environment TERM
+set -g update-environment TERM_PROGRAM
+>>>>>>> 5a7e4ca (Cycling through 3.org for July)
+* COMPLETED +was able to change yazi theme on big and new to dracula, then mocha-green.+
+CLOSED: [2025-07-02 Wed 08:23]
+** ya pack -a yazi-rs/flavors:dracula
+*** was able to change flavor to dracula.
+*** yazi themes not working correctly on New. Can't set theme w/ any flavor.
+*** downloaded cattpuccin and dracula themes and got dracula set (Cattpuccin too dull.
+*** other flavors don't seem to work.
+tried copying and renaming vscode-dark-plus to foo and setting that in theme.toml ... no good.
++so,,,+
+*** Okay, so +took catppuccin-mocha-green.toml, copied it into ~/.config/yazi and changed its name to theme.toml+
+that worked. Now have this theme (not flavor) on Big and New.
+** Still a little confused. catppuccin-mocha-green is on Big and New but other remnants of themes remain.
+investigate and clean up at some point.
 * WAITING Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
@@ -80,30 +102,17 @@ now wezterm does not prompt 'Are you sure?' when quitting.
 *** Ghostty on Big is not picking up changes to config. <-- wait, now it is. 
 changed permissions to 666 sizing worked. Color seems fine on Big, not on new (moritor or app?)
 *** bg colors really inconsistent between monitors.
-** Ghostty threw garbage. Hmn...
-** Ghostty on New still won't show working directory.
-so Ghostty won't show CWD. Also, in Tmux on Ghostty can't +scroll+, neither can Kitty.
+* Ghostty on New still won't show working directory.  Okay, now it does on New and Big.
+** _in addition on Big shows icons alongside cwd.
 Kitty will scroll with C-<shift> and page up, page down, home and end. 
  in Tmux, have to go to copy mode C-a [ then q when ready to quit.
-** Ghostty is supposed to be zero config but rquired some tweaks to config.
- is doing two line prompt but is throwing error in shell integration file.
+ 
+Ghostty doing two line prompt but is throwing error in shell integration file.
 error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
-was able to remove zsh integration.
-modified kitty.conf to remove 'are you sure' dialog when closing. Removing zsh integration was annoying.
-* +was able to change yazi theme on big and new to dracula, then mocha-green.+
-ya pack -a yazi-rs/flavors:dracula
-*** was able to change flavor to dracula.
-*** yazi themes not working correctly on New. Can't set theme w/ any flavor.
-*** downloaded cattpuccin and dracula themes and got dracula set (Cattpuccin too dull.
-*** other flavors don't seem to work.
-tried copying and renaming vscode-dark-plus to foo and setting that in theme.toml ... no good.
-+so,,,+
-*** Okay, so +took catppuccin-mocha-green.toml, copied it into ~/.config/yazi and changed its name to theme.toml+
-that worked. Now have this theme (not flavor) on Big and New.
-* _Run this on Big_ git config --global credential.helper store
-=======
-* Added to tmux.conf:
-set -g allow-passthrough on
-set -g update-environment TERM
-set -g update-environment TERM_PROGRAM
->>>>>>> 5a7e4ca (Cycling through 3.org for July)
+was able to remove zsh integration. Removing zsh integration was annoying.
+
+Modified kitty.conf to remove 'are you sure' dialog when closing. 
+ 
+* Emacs on Big takes 7 secs. to open vs. 3 for New.
+** Do a diff on their init.el files.
+** Check number of packages loaded.
