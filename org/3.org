@@ -120,6 +120,8 @@ Modified kitty.conf to remove 'are you sure' dialog when closing.
  if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
  source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
 fi
----------
 
-
+* Use bat, not cat, when syntax highlighting is important.
+** alias cat to bat in .zshrc or make other aliases?xs
+* Github Python branch not set up for https, couldn't update
+* What's my github password?
