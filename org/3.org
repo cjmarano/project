@@ -69,6 +69,30 @@ investigate and clean up at some point.
 CLOSED: [2025-07-03 Thu 08:30]
 ** Do a diff on their init.el files. - New and Big homogulated July 2nd.
 ** Check number of packages loaded. -- 61 pacakges Big and New.
+* COMPLETED Ghostty on New won't show working directory.  Okay, now it does on New and Big.
+CLOSED: [2025-07-07 Mon 09:23]
+** Kitty will scroll with C-<shift> and page up, page down, home and end. 
+ in Tmux, have to go to copy mode C-a [ then q when ready to quit.
+** Ghostty doing two line prompt but is throwing error in shell integration file. - fixed?
+error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
+was able to remove zsh integration. Removing zsh integration was annoying.
+Modified kitty.conf to remove 'are you sure' dialog when closing. 
+
+**  Had to re-install Ghostty then added to .zshrc:
+*** added on both New and Big.
+
+ if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
+ source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+fi
+
+* COMPLETED What's my github password?
+CLOSED: [2025-07-07 Mon 09:24]
+it's in gitpas.txt on the Desktop.
+* COMPLETED Github Python branch not set up for https, couldn't update
+CLOSED: [2025-07-07 Mon 09:24]
+* COMPLETED Yazi very simple to use. Commands make sense.
+CLOSED: [2025-07-07 Mon 12:37]
+* NEXT Installed lazygit. Have to try it out.
 * WAITING Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
@@ -89,6 +113,8 @@ CLOSED: [2025-07-03 Thu 08:30]
 ** Trying WezTerm and Ghostty.
 ** WezTerm uses Lua to config and isn't hard. Colors look okay. Muted vs. ITerm2.
 * NEXT Terminal testing.
+** Kitty and wezterm are the sharpest, clearest. Iterm is fuzzy,  ghostty is so-so.
+westerm uses Lua, not a fan. 
 *** Changed Wezterm theme to MaterialDesignColors, trouble changing bg.
 to 344449 <-- which is the color that the Material Design theme I d.l.'s for iTerm2 uses.
 I did change Ghostty and Kitty themes on New to use that color for background. I term already uses it.
@@ -106,22 +132,7 @@ now wezterm does not prompt 'Are you sure?' when quitting.
 *** Ghostty on Big is not picking up changes to config. <-- wait, now it is. 
 changed permissions to 666 sizing worked. Color seems fine on Big, not on new (moritor or app?)
 *** bg colors really inconsistent between monitors.
-* Ghostty on New still won't show working directory.  Okay, now it does on New and Big.
-** Kitty will scroll with C-<shift> and page up, page down, home and end. 
- in Tmux, have to go to copy mode C-a [ then q when ready to quit.
-** Ghostty doing two line prompt but is throwing error in shell integration file. - fixed?
-error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
-was able to remove zsh integration. Removing zsh integration was annoying.
-Modified kitty.conf to remove 'are you sure' dialog when closing. 
-
-**  Had to re-install Ghostty then added to .zshrc:
-*** added on both New and Big.
-
- if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
- source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
-fi
-
-* Use bat, not cat, when syntax highlighting is important.
-** alias cat to bat in .zshrc or make other aliases?xs
-* Github Python branch not set up for https, couldn't update
-* What's my github password?
+*** wezterm seems to have best graphics - wyland? Probably not on Macs. Maybe it's the MaterialDesignColors theme?
+* NEXT Use bat, not cat, when syntax highlighting is important.
+** alias cat to bat in .zshrc or make other aliases?
+* changed theme for Ghostty to MaterialDesignColors on Big and New.

@@ -1,4 +1,7 @@
-export PATH=/home/plucky/:/home/plucky/.local/kitty.app/bin/kitty:/home/plucky/.local/kitty.app/bin/kitten/:/home/linuxbrew/.linuxbrew/share:/home/plucky/.rbenv/shims/ruby:/home/linux/tree-sitter/:/Users/plucky/.pyenv/shims/:/Users/plucky/.rbenv/shims:/home/linuxbrew/.linuxbrew/bin/cargo:/Users/plucky/.local/bin:/Users/plucky/.pyenv/versions/3.13.0/bin/:/home/linuxbrew/.linuxbrew/bin/:/home/linuxbrew/.linuxbrew/sbin/:/home/linuxbrew/.linuxbrew/lib/ruby/gems/3.4.0/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin/:/snap/bin/:/home/plucky/.cargo/bin/:/home/.local/bin/
+export PATH=/Users/charles.marano/.cache/emacs/:/Users/charles.marano/.cache/emacs/tree-sitter/:/Users/charles.marano/tree-sitter/:/opt/homebrew/opt/ruby/bin/:/opt/homebrew/lib/ruby/gems/3.3.6/bin/:/Users/charles.marano/.pyenv/versions/3.13.1/bin/:/Users/charles.marano/.pyenv/shims/:/Users/charles.marano/.pyenv/shims/pip/:/Users/charles.marano/.rbenv/shims/:/Users/charles.marano/.cargo/bin/:/Users/charles.marano/.local/bin/:/opt/homebrew/bin/:/opt/homebrew/sbin/:/usr/local/jamf/bin/:/usr/local/sbin/:/usr/local/bin/:/usr/sbin/:/usr/bin/:/bin/:/sbin/:/Library/Apple/usr/bin/:/Users/charles.marano/.pyenv/versions/3.13.1/lib/python3.13/site-packages/:/opt/homebrew/opt/python-lsp-server/bin/:/Users/charles.marano/.pyenv/versions/3.13.1/lib/python3.13/site-packages/:/users/charles.marano/.pyenv/bin/
+
+# if this is macOS then add line below
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -58,8 +61,10 @@ alias lh='colorls'
 alias ll='colorls -loa --sd'
 alias lt='colorls --tree'
 alias ec='emacsclient -n $1'
-alias lz='eza --color=always --icons=always'
-alias ly='eza -a --color=always --icons=always --group-directories-first'
+alias lz='eza -lu  --color=always --icons=always'
+alias ly='eza -lha --color=always --icons=always --group-directories-first'
+alias lx='eza -lat created --color=always --icons=always --group-directories-first'
+
 # pyenv config
 export PYENV_ROOT="$HOME/.pyenv"
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -68,6 +73,8 @@ fi
 
 FPATH=~/.rbenv/completions:"$FPATH"
 
+export EDITOR=emacs
+
 # Turn off all beeps
 unsetopt BEEP
 # Turn off autocomplete beeps
@@ -75,14 +82,19 @@ unsetopt BEEP
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
+ source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+fi
+
+# Shell Integration.
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
 	rm -f -- "$tmp"
 }
-
-# Shell Integration.
-# eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
