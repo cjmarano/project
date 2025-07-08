@@ -136,3 +136,5 @@ changed permissions to 666 sizing worked. Color seems fine on Big, not on new (m
 * NEXT Use bat, not cat, when syntax highlighting is important.
 ** alias cat to bat in .zshrc or make other aliases?
 * changed theme for Ghostty to MaterialDesignColors on Big and New.
+* Added an alias to .zshrc:
+alias lx='eza -lat created --color=always --icons=always --group-directories-first
