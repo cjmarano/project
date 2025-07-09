@@ -52,7 +52,7 @@ set -g allow-passthrough on
 set -g update-environment TERM
 set -g update-environment TERM_PROGRAM
 >>>>>>> 5a7e4ca (Cycling through 3.org for July)
-* COMPLETED +was able to change yazi theme on big and new to dracula, then mocha-green.+
+* COMPLETED +was able to change yazi theme on big and new to dracula, then mocha-green
 CLOSED: [2025-07-02 Wed 08:23]
 ** ya pack -a yazi-rs/flavors:dracula
 *** was able to change flavor to dracula.
@@ -92,7 +92,9 @@ it's in gitpas.txt on the Desktop.
 CLOSED: [2025-07-07 Mon 09:24]
 * COMPLETED Yazi very simple to use. Commands make sense.
 CLOSED: [2025-07-07 Mon 12:37]
-* NEXT Installed lazygit. Have to try it out.
+* COMPLETED Use bat, not cat, when syntax highlighting is important.
+CLOSED: [2025-07-08 Tue 13:51]
+** alias cat to bat in .zshrc or make other aliases?
 * WAITING Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
@@ -112,14 +114,14 @@ CLOSED: [2025-07-07 Mon 12:37]
 *** currently using Tomorrow. May change back to Material.
 ** Trying WezTerm and Ghostty.
 ** WezTerm uses Lua to config and isn't hard. Colors look okay. Muted vs. ITerm2.
+* NEXT Installed lazygit. Have to try it out.
 * NEXT Terminal testing.
 ** Kitty and wezterm are the sharpest, clearest. Iterm is fuzzy,  ghostty is so-so.
-westerm uses Lua, not a fan. 
+westerm uses Lua, not a fan. Ghostty uses Zig. Kitty is combo of C and Python.
 *** Changed Wezterm theme to MaterialDesignColors, trouble changing bg.
 to 344449 <-- which is the color that the Material Design theme I d.l.'s for iTerm2 uses.
 I did change Ghostty and Kitty themes on New to use that color for background. I term already uses it.
-Speed?. <-- variable all show lag at some point.
-icon size - Jetbrainsmono has larger icons. 
+Speed?. <-- variable all show lag at some point.icon size - Jetbrainsmono has larger icons. 
 *** Changed all terms to 263238
 this is from Martin Seeler's Material Design iTerm2 theme Material Design.
 or 344449 depends on monitor.
@@ -129,12 +131,11 @@ Gave larger padding (space between lines) and larger icons, which is nice. This 
 now wezterm does not prompt 'Are you sure?' when quitting.
 *** wezterm can't get rid of tab bar.
 *** All terms on New seem to have trouble picking up changes at some point.
-*** Ghostty on Big is not picking up changes to config. <-- wait, now it is. 
+*** Ghostty on Big is not picking up changes to  config. <-- wait, now it is. 
 changed permissions to 666 sizing worked. Color seems fine on Big, not on new (moritor or app?)
 *** bg colors really inconsistent between monitors.
 *** wezterm seems to have best graphics - wyland? Probably not on Macs. Maybe it's the MaterialDesignColors theme?
-* NEXT Use bat, not cat, when syntax highlighting is important.
-** alias cat to bat in .zshrc or make other aliases?
-* changed theme for Ghostty to MaterialDesignColors on Big and New.
-* Added an alias to .zshrc:
+** changed theme for Ghostty to MaterialDesignColors on Big and New.
+fg* Added an alias to .zshrc:
 alias lx='eza -lat created --color=always --icons=always --group-directories-first
+* Trying to figure out project root.
