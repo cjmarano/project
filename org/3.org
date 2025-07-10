@@ -97,26 +97,10 @@ CLOSED: [2025-07-08 Tue 13:51]
 ** alias cat to bat in .zshrc or make other aliases?
 * COMPLETED Note: flatpak not used on Big and New.
 CLOSED: [2025-07-09 Wed 14:56]
-* WAITING Doing Zsh Scripting.
-** No good intros to zsh programming found so far.
-** Debugging:
-1. Call the script with the -x option. Example: zsh -x myscript.
-2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
-3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
-** Completed into pdf: Scripting_Intro_Zsh.pdf
-* WAITING Lisp programming.
-** Tried kitty terminal.  It may be faster, not sure.
-** Forn default, too small, editor vi, etc. Edited ~/.config/kitty/kitty.conf
-** added kitty-themes to .config/kitty. Chose MaterialDark.
-** set up kitty on Big. Different themes on each. New = Materialdark. Big is Tomorrow_Night_Eighties.
-** kitten choose-fonts doesn't apper to work, doesn't modify kitty.conf3
-** It writes a separate Kitty fonts section at THE END of kitty.conf
-*** worked AFTER I gave kitty full disk access in Privacy & Security.
-*** Which is better? Materialdark or Tomorrow_Night_Eighties?
-*** currently using Tomorrow. May change back to Material.
-** Trying WezTerm and Ghostty.
-** WezTerm uses Lua to config and isn't hard. Colors look okay. Muted vs. ITerm2.
-* NEXT Installed lazygit. Have to try it out.
+* COMPLETED Kitty disappeared on Big.
+CLOSED: [2025-07-10 Thu 09:46]
+Had trouble re-installing. Couldn't install via homebrew. Installing via curl put kitty in /Applications/ but kitten not found.
+Had to add /Applications/kitty.app/Contents/macOS to paht in .zshrc
 * NEXT Terminal testing.
 ** Wezterm seesm Windows friendly. Ghostty is Mac Friendly.
 ** Kitty and wezterm are the sharpest, clearest. Iterm is fuzzy,  ghostty is so-so.
@@ -142,7 +126,26 @@ changed permissions to 666 sizing worked. Color seems fine on Big, not on new (m
 fg* Added an alias to .zshrc:
 alias lx='eza -lat created --color=always --icons=always --group-directories-first
 ** Kitty theme is Tomorrow night eighties.
-* Kitty disappeared on Big.
-Had trouble re-installing. Couldn't install via homebrew. Installing via curl put kitty in /Applications/ but kitten not found.
-Had to add /Applications/kitty.app/Contents/macOS to paht in .zshrc
-* Trying to figure out project root.
+** Tried kitty terminal.  It may be faster, not sure.
+** Forn default, too small, editor vi, etc. Edited ~/.config/kitty/kitty.conf
+** added kitty-themes to .config/kitty. Chose MaterialDark.
+** set up kitty on Big. Different themes on each. New = Materialdark. Big is Tomorrow_Night_Eighties.
+** kitten choose-fonts doesn't apper to work, doesn't modify kitty.conf3
+** It writes a separate Kitty fonts section at THE END of kitty.conf
+*** worked AFTER I gave kitty full disk access in Privacy & Security.
+*** Which is better? Materialdark or Tomorrow_Night_Eighties?
+*** currently using Tomorrow. May change back to Material.
+** Trying WezTerm and Ghostty.
+** WezTerm uses Lua to config and isn't hard. Colors look okay. Muted vs. ITerm2.
+* WAITING Installed lazygit. Have to try it out.
+* WAITING Trying to figure out project root.
+* WAITING Doing Zsh Scripting.
+** No good intros to zsh programming found so far.
+** Debugging:
+1. Call the script with the -x option. Example: zsh -x myscript.
+2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
+3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
+** Completed into pdf: Scripting_Intro_Zsh.pdf
+* WAITING Lisp programming.
+** ielm did not work correctly on New or Big w/ normal emacs but DID work correctly using Prot's emacs.
+so something in ~/.emacs.d/init.el is wrong. Removed ALL lisp-related items and ielm started functioning normally.
