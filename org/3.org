@@ -149,3 +149,4 @@ alias lx='eza -lat created --color=always --icons=always --group-directories-fir
 * WAITING Lisp programming.
 ** ielm did not work correctly on New or Big w/ normal emacs but DID work correctly using Prot's emacs.
 so something in ~/.emacs.d/init.el is wrong. Removed ALL lisp-related items and ielm started functioning normally.
+** recommends are SBCL + Slime for compiling and interpeting respectively. 

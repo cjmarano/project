@@ -1,0 +1,10 @@
+#+title:      elisp
+#+date:       [2025-07-11 Fri 13:22]
+#+filetags:   :init:
+#+identifier: 20250711T132203
+
+ielm is working lisp repl.
+sbcl is a lisp compiler.
+quicklisp is a lisp interpeter?
+Slime is an emacs package
+clisp is an interpeter.
