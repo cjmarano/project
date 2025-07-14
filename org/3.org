@@ -152,3 +152,10 @@ so something in ~/.emacs.d/init.el is wrong. Removed ALL lisp-related items and 
 ** recommends are SBCL + Slime for compiling and interpeting respectively.
 readded paredit info to init.el slime working. added rainbow delimeters and eldoc mode. All work correctly.
 
+* Installed quicklisp on Big and New:
+$ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
+$ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
+       --eval '(quicklisp-quickstart:install :path "~/.quicklisp")' \
+       --eval '(ql:add-to-init-file)' \
+       --quit
+ 
