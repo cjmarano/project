@@ -1,4 +1,4 @@
-#!/usr/local/bin/clisp 
+#!/opt/homebrew/bin/clisp
 (write (setf my-array (make-array '(10))))
 (terpri)
 (setf (aref my-array 0) 25)
