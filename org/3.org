@@ -97,14 +97,11 @@ CLOSED: [2025-07-08 Tue 13:51]
 ** alias cat to bat in .zshrc or make other aliases?
 * COMPLETED Note: flatpak not used on Big and New.
 CLOSED: [2025-07-09 Wed 14:56]
-* COMPLETED Kitty disappeared on Big.
-CLOSED: [2025-07-10 Thu 09:46]
-Had trouble re-installing. Couldn't install via homebrew. Installing via curl put kitty in /Applications/ but kitten not found.
-Had to add /Applications/kitty.app/Contents/macOS to paht in .zshrc
 * COMPLETED On Big: couldn't delete yasnippet dir that was throwing errors. Dir had no snippets.
 CLOSED: [2025-07-14 Mon 14:46]
 I created an empty snippets dir inside the Yasnippet Dir and that stopped the error messages. Still why couldn't I just
 delte the dir out of yas-snippet-dirs?
+* WAITING Tmux not needed right now. Don't need multiple terminal sessions at this time.
 * WAITING Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
@@ -152,6 +149,9 @@ alias lx='eza -lat created --color=always --icons=always --group-directories-fir
 *** currently using Tomorrow. May change back to Material.
 ** Trying WezTerm and Ghostty.
 ** WezTerm uses Lua to config and isn't hard. Colors look okay. Muted vs. ITerm2.
+** COMPLETED Kitty disappeared on Big.
+*** Had trouble re-installing. Couldn't install via homebrew. Installing via curl put kitty in /Applications/ but kitten not found.
+Had to add /Applications/kitty.app/Contents/macOS to paht in .zshrc
 * lisp programming.
 ** COMPLETED ielm did not work correctly on New or Big w/ normal emacs but DID work correctly using Prot's emacs.
 CLOSED: [2025-07-16 Wed 08:47]
@@ -169,7 +169,8 @@ $ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
        added quickproject:
        (ql:quickload "quicklisp-slime-helper")
        (ql:quickload :quickproject)
-
        (quiclproject:make-project "test-project")
  
-** 
+** Looking at https://lisp-lang.org/learn/writing-libraries
+did some of the examples.. writing files was interesting and useful.
+** Did re-install of Quicklisp on New via: https://www.quicklisp.org/beta/#basic-commands
