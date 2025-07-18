@@ -101,7 +101,14 @@ CLOSED: [2025-07-09 Wed 14:56]
 CLOSED: [2025-07-14 Mon 14:46]
 I created an empty snippets dir inside the Yasnippet Dir and that stopped the error messages. Still why couldn't I just
 delte the dir out of yas-snippet-dirs?
-* WAITING Tmux not needed right now. Don't need multiple terminal sessions at this time.
+* COMPLETED Installed lazygit. Have to try it out. Not needed right now.
+CLOSED: [2025-07-17 Thu 13:05]
+* COMPLETED Messed around with Markdown. Can read it in emacs but not important right now.
+CLOSED: [2025-07-17 Thu 13:04]
+* COMPLETED Tmux not needed right now. Don't need multiple terminal sessions at this time.
+CLOSED: [2025-07-17 Thu 13:06]
+* COMPLETED Generated pgp key pair.
+CLOSED: [2025-07-17 Thu 13:50]
 * WAITING Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
@@ -109,10 +116,9 @@ delte the dir out of yas-snippet-dirs?
 2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
 3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
 ** Completed into pdf: Scripting_Intro_Zsh.pdf
-* WAITING Installed lazygit. Have to try it out.
 * WAITING Trying to figure out project root.
 * TODO Test gh on Big to see if ssh key works there.
-* NEXT Terminal testing. Ghostty seems sharpest.
+* NEXT Terminal testing. Ghostty seems sharpest.  Wait, Wezterm is sharpest. On Big and Plucky
 ** Wezterm seesm Windows friendly. Ghostty is Mac Friendly.
 ** Kitty and wezterm are the sharpest, clearest. Iterm is fuzzy,  ghostty is so-so.
 westerm uses Lua, not a fan. Ghostty uses Zig. Kitty is combo of C and Python.
