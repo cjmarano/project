@@ -72,6 +72,8 @@ set -g allow-passthrough on
 set -g update-environment TERM
 set -g update-environment TERM_PROGRAM
 >>>>>>> 5a7e4ca (Cycling through 3.org for July)
+** COMPLETED Check to make sure smartparens is installed on Big and New.
+CLOSED: [2025-07-22 Tue 13:30]
 * ISSUES
 ** COMPLETED Emacs on Big takes 7 secs. to open vs. 3 for New.
 CLOSED: [2025-07-03 Thu 08:30]
@@ -99,11 +101,11 @@ CLOSED: [2025-07-07 Mon 09:24]
 CLOSED: [2025-07-14 Mon 14:46]
 I created an empty snippets dir inside the Yasnippet Dir and that stopped the error messages. Still why couldn't I just
 delte the dir out of yas-snippet-dirs?
+** COMPLETED Still fighting w/ themes on Tmux. got Nord to load, see which .tmux.conf worked.
+CLOSED: [2025-07-07 Mon 12:37]
 * COMPLETED What's my github password?
 CLOSED: [2025-07-07 Mon 09:24]
 it's in gitpas.txt on the Desktop.
-* COMPLETED Still fighting w/ themes on Tmux. got Nord to load, see which .tmux.conf worked.
-CLOSED: [2025-07-07 Mon 12:37]
 * COMPLETED Use bat, not cat, when syntax highlighting is important.
 CLOSED: [2025-07-08 Tue 13:51]
 ** alias cat to bat in .zshrc or make other aliases?
@@ -165,7 +167,7 @@ Had to add /Applications/kitty.app/Contents/macOS to paht in .zshrc
 ** Completed into pdf: Scripting_Intro_Zsh.pdf
 * TODO Trying to figure out project root.
 * TODO Test gh on Big to see if ssh key works there.
-* NEXT Updated and tangled ~/project/init.el.org but it threw lots of errors.
+* WAITING Updated and tangled ~/project/init.el.org but it threw lots of errors.
 ** Had to clean up the resulting newtest.el by hand. Took a while.
 *** Looks like tangle just failed to accurately process the org file.
 ** Tried tangling again after checking init.el.org against working init.el - still got errors.
@@ -183,7 +185,7 @@ _disabled_ (setq ls-lisp-use-insert-directory-program nil)
 ** disabling above did not improve startup time. Now 1 sec.
 ** After multiple changes to init.el and removal of uneeded packages back to sub 4 secs.
 * lisp programming.
-** COMPLETED ielm did not work correctly on New or Big w/ normal emacs but DID work correctly using Prot's emacs.
+** COMPLETED ielm not working correctly on New or Big w/ my init.el. DID work correctly using Prot's emacs.
 CLOSED: [2025-07-16 Wed 08:47]
 so something in ~/.emacs.d/init.el is wrong. Removed ALL lisp-related items and ielm started functioning normally.
 ** COMPLETED Installed quicklisp on Big and New:
@@ -205,4 +207,3 @@ $ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
 did some of the examples.. writing files was interesting and useful.
 ** Did re-install of Quicklisp on New and Big via: https://www.quicklisp.org/beta/#basic-commands
    
-* Check to make sure smartparens is installed on Big and New.
