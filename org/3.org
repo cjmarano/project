@@ -207,3 +207,4 @@ $ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
 did some of the examples.. writing files was interesting and useful.
 ** Did re-install of Quicklisp on New and Big via: https://www.quicklisp.org/beta/#basic-commands
    
+*  Synched init.el on New and Big.
