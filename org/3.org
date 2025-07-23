@@ -1,6 +1,6 @@
 
 * July
-* Start times around 3 seconds.
+* Start times around 3.8 seconds, up from 3.
 ** New taking 3+ seconds. Big now taking 9+ seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
 * Misc installs, etc.
@@ -209,4 +209,4 @@ $ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
 ** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
 ** Did re-install of Quicklisp on New and Big via: https://www.quicklisp.org/beta/#basic-commands
-   
+  added dired-x to init.el on New so I can look at elisp via Info.

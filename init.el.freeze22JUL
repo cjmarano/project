@@ -95,6 +95,11 @@
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
+(add-hook 'dired-load-hook
+  (lambda ()
+    (require 'dired-x)))
+
+
 ;; (setq ls-lisp-use-insert-directory-program nil)
 ;;      (require 'ls-lisp)
 
