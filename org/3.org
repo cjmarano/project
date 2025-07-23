@@ -111,7 +111,7 @@ CLOSED: [2025-07-08 Tue 13:51]
 ** alias cat to bat in .zshrc or make other aliases?
 * COMPLETED Installed lazygit. Have to try it out. Not needed right now.
 CLOSED: [2025-07-17 Thu 13:05]
-* COMPLETED Messed around with Markdown. Can read it in emacs but not important right now.
+* COMPLETED Messed around with Markdown. Can read it in emacs not important right now.
 CLOSED: [2025-07-17 Thu 13:04]
 * COMPLETED Tmux not needed right now. Don't need multiple terminal sessions at this time.
 CLOSED: [2025-07-17 Thu 13:06]
@@ -158,15 +158,9 @@ alias lx='eza -lat created --color=always --icons=always --group-directories-fir
 ** COMPLETED Kitty disappeared on Big.
 *** Had trouble re-installing. Couldn't install via homebrew. Installing via curl put kitty in /Applications/ but kitten not found.
 Had to add /Applications/kitty.app/Contents/macOS to paht in .zshrc
-* TODO Doing Zsh Scripting.
-** No good intros to zsh programming found so far.
-** Debugging:
-1. Call the script with the -x option. Example: zsh -x myscript.
-2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
-3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
-** Completed into pdf: Scripting_Intro_Zsh.pdf
-* TODO Trying to figure out project root.
-* TODO Test gh on Big to see if ssh key works there.
+* COMPLETED _FREEZE init.el_ Synched init.el on New and Big.
+CLOSED: [2025-07-22 Tue 14:15]
+** Freeze and changes/additions to emacs for a while. Do programming.
 * WAITING Updated and tangled ~/project/init.el.org but it threw lots of errors.
 ** Had to clean up the resulting newtest.el by hand. Took a while.
 *** Looks like tangle just failed to accurately process the org file.
@@ -184,6 +178,15 @@ _disabled_ (setq ls-lisp-use-insert-directory-program nil)
      (require 'ls-lisp)
 ** disabling above did not improve startup time. Now 1 sec.
 ** After multiple changes to init.el and removal of uneeded packages back to sub 4 secs.
+* TODO Doing Zsh Scripting.
+** No good intros to zsh programming found so far.
+** Debugging:
+1. Call the script with the -x option. Example: zsh -x myscript.
+2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
+3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
+** Completed into pdf: Scripting_Intro_Zsh.pdf
+* TODO Trying to figure out project root.
+* TODO Test gh on Big to see if ssh key works there.
 * lisp programming.
 ** COMPLETED ielm not working correctly on New or Big w/ my init.el. DID work correctly using Prot's emacs.
 CLOSED: [2025-07-16 Wed 08:47]
@@ -207,4 +210,3 @@ $ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
 did some of the examples.. writing files was interesting and useful.
 ** Did re-install of Quicklisp on New and Big via: https://www.quicklisp.org/beta/#basic-commands
    
-*  Synched init.el on New and Big.
