@@ -74,6 +74,11 @@ set -g update-environment TERM_PROGRAM
 >>>>>>> 5a7e4ca (Cycling through 3.org for July)
 ** COMPLETED Check to make sure smartparens is installed on Big and New.
 CLOSED: [2025-07-22 Tue 13:30]
+** COMPLETED Generated pgp key pair.
+CLOSED: [2025-07-17 Thu 13:50]
+** COMPLETED What's my github password?
+CLOSED: [2025-07-07 Mon 09:24]
+it's in gitpas.txt on the Desktop.
 * ISSUES
 ** COMPLETED Emacs on Big takes 7 secs. to open vs. 3 for New.
 CLOSED: [2025-07-03 Thu 08:30]
@@ -103,9 +108,6 @@ I created an empty snippets dir inside the Yasnippet Dir and that stopped the er
 delte the dir out of yas-snippet-dirs?
 ** COMPLETED Still fighting w/ themes on Tmux. got Nord to load, see which .tmux.conf worked.
 CLOSED: [2025-07-07 Mon 12:37]
-* COMPLETED What's my github password?
-CLOSED: [2025-07-07 Mon 09:24]
-it's in gitpas.txt on the Desktop.
 * COMPLETED Use bat, not cat, when syntax highlighting is important.
 CLOSED: [2025-07-08 Tue 13:51]
 ** alias cat to bat in .zshrc or make other aliases?
@@ -115,8 +117,6 @@ CLOSED: [2025-07-17 Thu 13:05]
 CLOSED: [2025-07-17 Thu 13:04]
 * COMPLETED Tmux not needed right now. Don't need multiple terminal sessions at this time.
 CLOSED: [2025-07-17 Thu 13:06]
-* COMPLETED Generated pgp key pair.
-CLOSED: [2025-07-17 Thu 13:50]
 * COMPLETED Terminal testing. Wezterm is sharpest. On Big and Plucky
 CLOSED: [2025-07-22 Tue 09:47]
 ** Wezterm seesm Windows friendly. Ghostty is Mac Friendly.
@@ -158,7 +158,7 @@ alias lx='eza -lat created --color=always --icons=always --group-directories-fir
 ** COMPLETED Kitty disappeared on Big.
 *** Had trouble re-installing. Couldn't install via homebrew. Installing via curl put kitty in /Applications/ but kitten not found.
 Had to add /Applications/kitty.app/Contents/macOS to paht in .zshrc
-* COMPLETED _FREEZE init.el_ Synched init.el on New and Big.
+* COMPLETED _FREEZE init.el_ +Synched init.el on New and Big & Plucky.
 CLOSED: [2025-07-22 Tue 14:15]
 ** Freeze and changes/additions to emacs for a while. Do programming.
 * WAITING Updated and tangled ~/project/init.el.org but it threw lots of errors.

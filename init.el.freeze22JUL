@@ -48,7 +48,7 @@
 (add-to-list 'default-frame-alist '(height . 60))
 (add-to-list 'default-frame-alist '(width . 100))
 
-(setq history-lenght 10)
+(setq history-length 10)
 (setq savehist-mode t)
 (setq org-indent-mode t)
 (setq-default cursor-type 'hbar)
@@ -72,7 +72,6 @@
 ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 (keymap-global-set "M-p" 'previous-buffer)
 (keymap-global-set "M-n" 'next-buffer)
-;; from emacs-solo -----------------------------------------
 (keymap-global-set "M-o" 'other-window)
 (keymap-global-set "M-g" 'recentf)
 
@@ -91,13 +90,13 @@
 (when (display-graphic-p)
   (context-menu-mode))
 
-(file-name-shadow-mode 1)
-(add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
+;; (file-name-shadow-mode 1)
+;; (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
-(setq ls-lisp-use-insert-directory-program nil)
-     (require 'ls-lisp)
+;; (setq ls-lisp-use-insert-directory-program nil)
+;;      (require 'ls-lisp)
 
 (setq ediff-diff-options "--text")
 
@@ -147,9 +146,9 @@
 (use-package nerd-icons
   :ensure t)
 (setq doom-modeline-buffer-file-name-style 'file-name)
-(setq doom-modeline-major-mode-color-icon t)
-(setq doom-modeline-major-mode-icon t)
-(setq doom-modeline-buffer-encoding nil)
+;; (setq doom-modeline-major-mode-color-icon t)
+;; (setq doom-modeline-major-mode-icon t)
+(setq doom-modeline-buffer-encoding t)
 (setq doom-modeline-env-version t)
 (setq doom-modeline-env-enable-python t)
 (setq doom-modeline-env-enable-ruby t)
@@ -185,13 +184,6 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
      (keymap-global-set "C-x g" 'magit-status) 
-
-;; Removed/re-added the below with plugin dir.
-(add-to-list 'load-path
-              "~/.emacs.d/plugins/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
-(setq yas-snippet-dirs '("~/.emacs.d/elpa/yasnippet-snippets-20250507.2002/snippets/"))
 
 (use-package which-key
   :defer 0
@@ -245,19 +237,42 @@
   (consult-denote-mode 1))
 
 (use-package marginalia
-  ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
-  ;; available in the *Completions* buffer, add it to the
-  ;; `completion-list-mode-map'.
-  :bind (:map minibuffer-local-map
-              ("M-A" . marginalia-cycle))
+;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
+;; available in the *Completions* buffer, add it to the
+;; `completion-list-mode-map'.
+:bind (:map minibuffer-local-map
+            ("M-A" . marginalia-cycle))
 
-  ;; The :init section is always executed.
-  :init
-  ;; Marginalia must be activated in the :init section of use-package such that
-  ;; the mode gets enabled right away. Note that this forces loading the
-  ;; package.
-  (marginalia-mode))
+;; The :init section is always executed.
+:init
+;; Marginalia must be activated in the :init section of use-package such that
+;; the mode gets enabled right away. Note that this forces loading the
+;; package.
+(marginalia-mode))
 
+;; Note that the built-in `describe-function' includes both functions
+;; and macros. `helpful-function' is functions only, so we provide
+;; `helpful-callable' as a drop-in replacement.
+(global-set-key (kbd "C-h f") #'helpful-callable)
+(global-set-key (kbd "C-h v") #'helpful-variable)
+(global-set-key (kbd "C-h k") #'helpful-key)
+(global-set-key (kbd "C-h x") #'helpful-command)
+
+;; Lookup the current symbol at point. C-c C-d is a common keybinding
+;; for this in lisp modes.
+(global-set-key (kbd "C-c C-d") #'helpful-at-point)
+
+;; Look up *F*unctions (excludes macros).
+;;
+;; By default, C-h F is bound to `Info-goto-emacs-command-node'. Helpful
+;; already links to the manual, if a function is referenced there.
+(global-set-key (kbd "C-h F") #'helpful-function)
+
+(require 'smartparens-config)
+
+;; ---------------------------------------------------------
+;; Start of Org section ------------------------------------
+;; ---------------------------------------------------------
 (use-package org
   :pin gnu
   :commands (org-capture org-agenda)
@@ -404,6 +419,10 @@
 
 (let ((org-confirm-babel-evaluate nil)))
 
+;; ---------------------------------------------------------
+;; End of Org section --------------------------------------
+;;----------------------------------------------------------
+
 (use-package eglot
   :ensure nil
   ;; :defer t
@@ -439,19 +458,14 @@
               ("C-c C-c h" . lsp-ui-doc-glance))
 
   :config
-  ;; uncomment for less flashiness
-  ;; (setq lsp-eldoc-hook nil)
-  ;; (setq lsp-enable-symbol-highlighting nil)
-  ;; (setq lsp-signature-auto-activate nil)
-
-  ;; comment to disable rustfmt on save
-  (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
+;; comment to disable rustfmt on save
+(add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
 (defun rk/rustic-mode-hook ()
-  ;; so that run C-c C-c C-r works without having to confirm, but don't try to
-  ;; save rust buffers that are not file visiting. Once
-  ;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
-  ;; no longer be necessary.
+;; so that run C-c C-c C-r works without having to confirm, but don't try to
+;; save rust buffers that are not file visiting. Once
+;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
+;; no longer be necessary.
   (when buffer-file-name
     (setq-local buffer-save-without-query t))
   (add-hook 'before-save-hook 'lsp-format-buffer nil t))
@@ -525,24 +539,22 @@
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
 (require 'slime-autoloads)
 (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
-;; ----------end Lisp Section ------------------------------
 
-;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
-
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+  
 ;; Enable Paredit.
-;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
-;; (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
-;; (add-hook 'ielm-mode-hook 'enable-paredit-mode)
-;; (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
-;; (add-hook 'lisp-mode-hook 'enable-paredit-mode)
-;; (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
+(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
+(add-hook 'ielm-mode-hook 'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+(add-hook 'lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
 (require 'paredit)
 
-;; *** redundant? see 544 to 549 ***
 ;; Enable Rainbow Delimiters.
-;; (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
-;; (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
-;; (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 
 ;; Setup load-path, autoloads and your lisp system
 (add-to-list 'load-path "~/.emacs.d/elpa")
@@ -556,38 +568,11 @@
 ;;             ))
 
 ;; Eldoc for ielm
+;; docs say this enabled by default now.
 ;; (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 ;; (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
 ;; (add-hook 'ielm-mode-hook 'eldoc-mode)
-
-;; *********** ielm from Systems Crafters ********
-;; (defun efs/ielm-send-line-or-region ()
-;;   (interactive)
-;;   (unless (use-region-p)
-;;     (forward-line 0)
-;;     (set-mark-command nil)
-;;     (forward-line 1))
-;;   (backward-char 1)
-;;   (let ((text (buffer-substring-no-properties (region-beginning)
-;;                                               (region-end))))
-;;     (with-current-buffer "*ielm*"
-;;       (insert text)
-;;       (ielm-send-input))
-
-;;     (deactivate-mark)))
-
-;; (defun efs/show-ielm ()
-;;   (interactive)
-;;   (select-window (split-window-vertically -10))
-;;   (ielm)
-;;   (text-scale-set 1))
-
-;; (define-key org-mode-map (kbd "C-c C-e") 'efs/ielm-send-line-or-region)
-;; (define-key org-mode-map (kbd "C-c E") 'efs/show-ielm)
-
-;; ****** end System Crafter's ielm add ****
-
-;; ------------end lisp content old ------------------------
+;; ------------end lisp ------------------------------------
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -633,24 +618,24 @@
  '(flycheck-python-pylint-executable "python3")
  '(org-agenda-files '("~/project/org/3.org"))
  '(org-faces-easy-properties
-   '((todo . :background) (tag . :foreground) (priority . :foreground)))
+   '((todo . :background)
+     (tag . :foreground)
+     (priority . :foreground)))
  '(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
  '(org-startup-folded 'fold)
  '(org-tempo-keywords-alist nil)
  '(package-selected-packages
-   '(0blayout 0x0 0xc ac-haskell-process all-the-icons-nerd-fonts
-              auto-compile cargo cargo-mode
+   '(0blayout 0xc all-the-icons-nerd-fonts auto-compile cargo cargo-mode
               color-theme-sanityinc-tomorrow company-box consult
-              consult-denote corfu dashboard denote diffview
-              dired-single dired-subtree doom-modeline doom-themes
-              eglot elpy exec-path-from-shell flycheck-pyflakes
-              flycheck-rust kkp lsp-ui lua-mode magit marginalia
-              material-theme modus-themes nerd-icons-completion
-              nerd-icons-dired no-littering ob-rust orderless
-              org-bullets org-roam paredit rainbow-delimiters
-              rust-playground rustic show-font slime timu-macos-theme
-              toml-mode tree-sitter-langs treesit-auto use-package
-              vertico vterm which-key yasnippet-snippets))
+              consult-denote dashboard denote diffview dired-single
+              dired-subtree doom-modeline eglot elpy
+              exec-path-from-shell flycheck-pyflakes flycheck-rust
+              helpful kkp lsp-ui lua-mode magit marginalia
+              material-theme nerd-icons-completion nerd-icons-dired
+              no-littering ob-rust orderless org-bullets org-roam
+              paredit rainbow-delimiters rust-playground rustic
+              show-font slime smartparens toml-mode tree-sitter-langs
+              treesit-auto use-package vertico vterm which-key))
  '(savehist-additional-variables '(kill-ring register-alist\ ))
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))
@@ -658,6 +643,7 @@
 '(python-shell-interpeter "$HOME/.pyenv/shims/python3")
 
 ;; duplicate of above? add-hook is different than selected packages.
+;; below is for delimiters in all programming modes.
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (elpy-enable)
@@ -669,5 +655,8 @@
 ;; added to supress flymake error message when compliing python (12AUG2022)
 (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
 
-(put 'dired-find-alternate-file 'disabled nil)
+;; No idea what the line below is - put?
+;; (put 'dired-find-alternate-file 'disabled nil)
+;; typing 'a' in dired is default for use same window.
+
 ;; User-Defined init.el ends here
