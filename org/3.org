@@ -210,3 +210,6 @@ $ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
 did some of the examples.. writing files was interesting and useful.
 ** Did re-install of Quicklisp on New and Big via: https://www.quicklisp.org/beta/#basic-commands
   added dired-x to init.el on New so I can look at elisp via Info.
+** circle.lisp working after changes. hello.lisp working. array.lisp working but there are errors if run via Slime.
++deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
+fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
