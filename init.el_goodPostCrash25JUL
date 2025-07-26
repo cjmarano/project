@@ -45,7 +45,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-(add-to-list 'default-frame-alist '(height . 60))
+(add-to-list 'default-frame-alist '(height . 33))
 (add-to-list 'default-frame-alist '(width . 100))
 
 (setq history-length 10)
@@ -273,10 +273,7 @@
 ;; already links to the manual, if a function is referenced there.
 (global-set-key (kbd "C-h F") #'helpful-function)
 
-(require 'smartparens-config)
-(add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
-(add-hook 'common-lisp-mode-hook #'smartparens-mode)
-(add-hook 'lisp-mode-hook #'smartparens-mode)
+;; (require 'smartparens-config)
 
 ;; ---------------------------------------------------------
 ;; Start of Org section ------------------------------------
@@ -544,7 +541,7 @@
   :hook (company-mode . company-box-mode))
 
 ;; -----------Current Lisp Section ---------------------------------
-(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+(setq inferior-lisp-program "/home/linuxbrew/.linuxbrew/bin/sbcl")
 (require 'slime-autoloads)
 (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
 
@@ -633,22 +630,24 @@
  '(org-startup-folded 'fold)
  '(org-tempo-keywords-alist nil)
  '(package-selected-packages
-   '(0blayout 0xc all-the-icons-nerd-fonts auto-compile cargo cargo-mode
+   '(0blayout 0xc all-the-icons-nerd-fonts
+              auto-compile cargo cargo-mode
               color-theme-sanityinc-tomorrow company-box consult
-              consult-denote dashboard denote diffview dired-single
-              dired-subtree doom-modeline eglot elpy
-              exec-path-from-shell flycheck-pyflakes flycheck-rust
-              helpful kkp lsp-ui lua-mode magit marginalia
-              material-theme nerd-icons-completion nerd-icons-dired
-              no-littering ob-rust orderless org-bullets org-roam
-              paredit rainbow-delimiters rust-playground rustic
-              show-font slime smartparens toml-mode tree-sitter-langs
+              consult-denote dashboard denote diffview
+              dired-single dired-subtree doom-modeline doom-themes
+              eglot elpy exec-path-from-shell flycheck-pyflakes
+              flycheck-rust helpful kkp lsp-ui
+              lua-mode magit marginalia material-theme
+              nerd-icons-completion nerd-icons-dired no-littering
+              ob-rust orderless org-bullets org-roam paredit
+              rainbow-delimiters rustic
+              smartparens toml-mode tree-sitter-langs
               treesit-auto use-package vertico vterm which-key))
  '(savehist-additional-variables '(kill-ring register-alist\ ))
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))
 
-'(python-shell-interpeter "$HOME/.pyenv/shims/python3")
+ '(python-shell-interpeter "$HOME/.pyenv/shims/python3")
 
 ;; duplicate of above? add-hook is different than selected packages.
 ;; below is for delimiters in all programming modes.
