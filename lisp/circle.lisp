@@ -1,5 +1,5 @@
-#!/usr/local/bin/clisp
-(defconstant PI 3.141592)
+#!/opt/homebrew/bin/sbcl --script
+;;; (defconstant PI 3.141592)
 (defun area-circle(rad)
    (terpri)
    (format t "Radius: ~5f" rad)

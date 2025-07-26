@@ -1,4 +1,4 @@
-#!/usr/local/bin/clisp
+#!/opt/homebrew/bin/sbcl
 
 (defun roller (num)
   (pprint (random (parse-integer (nth 0 num))))

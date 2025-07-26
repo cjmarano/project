@@ -1,2 +1,3 @@
-#!/usr/local/bin/sbcl --script
+#!/opt/homebrew/bin/sbcl --script
 (write-line "Hello, World!")
+

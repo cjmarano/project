@@ -1,19 +1,22 @@
+
 * July
-* Start times around 3 seconds.
+* Start times around 3.8 seconds, up from 3.
 ** New taking 3+ seconds. Big now taking 9+ seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
-* COMPLETED Tried Aerospace tiling WM. It immediately bugged out so leave for later.
+* Misc installs, etc.
+** COMPLETED Tried Aerospace tiling WM. It immediately bugged out so leave for later.
 CLOSED: [2025-06-09 Mon 10:27]
-* COMPLETED installed fd very nice find replacement.
+** COMPLETED installed fd very nice find replacement.
 CLOSED: [2025-06-19 Thu 08:22]
-* COMPLETED Installed eza - seems faster than ls.
+** COMPLETED Installed eza - seems faster than ls.
 CLOSED: [2025-06-19 Thu 08:22]
 ** created aliases:
 alias lz='eza -lh --color=always --icons=always'
 alias ly='eza -lha --color=always --icons=always --group-directories-first'
 *** WAITING Love eza. Did alias it as lz.
 Tmux or Kitty, etc. w/ split windows, tabs?
-* COMPLETED Still fighting w/ themes on Tmux. got Nord to load, see which .tmux.conf worked.
+** COMPLETED Yazi very simple to use. Commands make sense.
+
 CLOSED: [2025-06-26 Thu 09:46]
 ** Can't get any theme to load for Tmux on Big. Strangely, it does accept C-a
 so it is reading a changed conf from somewhere. I've tried cp the .tmux.conf file to /opt/homebrew//etc and to
@@ -27,9 +30,9 @@ then run ~/.tmux/plugins/tpm/tpm did the trick. Now have Nord theme on both Big 
 ** Next step: try powerline
 ** Nord theme was okay w/ Tmux. Haven't seen anything superior yet.
 ** Tried Catppuccin theme - won't load, stuck on Nord.
-* COMPLETED Installed kkp package for kitty-protocol in emacs.
+** COMPLETED Installed kkp package for kitty-protocol in emacs.
 CLOSED: [2025-06-30 Mon 13:53]
-* COMPLETED Installed Yazi on New. Looks interesting. 
+** COMPLETED Installed Yazi on New. Looks interesting. 
 CLOSED: [2025-06-30 Mon 14:00]
 ** looks like a pain to customize. Will try it and see.
 ** changed yazi proportions to 1, 3, 4.
@@ -43,16 +46,10 @@ tried copying and renaming vscode-dark-plus to foo and setting that in theme.tom
 +so,,,+
 *** Okay, so +took catppuccin-mocha-green.toml, copied it into ~/.config/yazi and changed its name to theme.toml+
 that worked. Now have this theme (not flavor) on Big and New.
-* COMPLETED  Run this on Big git config --global credential.helper store - didn't work.
+** COMPLETED  Run this on Big git config --global credential.helper store - didn't work.
 CLOSED: [2025-07-02 Wed 08:22]
 =======
-* COMPLETED Added to tmux.conf:
-CLOSED: [2025-07-02 Wed 13:09]
-set -g allow-passthrough on
-set -g update-environment TERM
-set -g update-environment TERM_PROGRAM
->>>>>>> 5a7e4ca (Cycling through 3.org for July)
-* COMPLETED +was able to change yazi theme on big and new to dracula, then mocha-green
+8* COMPLETED +was able to change yazi theme on big and new to dracula, then mocha-green
 CLOSED: [2025-07-02 Wed 08:23]
 ** ya pack -a yazi-rs/flavors:dracula
 *** was able to change flavor to dracula.
@@ -65,11 +62,29 @@ tried copying and renaming vscode-dark-plus to foo and setting that in theme.tom
 that worked. Now have this theme (not flavor) on Big and New.
 ** Still a little confused. catppuccin-mocha-green is on Big and New but other remnants of themes remain.
 investigate and clean up at some point.
-* COMPLETED Emacs on Big takes 7 secs. to open vs. 3 for New.
+** COMPLETED Note: flatpak not used on Big and New.
+CLOSED: [2025-07-09 Wed 14:56]
+** COMPLETED added Helpful package.
+CLOSED: [2025-07-21 Mon 13:54]
+** COMPLETED Added to tmux.conf:
+CLOSED: [2025-07-02 Wed 13:09]
+set -g allow-passthrough on
+set -g update-environment TERM
+set -g update-environment TERM_PROGRAM
+>>>>>>> 5a7e4ca (Cycling through 3.org for July)
+** COMPLETED Check to make sure smartparens is installed on Big and New.
+CLOSED: [2025-07-22 Tue 13:30]
+** COMPLETED Generated pgp key pair.
+CLOSED: [2025-07-17 Thu 13:50]
+** COMPLETED What's my github password?
+CLOSED: [2025-07-07 Mon 09:24]
+it's in gitpas.txt on the Desktop.
+* ISSUES
+** COMPLETED Emacs on Big takes 7 secs. to open vs. 3 for New.
 CLOSED: [2025-07-03 Thu 08:30]
 ** Do a diff on their init.el files. - New and Big homogulated July 2nd.
 ** Check number of packages loaded. -- 61 pacakges Big and New.
-* COMPLETED Ghostty on New won't show working directory.  Okay, now it does on New and Big.
+** COMPLETED Ghostty on New won't show working directory.  Okay, now it does on New and Big.
 CLOSED: [2025-07-07 Mon 09:23]
 ** Kitty will scroll with C-<shift> and page up, page down, home and end. 
  in Tmux, have to go to copy mode C-a [ then q when ready to quit.
@@ -85,27 +100,30 @@ Modified kitty.conf to remove 'are you sure' dialog when closing.
  source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
 fi
 
-* COMPLETED What's my github password?
+** COMPLETED Github Python branch not set up for https, couldn't update
 CLOSED: [2025-07-07 Mon 09:24]
-it's in gitpas.txt on the Desktop.
-* COMPLETED Github Python branch not set up for https, couldn't update
-CLOSED: [2025-07-07 Mon 09:24]
-* COMPLETED Yazi very simple to use. Commands make sense.
+** COMPLETED On Big: couldn't delete yasnippet dir that was throwing errors. Dir had no snippets.
+CLOSED: [2025-07-14 Mon 14:46]
+I created an empty snippets dir inside the Yasnippet Dir and that stopped the error messages. Still why couldn't I just
+delte the dir out of yas-snippet-dirs?
+** COMPLETED Still fighting w/ themes on Tmux. got Nord to load, see which .tmux.conf worked.
 CLOSED: [2025-07-07 Mon 12:37]
 * COMPLETED Use bat, not cat, when syntax highlighting is important.
 CLOSED: [2025-07-08 Tue 13:51]
 ** alias cat to bat in .zshrc or make other aliases?
-* COMPLETED Note: flatpak not used on Big and New.
-CLOSED: [2025-07-09 Wed 14:56]
-* COMPLETED Kitty disappeared on Big.
-CLOSED: [2025-07-10 Thu 09:46]
-Had trouble re-installing. Couldn't install via homebrew. Installing via curl put kitty in /Applications/ but kitten not found.
-Had to add /Applications/kitty.app/Contents/macOS to paht in .zshrc
-* NEXT Terminal testing.
+* COMPLETED Installed lazygit. Have to try it out. Not needed right now.
+CLOSED: [2025-07-17 Thu 13:05]
+* COMPLETED Messed around with Markdown. Can read it in emacs not important right now.
+CLOSED: [2025-07-17 Thu 13:04]
+* COMPLETED Tmux not needed right now. Don't need multiple terminal sessions at this time.
+CLOSED: [2025-07-17 Thu 13:06]
+* COMPLETED Terminal testing. Wezterm is sharpest. On Big and Plucky
+CLOSED: [2025-07-22 Tue 09:47]
 ** Wezterm seesm Windows friendly. Ghostty is Mac Friendly.
 ** Kitty and wezterm are the sharpest, clearest. Iterm is fuzzy,  ghostty is so-so.
 westerm uses Lua, not a fan. Ghostty uses Zig. Kitty is combo of C and Python.
 *** Changed Wezterm theme to MaterialDesignColors, trouble changing bg.
+** Actually side by side Ghostty looks sharpest, followed by wezterm. Kitty is 3rd, iTerm2 last.
 to 344449 <-- which is the color that the Material Design theme I d.l.'s for iTerm2 uses.
 I did change Ghostty and Kitty themes on New to use that color for background. I term already uses it.
 Speed?. <-- variable all show lag at some point.icon size - Jetbrainsmono has larger icons. 
@@ -137,18 +155,62 @@ alias lx='eza -lat created --color=always --icons=always --group-directories-fir
 *** currently using Tomorrow. May change back to Material.
 ** Trying WezTerm and Ghostty.
 ** WezTerm uses Lua to config and isn't hard. Colors look okay. Muted vs. ITerm2.
-* WAITING Installed lazygit. Have to try it out.
-* WAITING Trying to figure out project root.
-* WAITING Doing Zsh Scripting.
+** COMPLETED Kitty disappeared on Big.
+*** Had trouble re-installing. Couldn't install via homebrew. Installing via curl put kitty in /Applications/ but kitten not found.
+Had to add /Applications/kitty.app/Contents/macOS to paht in .zshrc
+* COMPLETED _FREEZE init.el_ +Synched init.el on New and Big & Plucky.
+CLOSED: [2025-07-22 Tue 14:15]
+** Freeze and changes/additions to emacs for a while. Do programming.
+* WAITING Updated and tangled ~/project/init.el.org but it threw lots of errors.
+** Had to clean up the resulting newtest.el by hand. Took a while.
+*** Looks like tangle just failed to accurately process the org file.
+** Tried tangling again after checking init.el.org against working init.el - still got errors.
+*** Need to look at init.el.org and see what may have happened.
+** NEXT emacs startup almost 2 secs. slower after above.
+** removed yasnippet section gained 1 sec on startup time.
+** What is:
+_disabled_ (file-name-shadow-mode 1)
+_disabled_ (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
+(setq delete-by-moving-to-trash t)
+(setq dired-dwim-target t)
+
+_disabled_ (setq ls-lisp-use-insert-directory-program nil)
+     (require 'ls-lisp)
+** disabling above did not improve startup time. Now 1 sec.
+** After multiple changes to init.el and removal of uneeded packages back to sub 4 secs.
+* TODO Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
 1. Call the script with the -x option. Example: zsh -x myscript.
 2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
 3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
 ** Completed into pdf: Scripting_Intro_Zsh.pdf
-* WAITING Lisp programming.
-** ielm did not work correctly on New or Big w/ normal emacs but DID work correctly using Prot's emacs.
+* TODO Trying to figure out project root.
+* TODO Test gh on Big to see if ssh key works there.
+* lisp programming.
+** COMPLETED ielm not working correctly on New or Big w/ my init.el. DID work correctly using Prot's emacs.
+CLOSED: [2025-07-16 Wed 08:47]
 so something in ~/.emacs.d/init.el is wrong. Removed ALL lisp-related items and ielm started functioning normally.
-** recommends are SBCL + Slime for compiling and interpeting respectively.
+** COMPLETED Installed quicklisp on Big and New:
+CLOSED: [2025-07-16 Wed 08:47]
 readded paredit info to init.el slime working. added rainbow delimeters and eldoc mode. All work correctly.
+** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
+$ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
+$ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
+       --eval '(quicklisp-quickstart:install :path "~/.quicklisp")' \
+       --eval '(ql:add-to-init-file)' \
+       --quit
 
+       added quickproject:
+       (ql:quickload "quicklisp-slime-helper")
+       (ql:quickload :quickproject)
+       (quiclproject:make-project "test-project")
+ 
+** Looking at https://lisp-lang.org/learn/writing-libraries
+did some of the examples.. writing files was interesting and useful.
+** Did re-install of Quicklisp on New and Big via: https://www.quicklisp.org/beta/#basic-commands
+  added dired-x to init.el on New so I can look at elisp via Info.
+** circle.lisp working after changes. hello.lisp working. array.lisp working but there are errors if run via Slime.
++deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
+fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
+** asdf is included whan Quicklisp is loaded. Check this on Big and New.

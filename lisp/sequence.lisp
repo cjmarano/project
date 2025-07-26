@@ -1,3 +1,4 @@
+#!/opt/homebrew/bin/sbcl
 (setq x (vector 'a 'b 'c 'a 'b 'c 'd 'e 'f 'g))
 (write (length x))
 (terpri)
