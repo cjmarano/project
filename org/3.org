@@ -214,3 +214,4 @@ did some of the examples.. writing files was interesting and useful.
 +deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
 ** asdf is included whan Quicklisp is loaded. Check this on Big and New.
+* changed conky argb opacity 50 to 0 now it IS on a transparent background.
