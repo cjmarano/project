@@ -1,7 +1,8 @@
 
+
 * July
-* Start times around 3.8 seconds, up from 3.
-** New taking 3+ seconds. Big now taking 9+ seconds.
+* Start times around 3.4 seconds, up from 3. Around 8 seconds for Big.
+** New taking 3+ seconds. Big now taking 8 seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
 * Misc installs, etc.
 ** COMPLETED Tried Aerospace tiling WM. It immediately bugged out so leave for later.
@@ -79,45 +80,15 @@ CLOSED: [2025-07-17 Thu 13:50]
 ** COMPLETED What's my github password?
 CLOSED: [2025-07-07 Mon 09:24]
 it's in gitpas.txt on the Desktop.
-* ISSUES
-** COMPLETED Emacs on Big takes 7 secs. to open vs. 3 for New.
-CLOSED: [2025-07-03 Thu 08:30]
-** Do a diff on their init.el files. - New and Big homogulated July 2nd.
-** Check number of packages loaded. -- 61 pacakges Big and New.
-** COMPLETED Ghostty on New won't show working directory.  Okay, now it does on New and Big.
-CLOSED: [2025-07-07 Mon 09:23]
-** Kitty will scroll with C-<shift> and page up, page down, home and end. 
- in Tmux, have to go to copy mode C-a [ then q when ready to quit.
-** Ghostty doing two line prompt but is throwing error in shell integration file. - fixed?
-error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
-was able to remove zsh integration. Removing zsh integration was annoying.
-Modified kitty.conf to remove 'are you sure' dialog when closing. 
-
-**  Had to re-install Ghostty then added to .zshrc:
-*** added on both New and Big.
-
- if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
- source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
-fi
-
-** COMPLETED Github Python branch not set up for https, couldn't update
-CLOSED: [2025-07-07 Mon 09:24]
-** COMPLETED On Big: couldn't delete yasnippet dir that was throwing errors. Dir had no snippets.
-CLOSED: [2025-07-14 Mon 14:46]
-I created an empty snippets dir inside the Yasnippet Dir and that stopped the error messages. Still why couldn't I just
-delte the dir out of yas-snippet-dirs?
-** COMPLETED Still fighting w/ themes on Tmux. got Nord to load, see which .tmux.conf worked.
-CLOSED: [2025-07-07 Mon 12:37]
-* COMPLETED Use bat, not cat, when syntax highlighting is important.
+** COMPLETED Use bat, not cat, when syntax highlighting is important.
 CLOSED: [2025-07-08 Tue 13:51]
 ** alias cat to bat in .zshrc or make other aliases?
-* COMPLETED Installed lazygit. Have to try it out. Not needed right now.
-CLOSED: [2025-07-17 Thu 13:05]
-* COMPLETED Messed around with Markdown. Can read it in emacs not important right now.
-CLOSED: [2025-07-17 Thu 13:04]
-* COMPLETED Tmux not needed right now. Don't need multiple terminal sessions at this time.
+** COMPLETED Tmux not needed right now. Don't need multiple terminal sessions at this time.
 CLOSED: [2025-07-17 Thu 13:06]
-* COMPLETED Terminal testing. Wezterm is sharpest. On Big and Plucky
+** COMPLETED _FREEZE init.el_ +Synched init.el on New and Big & Plucky.
+CLOSED: [2025-07-22 Tue 14:15]
+** Freeze and changes/additions to emacs for a while. Do programming.
+** COMPLETED Terminal testing. Wezterm is sharpest. On Big and Plucky
 CLOSED: [2025-07-22 Tue 09:47]
 ** Wezterm seesm Windows friendly. Ghostty is Mac Friendly.
 ** Kitty and wezterm are the sharpest, clearest. Iterm is fuzzy,  ghostty is so-so.
@@ -158,10 +129,36 @@ alias lx='eza -lat created --color=always --icons=always --group-directories-fir
 ** COMPLETED Kitty disappeared on Big.
 *** Had trouble re-installing. Couldn't install via homebrew. Installing via curl put kitty in /Applications/ but kitten not found.
 Had to add /Applications/kitty.app/Contents/macOS to paht in .zshrc
-* COMPLETED _FREEZE init.el_ +Synched init.el on New and Big & Plucky.
-CLOSED: [2025-07-22 Tue 14:15]
-** Freeze and changes/additions to emacs for a while. Do programming.
-* WAITING Updated and tangled ~/project/init.el.org but it threw lots of errors.
+* ISSUES
+** COMPLETED Emacs on Big takes 7 secs. to open vs. 3 for New.
+CLOSED: [2025-07-03 Thu 08:30]
+** Do a diff on their init.el files. - New and Big homogulated July 2nd.
+** Check number of packages loaded. -- 61 pacakges Big and New.
+** COMPLETED Ghostty on New won't show working directory.  Okay, now it does on New and Big.
+CLOSED: [2025-07-07 Mon 09:23]
+** Kitty will scroll with C-<shift> and page up, page down, home and end. 
+ in Tmux, have to go to copy mode C-a [ then q when ready to quit.
+** Ghostty doing two line prompt but is throwing error in shell integration file. - fixed?
+error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
+was able to remove zsh integration. Removing zsh integration was annoying.
+Modified kitty.conf to remove 'are you sure' dialog when closing. 
+
+**  Had to re-install Ghostty then added to .zshrc:
+*** added on both New and Big.
+
+ if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
+ source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+fi
+
+** COMPLETED Github Python branch not set up for https, couldn't update
+CLOSED: [2025-07-07 Mon 09:24]
+** COMPLETED On Big: couldn't delete yasnippet dir that was throwing errors. Dir had no snippets.
+CLOSED: [2025-07-14 Mon 14:46]
+I created an empty snippets dir inside the Yasnippet Dir and that stopped the error messages. Still why couldn't I just
+delte the dir out of yas-snippet-dirs?
+** COMPLETED Still fighting w/ themes on Tmux. got Nord to load, see which .tmux.conf worked.
+CLOSED: [2025-07-07 Mon 12:37]
+** WAITING Updated and tangled ~/project/init.el.org but it threw lots of errors.
 ** Had to clean up the resulting newtest.el by hand. Took a while.
 *** Looks like tangle just failed to accurately process the org file.
 ** Tried tangling again after checking init.el.org against working init.el - still got errors.
@@ -178,6 +175,13 @@ _disabled_ (setq ls-lisp-use-insert-directory-program nil)
      (require 'ls-lisp)
 ** disabling above did not improve startup time. Now 1 sec.
 ** After multiple changes to init.el and removal of uneeded packages back to sub 4 secs.
+** COMPLETED ielm not working correctly on New or Big w/ my init.el. DID work correctly using Prot's emacs.
+** COMPLETED Installed quicklisp on Big and New:
+readded paredit info to init.el slime working. added rainbow delimeters and eldoc mode. All work correctly.
+* COMPLETED Installed lazygit. Have to try it out. Not needed right now.
+CLOSED: [2025-07-17 Thu 13:05]
+* COMPLETED Messed around with Markdown. Can read it in emacs not important right now.
+CLOSED: [2025-07-17 Thu 13:04]
 * TODO Doing Zsh Scripting.
 ** No good intros to zsh programming found so far.
 ** Debugging:
@@ -188,12 +192,6 @@ _disabled_ (setq ls-lisp-use-insert-directory-program nil)
 * TODO Trying to figure out project root.
 * TODO Test gh on Big to see if ssh key works there.
 * lisp programming.
-** COMPLETED ielm not working correctly on New or Big w/ my init.el. DID work correctly using Prot's emacs.
-CLOSED: [2025-07-16 Wed 08:47]
-so something in ~/.emacs.d/init.el is wrong. Removed ALL lisp-related items and ielm started functioning normally.
-** COMPLETED Installed quicklisp on Big and New:
-CLOSED: [2025-07-16 Wed 08:47]
-readded paredit info to init.el slime working. added rainbow delimeters and eldoc mode. All work correctly.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
 $ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
@@ -210,8 +208,12 @@ $ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
 did some of the examples.. writing files was interesting and useful.
 ** Did re-install of Quicklisp on New and Big via: https://www.quicklisp.org/beta/#basic-commands
   added dired-x to init.el on New so I can look at elisp via Info.
-** circle.lisp working after changes. hello.lisp working. array.lisp working but there are errors if run via Slime.
+** circle.lisp working after changes. hello.lisp working. array.lisp working but there are errors.
 +deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
+<<<<<<< HEAD
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
 ** asdf is included whan Quicklisp is loaded. Check this on Big and New.
 * changed conky argb opacity 50 to 0 now it IS on a transparent background.
+=======
+fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script. NOTE: same error in array.lisp whether run in clisp or SBCL.
+>>>>>>> 7a03a5e (daily update of 3.org)
