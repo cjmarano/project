@@ -138,9 +138,8 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 CLOSED: [2025-07-03 Thu 08:30]
 ** Do a diff on their init.el files. - New and Big homogulated July 2nd.
 ** Check number of packages loaded. -- 61 pacakges Big and New.
-** COMPLETED Ghostty on New won't show working directory.  Okay, now it does on New and Big.
-CLOSED: [2025-07-07 Mon 09:23]
-** Kitty will scroll with C-<shift> and page up, page down, home and end. 
+** COMPLETED Ghostty on New won't show working directory.  Okay, now it does on New and Big
+CLOSED: [2025-07-07 Mon 09:23]** Kitty will scroll with C-<shift> and page up, page down, home and end. 
  in Tmux, have to go to copy mode C-a [ then q when ready to quit.
 ** Ghostty doing two line prompt but is throwing error in shell integration file. - fixed?
 error in /Applications//Ghostty.app//Contents/Resources/ghostty/shell-intergration/zsh//ghostty-integration line 317.
@@ -179,6 +178,7 @@ _disabled_ (setq ls-lisp-use-insert-directory-program nil)
      (require 'ls-lisp)
 ** disabling above did not improve startup time. Now 1 sec.
 ** After multiple changes to init.el and removal of uneeded packages back to sub 4 secs.
+** Had to re-install elpy. Yasnippet still loading, even though all references gone from init.el
 ** COMPLETED ielm not working correctly on New or Big w/ my init.el. DID work correctly using Prot's emacs.
 ** COMPLETED Installed quicklisp on Big and New:
 readded paredit info to init.el slime working. added rainbow delimeters and eldoc mode. All work correctly.
@@ -217,3 +217,5 @@ did some of the examples.. writing files was interesting and useful.
 <<<<<<< HEAD
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
 ** asdf is included whan Quicklisp is loaded. Check this on Big and New.
+** Practicals asdf examples are overly complicated and annoying.
+Practical Lisp and Lisp in a box are at leat 14 years old.
