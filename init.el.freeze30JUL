@@ -328,8 +328,6 @@
 ;;    (org-indent-mode)
     (variable-pitch-mode 1)
     (visual-line-mode 1))
-;; ---------------------------------------------------------
-
 
 (setq org-agenda-files
       '("~/org/journal/journal.org"
@@ -369,6 +367,8 @@
 
 (keymap-set global-map "C-c j" 
             (lambda () (interactive) (org-capture nil "jj"))))
+)
+;; ---------------------------------------------------------
 
 (use-package org-bullets
   :after org
@@ -657,6 +657,5 @@
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 ;; added to supress flymake error message when compliing python (12AUG2022)
 (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
-
 
 ;; User-Defined init.el ends here
