@@ -1,7 +1,7 @@
 
 
 * July
-* Start times around 3.4 seconds, up from 3. Around 8 seconds for Big.
+* Start times around 3.2 seconds, up from 3. Around 8 seconds for Big.
 ** New taking 3+ seconds. Big now taking 8 seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
 * Misc installs, etc.
@@ -129,6 +129,10 @@ alias lx='eza -lat created --color=always --icons=always --group-directories-fir
 ** COMPLETED Kitty disappeared on Big.
 *** Had trouble re-installing. Couldn't install via homebrew. Installing via curl put kitty in /Applications/ but kitten not found.
 Had to add /Applications/kitty.app/Contents/macOS to paht in .zshrc
+** changed conky argb opacity 50 to 0 now it IS on a transparent background.
+=======
+fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script. NOTE: same error in array.lisp whether run in clisp or SBCL.
+>>>>>>> 7a03a5e (daily update of 3.org)
 * ISSUES
 ** COMPLETED Emacs on Big takes 7 secs. to open vs. 3 for New.
 CLOSED: [2025-07-03 Thu 08:30]
@@ -213,7 +217,3 @@ did some of the examples.. writing files was interesting and useful.
 <<<<<<< HEAD
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
 ** asdf is included whan Quicklisp is loaded. Check this on Big and New.
-* changed conky argb opacity 50 to 0 now it IS on a transparent background.
-=======
-fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script. NOTE: same error in array.lisp whether run in clisp or SBCL.
->>>>>>> 7a03a5e (daily update of 3.org)
