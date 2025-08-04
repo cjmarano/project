@@ -1,5 +1,3 @@
-
-
 * July
 * Start times around 3.2 seconds, up from 3. Around 8 seconds for Big.
 ** New taking 3+ seconds. Big now taking 8 seconds.
