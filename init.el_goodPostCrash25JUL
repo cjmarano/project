@@ -273,7 +273,10 @@
 ;; already links to the manual, if a function is referenced there.
 (global-set-key (kbd "C-h F") #'helpful-function)
 
-;; (require 'smartparens-config)
+(require 'smartparens-config)
+(add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
+(add-hook 'common-lisp-mode-hook #'smartparens-mode)
+(add-hook 'lisp-mode-hook #'smartparens-mode)
 
 ;; ---------------------------------------------------------
 ;; Start of Org section ------------------------------------
@@ -647,7 +650,7 @@
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))
 
- '(python-shell-interpeter "$HOME/.pyenv/shims/python3")
+'(python-shell-interpeter "$HOME/.pyenv/shims/python3")
 
 ;; duplicate of above? add-hook is different than selected packages.
 ;; below is for delimiters in all programming modes.
