@@ -1,0 +1,1 @@
+/opt/homebrew/bin/emacs -q -l ~/project/Prot/init.el
