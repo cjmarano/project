@@ -1,6 +1,4 @@
 * August
-* COMPLETED Played around w/ Yazi flavors.
-CLOSED: [2025-08-05 Tue 13:01]
 * Start times around 3.7 seconds, up from 3. Around 8 seconds for Big.
 ** New taking 3+ seconds. Big now taking 8 seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
@@ -11,6 +9,10 @@ CLOSED: [2025-08-05 Tue 13:01]
 2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
 3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
 ** Completed into pdf: Scripting_Intro_Zsh.pdf
+* COMPLETED Played around w/ Yazi flavors.
+CLOSED: [2025-08-05 Tue 13:01]
+* COMPLETED Reconciled ~/projects/init.el.org with current init.el on new.
+CLOSED: [2025-08-06 Wed 10:37]
 * TODO Trying to figure out project root.
 * TODO Test gh on Big to see if ssh key works there.
 * lisp programming.
@@ -40,7 +42,6 @@ CLOSED: [2025-08-05 Tue 07:33]
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
 ** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
-* Reconciled ~/projects/init.el.org with current init.el on new.
 * Yazi is odd. 'r' for rename opens emacs and you change filename there.
 ** you can't paste into folder, you need to enter the destination folder then paste with 'p' ('P' to overwrite).
 ** copy is 'y' and cut is 'x'. Trash a file is 'd' after you select the file with <spc> ('D' to delete instead of trash).
@@ -51,3 +52,4 @@ did some of the examples.. writing files was interesting and useful.
 when ec is used:      'emacsclient -n $1'
 (that's if M-x server-start has been done and it's a fresh instance of the server.
 
+** Prot emacs runs as GUI on New, as terminal app on Big. Why?
