@@ -36,7 +36,7 @@ CLOSED: [2025-08-05 Tue 07:32]
   added dired-x to init.el on New so I can look at elisp via Info
 ** COMPLETED asdf is included whan Quicklisp is loaded. Check this on Big and New.
 CLOSED: [2025-08-05 Tue 07:33]
-** circle.lisp working after changes. hello.lisp working. array.lisp working but there are errors.
+** circle.lisp working after changes. hello.lisp working. array.lisp working but with errors.
 +deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
 <<<<<<< HEAD
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
