@@ -58,6 +58,7 @@ The DWIM behaviour of this command is as follows:
 ;; as the init.el, then Emacs will read+evaluate it before moving to
 ;; the init.el.
 (menu-bar-mode 1)
+(scroll-bar-mode 1)
 (tool-bar-mode -1)
 
 ;; part after :family is wrong for default, fixed-pitch 
@@ -135,11 +136,3 @@ The DWIM behaviour of this command is as follows:
   :config
   (setq dired-subtree-use-backgrounds nil))
 
-(use-package trashed
-  :ensure t
-  :commands (trashed)
-  :config
-  (setq trashed-action-confirmer 'y-or-n-p)
-  (setq trashed-use-header-line t)
-  (setq trashed-sort-key '("Date deleted" . t))
-  (setq trashed-date-format "%Y-%m-%d %H:%M:%S"))
