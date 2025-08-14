@@ -58,4 +58,5 @@ when ec is used:      'emacsclient -n $1'
 This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
 * Removed older lisp tutorials from 'watch later'.
 * Had to disable zsacler to get 15.6 update to install on New.
-
+* Tried a temporaty init.el to pretify org mode. Big mess. Blew up init.el on New.
+** Had to copy init.el from Big to reconcile. Think it's okay now.
