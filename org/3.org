@@ -1,5 +1,5 @@
 * August
-* Start times around 3.7 seconds, up from 3. Around 8 seconds for Big.
+* _Start times around 7 seconds_, up from 3. Around 8 seconds for Big.
 ** New taking 3+ seconds. Big now taking 8 seconds.
 - State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
 ** TODO Doing Zsh Scripting.
@@ -13,12 +13,19 @@
 CLOSED: [2025-08-05 Tue 13:01]
 * COMPLETED Reconciled ~/projects/init.el.org with current init.el on new.
 CLOSED: [2025-08-06 Wed 10:37]
-* DONE Yazi is odd. 'r' for rename opens emacs and you change filename there.
+* COMPLETED Yazi is odd. 'r' for rename opens emacs and you change filename there.
 CLOSED: [2025-08-08 Fri 08:08]
 ** you can't paste into folder, you need to enter the destination folder then paste with 'p' ('P' to overwrite).
 ** copy is 'y' and cut is 'x'. Trash a file is 'd' after you select the file with <spc> ('D' to delete instead of trash).
 ** <Return> opens the file so don't that when moving, copying, etc. (also 'O' and <shift-Return>
 ** <tab> to show file info.
+* COMPLETED Git on Big no longer requires a token when pulling/pushing etc. No idea why.
+CLOSED: [2025-08-14 Thu 14:41]
+* COMPLETED Tried a temporaty init.el to pretify org mode. Big mess. Blew up init.el on New.
+CLOSED: [2025-08-14 Thu 14:41]
+** Had to copy init.el from Big to reconcile. Think it's okay now.
+* COMPLETED Had to disable zscaler to get 15.6 update to install on New.
+CLOSED: [2025-08-14 Thu 14:42]
 * TODO Trying to figure out project root.
 * TODO Test gh on Big to see if ssh key works there.
 * lisp programming.
@@ -48,15 +55,33 @@ CLOSED: [2025-08-05 Tue 07:33]
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
 ** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
-* Have to kill emacs server then start new server before ec will work.
+** Removed older lisp tutorials from 'watch later'.
+** Added (server-start) to init.el  and can now use ec $1 to open files quickly.
+This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
+** NEXT Have to kill emacs server then start new server before ec will work.
 ** All terminal apps instantly launch a file in the GUI version of emacs that's already open.
 when ec is used:      'emacsclient -n $1'
 (that's if M-x server-start has been done and it's a fresh instance of the server.
 
 ** Prot emacs runs as GUI on New, as terminal app on Big. Why?
-* Added (server-start) to init.el  and can now use ec $1 to open files quickly.
-This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
-* Removed older lisp tutorials from 'watch later'.
-* Had to disable zsacler to get 15.6 update to install on New.
-* Tried a temporaty init.el to pretify org mode. Big mess. Blew up init.el on New.
-** Had to copy init.el from Big to reconcile. Think it's okay now.
+* Changes to init.el on New and Big.
+Added below lines to init.el statup time went to 7+ seconds. 9 for Big.
+
+** from Prot's big init?
+line 319 (add-hook 'org-mode-hook 'visual-line-mode)
+
+line 329 (setq org-hide-emphasis-markers t)
+
+** C-x, C-f defaults to ~/
+line 53 (setq file-name-shadow-properties '(invisible t))
+            (file-name-shadow-mode)
+*** I'd prefer a situaton where it stays in current dir until you type ~/.bashrc
+
+***  see below. might not need this.
+
+** typing deletes selection.
+line 56 (delete-selection-mode 1)
+
+
+* Removed yas-snippet packages from ~/.emacs.d/elpa
+issues with elpy package. had to comment out all references to it <-- temporary, investigate.
