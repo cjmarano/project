@@ -50,6 +50,11 @@
 
 (server-start)
 
+(setq file-name-shadow-properties '(invisible t))
+(file-name-shadow-mode)
+
+(delete-selection-mode 1)
+
 (setq history-length 10)
 (setq savehist-mode t)
 (setq org-indent-mode t)
@@ -316,8 +321,12 @@
       (set-face-attribute 'org-meta-line unspecified :inherit '(font-lock-comment-face fixed-pitch))
       (set-face-attribute 'org-checkbox unspecified :inherit 'fixed-pitch)))
 
-  (setq org-hide-emphasis-markers t)
+(add-hook 'org-mode-hook 'visual-line-mode)
 
+(setq org-hide-emphasis-markers t)
+
+(require 'org-indent nil :inherit '(org-hide-fixed-pitch))
+  
   (add-to-list 'org-emphasis-alist
                '("_" (:foreground "red")
                  ))
