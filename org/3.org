@@ -82,6 +82,12 @@ line 53 (setq file-name-shadow-properties '(invisible t))
 ** typing deletes selection.
 line 56 (delete-selection-mode 1)
 
-
 * Removed yas-snippet packages from ~/.emacs.d/elpa
 issues with elpy package. had to comment out all references to it <-- temporary, investigate.
+* Big blew up with Vertico errors related to consult, etc.
+Tried a delete and re-install of GNU Emacs 30.2 for Mac. Did not fix the issue.
+Tried pruning changes made this morning. Nope.
+Tried copying a good init.el to Big, same vertico error:
+Tried commenting out large portions of ORG section. Nope.
+Tired deleting Emacs 30 .plist. Nope.
+Whacked huge sections of init.el and that erased error.
