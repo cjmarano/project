@@ -94,4 +94,7 @@ Whacked huge sections of init.el and that erased error.
 ----
 Copied init.el from New to Big then *commented out Vertico and marginalia sections.*
 Then removed -   pacakge-delete  - vertico ad marginalia.
-No warnings and Org docs display correctly BUT no completion.
+No warnings and Org docs display correctly BUT no completion
+*  After above I updated init.el.org and tangled.
+newtest.el showed a number of items theat need to be adressed;
+auto-compile version wrong (old) some items missing that are in New's init.el etc.
