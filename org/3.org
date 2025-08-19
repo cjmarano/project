@@ -91,3 +91,7 @@ Tried copying a good init.el to Big, same vertico error:
 Tried commenting out large portions of ORG section. Nope.
 Tired deleting Emacs 30 .plist. Nope.
 Whacked huge sections of init.el and that erased error.
+----
+Copied init.el from New to Big then *commented out Vertico and marginalia sections.*
+Then removed -   pacakge-delete  - vertico ad marginalia.
+No warnings and Org docs display correctly BUT no completion.
