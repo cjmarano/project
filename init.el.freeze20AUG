@@ -32,7 +32,7 @@
          ))
 
 (setq load-prefer-newer t)
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250531.2214")
+(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250815.2130")
 (require 'auto-compile)
 (auto-compile-on-load-mode)
 (auto-compile-on-save-mode)
@@ -97,8 +97,8 @@
 (when (display-graphic-p)
   (context-menu-mode))
 
-;; (file-name-shadow-mode 1)
-;; (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
+;;  (file-name-shadow-mode 1)
+;;  (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
@@ -106,37 +106,32 @@
   (lambda ()
     (require 'dired-x)))
 
-
-;; (setq ls-lisp-use-insert-directory-program nil)
-;;      (require 'ls-lisp)
-
 (setq ediff-diff-options "--text")
 
 (use-package dashboard
 :ensure t
 :init
 (progn
-  (setq dashboard-items '((recents   . 10)
-                        (bookmarks . 5)
-                        (projects  . 5)
-                        (agenda    . 5)))
-  (setq dashboard-item-shortcuts '((recents   . "r")
-                                   (bookmarks . "m")
-                                   (projects  . "p")
-                                   (agenda    . "a")))
-  
-  ;; (setq dashboard-footer-messages '("")) ;not needed after startupify list added. see below.
-  (setq dashboard-show-shortcuts nil)
-  (setq dashboard-center-contents nil)
-  (setq dashboard-banner-logo-title "New")
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
-  (setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
-  (setq dashboard-startup-banner "~/Pictures/Trefoil.png")
-  (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-  (setq dashboard-set-init-info t)
-;;  (setq dashboard-set-footer nil) ; not needed after startupify list see below.
+(setq dashboard-items '((recents   . 10)
+                      (bookmarks . 5)
+                      (projects  . 5)
+                      (agenda    . 5)))
+(setq dashboard-item-shortcuts '((recents   . "r")
+                                 (bookmarks . "m")
+                                 (projects  . "p")
+                                 (agenda    . "a")))
+
+(setq dashboard-show-shortcuts nil)
+(setq dashboard-center-contents nil)
+(setq dashboard-banner-logo-title "New")
+(setq dashboard-set-file-icons t)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
+(setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
+(setq dashboard-startup-banner "~/Pictures/Trefoil.png")
+(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+(setq dashboard-set-init-info t)
+;;  (setq dashboard-set-footer nil) 
 
 (setq dashboard-startupify-list '(dashboard-insert-banner
                                   dashboard-insert-newline
@@ -148,7 +143,6 @@
                                   dashboard-insert-items
                                   dashboard-insert-newline))
   )
-
 
 :config
 (dashboard-setup-startup-hook))
@@ -174,7 +168,6 @@
 (setq isearch-lazy-count t)
 (setq lazy-count-prefix-format "(%s/%s) ")
 (setq lazy-count-suffix-format nil)
-
 ;; Make regular Isearch interpret the empty space as regular
 ;; expression matching any character between words you give it.
 (setq search-whitespace-regexp ".*?")
@@ -195,7 +188,7 @@
   :commands magit-status
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-     (keymap-global-set "C-x g" 'magit-status) 
+  (keymap-global-set "C-x g" 'magit-status) 
 
 (use-package which-key
   :defer 0
@@ -214,31 +207,31 @@
 (use-package nerd-icons-dired
   :hook (dired-mode . nerd-icons-dired-mode))
 
-  (setq denote-directory (expand-file-name "~/project/org/notes/"))
-  (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
-  (setq denote-file-type nil)
-  (add-hook 'dired-mode-hook #'denote-dired-mode)
-  (keymap-global-set "s-b" 'denote)
+(setq denote-directory (expand-file-name "~/project/org/notes/"))
+(setq denotes-known-keywords '("emacs" "init" "general" "shell"))
+(setq denote-file-type nil)
+(add-hook 'dired-mode-hook #'denote-dired-mode)
+(keymap-global-set "s-b" 'denote)
 
 (setq completion-styles '(substring basic))
 
 (use-package consult
-  ;; Replace bindings. Lazily loaded due by `use-package'.
-  :bind (;; C-c bindings in `mode-specific-map'
-         ("C-c M-x" . consult-mode-command)
-         ("C-c h" . consult-history)
-         ("C-c k" . consult-kmacro)
-         ("C-c m" . consult-man)
-         ("C-c i" . consult-info)
-         ([remap Info-search] . consult-info)
-         ;; C-x bindings in `ctl-x-map'
-         ("C-x M-:" . consult-complex-command)    
-         ("C-x b" . consult-buffer)               
-         ("C-x 4 b" . consult-buffer-other-window)
-         ("C-x 5 b" . consult-buffer-other-frame) 
-         ("C-x t b" . consult-buffer-other-tab)   
-         ("C-x r b" . consult-bookmark)           
-         ("C-x p b" . consult-project-buffer)))
+;; Replace bindings. Lazily loaded due by `use-package'.
+:bind (;; C-c bindings in `mode-specific-map'
+       ("C-c M-x" . consult-mode-command)
+       ("C-c h" . consult-history)
+       ("C-c k" . consult-kmacro)
+       ("C-c m" . consult-man)
+       ("C-c i" . consult-info)
+       ([remap Info-search] . consult-info)
+       ;; C-x bindings in `ctl-x-map'
+       ("C-x M-:" . consult-complex-command)    
+       ("C-x b" . consult-buffer)               
+       ("C-x 4 b" . consult-buffer-other-window)
+       ("C-x 5 b" . consult-buffer-other-frame) 
+       ("C-x t b" . consult-buffer-other-tab)   
+       ("C-x r b" . consult-bookmark)           
+       ("C-x p b" . consult-project-buffer)))
 
 (use-package consult-denote
   :ensure t
@@ -301,25 +294,25 @@
                             '(("^ *\\([-]\\) "
                                (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
-    ;; Set faces for heading levels
-    (with-eval-after-load 'org-faces
-      (dolist (face '((org-level-1 . 1.2)
-                      (org-level-2 . 1.1)
-                      (org-level-3 . 1.05)
-                      (org-level-4 . 1.0)
-                      (org-level-5 . 1.1)
-                      (org-level-6 . 1.1)
-                      (org-level-7 . 1.1)
-                      (org-level-8 . 1.1))))
+;; Set faces for heading levels
+(with-eval-after-load 'org-faces
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1))))
 
-      ;; Ensure that anything that should be fixed-pitch in Org files appears that way
-      (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
-      (set-face-attribute 'org-code unspecified :inherit '(shadow fixed-pitch))
-      (set-face-attribute 'org-table unspecified :inherit '(shadow fixed-pitch))
-      (set-face-attribute 'org-verbatim unspecified :inherit '(shadow fixed-pitch))
-      (set-face-attribute 'org-special-keyword unspecified :inherit '(font-lock-comment-face fixed-pitch))
-      (set-face-attribute 'org-meta-line unspecified :inherit '(font-lock-comment-face fixed-pitch))
-      (set-face-attribute 'org-checkbox unspecified :inherit 'fixed-pitch)))
+;; Ensure that anything that should be fixed-pitch in Org files appears that way
+(set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
+(set-face-attribute 'org-code unspecified :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-table unspecified :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-verbatim unspecified :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-special-keyword unspecified :inherit '(font-lock-comment-face fixed-pitch))
+(set-face-attribute 'org-meta-line unspecified :inherit '(font-lock-comment-face fixed-pitch))
+(set-face-attribute 'org-checkbox unspecified :inherit 'fixed-pitch)))
 
 (setq org-hide-emphasis-markers t)
 
@@ -336,8 +329,9 @@
 
 (defun efs/org-mode-setup ()
 ;;    (org-indent-mode)
-    (variable-pitch-mode 1)
-    (visual-line-mode 1))
+(variable-pitch-mode 1)
+(visual-line-mode 1))
+;; ---------------------------------------------------------
 
 (setq org-agenda-files
       '("~/org/journal/journal.org"
@@ -368,17 +362,23 @@
           ("@note" . ?t)
           ("@code" . ?c)
           ("@init" . ?i)))
-        ("j" "Journal Entries")
-        ("jj" "Journal" entry
-         (file+olp+datetree "~/org/journal/Journal.org")
-         "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-         ;; ,(dw/read-file-as-string "~/org/notes.org")
 
-         )
-        )
+(setq org-capture-templates
+        `(("t" "Tasks / Projects")
+          ("tt" "Task" entry (file+olp "~/org/tasks/tasks.org" "Inbox")
+           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+
+          ("j" "Journal Entries")
+          ("jj" "Journal" entry
+           (file+olp+datetree "~/org/journal/Journal.org")
+           "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
+           ;; ,(dw/read-file-as-string "~/org/notes.org")
+          
+           )
+          ))
 
 (keymap-set global-map "C-c j" 
-            (lambda () (interactive) (org-capture nil "jj")))
+              (lambda () (interactive) (org-capture nil "jj"))))
 
 (use-package org-bullets
   :after org
@@ -480,13 +480,14 @@
 ;; save rust buffers that are not file visiting. Once
 ;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
 ;; no longer be necessary.
-  (when buffer-file-name
-    (setq-local buffer-save-without-query t))
-  (add-hook 'before-save-hook 'lsp-format-buffer nil t))
+(when buffer-file-name
+  (setq-local buffer-save-without-query t))
+(add-hook 'before-save-hook 'lsp-format-buffer nil t))
 
 ;; (use-package rust-playground :ensure)
 
-(use-package toml-mode :ensure)
+(use-package toml-mode
+  :ensure)
 
 (setq-local lsp-inlay-hint-enable t)
 ;; below from https://github.com/rksm/emacs-rust-config
@@ -496,30 +497,30 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :custom
-  ;; what to use when checking on-save. "check" is default, I prefer clippy
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
-  (lsp-eldoc-render-all t)
-  (lsp-idle-delay 0.6)
-  ;; enable / disable the hints as you prefer:
-  (lsp-inlay-hint-enable t)
-  ;; These are optional configurations. See https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#lsp-rust-analyzer-display-chaining-hints for a full list
-  (lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
-  (lsp-rust-analyzer-display-chaining-hints t)
-  (lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
-  (lsp-rust-analyzer-display-closure-return-type-hints t)
-  (lsp-rust-analyzer-display-parameter-hints nil)
-  (lsp-rust-analyzer-display-reborrow-hints nil)
-  :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-  (lsp-enable-which-key-integration t))
+;; what to use when checking on-save. "check" is default, I prefer clippy
+(lsp-rust-analyzer-cargo-watch-command "clippy")
+(lsp-eldoc-render-all t)
+(lsp-idle-delay 0.6)
+;; enable / disable the hints as you prefer:
+(lsp-inlay-hint-enable t)
+;; These are optional configurations. See https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#lsp-rust-analyzer-display-chaining-hints for a full list
+(lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
+(lsp-rust-analyzer-display-chaining-hints t)
+(lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
+(lsp-rust-analyzer-display-closure-return-type-hints t)
+(lsp-rust-analyzer-display-parameter-hints nil)
+(lsp-rust-analyzer-display-reborrow-hints nil)
+:config
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+(lsp-enable-which-key-integration t))
 
 (use-package lsp-ui
   :ensure
   :commands lsp-ui-mode
   :custom
-  (lsp-ui-peek-always-show t)
-  (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-enable nil))
+(lsp-ui-peek-always-show t)
+(lsp-ui-sideline-show-hover t)
+(lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
 (require 'tree-sitter)
@@ -542,8 +543,8 @@
           (:map python-mode-map
               ("<tab>" . company-indent-or-complete-common))
   :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0.5))
+(company-minimum-prefix-length 1)
+(company-idle-delay 0.5))
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
@@ -588,71 +589,71 @@
 ;; ------------end lisp ------------------------------------
 
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:height 180 :family "Hack Nerd Font Mono"))))
- '(cursor ((t (:background "light green"))))
- '(org-headline-done ((t (:foreground "gray80"))))
- '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
- '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
+;; custom-set-faces was added by Custom.
+;; If you edit it by hand, you could mess it up, so be careful.
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
+'(default ((t (:height 180 :family "Hack Nerd Font Mono"))))
+'(cursor ((t (:background "light green"))))
+'(org-headline-done ((t (:foreground "gray80"))))
+'(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
+'(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-box-enable-icon t)
- '(company-box-icons-alist 'company-box-icons-images)
- '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
- '(custom-safe-themes
-   '("7771c8496c10162220af0ca7b7e61459cb42d18c35ce272a63461c0fc1336015"
-     "e8bd9bbf6506afca133125b0be48b1f033b1c8647c628652ab7a2fe065c10ef0"
-     "c5975101a4597094704ee78f89fb9ad872f965a84fb52d3e01b9102168e8dc40"
-     "7235b77f371f46cbfae9271dce65f5017b61ec1c8687a90ff30c6db281bfd6b7"
-     "b4b5da90759ab14719f1e1d8d0138ff72d2901e8a63748b172944627513cfffb"
-     "ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
-     "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
-     "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
-     "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
-     default))
- '(dashboard-startupify-list
-   '(dashboard-insert-banner dashboard-insert-newline
-                             dashboard-insert-banner-title
-                             dashboard-insert-newline
-                             dashboard-insert-init-info
-                             dashboard-insert-items
-                             dashboard-insert-newline))
- '(denote-known-keywords '("emacs" "init" "general" "testing"))
- ;; '(elpy-rpc-python-command "python3")
- '(flycheck-python-flake8-executable "python3")
- '(flycheck-python-pycompile-executable "python3")
- '(flycheck-python-pylint-executable "python3")
- '(org-agenda-files '("~/project/org/3.org"))
- '(org-faces-easy-properties
-   '((todo . :background)
-     (tag . :foreground)
-     (priority . :foreground)))
- '(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
- '(org-startup-folded 'fold)
- '(org-tempo-keywords-alist nil)
- '(package-selected-packages
-   '(0blayout 0x0 0xc 2048-game all-the-icons-nerd-fonts auto-compile
-              cargo cargo-mode color-theme-sanityinc-tomorrow
-              company-box consult consult-denote dashboard denote
-              diffview dired-single dired-subtree doom-modeline eglot
-              elpy exec-path-from-shell flycheck-pyflakes
-              flycheck-rust helpful kkp lsp-ui lua-mode magit
-              marginalia material-theme nerd-icons-completion
-              nerd-icons-dired no-littering ob-rust orderless
-              org-bullets org-roam paredit rainbow-delimiters
-              rust-playground rustic show-font slime smartparens
-              toml-mode tree-sitter-langs treesit-auto use-package
-              vertico vterm which-key))
- '(savehist-additional-variables '(kill-ring register-alist\ ))
- '(sort-fold-case t)
- '(warning-suppress-log-types '((use-package))))
+;; custom-set-variables was added by Custom.
+;; If you edit it by hand, you could mess it up, so be careful.
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
+'(company-box-enable-icon t)
+'(company-box-icons-alist 'company-box-icons-images)
+'(custom-enabled-themes '(sanityinc-tomorrow-eighties))
+'(custom-safe-themes
+ '("7771c8496c10162220af0ca7b7e61459cb42d18c35ce272a63461c0fc1336015"
+   "e8bd9bbf6506afca133125b0be48b1f033b1c8647c628652ab7a2fe065c10ef0"
+   "c5975101a4597094704ee78f89fb9ad872f965a84fb52d3e01b9102168e8dc40"
+   "7235b77f371f46cbfae9271dce65f5017b61ec1c8687a90ff30c6db281bfd6b7"
+   "b4b5da90759ab14719f1e1d8d0138ff72d2901e8a63748b172944627513cfffb"
+   "ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
+   "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
+   "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
+   "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
+   default))
+'(dashboard-startupify-list
+ '(dashboard-insert-banner dashboard-insert-newline
+                           dashboard-insert-banner-title
+                           dashboard-insert-newline
+                           dashboard-insert-init-info
+                           dashboard-insert-items
+                           dashboard-insert-newline))
+'(denote-known-keywords '("emacs" "init" "general" "testing"))
+;; '(elpy-rpc-python-command "python3")
+'(flycheck-python-flake8-executable "python3")
+'(flycheck-python-pycompile-executable "python3")
+'(flycheck-python-pylint-executable "python3")
+'(org-agenda-files '("~/project/org/3.org"))
+'(org-faces-easy-properties
+ '((todo . :background)
+   (tag . :foreground)
+   (priority . :foreground)))
+'(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
+'(org-startup-folded 'fold)
+'(org-tempo-keywords-alist nil)
+'(package-selected-packages
+ '(0blayout 0x0 0xc 2048-game all-the-icons-nerd-fonts auto-compile
+            cargo cargo-mode color-theme-sanityinc-tomorrow
+            company-box consult consult-denote dashboard denote
+            diffview dired-single dired-subtree doom-modeline eglot
+            elpy exec-path-from-shell flycheck-pyflakes
+            flycheck-rust helpful kkp lsp-ui lua-mode magit
+            marginalia material-theme nerd-icons-completion
+            nerd-icons-dired no-littering ob-rust orderless
+            org-bullets org-roam paredit rainbow-delimiters
+            rust-playground rustic show-font slime smartparens
+            toml-mode tree-sitter-langs treesit-auto use-package
+            vertico vterm which-key))
+'(savehist-additional-variables '(kill-ring register-alist\ ))
+'(sort-fold-case t)
+'(warning-suppress-log-types '((use-package))))
 
 '(python-shell-interpeter "$HOME/.pyenv/shims/python3")
 

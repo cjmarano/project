@@ -26,6 +26,56 @@ CLOSED: [2025-08-14 Thu 14:41]
 ** Had to copy init.el from Big to reconcile. Think it's okay now.
 * COMPLETED Had to disable zscaler to get 15.6 update to install on New.
 CLOSED: [2025-08-14 Thu 14:42]
+* COMPLETED After above I updated init.el.org and tangled.
+CLOSED: [2025-08-19 Tue 14:35]
+newtest.el showed a number of items theat need to be adressed;
+auto-compile version wrong (old) some items missing that are in New's init.el etc.
+* COMPLETED all ls aliases NOT for eza fail with:
+** updated gems via rbenv. Set rbenv global. updated color ls. set clocale.
+CLOSED: [2025-08-19 Tue 14:42]
+**  opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems/specification.rb:1421:in 'block in Gem::Specification#activate_dependencies': Could not find 'clocale' (~> 0) among 95 total gem(s) (Gem::MissingSpecError)Checked in 'GEM_PATH=/Users/charles.marano/.gem/ruby/3.4.0:/opt/homebrew/lib/ruby/gems/3.4.0:/opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/gems/3.4.0' at: /opt/homebrew/lib/ruby/gems/3.4.0/specifications/colorls-1.5.0.gemspec, execute `gem env` for more information
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems/specification.rb:1407:in 'Array#each'
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems/specification.rb:1407:in 'Gem::Specification#activate_dependencies'
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems/specification.rb:1389:in 'Gem::Specification#activate'
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems.rb:290:in 'block in Gem.activate_bin_path'
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems.rb:289:in 'Thread::Mutex#synchronize'
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems.rb:289:in 'Gem.activate_bin_path'
+        from /opt/homebrew/lib/ruby/gems/3.4.0/bin//colorls:25:in '<main>'
+
+* COMPLETED Big blew up with Vertico errors related to consult, etc.
+CLOSED: [2025-08-19 Tue 14:34]
+Tried a delete and re-install of GNU Emacs 30.2 for Mac. Did not fix the issue.
+Tried pruning changes made this morning. Nope.
+Tried copying a good init.el to Big, same vertico error:
+Tried commenting out large portions of ORG section. Nope.
+Tired deleting Emacs 30 .plist. Nope.
+Whacked huge sections of init.el and that erased error.
+----
+Copied init.el from New to Big then *commented out Vertico and marginalia sections.*
+Then removed -   pacakge-delete  - vertico ad marginalia.
+No warnings and Org docs display correctly BUT no completion
+* COMPLETED Changes to init.el on New and Big.
+CLOSED: [2025-08-19 Tue 14:45]
+Added below lines to init.el statup time went to 7+ seconds. 9 for Big.
+
+** from Prot's big init?
+line 319 (add-hook 'org-mode-hook 'visual-line-mode)
+
+line 329 (setq org-hide-emphasis-markers t)
+
+** C-x, C-f defaults to ~/
+line 53 (setq file-name-shadow-properties '(invisible t))
+            (file-name-shadow-mode)
+*** I'd prefer a situaton where it stays in current dir until you type ~/.bashrc
+
+***  see below. might not need this.
+
+** typing deletes selection.
+line 56 (delete-selection-mode 1)
+
+* COMPLETED Removed yas-snippet packages from ~/.emacs.d/elpa
+CLOSED: [2025-08-19 Tue 14:45]
+issues with elpy package. had to comment out all references to it <-- temporary, investigate.
 * TODO Trying to figure out project root.
 * TODO Test gh on Big to see if ssh key works there.
 * lisp programming.
@@ -64,37 +114,3 @@ when ec is used:      'emacsclient -n $1'
 (that's if M-x server-start has been done and it's a fresh instance of the server.
 
 ** Prot emacs runs as GUI on New, as terminal app on Big. Why?
-* Changes to init.el on New and Big.
-Added below lines to init.el statup time went to 7+ seconds. 9 for Big.
-
-** from Prot's big init?
-line 319 (add-hook 'org-mode-hook 'visual-line-mode)
-
-line 329 (setq org-hide-emphasis-markers t)
-
-** C-x, C-f defaults to ~/
-line 53 (setq file-name-shadow-properties '(invisible t))
-            (file-name-shadow-mode)
-*** I'd prefer a situaton where it stays in current dir until you type ~/.bashrc
-
-***  see below. might not need this.
-
-** typing deletes selection.
-line 56 (delete-selection-mode 1)
-
-* Removed yas-snippet packages from ~/.emacs.d/elpa
-issues with elpy package. had to comment out all references to it <-- temporary, investigate.
-* Big blew up with Vertico errors related to consult, etc.
-Tried a delete and re-install of GNU Emacs 30.2 for Mac. Did not fix the issue.
-Tried pruning changes made this morning. Nope.
-Tried copying a good init.el to Big, same vertico error:
-Tried commenting out large portions of ORG section. Nope.
-Tired deleting Emacs 30 .plist. Nope.
-Whacked huge sections of init.el and that erased error.
-----
-Copied init.el from New to Big then *commented out Vertico and marginalia sections.*
-Then removed -   pacakge-delete  - vertico ad marginalia.
-No warnings and Org docs display correctly BUT no completion
-*  After above I updated init.el.org and tangled.
-newtest.el showed a number of items theat need to be adressed;
-auto-compile version wrong (old) some items missing that are in New's init.el etc.
