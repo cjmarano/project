@@ -32,7 +32,7 @@
          ))
 
 (setq load-prefer-newer t)
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250531.2214")
+(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250815.2130")
 (require 'auto-compile)
 (auto-compile-on-load-mode)
 (auto-compile-on-save-mode)
@@ -106,37 +106,32 @@
   (lambda ()
     (require 'dired-x)))
 
-
-;; ls-lisp does not exist.
-;; (setq ls-lisp-use-insert-directory-program nil)
-;;      (require 'ls-lisp)
-
 (setq ediff-diff-options "--text")
 
 (use-package dashboard
 :ensure t
 :init
 (progn
-  (setq dashboard-items '((recents   . 10)
-                        (bookmarks . 5)
-                        (projects  . 5)
-                        (agenda    . 5)))
-  (setq dashboard-item-shortcuts '((recents   . "r")
-                                   (bookmarks . "m")
-                                   (projects  . "p")
-                                   (agenda    . "a")))
-  
-  (setq dashboard-show-shortcuts nil)
-  (setq dashboard-center-contents nil)
-  (setq dashboard-banner-logo-title "New")
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
-  (setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
-  (setq dashboard-startup-banner "~/Pictures/Trefoil.png")
-  (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-  (setq dashboard-set-init-info t)
-;;  (setq dashboard-set-footer nil) ; not needed after startupify list see below.
+(setq dashboard-items '((recents   . 10)
+                      (bookmarks . 5)
+                      (projects  . 5)
+                      (agenda    . 5)))
+(setq dashboard-item-shortcuts '((recents   . "r")
+                                 (bookmarks . "m")
+                                 (projects  . "p")
+                                 (agenda    . "a")))
+
+(setq dashboard-show-shortcuts nil)
+(setq dashboard-center-contents nil)
+(setq dashboard-banner-logo-title "New")
+(setq dashboard-set-file-icons t)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
+(setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
+(setq dashboard-startup-banner "~/Pictures/Trefoil.png")
+(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+(setq dashboard-set-init-info t)
+;;  (setq dashboard-set-footer nil) 
 
 (setq dashboard-startupify-list '(dashboard-insert-banner
                                   dashboard-insert-newline
@@ -174,7 +169,6 @@
 (setq isearch-lazy-count t)
 (setq lazy-count-prefix-format "(%s/%s) ")
 (setq lazy-count-suffix-format nil)
-
 ;; Make regular Isearch interpret the empty space as regular
 ;; expression matching any character between words you give it.
 (setq search-whitespace-regexp ".*?")
@@ -195,7 +189,7 @@
   :commands magit-status
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-     (keymap-global-set "C-x g" 'magit-status) 
+  (keymap-global-set "C-x g" 'magit-status) 
 
 (use-package which-key
   :defer 0
@@ -208,37 +202,37 @@
   :ensure t)
 
 (use-package vertico
-  :init
-  (Vertico-mode))
+ :init
+ (vertico-mode))
 
 (use-package nerd-icons-dired
   :hook (dired-mode . nerd-icons-dired-mode))
 
-  (setq denote-directory (expand-file-name "~/project/org/notes/"))
-  (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
-  (setq denote-file-type nil)
-  (add-hook 'dired-mode-hook #'denote-dired-mode)
-  (keymap-global-set "s-b" 'denote)
+(setq denote-directory (expand-file-name "~/project/org/notes/"))
+(setq denotes-known-keywords '("emacs" "init" "general" "shell"))
+(setq denote-file-type nil)
+(add-hook 'dired-mode-hook #'denote-dired-mode)
+(keymap-global-set "s-b" 'denote)
 
 (setq completion-styles '(substring basic))
 
 (use-package consult
-  ;; Replace bindings. Lazily loaded due by `use-package'.
-  :bind (;; C-c bindings in `mode-specific-map'
-         ("C-c M-x" . consult-mode-command)
-         ("C-c h" . consult-history)
-         ("C-c k" . consult-kmacro)
-         ("C-c m" . consult-man)
-         ("C-c i" . consult-info)
-         ([remap Info-search] . consult-info)
-         ;; C-x bindings in `ctl-x-map'
-         ("C-x M-:" . consult-complex-command)    
-         ("C-x b" . consult-buffer)               
-         ("C-x 4 b" . consult-buffer-other-window)
-         ("C-x 5 b" . consult-buffer-other-frame) 
-         ("C-x t b" . consult-buffer-other-tab)   
-         ("C-x r b" . consult-bookmark)           
-         ("C-x p b" . consult-project-buffer)))
+;; Replace bindings. Lazily loaded due by `use-package'.
+:bind (;; C-c bindings in `mode-specific-map'
+       ("C-c M-x" . consult-mode-command)
+       ("C-c h" . consult-history)
+       ("C-c k" . consult-kmacro)
+       ("C-c m" . consult-man)
+       ("C-c i" . consult-info)
+       ([remap Info-search] . consult-info)
+       ;; C-x bindings in `ctl-x-map'
+       ("C-x M-:" . consult-complex-command)    
+       ("C-x b" . consult-buffer)               
+       ("C-x 4 b" . consult-buffer-other-window)
+       ("C-x 5 b" . consult-buffer-other-frame) 
+       ("C-x t b" . consult-buffer-other-tab)   
+       ("C-x r b" . consult-bookmark)           
+       ("C-x p b" . consult-project-buffer)))
 
 (use-package consult-denote
   :ensure t
@@ -257,7 +251,6 @@
 
 ;; The :init section is always executed.
 :init
-
 ;; Marginalia must be activated in the :init section of use-package such that
 ;; the mode gets enabled right away. Note that this forces loading the
 ;; package.
@@ -302,25 +295,25 @@
                             '(("^ *\\([-]\\) "
                                (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
-    ;; Set faces for heading levels
-    (with-eval-after-load 'org-faces
-      (dolist (face '((org-level-1 . 1.2)
-                      (org-level-2 . 1.1)
-                      (org-level-3 . 1.05)
-                      (org-level-4 . 1.0)
-                      (org-level-5 . 1.1)
-                      (org-level-6 . 1.1)
-                      (org-level-7 . 1.1)
-                      (org-level-8 . 1.1))))
+;; Set faces for heading levels
+(with-eval-after-load 'org-faces
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1))))
 
-      ;; Ensure that anything that should be fixed-pitch in Org files appears that way
-      (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
-      (set-face-attribute 'org-code unspecified :inherit '(shadow fixed-pitch))
-      (set-face-attribute 'org-table unspecified :inherit '(shadow fixed-pitch))
-      (set-face-attribute 'org-verbatim unspecified :inherit '(shadow fixed-pitch))
-      (set-face-attribute 'org-special-keyword unspecified :inherit '(font-lock-comment-face fixed-pitch))
-      (set-face-attribute 'org-meta-line unspecified :inherit '(font-lock-comment-face fixed-pitch))
-      (set-face-attribute 'org-checkbox unspecified :inherit 'fixed-pitch)))
+;; Ensure that anything that should be fixed-pitch in Org files appears that way
+(set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
+(set-face-attribute 'org-code unspecified :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-table unspecified :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-verbatim unspecified :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-special-keyword unspecified :inherit '(font-lock-comment-face fixed-pitch))
+(set-face-attribute 'org-meta-line unspecified :inherit '(font-lock-comment-face fixed-pitch))
+(set-face-attribute 'org-checkbox unspecified :inherit 'fixed-pitch)))
 
 (setq org-hide-emphasis-markers t)
 
@@ -337,8 +330,9 @@
 
 (defun efs/org-mode-setup ()
 ;;    (org-indent-mode)
-    (variable-pitch-mode 1)
-    (visual-line-mode 1))
+(variable-pitch-mode 1)
+(visual-line-mode 1))
+;; ---------------------------------------------------------
 
 (setq org-agenda-files
       '("~/org/journal/journal.org"
@@ -369,17 +363,23 @@
           ("@note" . ?t)
           ("@code" . ?c)
           ("@init" . ?i)))
-        ("j" "Journal Entries")
-        ("jj" "Journal" entry
-         (file+olp+datetree "~/org/journal/Journal.org")
-         "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-         ;; ,(dw/read-file-as-string "~/org/notes.org")
 
-         )
-        )
+(setq org-capture-templates
+        `(("t" "Tasks / Projects")
+          ("tt" "Task" entry (file+olp "~/org/tasks/tasks.org" "Inbox")
+           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+
+          ("j" "Journal Entries")
+          ("jj" "Journal" entry
+           (file+olp+datetree "~/org/journal/Journal.org")
+           "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
+           ;; ,(dw/read-file-as-string "~/org/notes.org")
+          
+           )
+          ))
 
 (keymap-set global-map "C-c j" 
-            (lambda () (interactive) (org-capture nil "jj")))
+              (lambda () (interactive) (org-capture nil "jj"))))
 
 (use-package org-bullets
   :after org
@@ -481,13 +481,14 @@
 ;; save rust buffers that are not file visiting. Once
 ;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
 ;; no longer be necessary.
-  (when buffer-file-name
-    (setq-local buffer-save-without-query t))
-  (add-hook 'before-save-hook 'lsp-format-buffer nil t))
+(when buffer-file-name
+  (setq-local buffer-save-without-query t))
+(add-hook 'before-save-hook 'lsp-format-buffer nil t))
 
 ;; (use-package rust-playground :ensure)
 
-(use-package toml-mode :ensure)
+(use-package toml-mode
+  :ensure)
 
 (setq-local lsp-inlay-hint-enable t)
 ;; below from https://github.com/rksm/emacs-rust-config
@@ -497,30 +498,30 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :custom
-  ;; what to use when checking on-save. "check" is default, I prefer clippy
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
-  (lsp-eldoc-render-all t)
-  (lsp-idle-delay 0.6)
-  ;; enable / disable the hints as you prefer:
-  (lsp-inlay-hint-enable t)
-  ;; These are optional configurations. See https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#lsp-rust-analyzer-display-chaining-hints for a full list
-  (lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
-  (lsp-rust-analyzer-display-chaining-hints t)
-  (lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
-  (lsp-rust-analyzer-display-closure-return-type-hints t)
-  (lsp-rust-analyzer-display-parameter-hints nil)
-  (lsp-rust-analyzer-display-reborrow-hints nil)
-  :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-  (lsp-enable-which-key-integration t))
+;; what to use when checking on-save. "check" is default, I prefer clippy
+(lsp-rust-analyzer-cargo-watch-command "clippy")
+(lsp-eldoc-render-all t)
+(lsp-idle-delay 0.6)
+;; enable / disable the hints as you prefer:
+(lsp-inlay-hint-enable t)
+;; These are optional configurations. See https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#lsp-rust-analyzer-display-chaining-hints for a full list
+(lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
+(lsp-rust-analyzer-display-chaining-hints t)
+(lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
+(lsp-rust-analyzer-display-closure-return-type-hints t)
+(lsp-rust-analyzer-display-parameter-hints nil)
+(lsp-rust-analyzer-display-reborrow-hints nil)
+:config
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+(lsp-enable-which-key-integration t))
 
 (use-package lsp-ui
   :ensure
   :commands lsp-ui-mode
   :custom
-  (lsp-ui-peek-always-show t)
-  (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-enable nil))
+(lsp-ui-peek-always-show t)
+(lsp-ui-sideline-show-hover t)
+(lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
 (require 'tree-sitter)
@@ -543,8 +544,8 @@
           (:map python-mode-map
               ("<tab>" . company-indent-or-complete-common))
   :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0.5))
+(company-minimum-prefix-length 1)
+(company-idle-delay 0.5))
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
@@ -589,15 +590,15 @@
 ;; ------------end lisp ------------------------------------
 
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:height 180 :family "Hack Nerd Font Mono"))))
- '(cursor ((t (:background "light green"))))
- '(org-headline-done ((t (:foreground "gray80"))))
- '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
- '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
+;; custom-set-faces was added by Custom.
+;; If you edit it by hand, you could mess it up, so be careful.
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
+'(default ((t (:height 180 :family "Hack Nerd Font Mono"))))
+'(cursor ((t (:background "light green"))))
+'(org-headline-done ((t (:foreground "gray80"))))
+'(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
+'(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
