@@ -76,8 +76,19 @@ line 56 (delete-selection-mode 1)
 * COMPLETED Removed yas-snippet packages from ~/.emacs.d/elpa
 CLOSED: [2025-08-19 Tue 14:45]
 issues with elpy package. had to comment out all references to it <-- temporary, investigate.
+* COMPLETED Moved older inits to project/MyStuff/Shell/Older inits. Added init.el.freeze20AUG.
+CLOSED: [2025-08-20 Wed 11:29]
+* DONE Test gh on Big to see if ssh key works there. Git push/pul w/o Token working now.
+CLOSED: [2025-08-20 Wed 11:30]
+* COMPLETED Have to kill emacs server then start new server before ec will work.
+CLOSED: [2025-08-20 Wed 11:32]
+
+** Added (server-start) to init.el  and can now use ec $1 to open files quickly.
+** All terminal apps instantly launch a file in the GUI version of emacs that's already open.
+when ec is used:      'emacsclient -n $1'
+(that's if M-x server-start has been done and it's a fresh instance of the server.
+
 * TODO Trying to figure out project root.
-* TODO Test gh on Big to see if ssh key works there.
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
@@ -99,18 +110,13 @@ CLOSED: [2025-08-05 Tue 07:32]
   added dired-x to init.el on New so I can look at elisp via Info
 *** COMPLETED asdf is included whan Quicklisp is loaded. Check this on Big and New.
 CLOSED: [2025-08-05 Tue 07:33]
-** circle.lisp working after changes. hello.lisp working. array.lisp working but with errors.
+*** COMPLETED Removed older lisp tutorials from 'watch later'.
+CLOSED: [2025-08-20 Wed 11:33]
+*** circle.lisp working after changes. hello.lisp working. array.lisp working but with errors.
 +deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
 <<<<<<< HEAD
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
 ** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
-** Removed older lisp tutorials from 'watch later'.
-** Added (server-start) to init.el  and can now use ec $1 to open files quickly.
 This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
-** NEXT Have to kill emacs server then start new server before ec will work.
-** All terminal apps instantly launch a file in the GUI version of emacs that's already open.
-when ec is used:      'emacsclient -n $1'
-(that's if M-x server-start has been done and it's a fresh instance of the server.
-
-** Prot emacs runs as GUI on New, as terminal app on Big. Why?
+* Prot emacs runs as GUI on New, as terminal app on Big. Why?
