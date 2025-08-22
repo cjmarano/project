@@ -88,6 +88,11 @@ CLOSED: [2025-08-20 Wed 11:32]
 when ec is used:      'emacsclient -n $1'
 (that's if M-x server-start has been done and it's a fresh instance of the server.
 
+* COMPLETED init.el on Big - vertico stopped working. Fix was to copy init.el from New.
+CLOSED: [2025-08-21 Thu 13:50]
+* DONE Removed elpy. Re-installed elpy. Uncommented elpy/flycheck code at bottom of init.el
+CLOSED: [2025-08-21 Thu 14:14]
+now Python code appears to be getting full language checking, linting, marginalia, etc.
 * TODO Trying to figure out project root.
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
@@ -120,3 +125,4 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 did some of the examples.. writing files was interesting and useful.
 This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
 * Prot emacs runs as GUI on New, as terminal app on Big. Why?
+* NEXT New shows marginalia when doing python, Big doesn't. Why?
