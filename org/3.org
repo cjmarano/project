@@ -119,8 +119,13 @@ added projectile and treemacs[
 CLOSED: [2025-08-26 Tue 14:11]
 * COMPLETED Installed elpa items on New that Big had and visa-versa.
 CLOSED: [2025-08-26 Tue 14:12]
+* COMPLETED For now use New for programming don't update Big yet. <-- too late.
+CLOSED: [2025-08-28 Thu 08:05]
+* COMPLETED Need to check contents of Elpa vs selected-packages in init.el on both Big & New.
+CLOSED: [2025-08-28 Thu 08:05]
+* COMPLETED removed  items from elpa on big and new. Added some to selected, ditto.
+CLOSED: [2025-08-28 Thu 08:06]
 * WAITING New shows marginalia when doing python, Big doesn't. Why?
-* For now use New for programming don't update Big yet.
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
@@ -152,6 +157,4 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 did some of the examples.. writing files was interesting and useful.
 This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
 * Prot emacs runs as GUI on New, as terminal app on Big. Why?
-* Need to check contents of Elpa against package-selected-packages in init.el on both Big & New.
-* removed some items from ~/.emacs.d/elpa/ on big and new. Added some to selected, ditto.
 * Start times now over 10 seconds. Removing elpy took 4 secs off startup time.
