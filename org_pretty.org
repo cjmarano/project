@@ -1,0 +1,103 @@
+(when (member "Hack Nerd Font Mono (font-family-list))
+  (set-face-attribute 'default nil :font "Hack Nerd Font Mono" :height 108)
+  (set-face-attribute 'fixed-pitch nil :family "Hack Nerd Font Mono"))
+
+(when (member "Source Sans Pro" (font-family-list))
+
+(set-face-attribute 'variable-pitch nil :family "JetBrainsMono Nerd Fonr :height 1.18))
+;; Resize Org headings
+(dolist (face '((org-level-1 . 1.35)
+                (org-level-2 . 1.3)
+                (org-level-3 . 1.2)
+                (org-level-4 . 1.1)
+                (org-level-5 . 1.1)
+                (org-level-6 . 1.1)
+                (org-level-7 . 1.1)
+                (org-level-8 . 1.1)))
+  (set-face-attribute (car face) nil :font "JetBrainsmono Nerd Font" :weight 'bold :height (cdr face)))
+
+;; Make the document title a bit bigger
+(set-face-attribute 'org-document-title nil :font "JetBrainsMono Nerd Font" :weight
+'bold :height 1.8)
+
+(require 'org-indent)
+(eset-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+
+(setq org-adapt-indentation t
+      org-hide-leading-stars t
+      org-pretty-entities t
+	  org-ellipsis "  ·")
+
+(setq org-src-fontify-natively t
+	  org-src-tab-acts-natively t
+      org-edit-src-content-indentation 0)
+
+(use-package org-appear
+  :commands (org-appear-mode)
+  :hook     (org-mode . org-appear-mode)
+  :config
+  (setq org-hide-emphasis-markers t)  ; Must be activated for org-appear to work
+  (setq org-appear-autoemphasis   t   ; Show bold, italics, verbatim, etc.
+        org-appear-autolinks      t   ; Show links
+		org-appear-autosubmarkers t)) ; Show sub- and superscripts
+
+(setq org-log-done                       t
+	  org-auto-align-tags                t
+	  org-tags-column                    -80
+	  org-fold-catch-invisible-edits     'show-and-error
+	  org-special-ctrl-a/e               t
+	  org-insert-heading-respect-content t)
+
+(add-hook 'org-mode-hook 'visual-line-mode)
+
+
+(use-package org-superstar
+  :config
+  (setq org-superstar-leading-bullet " ")
+  (setq org-superstar-headline-bullets-list '("◉" "○" "⚬" "◈" "◇"))
+  (setq org-superstar-special-todo-items t) ;; Makes TODO header bullets into boxes
+  (setq org-superstar-todo-bullet-alist '(("TODO"  . 9744)
+                                          ("WAIT"  . 9744)
+                                          ("READ"  . 9744)
+                                          ("PROG"  . 9744)
+										  ("DONE"  . 9745)))
+  :hook (org-mode . org-superstar-mode))
+
+
+  (defun my/prettify-symbols-setup ()
+  ;; Checkboxes
+  (push '("[ ]" . "") prettify-symbols-alist)
+  (push '("[X]" . "") prettify-symbols-alist)
+  (push '("[-]" . "" ) prettify-symbols-alist)
+
+  ;; org-abel
+  (push '("#+BEGIN_SRC" . ?≫) prettify-symbols-alist)
+  (push '("#+END_SRC" . ?≫) prettify-symbols-alist)
+  (push '("#+begin_src" . ?≫) prettify-symbols-alist)
+  (push '("#+end_src" . ?≫) prettify-symbols-alist)
+
+  (push '("#+BEGIN_QUOTE" . ?❝) prettify-symbols-alist)
+  (push '("#+END_QUOTE" . ?❞) prettify-symbols-alist)
+
+  ;; Drawers
+  (push '(":PROPERTIES:" . "") prettify-symbols-alist)
+
+  ;; Tags
+  (push '(":projects:" . "") prettify-symbols-alist)
+  (push '(":work:"     . "") prettify-symbols-alist)
+  (push '(":inbox:"    . "") prettify-symbols-alist)
+  (push '(":task:"     . "") prettify-symbols-alist)
+  (push '(":thesis:"   . "") prettify-symbols-alist)
+  (push '(":uio:"      . "") prettify-symbols-alist)
+  (push '(":emacs:"    . "") prettify-symbols-alist)
+  (push '(":learn:"    . "") prettify-symbols-alist)
+  (push '(":code:"     . "") prettify-symbols-alist)
+
+  (prettify-symbols-mode))
+
+(add-hook 'org-mode-hook        #'my/prettify-symbols-setup)
+(add-hook 'org-agenda-mode-hook #'my/prettify-symbols-setup)
+
+
+
+                
