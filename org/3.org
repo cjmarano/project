@@ -90,7 +90,7 @@ when ec is used:      'emacsclient -n $1'
 
 * COMPLETED init.el on Big - vertico stopped working. Fix was to copy init.el from New.
 CLOSED: [2025-08-21 Thu 13:50]
-* COMPLETED Removed elpy. Re-installed elpy. Uncommented elpy/flycheck code at bottom of init.el
+* COMPLETED Removed Re-installed elpy. Uncommented elpy/flycheck code at bottom of init.el
 CLOSED: [2025-08-25 Mon 12:32]
 now Python code appears to be getting full language checking, linting, marginalia, etc.
 * COMPLETED Trying to figure out project root.
@@ -115,6 +115,12 @@ added projectile and treemacs[
 
 (keymap-global-set "C-c p" 'add-or-switch-project-dwim) 
 
+* COMPLETED added projectile and treemacs to init.el.org tangled successfully.
+CLOSED: [2025-08-26 Tue 14:11]
+* COMPLETED Installed elpa items on New that Big had and visa-versa.
+CLOSED: [2025-08-26 Tue 14:12]
+* WAITING New shows marginalia when doing python, Big doesn't. Why?
+* For now use New for programming don't update Big yet.
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
@@ -146,4 +152,6 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 did some of the examples.. writing files was interesting and useful.
 This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
 * Prot emacs runs as GUI on New, as terminal app on Big. Why?
-* NEXT New shows marginalia when doing python, Big doesn't. Why?
+* Need to check contents of Elpa against package-selected-packages in init.el on both Big & New.
+* removed some items from ~/.emacs.d/elpa/ on big and new. Added some to selected, ditto.
+* Start times now over 10 seconds. Removing elpy took 4 secs off startup time.
