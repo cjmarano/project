@@ -130,6 +130,8 @@ line 53 (setq file-name-shadow-properties '(invisible t))
 ** typing deletes selection.
 line 56 (delete-selection-mode 1)
 
+* COMPLETED Added recent changes to New's init.el to init.el.org
+CLOSED: [2025-08-29 Fri 12:18]
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
@@ -161,4 +163,4 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 did some of the examples.. writing files was interesting and useful.
 This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
 * Prot emacs runs as GUI on New, as terminal app on Big. Why?
-*  Added recent changes to New's init.el to init.el.org
+* NEXT Freeze init.el and work on other things.
