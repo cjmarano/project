@@ -1,6 +1,7 @@
 * September.
 * _Start times around 5 seconds_, up from 3. Around 8 seconds for Big.
 ** adding back GC changes to init.el and early-init.el cut this to 5+ secs.
+** synched init.el on big and new.
 * Why are start times going up?
 ** ran profile-dotemacs.el biggest  % of startup time was org-babel-do-load-languages.
 *** commented out rust, eshell and ruby.
