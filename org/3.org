@@ -1,13 +1,14 @@
 * September.
-* _Start times around 5 seconds_, up from 3. Around 8 seconds for Big.
+* _Start times around 6 seconds_, up from 3. Around 9 seconds for Big.
+** Why are start times going up? 
 ** adding back GC changes to init.el and early-init.el cut this to 5+ secs.
-** synched init.el on big and new.
-* Why are start times going up?
+** synched init.el on Big and New.
 ** ran profile-dotemacs.el biggest  % of startup time was org-babel-do-load-languages.
-*** commented out rust, eshell and ruby.
-*** commented out vterm.
-*** removed a lot of packages from packages and commented out all rust items but startup times not really shorter.
-*** restored most itmes back to init.el
-*** added gc change to early init and restore to normal gc to init.el
+*** commented out rust, eshell and ruby 
+*** commented out vterm
+*** removed a lot of packages from packages and commented out all rust items but startup times not really shorter
+*** restored most itmes back to init.el** added gc change to early init and restore to normal gc to init.el
 * Prot emacs runs as GUI on New, as terminal app on Big. Why?
 * NEXT Freeze init.el and work on other things.
+* new.init.el is latest System Crafters init.el - just to see how it compares w/ mine.
+it's okay but nothing special. Do like JetBrainsMono Nerd Font though.
