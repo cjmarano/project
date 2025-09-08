@@ -12,3 +12,6 @@
 * NEXT Freeze init.el and work on other things.
 * new.init.el is latest System Crafters init.el - just to see how it compares w/ mine.
 it's okay but nothing special. Do like JetBrainsMono Nerd Font though.
+* Ducky wants to compile vterm-module every time.
+Check early.init - no byte compile and init.el
+* What did I need from $Store? - shower curtain.
