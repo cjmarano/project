@@ -1,14 +1,5 @@
 * September.
-* _Start times around 7 seconds_, up from 3. Around 8 seconds for Big.
-** New taking 3+ seconds. Big now taking 8 seconds.
-- State "DONE"       from "WAITING"    [2025-04-10 Thu 13:37]
-** TODO Doing Zsh Scripting.
-** No good intros to zsh programming found so far.
-** Debugging:
-1. Call the script with the -x option. Example: zsh -x myscript.
-2. Modify your scripts header to include -x. Example: #!/bin/zsh -x.
-3. Turn on debugging in certain parts of your code. Example: #!/usr/bin/env zsh set - x.
-** Completed into pdf: Scripting_Intro_Zsh.pdf
+* _Start times around 5 seconds, 6 for Big_, up from 3. 
 * COMPLETED Removed Re-installed elpy. Uncommented elpy/flycheck code at bottom of init.el
 CLOSED: [2025-08-25 Mon 12:32]
 now Python code appears to be getting full language checking, linting, marginalia, etc.
