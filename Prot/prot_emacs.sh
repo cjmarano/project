@@ -1,2 +1,2 @@
 #!/bin/bash 
-emacs -l ~/project/prot/init.el
+emacs -l ~/project/Prot/init.el

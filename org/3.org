@@ -58,6 +58,8 @@ restored ~/project/MyStuff/PrevOrg/2n.org to ~/project/org/3.org after renaming 
 * COMPLETED changed GC in early-init.el and init.el :def t for all programming items.
 CLOSED: [2025-09-08 Mon 14:33]
 statup time rduced to ~5 secs.
+* COMPLETED Reconciled init.el on New and Big. - 10SEP. 
+CLOSED: [2025-09-10 Wed 12:59]
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
@@ -88,5 +90,5 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 ** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
 This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
-* Prot emacs runs as GUI on New, as terminal app on Big. Why?
+* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
 * NEXT Freeze init.el and work on other things.
