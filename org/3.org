@@ -91,4 +91,9 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 did some of the examples.. writing files was interesting and useful.
 This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
 * WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
+** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
+both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
+This indcates that something is different.ech
+** emacsclient -c does open a new GUI frame.
+** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
 * NEXT Freeze init.el and work on other things.
