@@ -1,5 +1,5 @@
 * September.
-* _Start times around 5 seconds, 6 for Big_, up from 3. 
+* _Start times around 5 seconds, 7 for Big_, up from 3. 
 * COMPLETED Removed Re-installed elpy. Uncommented elpy/flycheck code at bottom of init.el
 CLOSED: [2025-08-25 Mon 12:32]
 now Python code appears to be getting full language checking, linting, marginalia, etc.
@@ -96,4 +96,5 @@ both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 
 This indcates that something is different.ech
 ** emacsclient -c does open a new GUI frame.
 ** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
+Still not sure why Big opens emacs in terminal while New opens with GUI.
 * NEXT Freeze init.el and work on other things.
