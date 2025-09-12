@@ -1,8 +1,5 @@
 * September.
-* new.init.el is latest System Crafters init.el - just to see how it compares w/ mine.
-it's okay but nothing special. Do like JetBrainsMono Nerd Font though.
-* Prot emacs runs as GUI on New, as terminal app on Big. Why?
-* _Start times around 6+ seconds_, up from 3. Around 9 seconds for Big.
+* _Start times around 5 seconds_, up from 3. Around 7 seconds for Big.
 ** Why are start times going up? 
 ** adding back GC changes to init.el and early-init.el cut this to 5+ secs.
 ** synched init.el on Big and New.
@@ -15,12 +12,14 @@ it's okay but nothing special. Do like JetBrainsMono Nerd Font though.
 haven't un-commented them yet so init.el on New does NOT match the other init.el files on New and Plucky.
 had to go back to a safety save after C-x, C-r stopped working after oave changes to init.el on New.
 did not bother to troubleshoot yet. 
+* COMPLETED new.init.el is System Crafters init.el - to see how it compares w/ mine.
+CLOSED: [2025-09-11 Thu 16:49]
+it's okay but nothing special. Do like JetBrainsMono Nerd Font though.
+* COMPLETED Ducky wants to compile vterm-module every time.
+CLOSED: [2025-09-11 Thu 16:52]
+Check early.init - no byte compile and init.el
+* COMPLETED added GC mods from New and got start time down to 3.1 secs).
+CLOSED: [2025-09-11 Thu 16:53]
+* Prot emacs runs as GUI on New, as terminal app on Big. Why?
 * NEXT Freeze init.el and work on other things.
 <<<<<<< HEAD
-* new.init.el is latest System Crafters init.el - just to see how it compares w/ mine.
-it's okay but nothing special. Do like JetBrainsMono Nerd Font though.
-* Ducky wants to compile vterm-module every time.
-Check early.init - no byte compile and init.el
-* What did I need from $Store? - shower curtain.
-=======
->>>>>>> 3ee47d6 (Monday Morning.)
