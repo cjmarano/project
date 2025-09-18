@@ -64,7 +64,13 @@ CLOSED: [2025-09-08 Mon 14:33]
 statup time rduced to ~5 secs.
 * COMPLETED Change height in init.el on Big to 28 from 30 to fit better on screen.
 CLOSED: [2025-09-15 Mon 10:37]
-* NEXT Freeze init.el and work on other things.
+* COMPLETED Brew would not work until I updated my Xcode license.
+Ghostty forgot where the theme I'm using is after an update.
+CLOSED: [2025-09-16 Tue 10:25]
+* COMPLETED Show fonts (176-180 init.el New) doesn't show all fonts with C-c s f does w/ C-c s t.
+CLOSED: [2025-09-16 Tue 10:26]
+* DONE Added recent changes to init.el (New) to ~/project/init.el.org
+CLOSED: [2025-09-16 Tue 14:00]
 * WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
 ** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
 both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
@@ -72,8 +78,9 @@ This indcates that something is different.ech
 ** emacsclient -c does open a new GUI frame.
 ** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
 Still not sure why Big opens emacs in terminal while New opens with GUI.
-* Show fonts (176-180 in init.el on New) does NOT show all fonts with C-c s f but does with C-c s t.
+* NEXT Freeze init.el and work on other things.
 * Take another look at :defer :after etc. per System Crafters.
+especially org-babel and org-tempo. Also check some misc. packages have both :defer and :command or :after/
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp

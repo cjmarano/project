@@ -42,7 +42,7 @@
 * compile if newer available
 #+begin_src emacs-lisp
 (setq load-prefer-newer t)
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250414.2214")
+(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250901.1341")
 (require 'auto-compile)
 (auto-compile-on-load-mode)
 (auto-compile-on-save-mode)
@@ -63,73 +63,73 @@
 * Basic setup
 
 #+begin_src emacs-lisp
-   (add-to-list 'default-frame-alist '(height . 60))
-   (add-to-list 'default-frame-alist '(width . 100))
+ (add-to-list 'default-frame-alist '(height . 60))
+ (add-to-list 'default-frame-alist '(width . 100))
 
-   (server-start)
+ (server-start)
 
-   (setq file-name-shadow-properties '(invisible t))
-   (file-name-shadow-mode)
+  (setq history-length 10)
+  (setq savehist-mode t)
+  (setq org-indent-mode t)
+  (setq-default cursor-type 'hbar)
+  (setq set-cursor-color "Cyan")
+  (setq ring-bell-function 'ignore)
+  (setq inhibit-splash-screen t)
+  (setq inhibit-startup-screen t)
+  (global-font-lock-mode 1)
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
+  (transient-mark-mode t)
+  (global-display-line-numbers-mode t)
+  (column-number-mode t)
+  (tool-bar-mode -1)
+  (global-hl-line-mode +1)
+  (setq global-auto-revert-mode 1)
+  (setq auto-revert-use-notify t) 
+  (setq use-short-answers t)
+  (setq ediff-split-window-function 'split-window-horizontally)
+  ;; removes ediff control window put controls in window at bottom of frame.
+  ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+  ;; (require 'dired-x)
+  (setq file-name-shadow-properties '(invisible t))
+  (file-name-shadow-mode)
 
-    (delete-selection-mode 1)
+  (delete-selection-mode 1)
+
+ (keymap-global-set "M-p" 'previous-buffer)
+ (keymap-global-set "M-n" 'next-buffer)
+ (keymap-global-set "M-o" 'other-window)
+ (keymap-global-set "M-g" 'recentf)
+
+ (dolist (mode '(org-mode-hook
+                 term-mode-hook
+                 shell-mode-hook
+                 eshell-mode-hook
+                 vterm-mode-hook))
+ (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+ (recentf-mode 1)
+ (setq recentf-max-menu-items 10)
+ (setq recentf-max-saved-items 25)
+ (global-set-key "\C-x\ \C-r" 'recentf-open-files)
     
-    (setq history-length 10)
-    (setq savehist-mode t)
-    (setq org-indent-mode t)
-    (setq-default cursor-type 'hbar)
-    (setq set-cursor-color "Cyan")
-    (setq ring-bell-function 'ignore)
-    (setq inhibit-splash-screen t)
-    (setq inhibit-startup-screen t)
-    (global-font-lock-mode 1)
-    (setq-default indent-tabs-mode nil)
-    (setq-default tab-width 4)
-    (transient-mark-mode t)
-    (global-display-line-numbers-mode t)
-    (column-number-mode t)
-    (tool-bar-mode -1)
-    (global-hl-line-mode +1)
-    (setq global-auto-revert-mode 1)
-    (setq auto-revert-use-notify t) 
-    (setq use-short-answers t)
-    (setq ediff-split-window-function 'split-window-horizontally)
-    ;; removes ediff control window put controls in window at bottom of frame.
-    ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-    ;; (require 'dired-x)
-  (keymap-global-set "M-p" 'previous-buffer)
-  (keymap-global-set "M-n" 'next-buffer)
-  (keymap-global-set "M-o" 'other-window)
-  (keymap-global-set "M-g" 'recentf)
 
-  (dolist (mode '(org-mode-hook
-                  term-mode-hook
-                  shell-mode-hook
-                  eshell-mode-hook
-                  vterm-mode-hook))
-    (add-hook mode (lambda () (display-line-numbers-mode 0))))
+ (when (display-graphic-p)
+    (context-menu-mode))
 
-   (recentf-mode 1)
-   (setq recentf-max-menu-items 10)
-   (setq recentf-max-saved-items 25)
-   (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+ ;;  (file-name-shadow-mode 1)
+ ;;  (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
+ (setq delete-by-moving-to-trash t)
+ (setq dired-dwim-target t)
 
-
-   (when (display-graphic-p)
-     (context-menu-mode))
-
-;;  (file-name-shadow-mode 1)
-;;  (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
-(setq delete-by-moving-to-trash t)
-(setq dired-dwim-target t)
-
-(add-hook 'dired-load-hook
-    (lambda ()
-       (require 'dired-x)))
+ (add-hook 'dired-load-hook
+     (lambda ()
+        (require 'dired-x)))
 
  ;; (setq ls-lisp-use-insert-directory-program nil)
  ;;     (require 'ls-lisp)
 
-   (setq ediff-diff-options "--text")
+ (setq ediff-diff-options "--text")
 #+end_src
 
 * dashboard
@@ -181,8 +181,8 @@
 (use-package nerd-icons
   :ensure t)
 (setq doom-modeline-buffer-file-name-style 'file-name)
-(setq doom-modeline-major-mode-color-icon t)
-(setq doom-modeline-major-mode-icon t)
+;; (setq doom-modeline-major-mode-color-icon t)
+;; (setq doom-modeline-major-mode-icon t)
 (setq doom-modeline-buffer-encoding nil)
 (setq doom-modeline-env-version t)
 (setq doom-modeline-env-enable-python t)
@@ -209,48 +209,56 @@
 * misc packages
 ** added 25AUG2023 to solve image type issue ---------------
 #+begin_src emacs-lisp
-    (require 'nerd-icons-completion)
-    (nerd-icons-completion-mode)
+ (require 'nerd-icons-completion)
+ (nerd-icons-completion-mode)
 
-    (use-package nerd-icons-completion)
-      :config
+ (use-package nerd-icons-completion)
+   :config
 
-    (use-package orderless
-      :ensure t :custom
-      (completion-styles '(orderless basic))
-      (completion-category-overrides '((file (styles  basic partial-completion)))))
+ (use-package show-font
+   :ensure t
+   :bind
+   (("C-c s f" . show-font-select-preview)
+    ("C-c s t" . show-font-tabulated)))
 
-  (use-package magit
-       :commands magit-status
-       :custom
-       (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-       (keymap-global-set "C-x g" 'magit-status) 
+ (use-package orderless
+   :ensure t
+   :custom
+   (completion-styles '(orderless basic))
+   (completion-category-overrides '((file (styles  basic partial-completion)))))
 
+ (use-package magit
+    :defer t 
+    :commands magit-status
+    :custom
+    (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+    (keymap-global-set "C-x g" 'magit-status) 
 
-  (use-package which-key
-    :defer 0
-    :diminish which-key-mode
-    :config
-    (which-key-mode)
-    (setq which-key-idle-delay .9))
+ (use-package which-key
+   :defer 0
+   :diminish which-key-mode
+   :config
+   (which-key-mode)
+   (setq which-key-idle-delay .9))
 
-  (use-package vterm
-     :ensure t)
+ (use-package vterm
+   :defer t 
+   :ensure t)
 
-  (use-package vertico
-     :init
-     (vertico-mode))
+ (use-package vertico
+    :init
+    (vertico-mode))
 
-  (use-package nerd-icons-dired
-     :hook (dired-mode . nerd-icons-dired-mode))
+ (use-package nerd-icons-dired
+    :hook (dired-mode . nerd-icons-dired-mode))
 
-(setq denote-directory (expand-file-name "~/project/org/notes/"))
-(setq denotes-known-keywords '("emacs" "init" "general" "shell"))
-(setq denote-file-type nil)
-(add-hook 'dired-mode-hook #'denote-dired-mode)
-(keymap-global-set "s-b" 'denote)
-  
-(setq completion-styles '(substring basic))
+ (setq denote-directory (expand-file-name "~/project/org/notes/"))
+ (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
+ (setq denote-file-type nil)
+ (add-hook 'dired-mode-hook #'denote-dired-mode)
+ (keymap-global-set "s-b" 'denote)
+
+ (setq completion-styles '(substring basic))
 #+end_src
 
 * Consult
@@ -539,45 +547,47 @@
   ;; (use-package rust-playground :ensure)
 
   (use-package toml-mode
-    :ensure)
+    :ensure nil
+    :defer t)
 
 #+end_src
 
 * lsp mode
 #+begin_src emacs-lisp
-(setq-local lsp-inlay-hint-enable t)
-;; below from https://github.com/rksm/emacs-rust-config
-(use-package lsp-mode
-  :ensure
-  :commands lsp
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :custom
-;; what to use when checking on-save. "check" is default, I prefer clippy
-(lsp-rust-analyzer-cargo-watch-command "clippy")
-(lsp-eldoc-render-all t)
-(lsp-idle-delay 0.6)
-;; enable / disable the hints as you prefer:
-(lsp-inlay-hint-enable t)
-;; These are optional configurations. See https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#lsp-rust-analyzer-display-chaining-hints for a full list
-(lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
-(lsp-rust-analyzer-display-chaining-hints t)
-(lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
-(lsp-rust-analyzer-display-closure-return-type-hints t)
-(lsp-rust-analyzer-display-parameter-hints nil)
-(lsp-rust-analyzer-display-reborrow-hints nil)
-:config
-(add-hook 'lsp-mode-hook 'lsp-ui-mode)
-(lsp-enable-which-key-integration t))
+  (setq-local lsp-inlay-hint-enable t)
+  ;; below from https://github.com/rksm/emacs-rust-config
+  (use-package lsp-mode
+    :ensure nil
+    :defer t
+    :commands lsp
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    :custom
+  ;; what to use when checking on-save. "check" is default, I prefer clippy
+  (lsp-rust-analyzer-cargo-watch-command "clippy")
+  (lsp-eldoc-render-all t)
+  (lsp-idle-delay 0.6)
+  ;; enable / disable the hints as you prefer:
+  (lsp-inlay-hint-enable t)
+  ;; These are optional configurations. See https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#lsp-rust-analyzer-display-chaining-hints for a full list
+  (lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
+  (lsp-rust-analyzer-display-chaining-hints t)
+  (lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
+  (lsp-rust-analyzer-display-closure-return-type-hints t)
+  (lsp-rust-analyzer-display-parameter-hints nil)
+  (lsp-rust-analyzer-display-reborrow-hints nil)
+  :config
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+  (lsp-enable-which-key-integration t))
 
-(use-package lsp-ui
-  :ensure
-  :commands lsp-ui-mode
-  :custom
-(lsp-ui-peek-always-show t)
-(lsp-ui-sideline-show-hover t)
-(lsp-ui-doc-enable nil))
-;; end lsp-mode additions for rust
+  (use-package lsp-ui
+    :ensure
+    :commands lsp-ui-mode
+    :custom
+  (lsp-ui-peek-always-show t)
+  (lsp-ui-sideline-show-hover t)
+  (lsp-ui-doc-enable nil))
+  ;; end lsp-mode additions for rust
 #+end_src
 
 * Tree-sitter
@@ -614,22 +624,22 @@
 
 * Lisp mode
 #+begin_src emacs-lisp
-(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-(require 'slime-autoloads)
-(eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
+  (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+  (require 'slime-autoloads)
+  (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
 
-(ql:system-apropos "vecto")(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+  (ql:system-apropos "vecto")(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 
-;; Enable Paredit.
-(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
-(add-hook 'ielm-mode-hook 'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
-(add-hook 'lisp-mode-hook 'enable-paredit-mode)
-(add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
-(require 'paredit)
+  ;; Enable Paredit.
+  (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
+  (add-hook 'ielm-mode-hook 'enable-paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+  (add-hook 'lisp-mode-hook 'enable-paredit-mode)
+  (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
+  (require 'paredit)
 
-;; Enable Rainbow Delimiters.
+    ;; Enable Rainbow Delimiters.
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
@@ -645,15 +655,16 @@
  ;;             (show-paren-mode 1)
  ;;             ))
 
- ;; Eldoc for ielm
-(add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
-(add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
-(add-hook 'ielm-mode-hook 'eldoc-mode)
+;; Eldoc for ielm
+;; docs say this enabled by default now.
+;; (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+;; (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
+;; (add-hook 'ielm-mode-hook 'eldoc-mode)
 #+end_src
 
 * projectile and treemacs for programming
 #+begin_src  emacs-lisp
-  (projectile-mode +1)
+(projectile-mode +1)
 ;; Recommended keymap prefix on macOS
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 ;; Recommended keymap prefix on Windows/Linux
@@ -672,70 +683,78 @@
 
 * Custom
 #+begin_src emacs-lisp
-         (custom-set-faces
-         ;; custom-set-faces was added by Custom.
-         ;; If you edit it by hand, you could mess it up, so be careful.
-         ;; Your init file should contain only one such instance.
-         ;; If there is more than one, they won't work right.
-         '(default ((t (:height 180 :family "Hack Nerd Font Mono"))))
-         '(org-headline-done ((t (:foreground "gray80"))))
-         '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
-         '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
+    (custom-set-faces
+    ;; custom-set-faces was added by Custom.
+    ;; If you edit it by hand, you could mess it up, so be careful.
+    ;; Your init file should contain only one such instance.
+    ;; If there is more than one, they won't work right.
+    '(default ((t (:height 180 :family "Hack Nerd Font Mono"))))
+    '(org-headline-done ((t (:foreground "gray80"))))
+    '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
+    '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
 
-         (custom-set-variables
-         ;; custom-set-variables was added by Custom.
-         ;; If you edit it by hand, you could mess it up, so be careful.
-         ;; Your init file should contain only one such instance.
-         ;; If there is more than one, they won't work right.
-         '(company-box-enable-icon t)
-         '(company-box-icons-alist 'company-box-icons-images)
-         '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
-         '(custom-safe-themes
-             '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
-             "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
-             "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
-             "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
-             default))
-         '(denote-known-keywords '("emacs" "init" "general" "testing"))
-         '(elpy-rpc-python-command "python3")
-         '(flycheck-python-flake8-executable "python3")
-         '(flycheck-python-pycompile-executable "python3")
-         '(flycheck-python-pylint-executable "python3")
-         '(org-agenda-files '("$HOME/project/org/3.org"))
-         '(org-faces-easy-properties
-           '((todo . :background) (tag . :foreground) (priority . :foreground)))
-         '(org-id-locations-file
-           "/$HOME/.cache/emacs/var/org/id-locations.el")
-         '(org-startup-folded 'fold)
-         '(org-tempo-keywords-alist nil)
-         '(package-selected-packages
-           '(0blayout 0x0 0xc ac-haskell-process all-the-icons-nerd-fonts
-                    auto-compile bind-key cargo cargo-mode
-                    color-theme-sanityinc-tomorrow company-box consult
-                    consult-denote corfu dashboard denote diffview
-                    dired-single dired-subtree doom-modeline eglot
-                    elisp-refs elpy exec-path-from-shell flycheck-pyflakes
-                    flycheck-rust helpful kkp lsp-ui lua-mode magit
-                    marginalia material-theme  nerd-icons-completion
-                    nerd-icons-dired no-littering ob-rust orderless org-bullets
-                    org-roam paredit pfuture projectile rainbow-delimiters
-                    rustic seq show-font slime smartparens toml-mode
-                    track-chages tree-sitter-langs treemacs  treesit-auto
-                    use-package vertico vterm which-key))
-         '(savehist-additional-variables '(kill-ring register-alist\ ))
-         '(sort-fold-case t)
-         '(warning-suppress-log-types '((use-package)))
-          
-          (python-shell-interpeter "$HOME/.pyenv/shims/python3")
+    (custom-set-variables
+    ;; custom-set-variables was added by Custom.
+    ;; If you edit it by hand, you could mess it up, so be careful.
+    ;; Your init file should contain only one such instance.
+    ;; If there is more than one, they won't work right.
+    '(backup-directory-alist '(("" . "~/.backups")))
+    '(company-box-enable-icon t)
+    '(company-box-icons-alist 'company-box-icons-images)
+    '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
+    '(custom-safe-themes
+        '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
+        "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
+        "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
+        "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
+        default))
+(dashboard-startupify-list
+   '(dashboard-insert-banner dashboard-insert-newline
+                             dashboard-insert-banner-title
+                             dashboard-insert-newline
+                             dashboard-insert-init-info
+                             dashboard-insert-items
+                             dashboard-insert-newline)
+    '(denote-known-keywords '("emacs" "init" "general" "testing"))
+    '(elpy-rpc-python-command "python3")
+    '(flycheck-python-flake8-executable "python3")
+    '(flycheck-python-pycompile-executable "python3")
+    '(flycheck-python-pylint-executable "python3")
+    '(org-agenda-files '("$HOME/project/org/3.org"))
+    '(org-faces-easy-properties
+      '((todo . :background) (tag . :foreground) (priority . :foreground)))
+    '(org-id-locations-file
+      "/$HOME/.cache/emacs/var/org/id-locations.el")
+    '(org-startup-folded 'fold)
+    '(org-tempo-keywords-alist nil)
+    '(package-selected-packages
+      '(0x0 all-the-icons-nerd-fonts
+               auto-compile bind-key cargo cargo-mode
+               color-theme-sanityinc-tomorrow company-box consult
+               consult-denote dashboard denote diffview
+               dired-single dired-subtree doom-modeline eglot
+               elisp-refs elpy exec-path-from-shell flycheck-pyflakes
+               flycheck-rust helpful kkp lsp-ui lua-mode magit
+               marginalia material-theme  nerd-icons-completion
+               nerd-icons-dired no-littering ob-rust orderless org-bullets
+               org-roam paredit pfuture projectile rainbow-delimiters
+               rustic seq show-font slime smartparens toml-mode
+               track-chages tree-sitter-langs treemacs  treesit-auto
+               use-package vertico vterm which-key))
+    '(savehist-additional-variables '(kill-ring register-alist\ ))
+    '(sort-fold-case t)
+    '(warning-suppress-log-types '((use-package)))
+     
+     (python-shell-interpeter "$HOME/.pyenv/shims/python3")
 
-       ;; duplicate of above? add-hook is different than selected packages.
-       ;; below is for delimiters in all programming modes.
-       (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+  ;; duplicate of above? add-hook is different than selected packages.
+  ;; below is for delimiters in all programming modes.
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 #+end_src
 
 * Development Setup
 #+begin_src emacs-lisp
-  (elpy-enable)
+(elpy-enable)
 
 ;; Enable Flycheck
 (when (require 'flycheck nil t)
@@ -744,7 +763,8 @@
 ;; added to supress flymake error message when compliing python (12AUG2022)
 (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
 
-(put 'dired-find-alternate-file 'disabled nil)
+(setq gc-cons-threshold (expt 2 23)) ;; 8MB
+(setq gc-cons-percentage 0.5)
 
 ;; User-Defined init.el ends here
 #+end_src
