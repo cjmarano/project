@@ -1,5 +1,5 @@
 * September.
-* _Start times around 5 seconds, 7 for Big_, up from 3. 
+* _Start times around 5 seconds, 8 for Big_, up from 3. 
 * COMPLETED Misc September.
 CLOSED: [2025-09-15 Mon 09:40]
 ** COMPLETED Removed Re-installed elpy. Uncommented elpy/flycheck code at bottom of init.el
@@ -71,16 +71,13 @@ CLOSED: [2025-09-16 Tue 10:25]
 CLOSED: [2025-09-16 Tue 10:26]
 * DONE Added recent changes to init.el (New) to ~/project/init.el.org
 CLOSED: [2025-09-16 Tue 14:00]
-* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
-** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
-both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
-This indcates that something is different.ech
-** emacsclient -c does open a new GUI frame.
-** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
-Still not sure why Big opens emacs in terminal while New opens with GUI.
-* NEXT Freeze init.el and work on other things.
-* Take another look at :defer :after etc. per System Crafters.
-especially org-babel and org-tempo. Also check some misc. packages have both :defer and :command or :after/
+* COMPLETED Ghostty decided to forget where it's theme was or name changed?
+CLOSED: [2025-09-18 Thu 12:33]
+Had to got into /Applications//Ghostty/Conents/Resources/themes/ then find right name and put in
+~/Library/Application Support/com.mitchellh.ghostty/config 
+* COMPLETED commented out (setq org-indent-mode t) It's probably what's affecting init.el.orgmode
+CLOSED: [2025-09-18 Thu 13:19]
+and tangling init.el org, that's indented is making the resulting testnew.el file indent.
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
@@ -111,4 +108,14 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 ** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
 This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
-* Startup time for emacs on Plucky is 3 seconds.
+* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
+** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
+both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
+This indcates that something is different.ech
+** emacsclient -c does open a new GUI frame.
+** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
+Still not sure why Big opens emacs in terminal while New opens with GUI.
+* WAITING Freeze init.el and work on other things.
+* NEXT Take another look at :defer :after etc. per System Crafters.
+especially org-babel and org-tempo. Also check some misc. packages have both :defer and :command or :after/
+also eval-after... etc.

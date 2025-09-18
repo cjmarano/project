@@ -70,7 +70,7 @@
 
   (setq history-length 10)
   (setq savehist-mode t)
-  (setq org-indent-mode t)
+  ;; (setq org-indent-mode t)
   (setq-default cursor-type 'hbar)
   (setq set-cursor-color "Cyan")
   (setq ring-bell-function 'ignore)
@@ -531,7 +531,6 @@
                 ("C-c C-c h" . lsp-ui-doc-glance))
 
     :config
-    
   ;; comment to disable rustfmt on save
   (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
