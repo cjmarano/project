@@ -64,7 +64,7 @@
 
 #+begin_src emacs-lisp
  (add-to-list 'default-frame-alist '(height . 60))
- (add-to-list 'default-frame-alist '(width . 100))
+ (add-to-list 'default-frame-alist '(width . 110))
 
  (server-start)
 
@@ -209,56 +209,57 @@
 * misc packages
 ** added 25AUG2023 to solve image type issue ---------------
 #+begin_src emacs-lisp
- (require 'nerd-icons-completion)
- (nerd-icons-completion-mode)
+   (require 'nerd-icons-completion)
+   (nerd-icons-completion-mode)
 
- (use-package nerd-icons-completion)
-   :config
+   (use-package nerd-icons-completion
+     :config)
+     
 
- (use-package show-font
-   :ensure t
-   :bind
-   (("C-c s f" . show-font-select-preview)
-    ("C-c s t" . show-font-tabulated)))
+   (use-package show-font
+     :ensure t
+     :bind
+     (("C-c s f" . show-font-select-preview)
+      ("C-c s t" . show-font-tabulated)))
 
- (use-package orderless
-   :ensure t
-   :custom
-   (completion-styles '(orderless basic))
-   (completion-category-overrides '((file (styles  basic partial-completion)))))
+   (use-package orderless
+     :ensure t
+     :custom
+     (completion-styles '(orderless basic))
+     (completion-category-overrides '((file (styles  basic partial-completion)))))
 
- (use-package magit
-    :defer t 
-    :commands magit-status
-    :custom
-    (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-    (keymap-global-set "C-x g" 'magit-status) 
+   (use-package magit
+      :defer t 
+      :commands magit-status
+      :custom
+      (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+      (keymap-global-set "C-x g" 'magit-status) 
 
- (use-package which-key
-   :defer 0
-   :diminish which-key-mode
-   :config
-   (which-key-mode)
-   (setq which-key-idle-delay .9))
+   (use-package which-key
+     :defer 0
+     :diminish which-key-mode
+     :config
+     (which-key-mode)
+     (setq which-key-idle-delay .9))
 
- (use-package vterm
-   :defer t 
-   :ensure t)
+   (use-package vterm
+     :defer t 
+     :ensure t)
 
- (use-package vertico
-    :init
-    (vertico-mode))
+   (use-package vertico
+      :init
+      (vertico-mode))
 
- (use-package nerd-icons-dired
-    :hook (dired-mode . nerd-icons-dired-mode))
+   (use-package nerd-icons-dired
+      :hook (dired-mode . nerd-icons-dired-mode))
 
- (setq denote-directory (expand-file-name "~/project/org/notes/"))
- (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
- (setq denote-file-type nil)
- (add-hook 'dired-mode-hook #'denote-dired-mode)
- (keymap-global-set "s-b" 'denote)
+   (setq denote-directory (expand-file-name "~/project/org/notes/"))
+   (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
+   (setq denote-file-type nil)
+   (add-hook 'dired-mode-hook #'denote-dired-mode)
+   (keymap-global-set "s-b" 'denote)
 
- (setq completion-styles '(substring basic))
+   (setq completion-styles '(substring basic))
 #+end_src
 
 * Consult
@@ -337,51 +338,52 @@
 * Org fonts
 
 #+begin_src emacs-lisp
-        (use-package org
-          :pin gnu
-          :commands (org-capture org-agenda)
-          :hook (org-mode . efs/org-mode-setup)
-          :config
-          (setq org-ellipsis " ▾")
+          (use-package org
+            :pin gnu
+            :commands (org-capture org-agenda)
+            :hook (org-mode . efs/org-mode-setup)
+            :config
+            (setq org-ellipsis " ▾")
 
-          (defun efs/org-font-setup ()
-         ;; Replace list hyphen with dot
-        (font-lock-add-keywords 'org-mode
-                                    '(("^ *\\([-]\\) "
-                                       (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+            (defun efs/org-font-setup ()
+           ;; Replace list hyphen with dot
+          (font-lock-add-keywords 'org-mode
+                                      '(("^ *\\([-]\\) "
+                                         (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
 ;; Set faces for heading levels
 (with-eval-after-load 'org-faces
-    (dolist (face '((org-level-1 . 1.2)
-                    (org-level-2 . 1.1)
-                    (org-level-3 . 1.05)
-                    (org-level-4 . 1.0)
-                    (org-level-5 . 1.1)
-                    (org-level-6 . 1.1)
-                    (org-level-7 . 1.1)
-                    (org-level-8 . 1.1))))
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1))))
+  (set-face-attribute (car face) nil :font "Noto Serif" :weight 'regular :height (cdr face)))
+        
+  ;; Ensure that anything that should be fixed-pitch in Org files appears that way
+  (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code unspecified :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-table unspecified :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-verbatim unspecified :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword unspecified :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line unspecified :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox unspecified :inherit 'fixed-pitch)))
 
-;; Ensure that anything that should be fixed-pitch in Org files appears that way
-(set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
-(set-face-attribute 'org-code unspecified :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-table unspecified :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-verbatim unspecified :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-special-keyword unspecified :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-meta-line unspecified :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-checkbox unspecified :inherit 'fixed-pitch)))
+  (setq org-hide-emphasis-markers t)
 
-(setq org-hide-emphasis-markers t)
+  (require 'org-indent)
+  (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
 
-(require 'org-indent)
-(set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+       (add-to-list 'org-emphasis-alist
+                           '("_" (:foreground "red")
+                             ))
 
-     (add-to-list 'org-emphasis-alist
-                         '("_" (:foreground "red")
-                           ))
-
-     (add-to-list 'org-emphasis-alist
-                         '("+" (:foreground "LightGreen")
-                           ))
+       (add-to-list 'org-emphasis-alist
+                           '("+" (:foreground "LightGreen")
+                             ))
 #+end_src
 * Org setup
 #+begin_src emacs-lisp
@@ -471,24 +473,29 @@
 #+end_src
 * Org babel
 #+begin_src emacs-lisp
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t)
-   (emacs-lisp . t)
-   (ruby . t)
-   (eshell . t)
-   (lisp . t)
-   (rust . t)))
+  (with-eval-after-load 'org
+    (org-babel-do-load-languages
+        'org-babel-load-languages
+        '((emacs-lisp . t)
+        (python . t)
+     ;; (ruby . t)
+     ;; (eshell . t)
+     ;; (lisp . t)
+     ;; (rust . t)      
+        ))
+  (push '("conf-unix" . conf-unix) org-src-lang-modes))
+  
+ (with-eval-after-load 'org
+  ;; This is needed as of Org 9.2
+  (require 'org-tempo)
 
-(require 'org-tempo)
-
-;; (add-to-list 'org-structure-template-alist '("l" . "src emacs-lisp"))
-;; (add-to-list 'org-structure-template-alist '("L" . "src lisp"))
-;; ;; (add-to-list 'org-structure-template-alist '("p" . "src python"))
+  (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("py" . "src python")))
 ;; (add-to-list 'org-structure-template-alist '("r" . "src ruby"))
-;; ;; (add-to-list 'org-structure-template-alist '("s" . "src shell"))
+;; (add-to-list 'org-structure-template-alist '("s" . "src shell"))
 
-(let ((org-confirm-babel-evaluate nil)))
+;;  (let ((org-confirm-babel-evaluate nil)))
 #+end_src
 
 * Python
@@ -516,21 +523,22 @@
 * Rust mode
 #+begin_src emacs-lisp
     (use-package rustic
-    :ensure
-    :bind (:map rustic-mode-map
-                ("M-j" . lsp-ui-imenu)
-                ("M-?" . lsp-find-references)
-                ("C-c C-c l" . flycheck-list-errors)
-                ("C-c C-c a" . lsp-execute-code-action)
-                ("C-c C-c r" . lsp-rename)
-                ("C-c C-c q" . lsp-workspace-restart)
-                ("C-c C-c Q" . lsp-workspace-shutdown)
-                ("C-c C-c s" . lsp-rust-analyzer-status)
-                ("C-c C-c e" . lsp-rust-analyzer-expand-macro)
-                ;;              ("C-c C-c d" . dap-hydra)
-                ("C-c C-c h" . lsp-ui-doc-glance))
-
-    :config
+      :ensure nil
+      :defer t
+      :bind (:map rustic-mode-map
+                  ("M-j" . lsp-ui-imenu)
+                  ("M-?" . lsp-find-references)
+                  ("C-c C-c l" . flycheck-list-errors)
+                  ("C-c C-c a" . lsp-execute-code-action)
+                  ("C-c C-c r" . lsp-rename)
+                  ("C-c C-c q" . lsp-workspace-restart)
+                  ("C-c C-c Q" . lsp-workspace-shutdown)
+                  ("C-c C-c s" . lsp-rust-analyzer-status)
+                  ("C-c C-c e" . lsp-rust-analyzer-expand-macro)
+                  ;;              ("C-c C-c d" . dap-hydra)
+                  ("C-c C-c h" . lsp-ui-doc-glance))
+ 
+      :config
   ;; comment to disable rustfmt on save
   (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
@@ -580,7 +588,8 @@
   (lsp-enable-which-key-integration t))
 
   (use-package lsp-ui
-    :ensure
+    :ensure nil
+    :defer t
     :commands lsp-ui-mode
     :custom
   (lsp-ui-peek-always-show t)
@@ -623,42 +632,42 @@
 
 * Lisp mode
 #+begin_src emacs-lisp
-  (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-  (require 'slime-autoloads)
-  (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
+    (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+    (require 'slime-autoloads)
+    (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
 
-  (ql:system-apropos "vecto")(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+  
+    ;; Enable Paredit.
+    (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+    (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
+    (add-hook 'ielm-mode-hook 'enable-paredit-mode)
+    (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+    (add-hook 'lisp-mode-hook 'enable-paredit-mode)
+    (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
+    (require 'paredit)
 
-  ;; Enable Paredit.
-  (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
-  (add-hook 'ielm-mode-hook 'enable-paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
-  (add-hook 'lisp-mode-hook 'enable-paredit-mode)
-  (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
-  (require 'paredit)
+      ;; Enable Rainbow Delimiters.
+  (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 
-    ;; Enable Rainbow Delimiters.
-(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
+  ;; Setup load-path, autoloads and your lisp system
+  (add-to-list 'load-path "~/.emacs.d/elpa")
 
-;; Setup load-path, autoloads and your lisp system
-(add-to-list 'load-path "~/.emacs.d/elpa")
+   ;; *** also redundant? see above
+   ;; (add-hook 'emacs-lisp-mode-hook
+   ;;           (lambda ()
+   ;;             (paredit-mode t)
+   ;;             (rainbow-delimiters-mode t)
+   ;;             (show-paren-mode 1)
+   ;;             ))
 
- ;; *** also redundant? see above
- ;; (add-hook 'emacs-lisp-mode-hook
- ;;           (lambda ()
- ;;             (paredit-mode t)
- ;;             (rainbow-delimiters-mode t)
- ;;             (show-paren-mode 1)
- ;;             ))
-
-;; Eldoc for ielm
-;; docs say this enabled by default now.
-;; (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
-;; (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
-;; (add-hook 'ielm-mode-hook 'eldoc-mode)
+  ;; Eldoc for ielm
+  ;; docs say this enabled by default now.
+  ;; (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+  ;; (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
+  ;; (add-hook 'ielm-mode-hook 'eldoc-mode)
 #+end_src
 
 * projectile and treemacs for programming
@@ -682,73 +691,74 @@
 
 * Custom
 #+begin_src emacs-lisp
-    (custom-set-faces
-    ;; custom-set-faces was added by Custom.
-    ;; If you edit it by hand, you could mess it up, so be careful.
-    ;; Your init file should contain only one such instance.
-    ;; If there is more than one, they won't work right.
-    '(default ((t (:height 180 :family "Hack Nerd Font Mono"))))
-    '(org-headline-done ((t (:foreground "gray80"))))
-    '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
-    '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
+      (custom-set-faces
+      ;; custom-set-faces was added by Custom.
+      ;; If you edit it by hand, you could mess it up, so be careful.
+      ;; Your init file should contain only one such instance.
+      ;; If there is more than one, they won't work right.
+      '(default ((t (:height 180 :family "JetBrainsMono Nerd Font"))))
+      '(cursor ((t (:background "light green"))))
+      '(org-headline-done ((t (:foreground "gray80"))))
+      '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
+      '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
 
-    (custom-set-variables
-    ;; custom-set-variables was added by Custom.
-    ;; If you edit it by hand, you could mess it up, so be careful.
-    ;; Your init file should contain only one such instance.
-    ;; If there is more than one, they won't work right.
-    '(backup-directory-alist '(("" . "~/.backups")))
-    '(company-box-enable-icon t)
-    '(company-box-icons-alist 'company-box-icons-images)
-    '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
-    '(custom-safe-themes
-        '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
-        "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
-        "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
-        "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
-        default))
-(dashboard-startupify-list
-   '(dashboard-insert-banner dashboard-insert-newline
-                             dashboard-insert-banner-title
-                             dashboard-insert-newline
-                             dashboard-insert-init-info
-                             dashboard-insert-items
-                             dashboard-insert-newline)
-    '(denote-known-keywords '("emacs" "init" "general" "testing"))
-    '(elpy-rpc-python-command "python3")
-    '(flycheck-python-flake8-executable "python3")
-    '(flycheck-python-pycompile-executable "python3")
-    '(flycheck-python-pylint-executable "python3")
-    '(org-agenda-files '("$HOME/project/org/3.org"))
-    '(org-faces-easy-properties
-      '((todo . :background) (tag . :foreground) (priority . :foreground)))
-    '(org-id-locations-file
-      "/$HOME/.cache/emacs/var/org/id-locations.el")
-    '(org-startup-folded 'fold)
-    '(org-tempo-keywords-alist nil)
-    '(package-selected-packages
-      '(0x0 all-the-icons-nerd-fonts
-               auto-compile bind-key cargo cargo-mode
-               color-theme-sanityinc-tomorrow company-box consult
-               consult-denote dashboard denote diffview
-               dired-single dired-subtree doom-modeline eglot
-               elisp-refs elpy exec-path-from-shell flycheck-pyflakes
-               flycheck-rust helpful kkp lsp-ui lua-mode magit
-               marginalia material-theme  nerd-icons-completion
-               nerd-icons-dired no-littering ob-rust orderless org-bullets
-               org-roam paredit pfuture projectile rainbow-delimiters
-               rustic seq show-font slime smartparens toml-mode
-               track-chages tree-sitter-langs treemacs  treesit-auto
-               use-package vertico vterm which-key))
-    '(savehist-additional-variables '(kill-ring register-alist\ ))
-    '(sort-fold-case t)
-    '(warning-suppress-log-types '((use-package)))
-     
-     (python-shell-interpeter "$HOME/.pyenv/shims/python3")
+      (custom-set-variables
+      ;; custom-set-variables was added by Custom.
+      ;; If you edit it by hand, you could mess it up, so be careful.
+      ;; Your init file should contain only one such instance.
+      ;; If there is more than one, they won't work right.
+      '(backup-directory-alist '(("" . "~/.backups")))
+      '(company-box-enable-icon t)
+      '(company-box-icons-alist 'company-box-icons-images)
+      '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
+      '(custom-safe-themes
+          '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
+          "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
+          "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
+          "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
+          default))
+  (dashboard-startupify-list
+     '(dashboard-insert-banner dashboard-insert-newline
+                               dashboard-insert-banner-title
+                               dashboard-insert-newline
+                               dashboard-insert-init-info
+                               dashboard-insert-items
+                               dashboard-insert-newline))
+      '(denote-known-keywords '("emacs" "init" "general" "testing"))
+      '(elpy-rpc-python-command "python3")
+      '(flycheck-python-flake8-executable "python3")
+      '(flycheck-python-pycompile-executable "python3")
+      '(flycheck-python-pylint-executable "python3")
+      '(org-agenda-files '("$HOME/project/org/3.org"))
+      '(org-faces-easy-properties
+        '((todo . :background) (tag . :foreground) (priority . :foreground)))
+      '(org-id-locations-file
+        "/$HOME/.cache/emacs/var/org/id-locations.el")
+      '(org-startup-folded 'fold)
+      '(org-tempo-keywords-alist nil)
+      '(package-selected-packages
+        '(0x0 all-the-icons-nerd-fonts
+                 auto-compile bind-key cargo cargo-mode
+                 color-theme-sanityinc-tomorrow company-box consult
+                 consult-denote dashboard denote diffview
+                 dired-single dired-subtree doom-modeline eglot
+                 elisp-refs elpy exec-path-from-shell flycheck-pyflakes
+                 flycheck-rust helpful kkp lsp-ui lua-mode magit
+                 marginalia material-theme  nerd-icons-completion
+                 nerd-icons-dired no-littering ob-rust orderless org-bullets
+                 org-roam paredit pfuture projectile rainbow-delimiters
+                 rustic seq show-font slime smartparens toml-mode
+                 track-chages tree-sitter-langs treemacs  treesit-auto
+                 use-package vertico vterm which-key))
+      '(savehist-additional-variables '(kill-ring register-alist\ ) t)
+      '(sort-fold-case t)
+      '(warning-suppress-log-types '((use-package))))
+       
+       (python-shell-interpeter "$HOME/.pyenv/shims/python3")
 
-  ;; duplicate of above? add-hook is different than selected packages.
-  ;; below is for delimiters in all programming modes.
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+    ;; duplicate of above? add-hook is different than selected packages.
+    ;; below is for delimiters in all programming modes.
+    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 #+end_src
 
 * Development Setup
