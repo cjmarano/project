@@ -415,25 +415,34 @@
 (keymap-set global-map "C-c c" 'org-capture)
 (setq org-log-done 'time)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t)
-   (emacs-lisp . t)
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . t)
+      (python . t)
    ;; (ruby . t)
    ;; (eshell . t)
    ;; (lisp . t)
    ;; (rust . t)
-   ))
+      ))
+
+  (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
 (require 'org-tempo)
 
-;; (add-to-list 'org-structure-template-alist '("l" . "src emacs-lisp"))
-;; (add-to-list 'org-structure-template-alist '("L" . "src lisp"))
-;; (add-to-list 'org-structure-template-alist '("p" . "src python"))
-;; (add-to-list 'org-structure-template-alist '("r" . "src ruby"))
-;; (add-to-list 'org-structure-template-alist '("s" . "src shell"))
+(with-eval-after-load 'org
+  ;; This is needed as of Org 9.2
+  (require 'org-tempo)
 
-(let ((org-confirm-babel-evaluate nil)))
+;;  (add-to-list 'org-structure-template-alist '("l" . "src lisp"))
+;;  (add-to-list 'org-structure-template-alist '("e" . "src emacs-lisp"))
+;;  (add-to-list 'org-structure-template-alist '("p" . "src python"))
+  )
+;; (add-to-list 'org-structure-template-alist '("r" . "src ruby"))
+;; (add-to-list 'org-structure-template-alist '("s" . "src shell")
+
+
+;; (let ((org-confirm-babel-evaluate nil)))
 
 ;; ---------------------------------------------------------
 ;; Org section ends here -----------------------------------
@@ -529,8 +538,8 @@
 (lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
-(require 'tree-sitter)
-(require 'tree-sitter-langs)
+;; (require 'tree-sitter)
+;; (require 'tree-sitter-langs)
 ;; (global-tree-sitter-mode)
 ;; or just for rust-mode
 (add-hook 'rust-mode-hook #'tree-sitter-mode)
@@ -630,11 +639,11 @@
  '(company-box-icons-alist 'company-box-icons-images)
  '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
  '(custom-safe-themes
-        '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
-        "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
-        "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
-        "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
-        default))
+   '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
+     "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
+     "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
+     "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
+     default))
  '(dashboard-startupify-list
    '(dashboard-insert-banner dashboard-insert-newline
                              dashboard-insert-banner-title
@@ -643,7 +652,7 @@
                              dashboard-insert-items
                              dashboard-insert-newline))
  '(denote-known-keywords '("emacs" "init" "general" "testing"))
- '(elpy-rpc-python-command "python3") 
+ '(elpy-rpc-python-command "python3")
  '(flycheck-python-flake8-executable "python3")
  '(flycheck-python-pycompile-executable "python3")
  '(flycheck-python-pylint-executable "python3")
@@ -652,6 +661,7 @@
    '((todo . :background) (tag . :foreground) (priority . :foreground)))
  '(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
  '(org-startup-folded 'fold)
+;; '(org-structure-template-alist nil)
 ;; '(org-tempo-keywords-alist nil)
  '(package-selected-packages
    '(0blayout 0xc all-the-icons all-the-icons-nerd-fonts auto-compile
@@ -664,10 +674,9 @@
               nerd-icons-completion nerd-icons-dired no-littering
               ob-rust orderless org-bullets org-roam paredit
               projectile rainbow-delimiters rustic seq show-font slime
-              smartparens toml-mode track-changes tree-sitter-langs
-              treemacs treesit-auto use-package vertico vterm
-              which-key))
- '(savehist-additional-variables '(kill-ring register-alist\ ) t)
+              smartparens toml-mode track-changes treemacs
+              treesit-auto use-package vertico vterm which-key))
+ ;; '(savehist-additional-variables '(kill-ring register-alist\ ) t)
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))
 

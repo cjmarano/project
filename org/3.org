@@ -96,6 +96,15 @@ CLOSED: [2025-09-16 Tue 14:00]
 ** COMPLETED changed GC in early-init.el and init.el :def t for all programming items.
 CLOSED: [2025-09-08 Mon 14:33]
 statup time rduced to ~5 secs.
+* COMPLETED Blew up init.el on New. Had to revert to Earlier saved init.el and lost any recent chages.
+CLOSED: [2025-09-19 Fri 12:59]
+* COMPLETED removed org-tempo-alist nil on New
+CLOSED: [2025-09-22 Mon 10:12]
+* COMPLETED can't remove tree-sitter-langs from New init.el to supress error messages.
+CLOSED: [2025-09-22 Mon 13:16]
+(no language found msg. Python files still have syntax highlighting, flycheck and marginalia. Tree-sitter-langs and Tree-sitter built in?
+* COMPLETED tree-sitter-langs necessary for Rust. Error is it's not a git directory. Leave in.
+CLOSED: [2025-09-22 Mon 13:25]
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
@@ -131,7 +140,8 @@ This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
 both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
 This indcates that something is different.ech
 ** emacsclient -c does open a new GUI frame.
-** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
+*** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
 Still not sure why Big opens emacs in terminal while New opens with GUI.
-* WAITING Freeze init.el and work on other things.
-9
+** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
+on new same command opens /Applications//emacs.app n idea why.
+* WAITING Freeze init.el and work on other things. freezeNew22SEP.init.el is latest good b/u.
