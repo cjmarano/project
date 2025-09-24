@@ -68,9 +68,11 @@ CLOSED: [2025-09-16 Tue 10:25]
 CLOSED: [2025-09-18 Thu 12:33]
 Had to got into /Applications//Ghostty/Conents/Resources/themes/ then find right name and put in
 ~/Library/Application Support/com.mitchellh.ghostty/config 
-* COMPLETED Show fonts (176-180 init.el New) doesn't show all fonts with C-c s f does w/ C-c s t.
-CLOSED: [2025-09-16 Tue 10:26]
-* COMPLETED tried to comment out (setq org-indent-mode t).
+** COMPLETED Commands provided by macOS &  commands dir, dircolors, vdir have been installed with the prefix "g".
+CLOSED: [2025-09-23 Tue 08:24]
+If you need to use these commands with their normal names, you can add a "gnubin" directory to your PATH with:
+  PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+** COMPLETED tried to comment out (setq org-indent-mode t).
 It's probably what's affecting init.el.orgmode.
 ** failed to get risd of org-indent because it ties to an a-list?
 (require 'org-indent)
@@ -86,6 +88,10 @@ It's probably what's affecting init.el.orgmode.
 
 CLOSED: [2025-09-18 Thu 13:19]
 and tangling init.el org, that's indented is making the resulting testnew.el file indent.
+** COMPLETED Blew up init.el on New. Had to revert to Earlier saved init.el and lost any recent chages.
+CLOSED: [2025-09-19 Fri 12:59]
+* COMPLETED Show fonts (176-180 init.el New) doesn't show all fonts with C-c s f does w/ C-c s t.
+CLOSED: [2025-09-16 Tue 10:26]
 * COMPLETED Take another look at :defer :after etc. per System Crafters.
 CLOSED: [2025-09-19 Fri 09:04]
 especially org-babel and org-tempo. Also check some misc. packages have both :defer and :command or :after/
@@ -96,14 +102,12 @@ CLOSED: [2025-09-16 Tue 14:00]
 ** COMPLETED changed GC in early-init.el and init.el :def t for all programming items.
 CLOSED: [2025-09-08 Mon 14:33]
 statup time rduced to ~5 secs.
-* COMPLETED Blew up init.el on New. Had to revert to Earlier saved init.el and lost any recent chages.
-CLOSED: [2025-09-19 Fri 12:59]
 * COMPLETED removed org-tempo-alist nil on New
 CLOSED: [2025-09-22 Mon 10:12]
 * COMPLETED can't remove tree-sitter-langs from New init.el to supress error messages.
 CLOSED: [2025-09-22 Mon 13:16]
 (no language found msg. Python files still have syntax highlighting, flycheck and marginalia. Tree-sitter-langs and Tree-sitter built in?
-* COMPLETED tree-sitter-langs necessary for Rust. Error is it's not a git directory. Leave in.
+** COMPLETED tree-sitter-langs necessary for Rust. Error is it's not a git directory. Leave in.
 CLOSED: [2025-09-22 Mon 13:25]
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
@@ -145,6 +149,3 @@ Still not sure why Big opens emacs in terminal while New opens with GUI.
 ** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
 on new same command opens /Applications//emacs.app n idea why.
 * WAITING Freeze init.el and work on other things. freezeNew22SEP.init.el is latest good b/u.
-* Commands provided by macOS &  commands dir, dircolors, vdir have been installed with the prefix "g".
-If you need to use these commands with their normal names, you can add a "gnubin" directory to your PATH with:
-  PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
