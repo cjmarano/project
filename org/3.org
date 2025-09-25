@@ -90,7 +90,7 @@ CLOSED: [2025-09-18 Thu 13:19]
 and tangling init.el org, that's indented is making the resulting testnew.el file indent.
 ** COMPLETED Blew up init.el on New. Had to revert to Earlier saved init.el and lost any recent chages.
 CLOSED: [2025-09-19 Fri 12:59]
-* COMPLETED Show fonts (176-180 init.el New) doesn't show all fonts with C-c s f does w/ C-c s t.
+** COMPLETED Show fonts (176-180 init.el New) doesn't show all fonts with C-c s f does w/ C-c s t.
 CLOSED: [2025-09-16 Tue 10:26]
 * COMPLETED Take another look at :defer :after etc. per System Crafters.
 CLOSED: [2025-09-19 Fri 09:04]
@@ -139,6 +139,8 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 ** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
 This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
+* WAITING Looked at org mode in init.el vs. Dwili org-mode. Threw errors. Will look further.
+also tried later vanilla Dwili org. Did not throw errors but was too basic. 
 * WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
 ** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
 both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
@@ -148,4 +150,4 @@ This indcates that something is different.ech
 Still not sure why Big opens emacs in terminal while New opens with GUI.
 ** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
 on new same command opens /Applications//emacs.app n idea why.
-* WAITING Freeze init.el and work on other things. freezeNew22SEP.init.el is latest good b/u.
+* WAITING Freeze init.el and work on other things. freezeNew24SEP.init.el is latest good b/u.
