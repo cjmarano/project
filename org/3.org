@@ -109,6 +109,11 @@ CLOSED: [2025-09-22 Mon 13:16]
 (no language found msg. Python files still have syntax highlighting, flycheck and marginalia. Tree-sitter-langs and Tree-sitter built in?
 ** COMPLETED tree-sitter-langs necessary for Rust. Error is it's not a git directory. Leave in.
 CLOSED: [2025-09-22 Mon 13:25]
+* COMPLETED commenting out all rust stuff in init.el did NOT reduce load time.
+CLOSED: [2025-09-25 Thu 12:56]
+* COMPLETED Looked at org mode in init.el vs. Dwili org-mode. Threw errors.
+CLOSED: [2025-09-25 Thu 12:57]
+also tried later vanilla Dwili org. Did not throw errors but was too basic. 
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
@@ -139,8 +144,6 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 ** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
 This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
-* WAITING Looked at org mode in init.el vs. Dwili org-mode. Threw errors. Will look further.
-also tried later vanilla Dwili org. Did not throw errors but was too basic. 
 * WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
 ** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
 both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.

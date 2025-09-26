@@ -10,8 +10,8 @@
                   '("elpa"  . "https://elpa.gnu.org/packages/")t)
 (add-to-list 'package-archives
                   '("nongnu" . "https://elpa.nongnu.org/nongnu/")t)
-(add-to-list 'package-archives
-                  '("org" . "https://orgmode.org/elpa/")t)
+;; (add-to-list 'package-archives
+;;                   '("org" . "https://orgmode.org/elpa/")t)
 
  (package-initialize)
 
@@ -737,7 +737,7 @@
       '(org-startup-folded 'fold)
       '(org-tempo-keywords-alist nil)
       '(package-selected-packages
-        '(0x0 all-the-icons-nerd-fonts
+        '(0x0 all-the-icons all-the-icons-nerd-fonts
                  auto-compile bind-key cargo cargo-mode
                  color-theme-sanityinc-tomorrow company-box consult
                  consult-denote dashboard denote diffview
@@ -750,7 +750,7 @@
                  rustic seq show-font slime smartparens toml-mode
                  track-chages tree-sitter-langs treemacs  treesit-auto
                  use-package vertico vterm which-key))
-      '(savehist-additional-variables '(kill-ring register-alist\ ) t)
+      ;; '(savehist-additional-variables '(kill-ring register-alist\ ) t)
       '(sort-fold-case t)
       '(warning-suppress-log-types '((use-package))))
        
