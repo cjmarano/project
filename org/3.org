@@ -114,6 +114,39 @@ CLOSED: [2025-09-25 Thu 12:56]
 * COMPLETED Looked at org mode in init.el vs. Dwili org-mode. Threw errors.
 CLOSED: [2025-09-25 Thu 12:57]
 also tried later vanilla Dwili org. Did not throw errors but was too basic. 
+* COMPLETED Elpy is not being maintained. Removed - start time < 5 seconds.
+CLOSED: [2025-09-29 Mon 13:03]
+** slime-auotloads had to be commented out after removing;
+** re-adding quicklisp-slime-helper-master did NOT restore slimeautoloads.
+so changed init.el:
+
+(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20250918.2258/")
+(require 'slime-autoloads)
+(eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
+
+;;     (slime-setup)
+
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+
+-----------------------------------------------------------------------------------
+
+Here's a list of packages removed:
+
+ ace-window-20220911.358
+ avy-20241101.1357
+ cfrs-20250729.1422
+ compat-30.1.0.1
+ cond-let-20250903.1646
+ dired-hacks-utils-20240629.1906
+ elpy-20250404.2349
+ hydra-20250316.1254
+ macrostep-20250202.2205
+ markdown_example.md
+ pfuture-20220913.1401
+ posframe-20250211.110
+ trashed-20230811.157
+ yasnippet-20250602.1342
 * lisp programming.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
@@ -153,36 +186,7 @@ This indcates that something is different.ech
 Still not sure why Big opens emacs in terminal while New opens with GUI.
 ** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
 on new same command opens /Applications//emacs.app n idea why.
-* WAITING Freeze init.el and work on other things. freezeNew24SEP.init.el is latest good b/u.
-* Elpy is not being maintained. Removed - start time < 5 seconds.
-** slime-auotloads had to be commented out after removing;
-** re-adding quicklisp-slime-helper-master did NOT restore slimeautoloads.
-so changed init.el:
+* WAITING Freeze init.el and work on other things. freezeNewNoElpa29SEP.init.el is latest good b/u.
+* try UV for Python?
+* Updated OS to 26.1 on Big and New.
 
-(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-(add-to-list 'load-path "~/.emacs.d/elpa/slime-20250918.2258/")
-(require 'slime-autoloads)
-(eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
-
-;;     (slime-setup)
-
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
-
------------------------------------------------------------------------------------
-
-Here's a list of packages removed:
-
- ace-window-20220911.358
- avy-20241101.1357
- cfrs-20250729.1422
- compat-30.1.0.1
- cond-let-20250903.1646
- dired-hacks-utils-20240629.1906
- elpy-20250404.2349
- hydra-20250316.1254
- macrostep-20250202.2205
- markdown_example.md
- pfuture-20220913.1401
- posframe-20250211.110
- trashed-20230811.157
- yasnippet-20250602.1342
