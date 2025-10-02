@@ -1,0 +1,193 @@
+* September.
+* _Start times around 5 seconds, 8 for Big_, up from 3. 
+* COMPLETED Misc September.
+CLOSED: [2025-09-15 Mon 09:40]
+** COMPLETED Removed Re-installed elpy. Uncommented elpy/flycheck code at bottom of init.el
+CLOSED: [2025-08-25 Mon 12:32]
+now Python code appears to be getting full language checking, linting, marginalia, etc.
+** COMPLETED Had to disable zscaler to get 15.6 update to install on New.
+CLOSED: [2025-08-14 Thu 14:42]
+** COMPLETED After above I updated init.el.org and tangled.
+CLOSED: [2025-08-19 Tue 14:35]
+newtest.el showed a number of items theat need to be adressed;
+auto-compile version wrong (old) some items missing that are in New's init.el etc.
+** COMPLETED all ls aliases NOT for eza fail with:
+** updated gems via rbenv. Set rbenv global. updated color ls. set clocale.
+CLOSED: [2025-08-19 Tue 14:42]
+**  opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems/specification.rb:1421:in 'block in Gem::Specification#activate_dependencies': Could not find 'clocale' (~> 0) among 95 total gem(s) (Gem::MissingSpecError)Checked in 'GEM_PATH=/Users/charles.marano/.gem/ruby/3.4.0:/opt/homebrew/lib/ruby/gems/3.4.0:/opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/gems/3.4.0' at: /opt/homebrew/lib/ruby/gems/3.4.0/specifications/colorls-1.5.0.gemspec, execute `gem env` for more information
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems/specification.rb:1407:in 'Array#each'
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems/specification.rb:1407:in 'Gem::Specification#activate_dependencies'
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems/specification.rb:1389:in 'Gem::Specification#activate'
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems.rb:290:in 'block in Gem.activate_bin_path'
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems.rb:289:in 'Thread::Mutex#synchronize'
+        from /opt/homebrew/Cellar/ruby/3.4.5/lib/ruby/3.4.0/rubygems.rb:289:in 'Gem.activate_bin_path'
+        from /opt/homebrew/lib/ruby/gems/3.4.0/bin//colorls:25:in '<main>'
+
+** COMPLETED Big blew up with Vertico errors related to consult, etc.
+CLOSED: [2025-08-19 Tue 14:34]
+Tried a delete and re-install of GNU Emacs 30.2 for Mac. Did not fix the issue.
+Tried pruning changes made this morning. Nope.
+Tried copying a good init.el to Big, same vertico error:
+Tried commenting out large portions of ORG section. Nope.
+Tired deleting Emacs 30 .plist. Nope.
+Whacked huge sections of init.el and that erased error.
+----
+Copied init.el from New to Big then *commented out Vertico and marginalia sections.*
+Then removed -   pacakge-delete  - vertico ad marginalia.
+No warnings and Org docs display correctly BUT no completion
+** COMPLETED Changes to init.el on New and Big.
+CLOSED: [2025-08-19 Tue 14:45]
+Added below lines to init.el statup time went to 7+ seconds. 9 for Big.
+
+** from Prot's big init?
+line 319 (add-hook 'org-mode-hook 'visual-line-mode)
+
+line 329 (setq org-hide-emphasis-markers t)
+
+** C-x, C-f defaults to ~/
+line 53 (setq file-name-shadow-properties '(invisible t))
+            (file-name-shadow-mode)
+*** I'd prefer a situaton where it stays in current dir until you type ~/.bashrc
+
+***  see below. might not need this.
+
+** typing deletes selection.
+line 56 (delete-selection-mode 1)
+
+** COMPLETED ~/org/3.org on Plucky overwrote ~/projects/org/3.org lost latest notes.
+CLOSED: [2025-09-08 Mon 14:32]
+restored ~/project/MyStuff/PrevOrg/2n.org to ~/project/org/3.org after renaming 3.org for Plucku as localTOPlucky.org
+** COMPLETED Reconciled init.el on New and Big. - 10SEP. 
+CLOSED: [2025-09-10 Wed 12:59]
+** COMPLETED Change height in init.el on Big to 28 from 30 to fit better on screen.
+CLOSED: [2025-09-15 Mon 10:37]
+** COMPLETED Brew would not work until I updated my Xcode license.
+Ghostty forgot where the theme I'm using is after an update.
+CLOSED: [2025-09-16 Tue 10:25]
+** COMPLETED Ghostty decided to forget where it's theme was or name changed?
+CLOSED: [2025-09-18 Thu 12:33]
+Had to got into /Applications//Ghostty/Conents/Resources/themes/ then find right name and put in
+~/Library/Application Support/com.mitchellh.ghostty/config 
+** COMPLETED Commands provided by macOS &  commands dir, dircolors, vdir have been installed with the prefix "g".
+CLOSED: [2025-09-23 Tue 08:24]
+If you need to use these commands with their normal names, you can add a "gnubin" directory to your PATH with:
+  PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+** COMPLETED tried to comment out (setq org-indent-mode t).
+It's probably what's affecting init.el.orgmode.
+** failed to get risd of org-indent because it ties to an a-list?
+(require 'org-indent)
+(set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+  
+  (add-to-list 'org-emphasis-alist
+               '("_" (:foreground "red")
+                 ))
+
+  (add-to-list 'org-emphasis-alist
+               '("+" (:foreground "LightGreen")
+                 ))
+
+CLOSED: [2025-09-18 Thu 13:19]
+and tangling init.el org, that's indented is making the resulting testnew.el file indent.
+** COMPLETED Blew up init.el on New. Had to revert to Earlier saved init.el and lost any recent chages.
+CLOSED: [2025-09-19 Fri 12:59]
+** COMPLETED Show fonts (176-180 init.el New) doesn't show all fonts with C-c s f does w/ C-c s t.
+CLOSED: [2025-09-16 Tue 10:26]
+* COMPLETED Take another look at :defer :after etc. per System Crafters.
+CLOSED: [2025-09-19 Fri 09:04]
+especially org-babel and org-tempo. Also check some misc. packages have both :defer and :command or :after/
+also eval-after... etc.
+** Compared init.el on New to origianal emacs from scratch init and made changes.
+** DONE Added recent changes to init.el (New) to ~/project/init.el.org
+CLOSED: [2025-09-16 Tue 14:00]
+** COMPLETED changed GC in early-init.el and init.el :def t for all programming items.
+CLOSED: [2025-09-08 Mon 14:33]
+statup time rduced to ~5 secs.
+* COMPLETED removed org-tempo-alist nil on New
+CLOSED: [2025-09-22 Mon 10:12]
+* COMPLETED can't remove tree-sitter-langs from New init.el to supress error messages.
+CLOSED: [2025-09-22 Mon 13:16]
+(no language found msg. Python files still have syntax highlighting, flycheck and marginalia. Tree-sitter-langs and Tree-sitter built in?
+** COMPLETED tree-sitter-langs necessary for Rust. Error is it's not a git directory. Leave in.
+CLOSED: [2025-09-22 Mon 13:25]
+* COMPLETED commenting out all rust stuff in init.el did NOT reduce load time.
+CLOSED: [2025-09-25 Thu 12:56]
+* COMPLETED Looked at org mode in init.el vs. Dwili org-mode. Threw errors.
+CLOSED: [2025-09-25 Thu 12:57]
+also tried later vanilla Dwili org. Did not throw errors but was too basic. 
+* COMPLETED Elpy is not being maintained. Removed - start time < 5 seconds.
+CLOSED: [2025-09-29 Mon 13:03]
+** slime-auotloads had to be commented out after removing;
+** re-adding quicklisp-slime-helper-master did NOT restore slimeautoloads.
+so changed init.el:
+
+(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20250918.2258/")
+(require 'slime-autoloads)
+(eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
+
+;;     (slime-setup)
+
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+
+-----------------------------------------------------------------------------------
+
+Here's a list of packages removed:
+
+ ace-window-20220911.358
+ avy-20241101.1357
+ cfrs-20250729.1422
+ compat-30.1.0.1
+ cond-let-20250903.1646
+ dired-hacks-utils-20240629.1906
+ elpy-20250404.2349
+ hydra-20250316.1254
+ macrostep-20250202.2205
+ markdown_example.md
+ pfuture-20220913.1401
+ posframe-20250211.110
+ trashed-20230811.157
+ yasnippet-20250602.1342
+* lisp programming.
+** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
+$ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
+$ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
+       --eval '(quicklisp-quickstart:install :path "~/.quicklisp")' \
+       --eval '(ql:add-to-init-file)' \
+       --quit
+
+       added quickproject:
+       (ql:quickload "quicklisp-slime-helper")
+       (ql:quickload :quickproject)
+       (quiclproject:make-project "test-project")
+ 
+*** COMPLETED Practicals asdf examples are overly complicated and annoying.
+CLOSED: [2025-08-05 Tue 07:31]
+Practical Lisp and Lisp in a box are at leat 14 years old.
+*** COMPLETED Did re-install of Quicklisp on New & Big via: https://www.quicklisp.org/beta/#basic-commands
+CLOSED: [2025-08-05 Tue 07:32]
+  added dired-x to init.el on New so I can look at elisp via Info
+*** COMPLETED asdf is included whan Quicklisp is loaded. Check this on Big and New.
+CLOSED: [2025-08-05 Tue 07:33]
+*** COMPLETED Removed older lisp tutorials from 'watch later'.
+CLOSED: [2025-08-20 Wed 11:33]
+*** circle.lisp working after changes. hello.lisp working. array.lisp working but with errors.
++deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
+<<<<<<< HEAD
+fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
+** Looking at https://lisp-lang.org/learn/writing-libraries
+did some of the examples.. writing files was interesting and useful.
+This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
+* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
+** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
+both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
+This indcates that something is different.ech
+** emacsclient -c does open a new GUI frame.
+*** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
+Still not sure why Big opens emacs in terminal while New opens with GUI.
+** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
+on new same command opens /Applications//emacs.app n idea why.
+* WAITING Freeze init.el and work on other things. freezeNewNoElpa29SEP.init.el is latest good b/u.
+* try UV for Python?
+* Updated OS to 26.0.1 on Big and New.
+
+ 
