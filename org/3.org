@@ -73,6 +73,6 @@ Still not sure why Big opens emacs in terminal while New opens with GUI.
 ** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
 on new same command opens /Applications//emacs.app n idea why.
 * WAITING Freeze init.el and work on other things. freezeNewNoElpa29SEP.init.el is latest good b/u.
-* try UV for Python?
+* try UV for Python? -- installed on New.
 
  
