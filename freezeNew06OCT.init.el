@@ -6,8 +6,8 @@
 	         '("elpa"  . "https://elpa.gnu.org/packages/")t)
 (add-to-list 'package-archives
              '("nongnu" . "https://elpa.nongnu.org/nongnu/")t)
-(add-to-list 'package-archives
-             '("org" . "https://orgmode.org/elpa/")t)
+;; (add-to-list 'package-archives
+;;              '("org" . "https://orgmode.org/elpa/")t)
 
 (package-initialize)
 
@@ -45,14 +45,14 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-(add-to-list 'default-frame-alist '(height . 25))
-(add-to-list 'default-frame-alist '(width . 100))
+(add-to-list 'default-frame-alist '(height . 60))
+(add-to-list 'default-frame-alist '(width . 110))
 
 (server-start)
 
 (setq history-length 10)
 (setq savehist-mode t)
-(setq org-indent-mode t)
+;; (setq org-indent-mode t)
 (setq-default cursor-type 'hbar)
 (setq set-cursor-color "Cyan")
 (setq ring-bell-function 'ignore)
@@ -74,6 +74,11 @@
 (file-name-shadow-mode)
 
 (delete-selection-mode 1)
+
+(keymap-global-set "M-p" 'previous-buffer)
+(keymap-global-set "M-n" 'next-buffer)
+(keymap-global-set "M-o" 'other-window)
+(keymap-global-set "M-g" 'recentf)
 
 (dolist (mode '(org-mode-hook
                 term-mode-hook
@@ -108,11 +113,13 @@
 (setq dashboard-items '((recents   . 10)
                       (bookmarks . 5)
                       (projects  . 5)
-                      (agenda    . 5)))
+                      ;; (agenda    . 5)
+                      ))
 (setq dashboard-item-shortcuts '((recents   . "r")
                                  (bookmarks . "m")
                                  (projects  . "p")
-                                 (agenda    . "a")))
+                                 ;; (agenda    . "a")
+                                 ))
 
 (setq dashboard-show-shortcuts nil)
 (setq dashboard-center-contents nil)
@@ -170,6 +177,12 @@
 
 (use-package nerd-icons-completion
   :config)
+
+(use-package show-font
+  :ensure t
+  :bind
+  (("C-c s f" . show-font-select-preview)
+   ("C-c s t" . show-font-tabulated)))
 
 (use-package orderless
   :ensure t
@@ -299,6 +312,7 @@
                   (org-level-6 . 1.1)
                   (org-level-7 . 1.1)
                   (org-level-8 . 1.1))))
+  (set-face-attribute (car face) nil :font "Noto Serif" :weight 'regular :height (cdr face)))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
@@ -350,14 +364,6 @@
         ("@code" . ?c)
         ("@init" . ?i)))
 
-(setq org-tag-alist                   
-        '((:startgroup)
-                                        ; Put mutually exclusive tags here
-          (:endgroup)
-          ("@note" . ?t)
-          ("@code" . ?c)
-          ("@init" . ?i)))
-
 (setq org-capture-templates
         `(("t" "Tasks / Projects")
           ("tt" "Task" entry (file+olp "~/project/org/tasks/tasks.org" "Inbox")
@@ -373,7 +379,7 @@
           ))
 
 (keymap-set global-map "C-c j" 
-              (lambda () (interactive) (org-capture nil "jj"))))
+              (lambda () (interactive) (org-capture nil "jj")))
 
 (use-package org-bullets
   :after org
@@ -409,24 +415,34 @@
 (keymap-set global-map "C-c c" 'org-capture)
 (setq org-log-done 'time)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t)
-   (emacs-lisp . t)
-   (ruby . t)
-   (eshell . t)
-   (lisp . t)
-   (rust . t)))
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . t)
+      (python . t)
+   ;; (ruby . t)
+   ;; (eshell . t)
+   ;; (lisp . t)
+   ;; (rust . t)
+      ))
+
+  (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
 (require 'org-tempo)
 
-;; (add-to-list 'org-structure-template-alist '("l" . "src emacs-lisp"))
-;; (add-to-list 'org-structure-template-alist '("L" . "src lisp"))
-;; (add-to-list 'org-structure-template-alist '("p" . "src python"))
-;; (add-to-list 'org-structure-template-alist '("r" . "src ruby"))
-;; (add-to-list 'org-structure-template-alist '("s" . "src shell"))
+(with-eval-after-load 'org
+  ;; This is needed as of Org 9.2
+  (require 'org-tempo)
 
-(let ((org-confirm-babel-evaluate nil)))
+;;  (add-to-list 'org-structure-template-alist '("l" . "src lisp"))
+;;  (add-to-list 'org-structure-template-alist '("e" . "src emacs-lisp"))
+;;  (add-to-list 'org-structure-template-alist '("p" . "src python"))
+  )
+;; (add-to-list 'org-structure-template-alist '("r" . "src ruby"))
+;; (add-to-list 'org-structure-template-alist '("s" . "src shell")
+
+
+;; (let ((org-confirm-babel-evaluate nil)))
 
 ;; ---------------------------------------------------------
 ;; Org section ends here -----------------------------------
@@ -451,36 +467,17 @@
 (setq python-python-command "$HOME/.pyenv/shims/python3")
 (setq python-shell-completion-native-enable nil)
 
-(use-package rustic
-  :ensure nil
-  :defer t
-  :bind (:map rustic-mode-map
-              ("M-j" . lsp-ui-imenu)
-              ("M-?" . lsp-find-references)
-              ("C-c C-c l" . flycheck-list-errors)
-              ("C-c C-c a" . lsp-execute-code-action)
-              ("C-c C-c r" . lsp-rename)
-              ("C-c C-c q" . lsp-workspace-restart)
-              ("C-c C-c Q" . lsp-workspace-shutdown)
-              ("C-c C-c s" . lsp-rust-analyzer-status)
-              ("C-c C-c e" . lsp-rust-analyzer-expand-macro)
-              ;;              ("C-c C-c d" . dap-hydra)
-              ("C-c C-c h" . lsp-ui-doc-glance))
-
+(use-package lazy-ruff
+  :ensure t
+  :bind (("C-c f" . lazy-ruff-lint-format-dwim)) ;; keybinding
   :config
-;; comment to disable rustfmt on save
-(add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
+  (lazy-ruff-mode-global-toggle t)) ;; Enable the lazy-ruff minor mode globally
 
-(defun rk/rustic-mode-hook ()
-;; so that run C-c C-c C-r works without having to confirm, but don't try to
-;; save rust buffers that are not file visiting. Once
-;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
-;; no longer be necessary.
-(when buffer-file-name
-  (setq-local buffer-save-without-query t))
-(add-hook 'before-save-hook 'lsp-format-buffer nil t))
-
-;; (use-package rust-playground :ensure)
+(global-set-key (kbd "C-c f") 'lazy-ruff-lint-format-dwim)
+;; or alternatatively:
+;; (use-package lazy-ruff
+;;   :ensure t
+;;   :bind (("C-c f" . lazy-ruff-lint-format-dwim))) 
 
 (use-package toml-mode
   :ensure nil
@@ -522,8 +519,8 @@
 (lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
-(require 'tree-sitter)
-(require 'tree-sitter-langs)
+;; (require 'tree-sitter)
+;; (require 'tree-sitter-langs)
 ;; (global-tree-sitter-mode)
 ;; or just for rust-mode
 (add-hook 'rust-mode-hook #'tree-sitter-mode)
@@ -550,8 +547,11 @@
 
 ;; -----------Current Lisp Section ---------------------------------
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20250918.2258/")
 (require 'slime-autoloads)
 (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
+
+;;     (slime-setup)
 
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
   
@@ -623,16 +623,7 @@
  '(company-box-icons-alist 'company-box-icons-images)
  '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
  '(custom-safe-themes
-   '("088cd6f894494ac3d4ff67b794467c2aa1e3713453805b93a8bcb2d72a0d1b53"
-     "fffef514346b2a43900e1c7ea2bc7d84cbdd4aa66c1b51946aade4b8d343b55a"
-     "0adcffc4894e2dd21283672da7c3d1025b5586bcef770fdc3e2616bdb2a771cd"
-     "a9028cd93db14a5d6cdadba789563cb90a97899c4da7df6f51d58bb390e54031"
-     "7771c8496c10162220af0ca7b7e61459cb42d18c35ce272a63461c0fc1336015"
-     "e8bd9bbf6506afca133125b0be48b1f033b1c8647c628652ab7a2fe065c10ef0"
-     "c5975101a4597094704ee78f89fb9ad872f965a84fb52d3e01b9102168e8dc40"
-     "7235b77f371f46cbfae9271dce65f5017b61ec1c8687a90ff30c6db281bfd6b7"
-     "b4b5da90759ab14719f1e1d8d0138ff72d2901e8a63748b172944627513cfffb"
-     "ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
+   '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
      "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
      "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
      "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
@@ -653,23 +644,20 @@
    '((todo . :background) (tag . :foreground) (priority . :foreground)))
  '(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
  '(org-startup-folded 'fold)
- '(org-tempo-keywords-alist nil)
  '(package-selected-packages
-   '(0blayout 0x0 0xc 2048-game all-the-icons all-the-icons-nerd-fonts
-              auto-compile bind-key cargo cargo-mode
-              color-theme-sanityinc-tomorrow company-box consult
-              consult-denote dashboard denote diffview dired-single
-              dired-subtree doom-modeline eglot elpy
+   '(0blayout 0xc all-the-icons all-the-icons-nerd-fonts auto-compile
+              bind-key cargo cargo-mode color-theme-sanityinc-tomorrow
+              company-box consult consult-denote dashboard denote
+              diffview dired-single dired-subtree doom-modeline eglot
               exec-path-from-shell external-completion flycheck
               flycheck-pyflakes flycheck-rust helpful jsonrpc kkp
-              lsp-ui lua-mode magit marginalia material-theme
-              nerd-icons-completion nerd-icons-dired no-littering
-              ob-rust orderless org-bullets org-roam paredit
-              projectile rainbow-delimiters rustic seq show-font slime
-              smartparens toml-mode track-changes tree-sitter-langs
+              lazy-ruff lsp-ui lua-mode magit marginalia
+              material-theme nerd-icons-completion nerd-icons-dired
+              no-littering ob-rust orderless org-bullets org-roam
+              paredit projectile rainbow-delimiters rustic seq
+              show-font slime smartparens toml-mode track-changes
               treemacs treesit-auto use-package vertico vterm
               which-key))
- '(savehist-additional-variables '(kill-ring register-alist\ ) t)
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))
 
