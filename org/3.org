@@ -38,7 +38,7 @@ CLOSED: [2025-10-03 Fri 10:04]
 
 * COMPLETED Fooled around with c programs to test clang. Everything working for compile. No linting.
 CLOSED: [2025-10-03 Fri 14:05]
-* COMPLETED Freeze init.el and work on other things. freezeNewNoElpa29SEP.init.el is latest good b/u.
+* COMPLETED Freeze init.el and work on other things. freezeNew06OCT.init.el is latest good b/u.
 CLOSED: [2025-10-03 Fri 14:40]* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
 ** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
 both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
@@ -83,3 +83,4 @@ This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
 Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note: lines 553 to 555 commented out on init.el new but not on
 ~/project/init.el.org .
 
+** Test ruff. -- appears to format, does it lint? Need to read docs.
