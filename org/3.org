@@ -1,5 +1,5 @@
 * October.
-* _Start times around 5 seconds, 8 for Big_, up from 3. 
+* _Start times around 4 seconds, 8 for Big_, up from 3. 
 * COMPLETED Elpy is not being maintained. Removed - start time < 5 seconds.
 CLOSED: [2025-09-29 Mon 13:03]
 ** slime-auotloads had to be commented out after removing;
@@ -83,3 +83,4 @@ This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
 Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note: lines 553 to 555 commented out on init.el new but not on
 ~/project/init.el.org .
 ** Test ruff. -- appears to format, does it lint? Need to read docs.
+** added flymake-ruff and lazy ruff. 
