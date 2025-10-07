@@ -82,5 +82,4 @@ This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
 ** ruff installed via uv/pip. config added to init.el on New.
 Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note: lines 553 to 555 commented out on init.el new but not on
 ~/project/init.el.org .
-
 ** Test ruff. -- appears to format, does it lint? Need to read docs.
