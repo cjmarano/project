@@ -467,17 +467,36 @@
 (setq python-python-command "$HOME/.pyenv/shims/python3")
 (setq python-shell-completion-native-enable nil)
 
+(use-package rustic
+  :ensure nil
+  :defer t
+  :bind (:map rustic-mode-map
+              ("M-j" . lsp-ui-imenu)
+              ("M-?" . lsp-find-references)
+              ("C-c C-c l" . flycheck-list-errors)
+              ("C-c C-c a" . lsp-execute-code-action)
+              ("C-c C-c r" . lsp-rename)
+              ("C-c C-c q" . lsp-workspace-restart)
+              ("C-c C-c Q" . lsp-workspace-shutdown)
+              ("C-c C-c s" . lsp-rust-analyzer-status)
+              ("C-c C-c e" . lsp-rust-analyzer-expand-macro)
+              ;;              ("C-c C-c d" . dap-hydra)
+              ("C-c C-c h" . lsp-ui-doc-glance)))
+
 (use-package lazy-ruff
   :ensure t
   :bind (("C-c f" . lazy-ruff-lint-format-dwim)) ;; keybinding
   :config
   (lazy-ruff-mode-global-toggle t)) ;; Enable the lazy-ruff minor mode globally
 
-(global-set-key (kbd "C-c f") 'lazy-ruff-lint-format-dwim)
-;; or alternatatively:
-;; (use-package lazy-ruff
-;;   :ensure t
-;;   :bind (("C-c f" . lazy-ruff-lint-format-dwim))) 
+(defun rk/rustic-mode-hook ()
+;; so that run C-c C-c C-r works without having to confirm, but don't try to
+;; save rust buffers that are not file visiting. Once
+;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
+;; no longer be necessary.
+(when buffer-file-name
+  (setq-local buffer-save-without-query t))
+(add-hook 'before-save-hook 'lsp-format-buffer nil t))
 
 (use-package toml-mode
   :ensure nil
