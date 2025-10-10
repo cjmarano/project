@@ -501,24 +501,35 @@
 
 * Python
 #+begin_src emacs-lisp
-(use-package eglot
-  :ensure nil
-  :defer t
-  :hook (python-mode . eglot-ensure)
-  :hook (rust-mode . eglot-ensure))
+       (use-package eglot
+         :ensure nil
+         :defer t
+         :hook (python-mode . eglot-ensure)
+         :hook (rust-mode . eglot-ensure))
 
     (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
-    (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
-    (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))  
+             (add-to-list 'eglot-server-programs
+                          '(python-mode . ("ruff "server")))
+           (add-hook 'after-save-hook 'eglot-format))
 
-(setq python-indent-guess-indent-offset t)  
-(setq python-indent-guess-indent-offset-verbose nil)
+  (require 'flymake-ruff)
+  (add-hook 'python-mode-hook #'flymake-ruff-load)
 
-(setq python-python-command "$HOME/.pyenv/shims/python3")
-(setq python-shell-completion-native-enable nil)
+  (require 'ruff-format)
+  (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
+    
+           (with-eval-after-load 'eglot
+           (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
+      ;;    (with-eval-after-load 'eglot
+      ;;     (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
+           (with-eval-after-load 'eglot
+           (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))  
+
+       (setq python-indent-guess-indent-offset t)  
+       (setq python-indent-guess-indent-offset-verbose nil)
+
+       (setq python-python-command "$HOME/.pyenv/shims/python3")
+       (setq python-shell-completion-native-enable nil)
 #+end_src
 
 * Rust mode

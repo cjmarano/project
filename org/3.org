@@ -84,3 +84,4 @@ Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note:
 ~/project/init.el.org .
 ** Test ruff. -- appears to format, does it lint? Need to read docs.
 ** added flymake-ruff and lazy ruff. 
+** installed pipx via Homebrew, just becuase. 

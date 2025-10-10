@@ -1,0 +1,15 @@
+(add-hook 'python-mode-hook 'eglot-ensure)
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '(python-mode . ("ruff" "server")))
+  (add-hook 'after-save-hook 'eglot-format))
+Ruff is available as flymake-ruff on MELPA:
+
+
+(require 'flymake-ruff)
+(add-hook 'python-mode-hook #'flymake-ruff-load)
+Ruff is also available as emacs-ruff-format:
+
+
+(require 'ruff-format)
+(add-hook 'python-mode-hook 'ruff-format-on-save-mode)
