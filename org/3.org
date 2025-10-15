@@ -87,3 +87,4 @@ Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note:
 ** installed pipx via Homebrew, just becuase. 
 ** tired installing ruff items to init.el and blew it up. Had to revert to latest freeze (on New).
 ** 2nd try, installed all three format, flymake, lazy to init.el on new. Seems to work.
+** lazy-ruff seems to be meh. ruff check . <filename> works as does ruff format.
