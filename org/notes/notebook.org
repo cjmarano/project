@@ -1,0 +1,186 @@
+M-x sort-lines
+
+M-x replace-string ret : ret C-q, C-j ret (replace : with newline).
+
+Consult
+C-x b is remapped to consult-buffer
+C-x r b remapped to consult-bookmarks
+C-x p b remapped to consult-project-buffer
+
+* Org Mode
+Shift-tab rotate status
+C-c, C-t    "      "
+C-ret create new item
+M-ret under same level
+M-up/down move item
+C-c, C-l insert link
+C-c, C-o open link at point
+| table
+M-ret list
+-[] checklist
+C-, C-x C-b to check box
+C-, C-t to cycle TODO
+Tab headline to lower level
+Shift + up/down to change priority
+C-c, C-q set tag
+C-c, C-, then l for lisp (is org-insert-structure-template)
+
+----
+* Building emacs from scratch
+sudo apt install git build-essentials automake
+sudo apt build-dep emacs
+git clone https://git.savannah.gnu.org/git/emacs.git
+./autogen.sh
+./configure
+make
+unset emacs-load-path
+
+* Text commands
+C-x, C-i or C0x tab indent
+C-M-@ sort lines
+Cu, C-spc prev mark
+M-y cycle kill ring
+M-shit-2 move mark forward one word
+M-@ move selection <--> one word
+C-x, C-p seect whole buffer
+C-v, C-_ move point to previous mark
+C-x, C-x swap mark and point
+C-x, esc repeat last command
+C-d, M-d delete fwd/delete back
+C-M k kill sexexp
+C-bkspc kill word backwards
+M-\ delete whitespace
+M-i insert whitespace
+M-c join previous line
+C-c, C-; comment
+C-x z repeat complex command
+M-q fill paragraph
+M-} select whole paragraph
+C-w kill selected reqion
+M-w copy selected region
+C-x, C-spc pop global makr ring
+C-u, C-j just to last mark in ring
+C-u, C-spc pop last mark off ring
+M-h select bock
+M-c, \   format region
+
+* Searching
+C-s, C-w search for word at point
+C-s, C-M-y search for charactoers at point
+C-s, M-s, C-e search for whole lines at point
+M-% search and replace
+M-s, M-> show previous search
+
+
+* Sorting
+C-M-@ sortM-<#>
+C-u <#> sort by field
+C-u sort last field
+C-xes repeat last command
+
+* Windows
+C-x 2 horizontal split
+C-x 3 vertical split
+C-x + balance
+
+* Misc
+C-c j journal jj
+C-c, c, jj then C-x, C-s, and C-c, C-c 
+C-x p projectile mode map
+C-M, i compile at point
+C-c, c capture
+C-c a agenda
+C-c l lsp-mode
+C-x, C-j dired jump (jump to directory file is in)
+C-x, C-r open recent
+C-c, C-_ cycle mark ring
+
+* Dired
+M-p or M-n to cycle prev, next buffer
+M-del to clear
+~/ to delete (not shadow) previous path
+in Dired;
+o to open file
+C-x 0 to close
+C to copy
+R to rename
+D to delete
+up is back
+m/u mark/unmark
+U unmark all
+X to execute
+C-x, C-u toggle editable/read only C-c. C-c to commit
+%-m mark files (regexp)
+M odify permissions +x, +w, +r
+M-x Project-find-file
+    C-x p f
+M-x consult-find
+    #<item>#
+C-x, C-f M-n <ret>
+     (is Prot's find)
+
+* Organizing init file
+;; comment
+; inline notation
+;;; outline heading level 1
+;;;; outline heading level 2
+M-x outline minor mode
+M-x consult-outline
+
+* Eval expression
+C-x, e
+C-M, x
+Alt, n
+C-u, n
+M, n
+
+* Bookmarks
+C-x r m ret set bookmark at point
+C-x r m <bookmark name> ret (set name bookmark at point)
+C-x r b <bookmark name> jump to named bookmark
+C-x r l list all bookmarks
+M-x bookmarks-save
+M-x bookmakr-del ret <bookmark name> ret
+
+
+* ZSHELL STUFF
+C-t is fzf search files and directories
+C-r is command history
+M-c change current directory
+--
+Super, k is same as C-l or clear
+
+
+* emacs client
+emacsclient -e "sexexp"
+emacsclient -c -editemacs --daemon
+M-x server-start
+M-:   "      "
+M-x server-force-shutdown
+
+C-u, C-x, C-c kill emacs server
+C-x 5 0 cose frame
+v, x, c (kill emacs, save buffers)
+
+* Tangle
+C-c, C-v, C-t tangle
+C-c, C-v, t   tangle
+C-c, C-, |  source block lisp
+
+* Denote
+C-c n f consult denote find
+C-c n g consult dentoe grep
+
+* ls command (and aliases)
+alias lb='cd ..'
+alias lf='colorls -lath'
+alias lg='colorls --gs'
+alias ll='colorls -loa --sd'
+alias lz='eza -la  --time=modified --color=always --icons=always'
+alias ly='eza -lha --color=always --icons=always --group-directories-first'
+alias lx='eza -la --time=created --color=always --icons=always --group-directories-first'
+
+alias myip="curl http://ipecho.net/plain; echo"
+alias bu='emacs -q -l ~/project/Prot/init.el &'
+alias ec='emacsclient -n $1'
+alias ez="emacsclient --create-frame $1"
