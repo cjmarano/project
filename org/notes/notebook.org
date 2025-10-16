@@ -1,8 +1,12 @@
-M-x sort-lines
+* Ruff
+ruff check
+ruff  check --fix
+ruff format
+ruff check --watch
+( commented out pylsp when adding ruff. may need to pus pyslp back in.)
 
-M-x replace-string ret : ret C-q, C-j ret (replace : with newline).
 
-Consult
+* Consult
 C-x b is remapped to consult-buffer
 C-x r b remapped to consult-bookmarks
 C-x p b remapped to consult-project-buffer
@@ -35,8 +39,36 @@ git clone https://git.savannah.gnu.org/git/emacs.git
 make
 unset emacs-load-path
 
+OR
+
+git clone   git://git.su.gnu.org/emacs.git
+cd emacs
+sudo apt-install build-essential
+-- with tree-sitter
+--without pip
+make -j 3 (nproc)
+src / emacs -q
+
+* Shell
+type -a bash will show all installed versions.
+#!/usr/bin/env -
+\<shellcommand> will diable any alias
+column -f -s <file.cvs) whre -f is number of fields and -s is delimiter.
+fuser - list pid of all processes that have open files.
+pid of
+mkdir -p parent/child1,child2,child3, {grand kids}.
+
+* Use-package
+:demand t <-- load immediately at startup (useful for completion frameworks).
+:defer <-- load after startup.
+:hook <-- load when hook invoked.
+:mode <-- load when file will extension is opened.
+:after <-- after other, specified, pasckages loaded.
+
 * Text commands
-C-x, C-i or C0x tab indent
+M-x replace-string ret : ret C-q, C-j ret (replace : with newline).
+M-x sort-lines
+C-x, C-i or C-x tab indent
 C-M-@ sort lines
 Cu, C-spc prev mark
 M-y cycle kill ring
@@ -63,6 +95,12 @@ C-u, C-j just to last mark in ring
 C-u, C-spc pop last mark off ring
 M-h select bock
 M-c, \   format region
+M- l lowercase selected region
+M-u uppercase     "           "
+M-c initial Caps
+M-e end of sentence.
+M-z delete up to, and including a character.
+
 
 * Searching
 C-s, C-w search for word at point
@@ -183,4 +221,63 @@ alias lx='eza -la --time=created --color=always --icons=always --group-directori
 alias myip="curl http://ipecho.net/plain; echo"
 alias bu='emacs -q -l ~/project/Prot/init.el &'
 alias ec='emacsclient -n $1'
-alias ez="emacsclient --create-frame $1"
+alias ez="emacsclient --create-frame $1"0
+
+* Regexp
+in lisp need \\ to escap a character.
+interactive (isearch, etc.) only needs one \
+~  $  ^  .  *  +  ?  [  \  -
+] if it ends an alternative special.
+\  escaped so special.
+. matches any character except newline.
+ * matches precedding char zero or more times.
++ one or more times. (* matches 0 or more).
+? once or not at all.
+ *? +? ??
+ ^ beginning of line.
+ ? end of line.
+ [charset]
+ ^ any char's those in set.
+alt-s, o list lines matching regexp
+
+* Grep
+grep default
+grep --color-auto -nH --null -e' + "pattern"
+instead:
+(setopt grep-command "grep --color=auto -rni -A1"
+lgrep search current directory - NOT recursive.
+rgrep recursive search.
+Zrgrep search compressed files.
+find-grep every file in directory tree.
+vc-git-grep runs git-grep.
+counsel-grep search current buffer.
+find-grep-dired find file name display in buffer.
+find-name-dired similar to above.
+kill-grep kill running grep processes.
+
+* Smart-Parens
+M-x sp-cheat-sheet.
+
+ | R W X |
+ | 4 2 1 |
+
+* Yazi
+ up/down or j/k to move
+ <- -> or hl to move to child/parent
+ move to top gg
+ move to bottom G
+ z zoxide jump
+ Z zoxide and reveal file.
+ o or enter to open a file
+ tab to show file info
+ y copy selected files
+ x cut selected files
+ p paste selected files
+ d trash selected files
+ D delete selected files
+ r rename file
+ spc  toggle selection of file
+ esc cancel selection
+ a create a file (or a dir if name ends in /)
+ P same but overwrite
+X Y cancel operation

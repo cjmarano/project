@@ -1,5 +1,5 @@
 * October.
-* _Start times around 4-1/2 seconds, 8 for Big_, up from 3. 
+* _Start times around < 4 seconds, 8 for Big_, up from 3. 
 * COMPLETED Elpy is not being maintained. Removed - start time < 5 seconds.
 CLOSED: [2025-09-29 Mon 13:03]
 ** slime-auotloads had to be commented out after removing;
@@ -88,3 +88,8 @@ Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note:
 ** tired installing ruff items to init.el and blew it up. Had to revert to latest freeze (on New).
 ** 2nd try, installed all three format, flymake, lazy to init.el on new. Seems to work.
 ** lazy-ruff seems to be meh. ruff check . <filename> works as does ruff format.
+** indent-bars package shows stipples, but in black on background so not useable.
+*** highlight-indentation-mode does work but not with themes I like (bars show black on dark background.
+Probably not worth worrying about since I'd probably have to edit something in an .el file.
+Although it might be in some setting. Not super concerned as indentation taken care of by ruff format anyway.
+** ( commented out pylsp when adding ruff. may need to pus pyslp back in.)
