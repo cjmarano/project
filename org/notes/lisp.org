@@ -1,0 +1,179 @@
+form  --> evaluate <-- an object that can be evaluated.
+List, symbols, other object types.
+
+primitives are self evaluating (numbers, strings, arrays)
+symbols are not self evaluating (buffer names, for instance)
+functions are not self evaluating (must start with function)
+'symbol  - is a variable.
+
+efs/some-name  <-- personal name space
+*something*  global  variable
+string =  check, is string = (or <, >, !=)
+can't evaluate buffers
+
+func has to go 1st (+300(-12 1))
+
+type-of
+
+ielm is repl
+
+predicate is func that takes value and returns t or nil
+
+eq are the same object
+eql are parameters same object or number
+equal are equivalent values
+
+, in slime to bring up command buffer then quit or sayonara
+
+when if sexexp is t then eval form
+
+unless if sexexp is nil then eval form
+
+cond - multiple cases, multiple results
+
+pcase, loops, while, dotimes, recursion
+                     
+cons cell  |_car_|_cdr_| --> |_car_|_cdr_| --> |_car_|_cdr_|  etc.
+
+car is address of register.   cdr is decrement part of register.
+
+array indexes begin at zero.
+
+(array) [vector]
+
+alist - association lists are cons pairs for storing variables.
+
+assq association key? query? 'car list
+
+rassq asociation  value
+
+plist - property list  key-value pairs
+
+sbcl  quicklisp sbcl.rc file
+sbcl to install slime:
+ *  (qlLquickload "quiclisp-slime-??? ")  <-- lost last part of this.
+quick project
+(ql:quickload :quickpproject)
+(quickproject:make-project "test-project"
+(qlsquickload :test-project)
+
+(lambda (parameters)
+        (some stuff)
+is and example of an un0named function
+
+funcall take function as 1st argument then rest of arguments
+(funcall 'myfunction value..val..val..)
+(apply 'list '(list)
+             ^ functions
+
+interactive function is command, shows up in M-X and can be used in key-binding.
+
+* Slime
+C-c, C-q close parens at point
+
+C-c, C-c compile a function  (slime-compile-defun)
+
+C-c, k compile all
+
+C-c, C-z or C-x b is return to repl
+
+C-h f describe function
+
+C-h, o describe symbol
+
+C-u, C-h, i info mode for external files
+
+M-. jump to next function
+
+M-, return to original location as alternative to C-x b after a M-. command 
+
+C, cd h doc
+
+C-, --> or C-,<--- move parens
+
+C, ] A close open parens (may not need A, not clear in notebook.
+
+
+* asdf and Quicklisp
+asdf is make, config, compile basically.Quicklisp is a library manager for lisp that runs on top of asdf allows downloads and installs.
+
+
+
+(serq <value> set quote set variable <-- notice no '
+
+above is convenience  instead of (set '<variable>) <-- which must have 'car
+
+setq alos allows multipe variabes to be set
+(setq some item '(value)
+        some other value <value>
+        another value <value>
+        )
+
+defvar
+
+make-variable-buffer-local
+
+setq-default si set value for all future buffers.
+
+Scope:
+Global
+local et
+multiple scopes let let*
+let* allows use of variables in subequent function.
+if-let when-let
+
+example fo local vs; Global scope
+(setq x 5)
+
+(defun d0-some-math (y)
+        (+ x y))
+
+(do-some-math 10)  <-- evaluates to 15        
+
+above lines are local to function.
+
+(let ((x 15))
+        (do-some-math 10))  <-- evaluates to 25 is external to the function
+
+(concat "abc" "def")  concatenate strings
+
+(substring  "the quick brown fox...." 16 19) choose the `17th through 20th letters from the string - starts at 0, not 1.
+
+p = prdicate is funtion's property t or nil?
+
+(something) evaluates ad function  but something evaluates as a variable.
+
+* If-then example
+(if <true or false test>
+        do something if test returns take
+  do something if test returns fas)   <-- notice lesser indent on else line.
+
+  sav-ecursions saves location of point and move cursor back there after a function is evaluated
+
+*  Lexical Binding 
+  ;;; -*- lexical-binding: t -**-
+
+  scope of let under lecial binding is limited to body of let statement
+  otherwise in dynamic binding scope ca be Global (for other functions in/under the let body).
+
+  (setq <var> <value>) <-- variable does not change globally so fun uses global var value
+  (defun <action ()
+  <var>
+  (setq <var <value>
+
+  (let ((same variable> <different value>))
+          (get <variable>
+
+* Dynamic Binding
+is default for elisp
+changing variable with let changes it globally
+NOTE: some variables are 'special' and ae dynamic even when lexical scoping = t
+' is literal and not a functionadd-to-list
+cons creates a new list, does not add to a lst
+car is 1st element in list
+cdr is rest of elements in list
+nth is nth element of list (starts at 0)
+member returns value if in list, nil otherwise
+does-exist returns lin on and after value
+do-list
+when

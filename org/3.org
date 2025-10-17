@@ -93,3 +93,6 @@ Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note:
 Probably not worth worrying about since I'd probably have to edit something in an .el file.
 Although it might be in some setting. Not super concerned as indentation taken care of by ruff format anyway.
 ** ( commented out pylsp when adding ruff. may need to pus pyslp back in.)
+* Compare current init.el with ~/project/init.el.org and update the org file then tangle and compare.
+* Change to new init.el increased load time to over 4 secs. Test to see if lisp and python work.
+** Note last good itnit from new _either_ ~/.emacs.d/Good.init.el or freezeNEW17OCT.init.el (in project folder).
