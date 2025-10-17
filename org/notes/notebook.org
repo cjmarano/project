@@ -19,7 +19,7 @@ M-ret under same level
 M-up/down move item
 C-c, C-l insert link
 C-c, C-o open link at point
-| table
+ | table
 M-ret list
 -[] checklist
 C-, C-x C-b to check box
@@ -100,6 +100,9 @@ M-u uppercase     "           "
 M-c initial Caps
 M-e end of sentence.
 M-z delete up to, and including a character.
+C-spc set mark
+C-x, C-x exchange pint and mark
+C-u, C-spc jump to previous marks
 
 
 * Searching
@@ -281,3 +284,12 @@ M-x sp-cheat-sheet.
  a create a file (or a dir if name ends in /)
  P same but overwrite
 X Y cancel operation
+
+* Comments
+init files with outline-minor-mode can combine with org mode.
+(load-custom-file ; <filename> )  one ; is inline comment
+;;; outline heading level 1 (four ; is level 2, five is level 3, etc.)
+M-x outline-minor-mode
+M-x outline-demote
+M-x outline-promote
+M-x consult-outline  <-- jump to top level entries - those with ;;;
