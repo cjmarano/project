@@ -96,3 +96,5 @@ Although it might be in some setting. Not super concerned as indentation taken c
 * Compare current init.el with ~/project/init.el.org and update the org file then tangle and compare.
 * Change to new init.el increased load time to over 4 secs. Test to see if lisp and python work.
 ** Note last good itnit from new _either_ ~/.emacs.d/Good.init.el or freezeNEW17OCT.init.el (in project folder).
+** try tangling init.el.org then diff against init.el from ~/.emacs.d/ then delete init.el in projects.
+* init.el from New crashed hard on Plucky with multiple missing parens issues.
