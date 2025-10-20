@@ -70,7 +70,6 @@
 
   (setq history-length 10)
   (setq savehist-mode t)
-  ;; (setq org-indent-mode t)
   (setq-default cursor-type 'hbar)
   (setq set-cursor-color "Cyan")
   (setq ring-bell-function 'ignore)
@@ -88,8 +87,6 @@
   (setq auto-revert-use-notify t) 
   (setq use-short-answers t)
   (setq ediff-split-window-function 'split-window-horizontally)
-  ;; removes ediff control window put controls in window at bottom of frame.
-  ;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
   ;; (require 'dired-x)
   (setq file-name-shadow-properties '(invisible t))
   (file-name-shadow-mode)
@@ -117,8 +114,6 @@
  (when (display-graphic-p)
     (context-menu-mode))
 
- ;;  (file-name-shadow-mode 1)
- ;;  (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
  (setq delete-by-moving-to-trash t)
  (setq dired-dwim-target t)
 
@@ -126,10 +121,7 @@
      (lambda ()
         (require 'dired-x)))
 
- ;; (setq ls-lisp-use-insert-directory-program nil)
- ;;     (require 'ls-lisp)
-
- (setq ediff-diff-options "--text")
+  (setq ediff-diff-options "--text")
 #+end_src
 
 * dashboard
@@ -184,7 +176,7 @@
 (setq doom-modeline-buffer-file-name-style 'file-name)
 ;; (setq doom-modeline-major-mode-color-icon t)
 ;; (setq doom-modeline-major-mode-icon t)
-(setq doom-modeline-buffer-encoding nil)
+(setq doom-modeline-buffer-encoding t
 (setq doom-modeline-env-version t)
 (setq doom-modeline-env-enable-python t)
 (setq doom-modeline-env-enable-ruby t)
@@ -265,8 +257,6 @@
 
 * Consult
 #+begin_src emacs-lisp
-(setq completion-styles '(substring basic))
-
 (use-package consult
 ;; Replace bindings. Lazily loaded due by `use-package'.
 :bind (;; C-c bindings in `mode-specific-map'
@@ -396,10 +386,10 @@
 
   
 (setq org-agenda-files
-      '("~/org/journal/journal.org"
-        "~/org/notes/notes.org"
-        "~/org/tasks/tasks.org"
-        "~/org/daily/daily.org"))
+      '("~/project/org/journal/journal.org"
+        "~/project/org/notes/notes.org"
+        "~/project/org/tasks/tasks.org"
+        "~/project/org/daily/daily.org"))
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "DONE(d)")
@@ -420,7 +410,7 @@
 
 (setq org-capture-templates
         `(("t" "Tasks / Projects")
-          ("tt" "Task" entry (file+olp "~/org/tasks/tasks.org" "Inbox")
+          ("tt" "Task" entry (file+olp "~/project/org/tasks/tasks.org" "Inbox")
            "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
 
           ("j" "Journal Entries")
@@ -490,7 +480,7 @@
   ;; This is needed as of Org 9.2
   (require 'org-tempo)
 
-;;  (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+;;  (add-to-list 'org-structure-template-alist '("l" . "src lispine"))
 ;;  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 ;;  (add-to-list 'org-structure-template-alist '("py" . "src python")))
 ;; (add-to-list 'org-structure-template-alist '("r" . "src ruby"))
@@ -501,35 +491,33 @@
 
 * Python
 #+begin_src emacs-lisp
-       (use-package eglot
-         :ensure nil
-         :defer t
-         :hook (python-mode . eglot-ensure)
-         :hook (rust-mode . eglot-ensure))
+           (use-package eglot
+             :ensure nil
+             :defer t
+             :hook (python-mode . eglot-ensure)
+             :hook (rust-mode . eglot-ensure))
 
-    (with-eval-after-load 'eglot
-             (add-to-list 'eglot-server-programs
-                          '(python-mode . ("ruff "server")))
-           (add-hook 'after-save-hook 'eglot-format))
-
-  (require 'flymake-ruff)
-  (add-hook 'python-mode-hook #'flymake-ruff-load)
-
-  (require 'ruff-format)
-  (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
+  (add-hook 'python-mode-hook 'eglot-ensure)
+  (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs
+                 '(python-mode . ("ruff" "server")))
+    (add-hook 'after-save-hook 'eglot-format))
+  (with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
+  (with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))  
     
-(with-eval-after-load 'eglot
-(add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
-;;    (with-eval-after-load 'eglot
-;;     (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
-(with-eval-after-load 'eglot
-(add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))  
+      (require 'flymake-ruff)
+      (add-hook 'python-mode-hook #'flymake-ruff-load)
 
-(setq python-indent-guess-indent-offset t)  
-(setq python-indent-guess-indent-offset-verbose nil)
+      (require 'ruff-format)
+      (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
+        
+    (setq python-indent-guess-indent-offset t)  
+    (setq python-indent-guess-indent-offset-verbose nil)
 
-(setq python-python-command "$HOME/.pyenv/shims/python3")
-(setq python-shell-completion-native-enable nil)
+    (setq python-python-command "$HOME/.pyenv/shims/python3")
+    (setq python-shell-completion-native-enable nil)
 #+end_src
 ;; ruff --------------------------------------------
 (use-package lazy-ruff
