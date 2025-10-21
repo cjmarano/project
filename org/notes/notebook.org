@@ -210,7 +210,7 @@ C-c, C-, |  source block lisp
 
 * Denote
 C-c n f consult denote find
-C-c n g consult dentoe grep
+C-c n g consult denote grep
 
 * ls command (and aliases)
 alias lb='cd ..'

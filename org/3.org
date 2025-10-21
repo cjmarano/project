@@ -1,6 +1,7 @@
 * October.
-* _Start times around < 4 seconds, 8 for Big_, up from 3. 
-* COMPLETED Elpy is not being maintained. Removed - start time < 5 seconds.
+* _Start times around < 4 seconds, 7 for Big._  
+* Misc.
+** COMPLETED Elpy is not being maintained. Removed - start time < 5 seconds.
 CLOSED: [2025-09-29 Mon 13:03]
 ** slime-auotloads had to be commented out after removing;
 ** re-adding quicklisp-slime-helper-master did NOT restore slimeautoloads.
@@ -33,12 +34,12 @@ Here's a list of packages removed:
  posframe-20250211.110
  trashed-20230811.157
  yasnippet-20250602.1342
-* COMPLETED try UV for Python? -- installed on New. -- it works.
+** COMPLETED try UV for Python? -- installed on New. -- it works.
 CLOSED: [2025-10-03 Fri 10:04]
 
-* COMPLETED Fooled around with c programs to test clang. Everything working for compile. No linting.
+** COMPLETED Fooled around with c programs to test clang. Everything working for compile. No linting.
 CLOSED: [2025-10-03 Fri 14:05]
-* COMPLETED Freeze init.el and work on other things. freezeNew06OCT.init.el is latest good b/u.
+* COMPLETED Freeze init.el and work on other things. freezeNew20OCT.init.el is latest good b/u.
 CLOSED: [2025-10-03 Fri 14:40]* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
 ** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
 both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
@@ -93,9 +94,10 @@ Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note:
 Probably not worth worrying about since I'd probably have to edit something in an .el file.
 Although it might be in some setting. Not super concerned as indentation taken care of by ruff format anyway.
 ** ( commented out pylsp when adding ruff. may need to pus pyslp back in.)
-* Compare current init.el with ~/project/init.el.org and update the org file then tangle and compare.
-* Change to new init.el increased load time to over 4 secs. Test to see if lisp and python work.
+* Change to new init.el increased load time to ~ 4 secs. Test to see if lisp and python work.
 ** Note last good itnit from new _either_ ~/.emacs.d/Good.init.el or freezeNEW17OCT.init.el (in project folder).
 ** try tangling init.el.org then diff against init.el from ~/.emacs.d/ then delete init.el in projects.
-* init.el from New crashed hard on Plucky with multiple missing parens issues.
+** init.el from New crashed hard on Plucky with multiple missing parens issues.
 ** did a reconcile init.el on new against init.el.org/newtest.el in project.
+** Compare current init.el with ~/project/init.el.org and update the org file then tangle and compare.
+* 
