@@ -100,4 +100,7 @@ Although it might be in some setting. Not super concerned as indentation taken c
 ** init.el from New crashed hard on Plucky with multiple missing parens issues.
 ** did a reconcile init.el on new against init.el.org/newtest.el in project.
 ** Compare current init.el with ~/project/init.el.org and update the org file then tangle and compare.
-* 
+* Can't click items in Dashboard on New with normal init.el but...
+** using ~/project/Prot/init.el things are clickable.
+** Only Dashboard is affected. Can click items in recent files list for instance.
+** path in zshrc same on Big and New. init.el on both machines are the same.

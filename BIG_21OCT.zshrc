@@ -1,6 +1,5 @@
 export PATH=/Users/charles.marano/.cache/emacs/:/Users/charles.marano/.cache/emacs/tree-sitter/:/Users/charles.marano/tree-sitter/:/opt/homebrew/opt/ruby/bin/:/opt/homebrew/lib/ruby/gems/3.4.0/bin/:/Users/charles.marano/.pyenv/versions/3.13.1/bin/:/Users/charles.marano/.pyenv/shims/:/Users/charles.marano/.pyenv/shims/pip/:/Users/charles.marano/.rbenv/shims/:/Users/charles.marano/.cargo/bin/:/Users/charles.marano/.local/bin/:/opt/homebrew/bin/:/opt/homebrew/sbin/:/usr/local/jamf/bin/:/usr/local/sbin/:/usr/local/bin/:/usr/sbin/:/usr/bin/:/bin/:/sbin/:/Library/Apple/usr/bin/:/Users/charles.marano/.pyenv/versions/3.13.1/lib/python3.13/site-packages/:/opt/homebrew/opt/python-lsp-server/bin/:/Users/charles.marano/.pyenv/versions/3.13.1/lib/python3.13/site-packages/:/Users.charles.marano/.rbenv/bin/:/users/charles.marano/.pyenv/bin/:/Applications/Ghostty.app/Contents/Resources/ghostty/:/Applications/kitty.app/contents/MacOS/
 
-
 # if this is macOS then add line below
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -50,19 +49,23 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-alias ec='emacsclient -n $1'
-alias myip="curl http://ipecho.net/plain; echo"
-alias lb='cd ..'
 # alias ls='ls --color'
-alias la='colorls -all'
+# alias la='colorls -all'
+alias lb='cd ..'
+# alias lc='colorls -lA --sd'
+# alias ld='colorls -ltr'
+alias lf='colorls -lath'
 alias lg='colorls --gs'
+# alias lh='colorls'
 alias ll='colorls -loa --sd'
-alias lt='eza --tree'
-alias lw='eza -laht modified --color=always --icons=always --group-directories-first'
-alias lx='eza -lat created --color=always --icons=always --group-directories-first'
+# alias lt='colorls --tree'
+alias lz='eza -la  --time=modified --color=always --icons=always'
 alias ly='eza -lha --color=always --icons=always --group-directories-first'
-alias lz='eza -lh --color=always --icons=always --group-directories-first'
-
+alias lx='eza -la --time=created --color=always --icons=always --group-directories-first'
+alias myip="curl http://ipecho.net/plain; echo"
+alias bu='emacs -q -l ~/project/Prot/init.el &'
+alias ec='emacsclient -n $1'
+alias ez="emacsclient --create-frame $1"
 # pyenv config
 export PYENV_ROOT="$HOME/.pyenv"
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -79,7 +82,7 @@ unsetopt BEEP
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
-    source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+ source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
 fi
 
 # Shell Integration.
