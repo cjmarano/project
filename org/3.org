@@ -49,7 +49,32 @@ This indcates that something is different.ech
 Still not sure why Big opens emacs in terminal while New opens with GUI.
 ** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
 on new same command opens /Applications//emacs.app n idea why.
+* COMPLETED Deleted treemacs, ace-window, dired-subtree, dired-hack-utils,
+hydra, older modus-themes, evil, goto-chg, trashed, pfuture page-break-lines. 0blayout.
+CLOSED: [2025-10-22 Wed 10:03]
+* COMPLETED Look at integrating ruff with emacs. Three packages in Packages.
+CLOSED: [2025-10-22 Wed 13:43]
+*** ruff installed via uv/pip. config added to init.el on New.
+Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note: lines 553 to 555 commented out on init.el new but not on
+~/project/init.el.org .
+*** Test ruff. -- appears to format, does it lint? Need to read docs.
+*** added flymake-ruff, ruff-format and lazy ruff. 
+*** installed pipx via Homebrew, just becuase. 
+*** tired installing ruff items to init.el and blew it up. Had to revert to latest freeze (on New).
+*** 2nd try, installed all three format, flymake, lazy to init.el on new. Seems to work.
+* COMPLETED jsonrpc-error: jsonrpc-error: "No current JSON-RPC connection"
+** (jsonrpc-error-code . -32603), (jsonrpc-error-message . "No current JSON-RPC connection")
+CLOSED: [2025-10-22 Wed 14:10]
+** caused by bad eglot shutdown. How to exit gracefully? <-- by re-enabling pylsp.
+* WAITING Can't click items in Dashboard on New with normal init.el
+** using ~/project/Prot/init.el things are clickable.
+** Only Dashboard is affected. Can click items in recent files list for instance.
+** path in zshrc same on Big and New. init.el on both machines are the same.
 * lisp programming.
+*** Looking at https://lisp-lang.org/learn/writing-libraries
+did some of the examples.. writing files was interesting and useful.
+This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
+*** lisp is a mess. Tools are installed but need more time getting used to them.
 ** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
 $ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
 $ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
@@ -76,31 +101,23 @@ CLOSED: [2025-08-20 Wed 11:33]
 +deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
 <<<<<<< HEAD
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
-** Looking at https://lisp-lang.org/learn/writing-libraries
-did some of the examples.. writing files was interesting and useful.
-This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
-* NEXT Look at integrating ruff with emacs. Three packages in Packages.
-** ruff installed via uv/pip. config added to init.el on New.
-Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note: lines 553 to 555 commented out on init.el new but not on
-~/project/init.el.org .
-** Test ruff. -- appears to format, does it lint? Need to read docs.
-** added flymake-ruff, ruff-format and lazy ruff. 
-** installed pipx via Homebrew, just becuase. 
-** tired installing ruff items to init.el and blew it up. Had to revert to latest freeze (on New).
-** 2nd try, installed all three format, flymake, lazy to init.el on new. Seems to work.
+* NEXT Change to new init.el increased load time to ~ 4 secs. Test to see if lisp and python work.
+** ( commented out pylsp when adding ruff. may need to pus pyslp back in.)
 ** lazy-ruff seems to be meh. ruff check . <filename> works as does ruff format.
-** indent-bars package shows stipples, but in black on background so not useable.
+*** indent-bars package shows stipples, but in black on background so not useable.
 *** highlight-indentation-mode does work but not with themes I like (bars show black on dark background.
 Probably not worth worrying about since I'd probably have to edit something in an .el file.
 Although it might be in some setting. Not super concerned as indentation taken care of by ruff format anyway.
-** ( commented out pylsp when adding ruff. may need to pus pyslp back in.)
-* Change to new init.el increased load time to ~ 4 secs. Test to see if lisp and python work.
-** Note last good itnit from new _either_ ~/.emacs.d/Good.init.el or freezeNEW17OCT.init.el (in project folder).
-** try tangling init.el.org then diff against init.el from ~/.emacs.d/ then delete init.el in projects.
-** init.el from New crashed hard on Plucky with multiple missing parens issues.
-** did a reconcile init.el on new against init.el.org/newtest.el in project.
-** Compare current init.el with ~/project/init.el.org and update the org file then tangle and compare.
-* Can't click items in Dashboard on New with normal init.el but...
-** using ~/project/Prot/init.el things are clickable.
-** Only Dashboard is affected. Can click items in recent files list for instance.
-** path in zshrc same on Big and New. init.el on both machines are the same.
+** Not Tree-sitter auto is on New. Older Tree-sitter configuration from Tree-Sitter Docs on Big.
+*** Note last good itnit from new _either_ ~/.emacs.d/Good.init.el or freezeNEW17OCT.init.el (in project folder).
+*** try tangling init.el.org then diff against init.el from ~/.emacs.d/ then delete init.el in projects.
+*** init.el from New crashed hard on Plucky with multiple missing parens issues.
+*** did a reconcile init.el on new against init.el.org/newtest.el in project.
+*** Compare current init.el with ~/project/init.el.org and update the org file then tangle and compare.
+** Have to manually enable python-ts-mode then syntax highlighting works but not marginalia.
+** Python working on New with Tree-sitter-auto, pylsp and ruff.
+** Test UV with a new project.:
+mkdir <project name>
+cd <project dir>
+uv init
+
