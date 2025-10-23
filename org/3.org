@@ -39,6 +39,14 @@ CLOSED: [2025-10-03 Fri 10:04]
 
 ** COMPLETED Fooled around with c programs to test clang. Everything working for compile. No linting.
 CLOSED: [2025-10-03 Fri 14:05]
+** Compare current init.el with ~/project/init.el.org and update the org file then tangle and compare.
+***  Both New and Big do syntx highlighting, completiong and marginalia.
+** _!!!_ Have to manually enable python-ts-mode then syntax highlighting works.
+** Test UV with a new project.:
+mkdir <project name>
+cd <project dir>
+uv init
+
 * COMPLETED Freeze init.el and work on other things. freezeNew20OCT.init.el is latest good b/u.
 CLOSED: [2025-10-03 Fri 14:40]* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
 ** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
@@ -66,6 +74,22 @@ Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note:
 ** (jsonrpc-error-code . -32603), (jsonrpc-error-message . "No current JSON-RPC connection")
 CLOSED: [2025-10-22 Wed 14:10]
 ** caused by bad eglot shutdown. How to exit gracefully? <-- by re-enabling pylsp.
+* COMPLETED Change to new init.el increased load time to ~ 4 secs. Test to see if lisp and python work.
+CLOSED: [2025-10-23 Thu 08:21]
+** Python working on New with Tree-sitter-auto, pylsp and ruff.
+*** ( commented out pylsp when adding ruff, then needed to put pyslp back in.)
+*** lazy-ruff seems to be meh. ruff check . <filename> works as does ruff format.
+*** indent-bars package shows stipples, but in black on background so not useable.
+*** highlight-indentation-mode does work but not with themes I like (bars show black on dark background.
+Probably not worth worrying about since I'd probably have to edit something in an .el file.
+Although it might be in some setting. Not super concerned as indentation taken care of by ruff format anyway.
+** +Tree-sitter auto+ is on New. Older Tree-sitter configuration from Tree-Sitter Docs on Big.
+*** Note last good itnit from new _either_ ~/.emacs.d/Good.init.el or freezeNEW17OCT.init.el (in project folder).
+*** try tangling init.el.org then diff against init.el from ~/.emacs.d/ then delete init.el in projects.
+*** init.el from New crashed hard on Plucky with multiple missing parens issues.
+*** did a reconcile init.el on new against init.el.org/newtest.el in project.
+* COMPLETED added (setq-default create-lockfiles nil)
+CLOSED: [2025-10-23 Thu 12:46]
 * WAITING Can't click items in Dashboard on New with normal init.el
 ** using ~/project/Prot/init.el things are clickable.
 ** Only Dashboard is affected. Can click items in recent files list for instance.
@@ -99,25 +123,4 @@ CLOSED: [2025-08-05 Tue 07:33]
 CLOSED: [2025-08-20 Wed 11:33]
 *** circle.lisp working after changes. hello.lisp working. array.lisp working but with errors.
 +deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
-<<<<<<< HEAD
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
-* NEXT Change to new init.el increased load time to ~ 4 secs. Test to see if lisp and python work.
-** ( commented out pylsp when adding ruff. may need to pus pyslp back in.)
-** lazy-ruff seems to be meh. ruff check . <filename> works as does ruff format.
-*** indent-bars package shows stipples, but in black on background so not useable.
-*** highlight-indentation-mode does work but not with themes I like (bars show black on dark background.
-Probably not worth worrying about since I'd probably have to edit something in an .el file.
-Although it might be in some setting. Not super concerned as indentation taken care of by ruff format anyway.
-** Not Tree-sitter auto is on New. Older Tree-sitter configuration from Tree-Sitter Docs on Big.
-*** Note last good itnit from new _either_ ~/.emacs.d/Good.init.el or freezeNEW17OCT.init.el (in project folder).
-*** try tangling init.el.org then diff against init.el from ~/.emacs.d/ then delete init.el in projects.
-*** init.el from New crashed hard on Plucky with multiple missing parens issues.
-*** did a reconcile init.el on new against init.el.org/newtest.el in project.
-*** Compare current init.el with ~/project/init.el.org and update the org file then tangle and compare.
-** Have to manually enable python-ts-mode then syntax highlighting works but not marginalia.
-** Python working on New with Tree-sitter-auto, pylsp and ruff.
-** Test UV with a new project.:
-mkdir <project name>
-cd <project dir>
-uv init
-
