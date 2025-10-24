@@ -87,7 +87,7 @@
   (setq auto-revert-use-notify t) 
   (setq use-short-answers t)
   (setq ediff-split-window-function 'split-window-horizontally)
-  ;; (require 'dired-x)
+  (setq-default create-lockfiles nil)
   (setq file-name-shadow-properties '(invisible t))
   (file-name-shadow-mode)
 
