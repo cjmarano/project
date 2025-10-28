@@ -23,6 +23,15 @@ eq are the same object
 eql are parameters same object or number
 equal are equivalent values
 
+truncate, round (rounds down), ceiling (up to next integer.)
+
+Predicates return T or nil;
+
+integerp
+floatp
+numberp
+zerop
+
 , in slime to bring up command buffer then quit or sayonara
 
 when if sexexp is t then eval form

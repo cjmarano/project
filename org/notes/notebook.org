@@ -293,3 +293,28 @@ M-x outline-minor-mode
 M-x outline-demote
 M-x outline-promote
 M-x consult-outline  <-- jump to top level entries - those with ;;;
+* isearch
+C-s C-r are forward, back.
+M-e edit search.
+<RET> stop@found item.
+M-b stop@previous word.
+M-m beginning of line.
+M-e e.o.l.
+
+C-s, C-s search again.
+C-r, C-r    "           "   reverse.
+M-M s Regexp search.
+C-M-r  Regexp search, reverse.
+
+C-M-s repeat last regexp search.
+C-M-r       "               "           "   reverse.
+
+M-x occur regexp standalone buffer.
+
+M-s o send isearch to occur.
+
+M-% query and replace
+-y to replace one by one.
+-! to replace all.
+M-n or M-p to cycle replace.
+M-s h hilite can change color and can canel.

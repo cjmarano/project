@@ -124,3 +124,28 @@ CLOSED: [2025-08-20 Wed 11:33]
 *** circle.lisp working after changes. hello.lisp working. array.lisp working but with errors.
 +deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
+* Tree Sitter -
++Is this on New;+
+(use-package treesit-auto
+  :ensure t
+  :config
+  (treesit-auto-install t)
+  (global-treesit-auto-mode)
+  )
+
++Is this on Big'+
+;; Old tree-sitter config below, replaced 15OCT2025.
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
+(global-tree-sitter-mode)
+;; or just for rust-mode
+;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+;; Load the language definition for Rust, if it hasn't been loaded.
+;; Return the language object.
+(tree-sitter-require 'rust)
+(tree-sitter-require 'python)
+(global-tree-sitter-mode)  +<-- v.s (global-tree-sitter-auto-mode)+
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode) +<-- new.+
+
+** Tree-sitter apears to work on Big and New with different setting in init.el
+* Fixing privileges on Big.
