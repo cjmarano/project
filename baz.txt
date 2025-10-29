@@ -1,6 +1,0 @@
-This is a test file.
-
-This file has multiple lines.
-
-use ec foo.txt to confirm emacs server is running.
-
