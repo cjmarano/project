@@ -52,7 +52,6 @@
 
 (setq history-length 10)
 (setq savehist-mode t)
-(setq org-indent-mode t)
 (setq-default cursor-type 'hbar)
 (setq set-cursor-color "Cyan")
 (setq ring-bell-function 'ignore)
@@ -75,6 +74,11 @@
 (setq-default create-lockfiles nil)
 (delete-selection-mode 1)
 
+(keymap-global-set "M-p" 'previous-buffer)
+(keymap-global-set "M-n" 'next-buffer)
+(keymap-global-set "M-o" 'other-window)
+(keymap-global-set "M-g" 'recentf)
+
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
@@ -90,8 +94,6 @@
 (when (display-graphic-p)
   (context-menu-mode))
 
-;; (file-name-shadow-mode 1)
-;; (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
@@ -105,14 +107,10 @@
 :ensure t
 :init
 (progn
-(setq dashboard-items '((recents   . 10)
-                      (bookmarks . 5)
-                      (projects  . 5)
-                      (agenda    . 5)))
-(setq dashboard-item-shortcuts '((recents   . "r")
-                                 (bookmarks . "m")
-                                 (projects  . "p")
-                                 (agenda    . "a")))
+(setq dashboard-items '((recents . 10)
+                        (bookmarks .5)
+                        (projects . 5)
+                        ))
 
 (setq dashboard-show-shortcuts nil)
 (setq dashboard-center-contents nil)
@@ -170,6 +168,12 @@
 
 (use-package nerd-icons-completion
   :config)
+
+(use-package show-font
+  :ensure t
+  :bind
+  (("C-c s f" . show-font-select-preview)
+   ("C-c s t" . show-font-tabulated)))
 
 (use-package orderless
   :ensure t
@@ -299,6 +303,7 @@
                   (org-level-6 . 1.1)
                   (org-level-7 . 1.1)
                   (org-level-8 . 1.1))))
+(set-face-attribute (car face) nil :font "Noto Serif" :weight 'regular :height (cdr face)))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
@@ -323,10 +328,8 @@
                  ))
 
 (defun efs/org-mode-setup ()
-;;    (org-indent-mode)
 (variable-pitch-mode 1)
 (visual-line-mode 1))
-;; ---------------------------------------------------------
 
 (setq org-agenda-files
       '("~/project/org/journal/journal.org"
@@ -350,14 +353,6 @@
         ("@code" . ?c)
         ("@init" . ?i)))
 
-(setq org-tag-alist                   
-        '((:startgroup)
-                                        ; Put mutually exclusive tags here
-          (:endgroup)
-          ("@note" . ?t)
-          ("@code" . ?c)
-          ("@init" . ?i)))
-
 (setq org-capture-templates
         `(("t" "Tasks / Projects")
           ("tt" "Task" entry (file+olp "~/project/org/tasks/tasks.org" "Inbox")
@@ -368,12 +363,11 @@
            (file+olp+datetree "~/project/org/journal/Journal.org")
            "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
            ;; ,(dw/read-file-as-string "~/org/notes.org")
-          
            )
           ))
 
 (keymap-set global-map "C-c j" 
-              (lambda () (interactive) (org-capture nil "jj"))))
+              (lambda () (interactive) (org-capture nil "jj")))
 
 (use-package org-bullets
   :after org
@@ -390,7 +384,7 @@
   (org-roam-completion-everywhere t)
 
   :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
+;;         ("C-c n f" . org-roam-node-find)
          ("C-c n i" . org-roam-node-insert)
          :map org-mode-map
          ("C-M-i" . completion-at-point)
@@ -409,22 +403,30 @@
 (keymap-set global-map "C-c c" 'org-capture)
 (setq org-log-done 'time)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t)
-   (emacs-lisp . t)
-   (ruby . t)
-   (eshell . t)
-   (lisp . t)
-   (rust . t)))
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . t)
+      (python . t)
+   ;; (ruby . t)
+   ;; (eshell . t)
+   ;; (lisp . t)
+   ;; (rust . t)
+      ))
 
-(require 'org-tempo)
+  (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
-;; (add-to-list 'org-structure-template-alist '("l" . "src emacs-lisp"))
-;; (add-to-list 'org-structure-template-alist '("L" . "src lisp"))
-;; (add-to-list 'org-structure-template-alist '("p" . "src python"))
+;; (require 'org-tempo)
+
+(with-eval-after-load 'org
+  (require 'org-tempo)
+
+;;  (add-to-list 'org-structure-template-alist '("l" . "src lisp"))
+;;  (add-to-list 'org-structure-template-alist '("e" . "src emacs-lisp"))
+;;  (add-to-list 'org-structure-template-alist '("p" . "src python"))
+  )
 ;; (add-to-list 'org-structure-template-alist '("r" . "src ruby"))
-;; (add-to-list 'org-structure-template-alist '("s" . "src shell"))
+;; (add-to-list 'org-structure-template-alist '("s" . "src shell")
 
 (let ((org-confirm-babel-evaluate nil)))
 
@@ -438,11 +440,20 @@
   :hook (python-mode . eglot-ensure)
   :hook (rust-mode . eglot-ensure))
 
-    (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
-    (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
-    (with-eval-after-load 'eglot
+(require 'flymake-ruff)
+  (add-hook 'python-mode-hook #'flymake-ruff-load)
+
+  (require 'ruff-format)
+  (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
+
+(with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs '((python-mode python-ts-mode \"ruff\")))
+(add-hook 'after-save-hook 'eglot-format))   
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
+(with-eval-after-load 'eglot
+(add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
+(with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))  
 
 (setq python-indent-guess-indent-offset t)  
@@ -450,6 +461,20 @@
 
 (setq python-python-command "$HOME/.pyenv/shims/python3")
 (setq python-shell-completion-native-enable nil)
+
+;; ruff --------------------------------------------
+(use-package lazy-ruff
+  :ensure t
+  :bind (("C-c f" . lazy-ruff-lint-format-dwim)) ;; keybinding
+  :config
+  (lazy-ruff-mode-global-toggle t)) ;; Enable the lazy-ruff minor mode globally
+
+(require 'flymake-ruff)
+(add-hook 'python-mode-hook #'flymake-ruff-load)
+
+(require 'ruff-format)
+(add-hook 'python-mode-hook 'ruff-format-on-save-mode)
+;; End ruff testing ----------------------------------------
 
 (use-package rustic
   :ensure nil
@@ -464,11 +489,9 @@
               ("C-c C-c Q" . lsp-workspace-shutdown)
               ("C-c C-c s" . lsp-rust-analyzer-status)
               ("C-c C-c e" . lsp-rust-analyzer-expand-macro)
-              ;;              ("C-c C-c d" . dap-hydra)
               ("C-c C-c h" . lsp-ui-doc-glance))
-
-  :config
-;; comment to disable rustfmt on save
+   :config
+   ;; comment to disable rustfmt on save
 (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
 (defun rk/rustic-mode-hook ()
@@ -479,8 +502,6 @@
 (when buffer-file-name
   (setq-local buffer-save-without-query t))
 (add-hook 'before-save-hook 'lsp-format-buffer nil t))
-
-;; (use-package rust-playground :ensure)
 
 (use-package toml-mode
   :ensure nil
@@ -522,17 +543,23 @@
 (lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
-(require 'tree-sitter)
-(require 'tree-sitter-langs)
-(global-tree-sitter-mode)
+(use-package treesit-auto
+  :ensure t
+  :config
+  (treesit-auto-install t)
+  (global-treesit-auto-mode)
+  )
+
+;; Old tree-sitter config below, replaced 15OCT2025.
+;; (require 'tree-sitter)
+;; (require 'tree-sitter-langs)
+;; (global-tree-sitter-mode)
 ;; or just for rust-mode
 ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
 ;; Load the language definition for Rust, if it hasn't been loaded.
 ;; Return the language object.
-(tree-sitter-require 'rust)
-(tree-sitter-require 'python)
-(global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;; (tree-sitter-require 'rust)
+;; (tree-sitter-require 'python)
 
 (add-hook 'after-init-hook 'global-company-mode)
 (use-package company
@@ -552,6 +579,7 @@
 
 ;; -----------Current Lisp Section ---------------------------------
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20250918.2258/")
 (require 'slime-autoloads)
 (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
 
@@ -625,15 +653,9 @@
  '(company-box-icons-alist 'company-box-icons-images)
  '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
  '(custom-safe-themes
-   '("088cd6f894494ac3d4ff67b794467c2aa1e3713453805b93a8bcb2d72a0d1b53"
-     "fffef514346b2a43900e1c7ea2bc7d84cbdd4aa66c1b51946aade4b8d343b55a"
-     "0adcffc4894e2dd21283672da7c3d1025b5586bcef770fdc3e2616bdb2a771cd"
-     "a9028cd93db14a5d6cdadba789563cb90a97899c4da7df6f51d58bb390e54031"
-     "7771c8496c10162220af0ca7b7e61459cb42d18c35ce272a63461c0fc1336015"
-     "e8bd9bbf6506afca133125b0be48b1f033b1c8647c628652ab7a2fe065c10ef0"
-     "c5975101a4597094704ee78f89fb9ad872f965a84fb52d3e01b9102168e8dc40"
-     "7235b77f371f46cbfae9271dce65f5017b61ec1c8687a90ff30c6db281bfd6b7"
-     "b4b5da90759ab14719f1e1d8d0138ff72d2901e8a63748b172944627513cfffb"
+   '("3187b36b1ed26ac57a79861baca06de24c0232dcb3e35c46931e45dd3c031dce"
+     "6352b7fab474438433ed2b1d82eff40379aca9cfa4495bf1d098a91706af485c"
+     "6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1"
      "ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
      "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
      "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
@@ -655,23 +677,18 @@
    '((todo . :background) (tag . :foreground) (priority . :foreground)))
  '(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
  '(org-startup-folded 'fold)
- '(org-tempo-keywords-alist nil)
  '(package-selected-packages
-   '(0blayout 0xc 2048-game all-the-icons all-the-icons-nerd-fonts
-              auto-compile bind-key cargo cargo-mode
-              color-theme-sanityinc-tomorrow company-box consult
-              consult-denote dashboard denote diffview dired-single
-              dired-subtree doom-modeline eglot elpy
-              exec-path-from-shell external-completion flycheck
-              flycheck-pyflakes flycheck-rust helpful jsonrpc kkp
-              lsp-ui lua-mode magit marginalia material-theme
-              nerd-icons-completion nerd-icons-dired no-littering
-              ob-rust orderless org-bullets org-roam paredit
-              projectile rainbow-delimiters rustic seq show-font slime
-              smartparens toml-mode track-changes tree-sitter-langs
-              treemacs treesit-auto use-package vertico vterm
-              which-key))
- '(savehist-additional-variables '(kill-ring register-alist\ ) t)
+   '(0xc @ all-the-icons all-the-icons-nerd-fonts auto-compile bind-key
+         cargo cargo-mode color-theme-sanityinc-tomorrow company-box
+         consult consult-denote dashboard denote diffview dired-single
+         doom-modeline eglot exec-path-from-shell external-completion
+         flycheck flycheck-pyflakes flycheck-rust helpful jsonrpc kkp
+         lazy-ruff lsp-treemacs lsp-ui lua-mode magit marginalia
+         material-theme nerd-icons-completion nerd-icons-dired
+         no-littering ob-rust orderless org-bullets org-roam paredit
+         projectile rainbow-delimiters rustic seq show-font slime
+         smartparens toml-mode track-changes treesit-auto use-package
+         vertico vterm which-key))
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))
 

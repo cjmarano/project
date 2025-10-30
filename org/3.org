@@ -1,5 +1,5 @@
 * October.
-* _Start times around < 4 seconds, 7 for Big._  
+* _Start times around ~ 4 seconds, 7 for Big._  
 * Misc.
 ** COMPLETED Elpy is not being maintained. Removed - start time < 5 seconds.
 CLOSED: [2025-09-29 Mon 13:03]
@@ -92,6 +92,11 @@ Although it might be in some setting. Not super concerned as indentation taken c
 CLOSED: [2025-10-23 Thu 12:46]
 * COMPLETED Fixed privileges.app on Big by changing my password.
 CLOSED: [2025-10-28 Tue 13:41]
+* COMPLETED Updated python to 3.14 on Big and New.
+CLOSED: [2025-10-30 Thu 09:28]
+** pyenv install 3.14 then pyenv global 3.14 
+* COMPLETED 30OCT. Homogulated init.el on Big and new.
+CLOSED: [2025-10-30 Thu 09:29]
 * DONE Tree Sitter -
 CLOSED: [2025-10-28 Tue 09:39]
 +Is this on New;+
@@ -153,5 +158,3 @@ CLOSED: [2025-08-20 Wed 11:33]
 *** circle.lisp working after changes. hello.lisp working. array.lisp working but with errors.
 +deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
-* Updated python to 3.14 on Big and New.
-** pyenv install 3.14 then pyenv global 3.14 
