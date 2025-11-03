@@ -160,5 +160,6 @@ CLOSED: [2025-08-20 Wed 11:33]
 +deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
 ** Had to re-add quicklisp, quicklisp-slime-helper on Big.
-*  Weird - init.el on New lost a bunch of lines including Selected-packages. Copied b/u
+* Removed projectile from init.el on New and Big. Copied both init.el files to project.
+**  Weird - init.el on New lost a bunch of lines including Selected-packages. Copied b/u
 init.el from ~/project/ to restore.
