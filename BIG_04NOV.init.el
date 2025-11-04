@@ -52,7 +52,6 @@
 
 (setq history-length 10)
 (setq savehist-mode t)
-(setq org-indent-mode t)
 (setq-default cursor-type 'hbar)
 (setq set-cursor-color "Cyan")
 (setq ring-bell-function 'ignore)
@@ -75,6 +74,11 @@
 (setq-default create-lockfiles nil)
 (delete-selection-mode 1)
 
+(keymap-global-set "M-p" 'previous-buffer)
+(keymap-global-set "M-n" 'next-buffer)
+(keymap-global-set "M-o" 'other-window)
+(keymap-global-set "M-g" 'recentf)
+
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
@@ -90,8 +94,6 @@
 (when (display-graphic-p)
   (context-menu-mode))
 
-;; (file-name-shadow-mode 1)
-;; (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
@@ -105,15 +107,10 @@
 :ensure t
 :init
 (progn
-(setq dashboard-items '((recents   . 10)
-                      (bookmarks . 5)
-                      (projects  . 5)
-                      (agenda    . 5)))
-(setq dashboard-item-shortcuts '((recents   . "r")
-                                 (bookmarks . "m")
-                                 (projects  . "p")
-                                 (agenda    . "a")
-                                 ))
+(setq dashboard-items '((recents . 10)
+                        (bookmarks .5)
+                        (projects . 5)
+                        ))
 
 (setq dashboard-show-shortcuts nil)
 (setq dashboard-center-contents nil)
@@ -171,6 +168,12 @@
 
 (use-package nerd-icons-completion
   :config)
+
+(use-package show-font
+  :ensure t
+  :bind
+  (("C-c s f" . show-font-select-preview)
+   ("C-c s t" . show-font-tabulated)))
 
 (use-package orderless
   :ensure t
@@ -300,6 +303,7 @@
                   (org-level-6 . 1.1)
                   (org-level-7 . 1.1)
                   (org-level-8 . 1.1))))
+  (set-face-attribute (car face) nil :font "Noto Serif" :weight 'regular :height (cdr face)))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
@@ -324,10 +328,8 @@
                  ))
 
 (defun efs/org-mode-setup ()
-;;    (org-indent-mode)
 (variable-pitch-mode 1)
 (visual-line-mode 1))
-;; ---------------------------------------------------------
 
 (setq org-agenda-files
       '("~/project/org/journal/journal.org"
@@ -351,14 +353,6 @@
         ("@code" . ?c)
         ("@init" . ?i)))
 
-(setq org-tag-alist                   
-        '((:startgroup)
-                                        ; Put mutually exclusive tags here
-          (:endgroup)
-          ("@note" . ?t)
-          ("@code" . ?c)
-          ("@init" . ?i)))
-
 (setq org-capture-templates
         `(("t" "Tasks / Projects")
           ("tt" "Task" entry (file+olp "~/project/org/tasks/tasks.org" "Inbox")
@@ -369,12 +363,11 @@
            (file+olp+datetree "~/project/org/journal/Journal.org")
            "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
            ;; ,(dw/read-file-as-string "~/org/notes.org")
-          
            )
           ))
 
 (keymap-set global-map "C-c j" 
-              (lambda () (interactive) (org-capture nil "jj"))))
+              (lambda () (interactive) (org-capture nil "jj")))
 
 (use-package org-bullets
   :after org
@@ -391,7 +384,7 @@
   (org-roam-completion-everywhere t)
 
   :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
+;;         ("C-c n f" . org-roam-node-find)
          ("C-c n i" . org-roam-node-insert)
          :map org-mode-map
          ("C-M-i" . completion-at-point)
@@ -410,16 +403,18 @@
 (keymap-set global-map "C-c c" 'org-capture)
 (setq org-log-done 'time)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t)
-   (emacs-lisp . t)
-   (ruby . t)
-   (eshell . t)
-   (lisp . t)
-   (rust . t)))
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . t)
+      (python . t)
+   ;; (ruby . t)
+   ;; (eshell . t)
+   ;; (lisp . t)
+   ;; (rust . t)
+      ))
 
-(require 'org-tempo)
+  (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
 ;; (add-to-list 'org-structure-template-alist '("l" . "src emacs-lisp"))
 ;; (add-to-list 'org-structure-template-alist '("L" . "src lisp"))
@@ -439,11 +434,20 @@
   :hook (python-mode . eglot-ensure)
   :hook (rust-mode . eglot-ensure))
 
-    (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
-    (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
-    (with-eval-after-load 'eglot
+(require 'flymake-ruff)
+  (add-hook 'python-mode-hook #'flymake-ruff-load)
+
+  (require 'ruff-format)
+  (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
+
+(with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs '((python-mode python-ts-mode \"ruff\")))
+(add-hook 'after-save-hook 'eglot-format))   
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
+(with-eval-after-load 'eglot
+(add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
+(with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))  
 
 (setq python-indent-guess-indent-offset t)  
@@ -465,11 +469,9 @@
               ("C-c C-c Q" . lsp-workspace-shutdown)
               ("C-c C-c s" . lsp-rust-analyzer-status)
               ("C-c C-c e" . lsp-rust-analyzer-expand-macro)
-              ;;              ("C-c C-c d" . dap-hydra)
               ("C-c C-c h" . lsp-ui-doc-glance))
-
-  :config
-;; comment to disable rustfmt on save
+   :config
+   ;; comment to disable rustfmt on save
 (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
 (defun rk/rustic-mode-hook ()
@@ -480,8 +482,6 @@
 (when buffer-file-name
   (setq-local buffer-save-without-query t))
 (add-hook 'before-save-hook 'lsp-format-buffer nil t))
-
-;; (use-package rust-playground :ensure)
 
 (use-package toml-mode
   :ensure nil
@@ -523,9 +523,17 @@
 (lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
-(require 'tree-sitter)
-(require 'tree-sitter-langs)
-(global-tree-sitter-mode)
+(use-package treesit-auto
+  :ensure t
+  :config
+  (treesit-auto-install t)
+  (global-treesit-auto-mode)
+  )
+
+;; Old tree-sitter config below, replaced 15OCT2025.
+;; (require 'tree-sitter)
+;; (require 'tree-sitter-langs)
+;; (global-tree-sitter-mode)
 ;; or just for rust-mode
 ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
 ;; Load the language definition for Rust, if it hasn't been loaded.
