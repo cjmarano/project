@@ -110,7 +110,9 @@ CLOSED: [2025-10-28 Tue 09:39]
 ** Tree-sitter apears to work on Big and New with different setting in init.el
 ** DONE Deleted package: Trashed.
 CLOSED: [2025-10-28 Tue 09:39]
-* COMPLETED Freeze init.el and work on other things. freezeNew29OCT.init.el is latest good b/u.
+** COMPLETED Copied theme.toml from Big to New. Prefer colors
+CLOSED: [2025-11-03 Mon 10:37]
+* COMPLETED Freeze init.el and work on other things. freezeNew31OCT.init.el is latest good b/u.
 CLOSED: [2025-10-03 Fri 14:40]* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
 ** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
 both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
@@ -124,6 +126,11 @@ on new same command opens /Applications//emacs.app n idea why.
 CLOSED: [2025-10-23 Thu 12:46]
 * COMPLETED 30OCT. Homogulated init.el on Big and new.
 CLOSED: [2025-10-30 Thu 09:29]
+* COMPLETED Removed projectile from init.el on New and Big and init.el.org
+CLOSED: [2025-11-03 Mon 10:38]
+** Copied both init.el files to project.
+**  Weird - init.el on New lost a bunch of lines including Selected-packages. Copied b/u
+init.el from ~/project/ to restore.
 * WAITING Can't click items in Dashboard on New with normal init.el
 ** using ~/project/Prot/init.el things are clickable.
 ** Only Dashboard is affected. Can click items in recent files list for instance.
@@ -160,8 +167,3 @@ CLOSED: [2025-08-20 Wed 11:33]
 +deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
 fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
 ** Had to re-add quicklisp, quicklisp-slime-helper on Big.
-* Removed projectile from init.el on New and Big and init.el.org
-** Copied both init.el files to project.
-**  Weird - init.el on New lost a bunch of lines including Selected-packages. Copied b/u
-init.el from ~/project/ to restore.
-** 
