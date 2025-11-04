@@ -127,14 +127,20 @@ CLOSED: [2025-10-23 Thu 12:46]
 * COMPLETED 30OCT. Homogulated init.el on Big and new.
 CLOSED: [2025-10-30 Thu 09:29]
 * COMPLETED Removed projectile from init.el on New and Big and init.el.org
-CLOSED: [2025-11-03 Mon 10:38]
+CLOSED: [2025-11-04 Tue 11:59]
 ** Copied both init.el files to project.
 **  Weird - init.el on New lost a bunch of lines including Selected-packages. Copied b/u
 init.el from ~/project/ to restore.
-* WAITING Can't click items in Dashboard on New with normal init.el
+`* COMPLETED Can't click items in Dashboard on New with normal init.el
+CLOSED: [2025-11-04 Tue 10:17]
 ** using ~/project/Prot/init.el things are clickable.
 ** Only Dashboard is affected. Can click items in recent files list for instance.
 ** path in zshrc same on Big and New. init.el on both machines are the same.
+** Replacing init.el on New w/ an init.el from Big solved the can't click in dashboard issue.
+...so obviously something corrupted in New's init.el. That's why backup copies in Mystuff/Shell/Old inits important.
+** homogulating init.el on Big w/ changes on init.el from New broke Dashboard again.
+had to revert init.el on Big to earlier version. So... something foul w/ init.el on New.
+** dashboard on New now working with earlier init.el
 *  lisp programming.
 *** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
