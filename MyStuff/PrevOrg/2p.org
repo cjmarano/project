@@ -1,0 +1,202 @@
+* October.
+* _Start times around ~ 4 seconds, 7 for Big._  
+* Misc.
+** COMPLETED Elpy is not being maintained. Removed - start time < 5 seconds.
+CLOSED: [2025-09-29 Mon 13:03]
+** slime-auotloads had to be commented out after removing;
+** re-adding quicklisp-slime-helper-master did NOT restore slimeautoloads.
+so changed init.el:
+
+(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20250918.2258/")
+(require 'slime-autoloads)
+(eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
+
+;;     (slime-setup)
+
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+
+-----------------------------------------------------------------------------------
+
+Here's a list of packages removed:
+
+ ace-window-20220911.358
+ avy-20241101.1357
+ cfrs-20250729.1422
+ compat-30.1.0.1
+ cond-let-20250903.1646
+ dired-hacks-utils-20240629.1906
+ elpy-20250404.2349
+ hydra-20250316.1254
+ macrostep-20250202.2205
+ markdown_example.md
+ pfuture-20220913.1401
+ posframe-20250211.110
+ trashed-20230811.157
+ yasnippet-20250602.1342
+** COMPLETED try UV for Python? -- installed on New. -- it works.
+CLOSED: [2025-10-03 Fri 10:04]
+
+** COMPLETED Fooled around with c programs to test clang. Everything working for compile. No linting.
+CLOSED: [2025-10-03 Fri 14:05]
+** Compare current init.el with ~/project/init.el.org and update the org file then tangle and compare.
+***  Both New and Big do syntx highlighting, completiong and marginalia.
+** _!!!_ Have to manually enable python-ts-mode then syntax highlighting works.
+** Test UV with a new project.:
+mkdir <project name>
+cd <project dir>
+uv init
+
+** COMPLETED Updated python to 3.14 on Big and New.
+CLOSED: [2025-10-30 Thu 09:28]
+** pyenv install 3.14 then pyenv global 3.14 
+** COMPLETED Look at integrating ruff with emacs. Three packages in Packages.
+CLOSED: [2025-10-22 Wed 13:43]
+*** ruff installed via uv/pip. config added to init.el on New.
+Homgulated init.el on new and ~/project/init.el.org lines 501 to 511. Also note: lines 553 to 555 commented out on init.el new but not on
+~/project/init.el.org .
+*** Test ruff. -- appears to format, does it lint? Need to read docs.
+*** added flymake-ruff, ruff-format and lazy ruff. 
+*** installed pipx via Homebrew, just becuase. 
+*** tired installing ruff items to init.el and blew it up. Had to revert to latest freeze (on New).
+*** 2nd try, installed all three format, flymake, lazy to init.el on new. Seems to work.
+** COMPLETED Deleted treemacs, ace-window, dired-subtree, dired-hack-utils,
+hydra, older modus-themes, evil, goto-chg, trashed, pfuture page-break-lines. 0blayout.
+CLOSED: [2025-10-22 Wed 10:03]
+** COMPLETED jsonrpc-error: jsonrpc-error: "No current JSON-RPC connection"
+** (jsonrpc-error-code . -32603), (jsonrpc-error-message . "No current JSON-RPC connection")
+CLOSED: [2025-10-22 Wed 14:10]
+** caused by bad eglot shutdown. How to exit gracefully? <-- by re-enabling pylsp.
+** COMPLETED Change to new init.el increased load time to ~ 4 secs. Test to see if lisp and python work.
+CLOSED: [2025-10-23 Thu 08:21]
+** Python working on New with Tree-sitter-auto, pylsp and ruff.
+*** ( commented out pylsp when adding ruff, then needed to put pyslp back in.)
+*** lazy-ruff seems to be meh. ruff check . <filename> works as does ruff format.
+*** indent-bars package shows stipples, but in black on background so not useable.
+*** highlight-indentation-mode does work but not with themes I like (bars show black on dark background.
+Probably not worth worrying about since I'd probably have to edit something in an .el file.
+Although it might be in some setting. Not super concerned as indentation taken care of by ruff format anyway.
+** +Tree-sitter auto+ is on New. Older Tree-sitter configuration from Tree-Sitter Docs on Big.
+*** Note last good itnit from new _either_ ~/.emacs.d/Good.init.el or freezeNEW17OCT.init.el (in project folder).
+*** try tangling init.el.org then diff against init.el from ~/.emacs.d/ then delete init.el in projects.
+*** init.el from New crashed hard on Plucky with multiple missing parens issues.
+*** did a reconcile init.el on new against init.el.org/newtest.el in project.
+** COMPLETED Fixed privileges.app on Big by changing my password.
+CLOSED: [2025-10-28 Tue 13:41]
+** DONE Tree Sitter -
+CLOSED: [2025-10-28 Tue 09:39]
++Is this on New;+
+(use-package treesit-auto
+  :ensure t
+  :config
+  (treesit-auto-install t)
+  (global-treesit-auto-mode)
+  )
+
++Is this on Big'+
+;; Old tree-sitter config below, replaced 15OCT2025.
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
+(global-tree-sitter-mode)
+;; or just for rust-mode
+;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+;; Load the language definition for Rust, if it hasn't been loaded.
+;; Return the language object.
+(tree-sitter-require 'rust)
+(tree-sitter-require 'python)
+(global-tree-sitter-mode)  +<-- v.s (global-tree-sitter-auto-mode)+
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode) +<-- new.+
+
+** Tree-sitter apears to work on Big and New with different setting in init.el
+** DONE Deleted package: Trashed.
+CLOSED: [2025-10-28 Tue 09:39]
+** COMPLETED Copied theme.toml from Big to New. Prefer colors
+CLOSED: [2025-11-03 Mon 10:37]
+* COMPLETED Freeze init.el and work on other things. freezeNew31OCT.init.el is latest good b/u.
+CLOSED: [2025-10-03 Fri 14:40]* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
+** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
+both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
+This indcates that something is different.ech
+** emacsclient -c does open a new GUI frame.
+*** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
+Still not sure why Big opens emacs in terminal while New opens with GUI.
+** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
+on new same command opens /Applications//emacs.app n idea why.
+* COMPLETED added (setq-default create-lockfiles nil)
+CLOSED: [2025-10-23 Thu 12:46]
+* COMPLETED Removed projectile from init.el on New and Big and init.el.org
+CLOSED: [2025-11-04 Tue 11:59]
+** Copied both init.el files to project.
+**  Weird - init.el on New lost a bunch of lines including Selected-packages. Copied b/u
+init.el from ~/project/ to restore.
+`* COMPLETED Can't click items in Dashboard on New with normal init.el
+CLOSED: [2025-11-04 Tue 10:17]
+** using ~/project/Prot/init.el things are clickable.
+** Only Dashboard is affected. Can click items in recent files list for instance.
+** path in zshrc same on Big and New. init.el on both machines are the same.
+** Replacing init.el on New w/ an init.el from Big solved the can't click in dashboard issue.
+...so obviously something corrupted in New's init.el. That's why backup copies in Mystuff/Shell/Old inits important.
+** homogulating init.el on Big w/ changes on init.el from New broke Dashboard again.
+had to revert init.el on Big to earlier version. So... something foul w/ init.el on New.
+** dashboard on New now working with earlier init.el
+* NEXT 30OCT - 04NOV. Homogulated init.el on Big and new Broke/fixed Dashboard on New.
+** Broke Dashboard, couldnt click any items. After a lot of replacing init.el w/ Big init.el finally went back
+to previous init.el and that fixed click issue. Now init.el on Big and New NOT synched.
+* Need to check init.el.org to see which init.el it matches and if it needs to be modified.
+*  lisp programming.
+*** Looking at https://lisp-lang.org/learn/writing-libraries
+did some of the examples.. writing files was interesting and useful.
+This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
+*** lisp is a mess. Tools are installed but need more time getting used to them.
+** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
+
+$ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
+$ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
+       --eval '(quicklisp-quickstart:install :path "~/.quicklisp")' \
+       --eval '(ql:add-to-init-file)' \
+       --quit
+
+       added quickproject
+       (ql:quickload "quicklisp-slime-helper")
+       (ql:quickload :quickproject)
+       (quiclproject:make-project "test-project")
+ 
+*** COMPLETED Practicals asdf examples are overly complicated and annoying.
+CLOSED: [2025-08-05 Tue 07:31]
+Practical Lisp and Lisp in a box are at leat 14 years old.
+*** COMPLETED Did re-install of Quicklisp on New & Big via: https://www.quicklisp.org/beta/#basic-commands
+CLOSED: [2025-08-05 Tue 07:32]
+  added dired-x to init.el on New so I can look at elisp via Info
+*** COMPLETED asdf is included whan Quicklisp is loaded. Check this on Big and New.
+CLOSED: [2025-08-05 Tue 07:33]
+*** COMPLETED Removed older lisp tutorials from 'watch later'.
+CLOSED: [2025-08-20 Wed 11:33]
+*** circle.lisp working after changes. hello.lisp working. array.lisp working but with errors.
++deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
+fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
+** Had to re-add quicklisp, quicklisp-slime-helper on Big.
+* Upgraded pip then installed python-lsp-server:
+Successfully installed black-25.9.0 click-8.3.0 docstring-to-markdown-0.17 importlib-metadata-8.7.0 jedi-0.19.2 mypy-extensions-1.1.0 packaging-25.0 parso-0.8.5 pathspec-0.12.1 platformdirs-4.5.0 pluggy-1.6.0 python-lsp-jsonrpc-1.1.2 python-lsp-server-1.13.1 pytokens-0.3.0 typing_extensions-4.15.0 ujson-5.11.0 zipp-3.23.0
+
+Pyflakes was installed.
+
+Installed python-lsp-ruff
+Installing collected packages: ruff, attrs, cattrs, lsprotocol, python-lsp-ruff
+Successfully installed attrs-25.4.0 cattrs-25.3.0 lsprotocol-2025.0.0 python-lsp-ruff-2.3.0 ruff-0.14.3
+
+** A python file opened iwht syntax highlighting and auto completion but closong that file and opening another
+python file lost syntax and completion. Problem with connecting to lsp-server?
+* Rust stuff
+** Test rust to see what's actually connecting lsp-wise. Linting, formatting?
+*** restarted and tried again and both .py files were linted and completed with pylsp server.
+*** added spaces, not tabs and prettify, also tree-sitter integration on New's init.el:
+
+(add-hook 'rust-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
+
+(add-hook 'rust-mode-hook
+          (lambda () (prettify-symbols-mode)))
+
+ (use-package rust-mode
+  :init
+  (setq rust-mode-treesitter-derive t))
