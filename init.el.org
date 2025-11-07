@@ -63,65 +63,68 @@
 * Basic setup
 
 #+begin_src emacs-lisp
- (add-to-list 'default-frame-alist '(height . 60))
- (add-to-list 'default-frame-alist '(width . 110))
+  (add-to-list 'default-frame-alist '(height . 60))
+  (add-to-list 'default-frame-alist '(width . 110))
 
- (server-start)
+  (server-start)
 
-  (setq history-length 10)
-  (setq savehist-mode t)
-  (setq-default cursor-type 'hbar)
-  (setq set-cursor-color "Cyan")
-  (setq ring-bell-function 'ignore)
-  (setq inhibit-splash-screen t)
-  (setq inhibit-startup-screen t)
-  (global-font-lock-mode 1)
-  (setq-default indent-tabs-mode nil)
-  (setq-default tab-width 4)
-  (transient-mark-mode t)
-  (global-display-line-numbers-mode t)
-  (column-number-mode t)
-  (tool-bar-mode -1)
-  (global-hl-line-mode +1)
-  (setq global-auto-revert-mode 1)
-  (setq auto-revert-use-notify t) 
-  (setq use-short-answers t)
-  (setq ediff-split-window-function 'split-window-horizontally)
-  (setq-default create-lockfiles nil)
-  (setq file-name-shadow-properties '(invisible t))
-  (file-name-shadow-mode)
+   (setq history-length 10)
+   (setq savehist-mode t)
+   (setq-default cursor-type 'hbar)
+   (setq set-cursor-color "Cyan")
+   (setq ring-bell-function 'ignore)
+   (setq inhibit-splash-screen t)
+   (setq inhibit-startup-screen t)
+   (global-font-lock-mode 1)
+   (setq-default indent-tabs-mode nil)
+   (setq-default tab-width 4)
+   (transient-mark-mode t)
+   (global-display-line-numbers-mode t)
+   (column-number-mode t)
+   (tool-bar-mode -1)
+   (global-hl-line-mode +1)
+   (setq global-auto-revert-mode 1)
+   (setq auto-revert-use-notify t) 
+   (setq use-short-answers t)
+   (setq ediff-split-window-function 'split-window-horizontally)
+   (setq-default create-lockfiles nil)
+   (setq file-name-shadow-properties '(invisible t))
+   (file-name-shadow-mode)
 
-  (delete-selection-mode 1)
+   (delete-selection-mode 1)
 
- (keymap-global-set "M-p" 'previous-buffer)
- (keymap-global-set "M-n" 'next-buffer)
- (keymap-global-set "M-o" 'other-window)
- (keymap-global-set "M-g" 'recentf)
+  (keymap-global-set "M-p" 'previous-buffer)
+  (keymap-global-set "M-n" 'next-buffer)
+  (keymap-global-set "M-o" 'other-window)
+  (keymap-global-set "M-g" 'recentf)
 
- (dolist (mode '(org-mode-hook
-                 term-mode-hook
-                 shell-mode-hook
-                 eshell-mode-hook
-                 vterm-mode-hook))
- (add-hook mode (lambda () (display-line-numbers-mode 0))))
+  (dolist (mode '(org-mode-hook
+                  term-mode-hook
+                  shell-mode-hook
+                  eshell-mode-hook
+                  vterm-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
- (recentf-mode 1)
- (setq recentf-max-menu-items 10)
- (setq recentf-max-saved-items 25)
- (global-set-key "\C-x\ \C-r" 'recentf-open-files)
-    
+  (recentf-mode 1)
+  (setq recentf-max-menu-items 10)
+  (setq recentf-max-saved-items 25)
+  (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+     
 
- (when (display-graphic-p)
-    (context-menu-mode))
+  (when (display-graphic-p)
+     (context-menu-mode))
 
- (setq delete-by-moving-to-trash t)
- (setq dired-dwim-target t)
+  (setq delete-by-moving-to-trash t)
+  (setq dired-dwim-target t)
 
- (add-hook 'dired-load-hook
-     (lambda ()
-        (require 'dired-x)))
+  (when (string= system-type "darwin")       
+  (setq dired-use-ls-dired nil))
 
-  (setq ediff-diff-options "--text")
+  (add-hook 'dired-load-hook
+      (lambda ()
+         (require 'dired-x)))
+
+   (setq ediff-diff-options "--text")
 #+end_src
 
 * dashboard

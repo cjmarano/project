@@ -1,5 +1,5 @@
 * November.
-* _Start times around ~ 4 seconds, 7 for Big._  
+* _Start times around ~ 4+ seconds for New, up from 4. 7 for Big._  
 * COMPLETED Freeze init.el and work on other things. freezeBIG_06NOV.init.el is latest good b/u.
 CLOSED: [2025-10-03 Fri 14:40]* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
 ** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
@@ -15,6 +15,13 @@ CLOSED: [2025-11-06 Thu 10:53]
 ** Broke Dashboard, couldnt click any items. After a lot of replacing init.el w/ Big init.el finally went back
 to previous init.el and that fixed click issue. Now init.el on Big and New NOT synched.
 * NEXT Need to check init.el.org to see which init.el it matches and if it needs to be modified.
+* Dired - ls issue.  :
+** macs ls does not support --dired -N; see 'dired-use-ls-dired'
+;; lines 98-99 in init.el on New, Big and init.el.org 
+(when (string= system-type "darwin")       
+  (setq dired-use-ls-dired nil))
+*** Seems to work.
+  
 *  lisp programming.
 *** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
