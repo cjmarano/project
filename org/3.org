@@ -21,7 +21,7 @@ to previous init.el and that fixed click issue. Now init.el on Big and New NOT s
 (when (string= system-type "darwin")       
   (setq dired-use-ls-dired nil))
 *** Seems to work.
- 
+
 *  lisp programming.
 *** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
