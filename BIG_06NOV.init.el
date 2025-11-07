@@ -52,7 +52,7 @@
 
 (setq history-length 10)
 (setq savehist-mode t)
-(setq org-indent-mode t)
+;; (setq org-indent-mode t)
 (setq-default cursor-type 'hbar)
 (setq set-cursor-color "Cyan")
 (setq ring-bell-function 'ignore)
@@ -95,9 +95,12 @@
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
+(when (string= system-type "darwin")       
+  (setq dired-use-ls-dired nil))
+
 (add-hook 'dired-load-hook
-  (lambda ()
-    (require 'dired-x)))
+          (lambda ()
+            (require 'dired-x)))
 
 (setq ediff-diff-options "--text")
 
@@ -312,8 +315,8 @@
 
 (setq org-hide-emphasis-markers t)
 
-(require 'org-indent)
-(set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+;; (require 'org-indent)
+;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
   
   (add-to-list 'org-emphasis-alist
                '("_" (:foreground "red")
@@ -437,14 +440,25 @@
   :ensure nil
   :defer t
   :hook (python-mode . eglot-ensure)
-  :hook (rust-mode . eglot-ensure))
+;;  :hook (rust-mode . eglot-ensure)
+  )
+;; could probably add ruby here
+;; :hook (ruby-mode . eglot-ensure)
 
-    (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))  
+
+(add-hook 'rust-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
+
+(add-hook 'rust-mode-hook
+          (lambda () (prettify-symbols-mode)))
+
+(setq rust-format-on-save t)
 
 (setq python-indent-guess-indent-offset t)  
 (setq python-indent-guess-indent-offset-verbose nil)
@@ -526,6 +540,9 @@
 (require 'tree-sitter)
 (require 'tree-sitter-langs)
 (global-tree-sitter-mode)
+(use-package rust-mode
+  :init
+  (setq rust-mode-treesitter-derive t))
 ;; or just for rust-mode
 ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
 ;; Load the language definition for Rust, if it hasn't been loaded.
