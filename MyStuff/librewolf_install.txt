@@ -1,0 +1,13 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with ‘C-x C-f’ and enter text in its buffer.
+
+sudo rm -f
+/etc/apt/sources.list.d/librewolf.sources
+/etc/apt/keyrings/librewolf.gpg
+/etc/apt/preferences.d/librewolf.pref
+/etc/apt/sources.list.d/librewolf.list
+/etc/apt/trusted.gpg.d/librewolf.gpg
+
+sudo apt update && sudo apt install extrepo -y
+
+sudo apt --allow-releaseinfo-change update
