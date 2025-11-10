@@ -14,14 +14,19 @@ on new same command opens /Applications//emacs.app n idea why.
 CLOSED: [2025-11-06 Thu 10:53]
 ** Broke Dashboard, couldnt click any items. After a lot of replacing init.el w/ Big init.el finally went back
 to previous init.el and that fixed click issue. Now init.el on Big and New NOT synched.
-* NEXT Need to check init.el.org to see which init.el it matches and if it needs to be modified.
-* Dired - ls issue.  
+* COMPLETED Need to check init.el.org to see which init.el it matches and if it needs to be modified.
+CLOSED: [2025-11-07 Fri 13:26]
+* COMPLETED Dired - ls issue.  
+CLOSED: [2025-11-07 Fri 13:27]
 ** macs ls does not support --dired -N; see 'dired-use-ls-dired'
 ;; lines 98-99 in init.el on New, Big and init.el.org 
 (when (string= system-type "darwin")       
   (setq dired-use-ls-dired nil))
 *** Seems to work.
 
+* Deleted duplicate org-tag-alist and dashboard-startupify-alist entries on New and Big.
+intersting that no dupes were found in the init.el.org file - is this a tangling error?
+* NEXT Project on Big is not showing all files. Removed entire folder and cloned again. Still not showing.
 *  lisp programming.
 *** Looking at https://lisp-lang.org/learn/writing-libraries
 did some of the examples.. writing files was interesting and useful.
