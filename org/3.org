@@ -24,7 +24,8 @@ CLOSED: [2025-11-07 Fri 13:27]
   (setq dired-use-ls-dired nil))
 *** Seems to work.
 
-* Deleted duplicate org-tag-alist and dashboard-startupify-alist entries on New and Big.
+* COMPLETED Deleted duplicate org-tag-alist and dashboard-startupify-alist entries on New and Big.
+CLOSED: [2025-11-10 Mon 08:14]
 intersting that no dupes were found in the init.el.org file - is this a tangling error?
 * NEXT Project on Big is not showing all files. Removed entire folder and cloned again. Still not showing.
 *  lisp programming.
@@ -73,3 +74,4 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
  (use-package rust-mode
   :init
   (setq rust-mode-treesitter-derive t))
+*** Rustlings on Big and New but NOT in project folder.
