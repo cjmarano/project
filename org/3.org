@@ -1,5 +1,5 @@
 * November.
-* _Start times around ~ 4.7 seconds for New, up from 4 and 7 for Big._  
+* _Start times from ~ 4.7to 5.3 after treemacs on New, up from 4 and 7 for Big, no treemacs._  
 * COMPLETED Freeze init.el and work on other things. freezeBIG_06NOV.init.el is latest good b/u.
 CLOSED: [2025-10-03 Fri 14:40]* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
 ** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
@@ -75,3 +75,9 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
   :init
   (setq rust-mode-treesitter-derive t))
 *** Rustlings on Big and New but NOT in project folder.
+* Installed Treemacs. Testing.
+** treemacs installed ace-window, pfuture, posframe.
+added:
+(use-package treemacs
+        :ensure t)
+        
