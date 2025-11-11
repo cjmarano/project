@@ -76,7 +76,7 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
   (setq rust-mode-treesitter-derive t))
 *** Rustlings on Big and New but NOT in project folder.
 * Installed Treemacs. Testing.
-** treemacs installed ace-window, pfuture, posframe.
+** treemacs installed ace-window, pfuture, posframe, maybe macrostep?
 added:
 (use-package treemacs
         :ensure t)
