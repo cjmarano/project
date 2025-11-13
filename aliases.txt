@@ -1,0 +1,15 @@
+alias la='colorls -all' <-- like ll.
+alias lg='colorls --gs' <-- GIT.
+alias ll='colorls -loa --sd'
+alias lt='eza --tree'
+alias lw='eza -laht modified --color=always --icons=always --group-directories-first'
+alias lx='eza -lat created --color=always --icons=always --group-directories-first'
+alias ly='eza -lha --color=always --icons=always --group-directories-first'
+alias lz='eza -lh --color=always --icons=always --group-directories-first'
+
+a = show . files
+h = human readable.
+l = long format.
+o = long format, omit group ID.
+t = sort by time, newest first.
+p = slash after each directory.colorls -loap
