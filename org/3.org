@@ -14,7 +14,8 @@ on new same command opens /Applications//emacs.app n idea why.
 CLOSED: [2025-11-06 Thu 10:53]
 ** Broke Dashboard, couldnt click any items. After a lot of replacing init.el w/ Big init.el finally went back
 to previous init.el and that fixed click issue. Now init.el on Big and New NOT synched.
-* TODO Need to check init.el.org to see which init.el it matches and if it needs to be modified.
+* COMPLETED Need to check init.el.org to see which init.el it matches and if it needs to be modified.
+CLOSED: [2025-11-17 Mon 09:46]
 ** Problem with org-emphasis-alist again. How fixed last time?
 * COMPLETED Dired - ls issue.  
 CLOSED: [2025-11-07 Fri 13:27]
