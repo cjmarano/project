@@ -5,6 +5,6 @@
 
 ielm is working lisp repl.
 sbcl is a lisp compiler.
-quicklisp is a lisp interpeter?
+quicklisp is a lisp library manager.
 Slime is an emacs package
 clisp is an interpeter.

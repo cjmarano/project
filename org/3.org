@@ -34,7 +34,8 @@ added:
 (use-package treemacs
         :ensure t)
         
-* Backup init.el then choose one language; iisp, rust, python and remove all others.
+* Backup *init.el* then choose one language; iisp, rust, python and remove all others.
+
 ** Make sure syntax highlighting, completion and marginalia all working with the one language.
 ** Rinse and repeat for the other two languages.
 **  lisp programming. see backup init.el below.
@@ -84,7 +85,6 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
   :init
   (setq rust-mode-treesitter-derive t))
 *** Rustlings on Big and New but NOT in project folder.
-_red_
+*foo* _foo_ /foo/  ~foo~ =foo= +foo+ <-- strikethrough not working?
+ *      _    /      ~    =   +
 
-+gree+
- 
