@@ -27,6 +27,15 @@ CLOSED: [2025-11-07 Fri 13:27]
 * COMPLETED Deleted duplicate org-tag-alist and dashboard-startupify-alist entries on New and Big.
 CLOSED: [2025-11-10 Mon 08:14]
 intersting that no dupes were found in the init.el.org file - is this a tangling error?
+* COMPLETED fixed org-emphasis-alist broken on New.
+CLOSED: [2025-11-17 Mon 09:18]
+Copied items on Big in org-emphasis-alist customize.
+_red_
++green+
+* COMPLETED Project on Big suddenly had permission denied issues.
+CLOSED: [2025-11-17 Mon 09:19]
+Didn't bother troubleshooting. Deleted entire folder then cloned again.
+
 * WAITING Project on Big is not showing all files. Removed entire folder and cloned again. Still not showing.
 * Installed Treemacs. Testing.
 ** treemacs installed ace-window, pfuture, posframe, maybe macrostep?
@@ -87,4 +96,10 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 *** Rustlings on Big and New but NOT in project folder.
 *foo* _foo_ /foo/  ~foo~ =foo= +foo+ <-- strikethrough not working?
  *      _    /      ~    =   +
-
+   *Bold*
+   _Underline_
+   /Italic/
+   ~verbatim~
+   =code=
+   +what+ <-- strike through.
+   
