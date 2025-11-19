@@ -1,15 +1,5 @@
 * November.
 * _Start times from ~ 4.7to 5 after treemacs on New, up from 4 and 7 for Big, no treemacs._  
-* COMPLETED Freeze init.el and work on other things. freezeBIG_06NOV.init.el is latest good b/u.
-CLOSED: [2025-10-03 Fri 14:40]* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
-** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
-both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
-This indcates that something is different.ech
-** emacsclient -c does open a new GUI frame.
-*** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
-Still not sure why Big opens emacs in terminal while New opens with GUI.
-** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
-on new same command opens /Applications//emacs.app n idea why.
 * COMPLETED 30OCT - 04NOV. Homogulated init.el on Big and new Broke/fixed Dashboard on New.
 CLOSED: [2025-11-06 Thu 10:53]
 ** Broke Dashboard, couldnt click any items. After a lot of replacing init.el w/ Big init.el finally went back
@@ -61,6 +51,20 @@ Deleted everything in org-tempp-keywords-alist.
 #+begin_src lisp
 
 #+end_src
+
+#+begin_src rust
+#+end_src
+* COMPLETED Froze init.el  Work on other things. NewFreeze19NOV.init.el is latest good b/u.
+CLOSED: [2025-10-03 Fri 14:40]* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
+** init.el.org synched to init.el on New - 19NOV.
+** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
+both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
+This indcates that something is different.ech
+** emacsclient -c does open a new GUI frame.
+*** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
+Still not sure why Big opens emacs in terminal while New opens with GUI.
+** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
+on new same command opens /Applications//emacs.app n idea why.
 * Installed Treemacs. Testing.
 ** treemacs installed ace-window, pfuture, posframe, maybe macrostep?
 added:
@@ -127,3 +131,4 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
    =code=
    +what+ <-- strike through.
    
+* 
