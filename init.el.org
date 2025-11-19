@@ -98,8 +98,7 @@
    ;; (keymap-global-set "M-o" 'other-window)
    ;; (keymap-global-set "M-g" 'recentf)
 
-   ;; (dol
-    ist (mode '(org-mode-hook
+   ;; (dolist (mode '(org-mode-hook
                    term-mode-hook
                    shell-mode-hook
                    eshell-mode-hook
@@ -111,7 +110,6 @@
    (setq recentf-max-saved-items 25)
    (global-set-key "\C-x\ \C-r" 'recentf-open-files)
       
-
    ;; (when (display-graphic-p)
    ;;    (context-menu-mode))
 
@@ -220,7 +218,6 @@
    (use-package nerd-icons-completion
      :config)
      
-
    (use-package show-font
      :ensure t
      :bind
@@ -365,7 +362,7 @@
                     (org-level-6 . 1.1)
                     (org-level-7 . 1.1)
                     (org-level-8 . 1.1))))
-    (set-face-attribute (car face) nil :font "Noto Serif" :weight 'regular :height (cdr face)))
+    (set-face-attribute (car face) nil :font "JetBrainsmono" :weight 'regular :height (cdr face)))
           
     ;; Ensure that anything that should be fixed-pitch in Org files appears that way
     (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
@@ -381,13 +378,13 @@
     ;; (require 'org-indent)
     ;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
 
-         (add-to-list 'org-emphasis-alist
-                             '("_" (:foreground "red")
-                               ))
+         ;; (add-to-list 'org-emphasis-alist
+         ;;                     '("_" (:foreground "red")
+         ;;                       ))
 
-         (add-to-list 'org-emphasis-alist
-                             '("+" (:foreground "LightGreen")
-                               ))
+         ;; (add-to-list 'org-emphasis-alist
+         ;;                     '("+" (:foreground "LightGreen")
+         ;;                       ))
 #+end_src
 * Org setup
 #+begin_src emacs-lisp
@@ -489,8 +486,8 @@
           ))
     (push '("conf-unix" . conf-unix) org-src-lang-modes))
     
-   (with-eval-after-load 'org
-    ;; This is needed as of Org 9.2
+   ;; (with-eval-after-load 'org
+   ;;  ;; This is needed as of Org 9.2
     (require 'org-tempo)
 
   ;;  (add-to-list 'org-structure-template-alist '("l" . "src lispine"))
@@ -530,7 +527,6 @@
 
 (require 'ruff-format)
 (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
-        
     
 (add-hook 'rust-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
@@ -548,14 +544,6 @@
 
 #+end_src
 
-* Ruff
-#+begin_src emacs-lisp
-(require 'flymake-ruff)
-(add-hook 'python-mode-hook #'flymake-ruff-load)
-
-(require 'ruff-format)
-(add-hook 'python-mode-hook 'ruff-format-on-save-mode)
-#+begin_src emacs-lisp
 
 * Rust mode
 #+begin_src emacs-lisp
@@ -728,67 +716,75 @@
 
 * Custom
 #+begin_src emacs-lisp
-      (custom-set-faces
-      ;; custom-set-faces was added by Custom.
-      ;; If you edit it by hand, you could mess it up, so be careful.
-      ;; Your init file should contain only one such instance.
-      ;; If there is more than one, they won't work right.
-      '(default ((t (:height 180 :family "JetBrainsMono Nerd Font"))))
-      '(cursor ((t (:background "light green"))))
-      '(org-headline-done ((t (:foreground "gray80"))))
-      '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
-      '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
+    (custom-set-faces
+    ;; custom-set-faces was added by Custom.
+    ;; If you edit it by hand, you could mess it up, so be careful.
+    ;; Your init file should contain only one such instance.
+    ;; If there is more than one, they won't work right.
+    '(default ((t (:height 180 :family "JetBrainsMono Nerd Font"))))
+    '(cursor ((t (:background "light green"))))
+    '(org-headline-done ((t (:foreground "gray80"))))
+    '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
+    '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
 
-      (custom-set-variables
-      ;; custom-set-variables was added by Custom.
-      ;; If you edit it by hand, you could mess it up, so be careful.
-      ;; Your init file should contain only one such instance.
-      ;; If there is more than one, they won't work right.
-      '(backup-directory-alist '(("" . "~/.backups")))
-      '(company-box-enable-icon t)
-      '(company-box-icons-alist 'company-box-icons-images)
-      '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
-      '(custom-safe-themes
-          '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
-          "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
-          "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
-          "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
-          default))
-      '(denote-known-keywords '("emacs" "init" "general" "testing"))
-      '(elpy-rpc-python-command "python3")
-      '(flycheck-python-flake8-executable "python3")
-      '(flycheck-python-pycompile-executable "python3")
-      '(flycheck-python-pylint-executable "python3")
-      '(org-agenda-files '("$HOME/project/org/3.org"))
-      '(org-faces-easy-properties
-        '((todo . :background) (tag . :foreground) (priority . :foreground)))
-      '(org-id-locations-file
-        "/$HOME/.cache/emacs/var/org/id-locations.el")
-      '(org-startup-folded 'fold)
-      '(org-tempo-keywords-alist nil)
-      '(package-selected-packages
-        '(0x0 all-the-icons all-the-icons-nerd-fonts
-                 auto-compile bind-key cargo cargo-mode
-                 color-theme-sanityinc-tomorrow company-box consult
-                 consult-denote dashboard denote diffview
-                 dired-single dired-subtree doom-modeline eglot
-                 elisp-refs elpy exec-path-from-shell flycheck-pyflakes
-                 flycheck-rust helpful kkp lsp-ui lua-mode magit
-                 marginalia material-theme  nerd-icons-completion
-                 nerd-icons-dired no-littering ob-rust orderless org-bullets
-                 org-roam paredit pfuture rainbow-delimiters
-                 rustic seq show-font slime smartparens toml-mode
-                 track-chages tree-sitter-langs treemacs  treesit-auto
-                 use-package vertico vterm which-key))
-      ;; '(savehist-additional-variables '(kill-ring register-alist\ ) t)
-      '(sort-fold-case t)
-      '(warning-suppress-log-types '((use-package))))
-       
-       (python-shell-interpeter "$HOME/.pyenv/shims/python3")
+    (custom-set-variables
+    ;; custom-set-variables was added by Custom.
+    ;; If you edit it by hand, you could mess it up, so be careful.
+    ;; Your init file should contain only one such instance.
+    ;; If there is more than one, they won't work right.
+    '(backup-directory-alist '(("" . "~/.backups")))
+    '(company-box-enable-icon t)
+    '(company-box-icons-alist 'company-box-icons-images)
+    '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
+    '(custom-safe-themes
+        '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
+        "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
+        "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
+        "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
+        default))
+    '(denote-known-keywords '("emacs" "init" "general" "testing"))
+    '(elpy-rpc-python-command "python3")
+    '(flycheck-python-flake8-executable "python3")
+    '(flycheck-python-pycompile-executable "python3")
+    '(flycheck-python-pylint-executable "python3")
+    '(org-agenda-files '("$HOME/project/org/3.org"))
+    '(org-emphasis-alist
+      '(("*" bold) ("/" italic) ("_" (:foreground "red") verbatim)
+        ("+" (:foreground "LightGreen") verbatim) ("_" underline)
+        ("=" org-verbatim verbatim) ("~" org-code verbatim)
+        ("+" (:\"Cyan\" t) verbatim)))
+    '(org-faces-easy-properties
+      '((todo . :background) (tag . :foreground) (priority . :foreground)))
+    '(org-id-locations-file
+      "/$HOME/.cache/emacs/var/org/id-locations.el")
+    '(org-startup-folded 'fold)
+    '(org-structure-template-alist
+      '(("R" . "src rust") ("r" . "src ruby") ("L" . "src emacs-lisp")
+        ("l" . "src lisp") ("s" . "src")))
+    '(org-tempo-keywords-alist nil)
+    '(package-selected-packages
+      '(0x0 all-the-icons all-the-icons-nerd-fonts
+               auto-compile bind-key cargo cargo-mode
+               color-theme-sanityinc-tomorrow company-box consult
+               consult-denote dashboard denote diffview
+               dired-single dired-subtree doom-modeline eglot
+               elisp-refs elpy exec-path-from-shell flycheck-pyflakes
+               flycheck-rust helpful kkp lsp-ui lua-mode magit
+               marginalia material-theme  nerd-icons-completion
+               nerd-icons-dired no-littering ob-rust orderless org-bullets
+               org-roam paredit pfuture rainbow-delimiters
+               rustic seq show-font slime smartparens toml-mode
+               track-chages tree-sitter-langs treemacs  treesit-auto
+               use-package vertico vterm which-key))
+    ;; '(savehist-additional-variables '(kill-ring register-alist\ ) t)
+    '(sort-fold-case t)
+    '(warning-suppress-log-types '((use-package))))
+     
+     (python-shell-interpeter "$HOME/.pyenv/shims/python3")
 
-    ;; duplicate of above? add-hook is different than selected packages.
-    ;; below is for delimiters in all programming modes.
-    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+  ;; duplicate of above? add-hook is different than selected packages.
+  ;; below is for delimiters in all programming modes.
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 #+end_src
 
 * Development Setup
