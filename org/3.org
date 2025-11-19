@@ -37,7 +37,30 @@ _red_
 CLOSED: [2025-11-17 Mon 09:19]
 Didn't bother troubleshooting. Deleted entire folder then cloned again.
 
-* WAITING Project on Big is not showing all files. Removed entire folder and cloned again. Still not showing.
+* COMPLETED Project on Big not showing all files. Removed folder and cloned again. 
+CLOSED: [2025-11-18 Tue 11:16]
+** COMPLETED removed duplicate rust dirs from ~/project/rust.
+CLOSED: [2025-11-18 Tue 11:15]
+* COMPLETED +Fixed+ Blew up init.el on New trying to fix Orge-tempo-keywords-alist issue.
+CLOSED: [2025-11-18 Tue 14:53]
+uncommenting org-structure-template-alist items broke emacs.
+In addition C-c C-, didn't work. putting it explicitly in as global-key    org-insert-structure-template
+gave erro can't find s  which is odd.
+** After deleting broken init and replacing with 17NOV freeze the C- C-, works again.
+repeated by uncommenting org-structure-template-alist and broek it again.
+** Maybe edit org-tempo-keywords-alist directly via customize.
+Tried it saved and applied restarted and default values were there. 
+Tried again, worked but got message: Warning (emacs): _Duplicated keys in ‘org-structure-template-alist’ and ‘org-tempo-keywords-alist’_
+Deleted everything in org-tempp-keywords-alist.
+#+begin_src 
+#+end_src
+
+#+begin_src lisp
+#+end_src
+
+#+begin_src lisp
+
+#+end_src
 * Installed Treemacs. Testing.
 ** treemacs installed ace-window, pfuture, posframe, maybe macrostep?
 added:
