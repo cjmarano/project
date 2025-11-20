@@ -31,7 +31,7 @@ Didn't bother troubleshooting. Deleted entire folder then cloned again.
 CLOSED: [2025-11-18 Tue 11:16]
 ** COMPLETED removed duplicate rust dirs from ~/project/rust.
 CLOSED: [2025-11-18 Tue 11:15]
-* COMPLETED +Fixed+ Blew up init.el on New trying to fix Orge-tempo-keywords-alist issue.
+* COMPLETED +Fixed+ Blew up init.el on New trying to fix Org-tempo-keywords-alist issue.
 CLOSED: [2025-11-18 Tue 14:53]
 uncommenting org-structure-template-alist items broke emacs.
 In addition C-c C-, didn't work. putting it explicitly in as global-key    org-insert-structure-template
@@ -131,4 +131,9 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
    =code=
    +what+ <-- strike through.
    
-* 
+* On New removed /Applications//Emacs.app and /opt/homebrew//bin/emacs then did a
+brew install -f emacs-app )force to overlook existing man pages, etc.
+** This is version 30.2 and should do native compilation <-- faster than compile.
+** Commented out all compile instructions in early.init.el and init.el
+Startup time < 4 seconds. Have to see if there's any downside.
+** Work with this setup on New for a while and see if okay then do the same with Big.
