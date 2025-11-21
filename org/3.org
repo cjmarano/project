@@ -131,9 +131,10 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
    =code=
    +what+ <-- strike through.
    
-* On New removed /Applications//Emacs.app and /opt/homebrew//bin/emacs then did a
+* On New removed /Applications//Emacs.app and /opt/homebrew//bin/emacs then did: 
 brew install -f emacs-app )force to overlook existing man pages, etc.
 ** This is version 30.2 and should do native compilation <-- faster than compile.
 ** Commented out all compile instructions in early.init.el and init.el
 Startup time < 4 seconds. Have to see if there's any downside.
 ** Work with this setup on New for a while and see if okay then do the same with Big.
+** Added (setq package-native-compile t) to init.el
