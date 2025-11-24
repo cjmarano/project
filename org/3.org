@@ -42,18 +42,6 @@ repeated by uncommenting org-structure-template-alist and broek it again.
 Tried it saved and applied restarted and default values were there. 
 Tried again, worked but got message: Warning (emacs): _Duplicated keys in ‘org-structure-template-alist’ and ‘org-tempo-keywords-alist’_
 Deleted everything in org-tempp-keywords-alist.
-#+begin_src 
-#+end_src
-
-#+begin_src lisp
-#+end_src
-
-#+begin_src lisp
-
-#+end_src
-
-#+begin_src rust
-#+end_src
 * COMPLETED Froze init.el  Work on other things. NewFreeze19NOV.init.el is latest good b/u.
 CLOSED: [2025-10-03 Fri 14:40]* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
 ** init.el.org synched to init.el on New - 19NOV.
@@ -112,24 +100,6 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 *** restarted and tried again and both .py files were linted and completed with pylsp server.
 *** added spaces, not tabs and prettify, also tree-sitter integration on New's init.el:
 
-(add-hook 'rust-mode-hook
-          (lambda () (setq indent-tabs-mode nil)))
-
-(add-hook 'rust-mode-hook
-          (lambda () (prettify-symbols-mode)))
-
- (use-package rust-mode
-  :init
-  (setq rust-mode-treesitter-derive t))
-*** Rustlings on Big and New but NOT in project folder.
-*foo* _foo_ /foo/  ~foo~ =foo= +foo+ <-- strikethrough not working?
- *      _    /      ~    =   +
-   *Bold*
-   _Underline_
-   /Italic/
-   ~verbatim~
-   =code=
-   +what+ <-- strike through.
    
 * On New removed /Applications//Emacs.app and /opt/homebrew//bin/emacs then did: 
 brew install -f emacs-app )force to overlook existing man pages, etc.
