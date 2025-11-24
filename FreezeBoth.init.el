@@ -13,6 +13,8 @@
 
 (require 'use-package)
 
+(setq package-native-compile t)
+
 (use-package exec-path-from-shell
   :ensure t
   :config
@@ -31,11 +33,11 @@
 
          ))
 
-(setq load-prefer-newer t)
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20251111.1802")
-(require 'auto-compile)
-(auto-compile-on-load-mode)
-(auto-compile-on-save-mode)
+;; (setq load-prefer-newer t)
+;; (add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20251111.1802")
+;; (require 'auto-compile)
+;; (auto-compile-on-load-mode)
+;; (auto-compile-on-save-mode)
 
 (setq user-emacs-directory "~/.cache/emacs/")
 
@@ -457,6 +459,12 @@
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))  
 
+(require 'flymake-ruff)
+(add-hook 'python-mode-hook #'flymake-ruff-load)
+
+(require 'ruff-format)
+(add-hook 'python-mode-hook 'ruff-format-on-save-mode)
+
 (add-hook 'rust-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
 
@@ -470,13 +478,6 @@
 
 (setq python-python-command "$HOME/.pyenv/shims/python3")
 (setq python-shell-completion-native-enable nil)
-
-
-(require 'flymake-ruff)
-(add-hook 'python-mode-hook #'flymake-ruff-load)
-
-(require 'ruff-format)
-(add-hook 'python-mode-hook 'ruff-format-on-save-mode)
 
 (use-package rustic
   :ensure nil
