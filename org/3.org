@@ -1,5 +1,5 @@
 * November.
-* _Start times from ~ 4.7to 5 after treemacs on New, up from 4 and 7 for Big, no treemacs._  
+* _Start times from < 4  on New,  and 7 for Big, no treemacs._  
 * COMPLETED 30OCT - 04NOV. Homogulated init.el on Big and new Broke/fixed Dashboard on New.
 CLOSED: [2025-11-06 Thu 10:53]
 ** Broke Dashboard, couldnt click any items. After a lot of replacing init.el w/ Big init.el finally went back
@@ -53,7 +53,16 @@ This indcates that something is different.ech
 Still not sure why Big opens emacs in terminal while New opens with GUI.
 ** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
 on new same command opens /Applications//emacs.app n idea why.
-* Installed Treemacs. Testing.
+* COMPLETED On New removed /Applications//Emacs.app and /opt/homebrew//bin/emacs then did: 
+CLOSED: [2025-11-24 Mon 11:14]
+brew install -f emacs-app )force to overlook existing man pages, etc.
+** This is version 30.2 and should do native compilation <-- faster than compile.
+** Commented out all compile instructions in early.init.el and init.el
+Startup time < 4 seconds. Have to see if there's any downside.
+** Work with this setup on New for a while and see if okay then do the same with Big.
+** Added (setq package-native-compile t) to init.el
+* COMPLETED Installed Treemacs. Testing.
+CLOSED: [2025-11-24 Mon 11:14]
 ** treemacs installed ace-window, pfuture, posframe, maybe macrostep?
 added:
 (use-package treemacs
@@ -100,11 +109,4 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 *** restarted and tried again and both .py files were linted and completed with pylsp server.
 *** added spaces, not tabs and prettify, also tree-sitter integration on New's init.el:
 
-   
-* On New removed /Applications//Emacs.app and /opt/homebrew//bin/emacs then did: 
-brew install -f emacs-app )force to overlook existing man pages, etc.
-** This is version 30.2 and should do native compilation <-- faster than compile.
-** Commented out all compile instructions in early.init.el and init.el
-Startup time < 4 seconds. Have to see if there's any downside.
-** Work with this setup on New for a while and see if okay then do the same with Big.
-** Added (setq package-native-compile t) to init.el
+* init.el on New and Big now identical. init.el.org same. Saved to project as FreezeBoth.init.el

@@ -2,20 +2,22 @@
 
 * set up packages
 #+begin_src emacs-lisp
-(require 'package)
+  (require 'package)
 
-(add-to-list 'package-archives
-                  '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives
-                  '("elpa"  . "https://elpa.gnu.org/packages/")t)
-(add-to-list 'package-archives
-                  '("nongnu" . "https://elpa.nongnu.org/nongnu/")t)
-;; (add-to-list 'package-archives
-;;                   '("org" . "https://orgmode.org/elpa/")t)
+  (add-to-list 'package-archives
+                    '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives
+                    '("elpa"  . "https://elpa.gnu.org/packages/")t)
+  (add-to-list 'package-archives
+                    '("nongnu" . "https://elpa.nongnu.org/nongnu/")t)
+  ;; (add-to-list 'package-archives
+  ;;                   '("org" . "https://orgmode.org/elpa/")t)
 
- (package-initialize)
+   (package-initialize)
 
- (require 'use-package)
+   (require 'use-package)
+
+  (setq package-native-compile t)
 #+end_src
 
 * exec from shell
@@ -40,13 +42,13 @@
 #+end_src
 
 * compile if newer available
-#+begin_src emacs-lisp
-(setq load-prefer-newer t)
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250901.1341")
-(require 'auto-compile)
-(auto-compile-on-load-mode)
-(auto-compile-on-save-mode)
-#+end_src
+# #+begin_src emacs-lisp
+# (setq load-prefer-newer t)
+# (add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250901.1341")
+# (require 'auto-compile)
+# (auto-compile-on-load-mode)
+# (auto-compile-on-save-mode)
+# #+end_src
 
 * backup files to autosave dir.
 ** ;; Below expands to: ~/.cache/emacs/var/auto-save
@@ -641,17 +643,6 @@
 (tree-sitter-require 'python)
 (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
-  
-  ;; Old tree-sitter config below, replaced 15OCT2025.
-  ;; (require 'tree-sitter)
-  ;; (require 'tree-sitter-langs)
-  ;; (global-tree-sitter-mode)
-  ;; or just for rust-mode
-  ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
-  ;; Load the language definition for Rust, if it hasn't been loaded.
-  ;; Return the language object.
-  ;; (tree-sitter-require 'rust)
-  ;; (tree-sitter-require 'python)
 #+end_src
 
 * Enable company-mode globally.
@@ -698,20 +689,6 @@
 
 ;; Setup load-path, autoloads and your lisp system
 (add-to-list 'load-path "~/.emacs.d/elpa")
-
- ;; *** also redundant? see above
- ;; (add-hook 'emacs-lisp-mode-hook
- ;;           (lambda ()
- ;;             (paredit-mode t)
- ;;             (rainbow-delimiters-mode t)
- ;;             (show-paren-mode 1)
- ;;             ))
-
-;; Eldoc for ielm
-;; docs say this enabled by default now.
-;; (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
-;; (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
-;; (add-hook 'ielm-mode-hook 'eldoc-mode)
 #+end_src
 
 * Custom
