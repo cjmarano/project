@@ -111,42 +111,44 @@
   (treemacs-nerd-icons-config))
 
 (use-package dashboard
-  :ensure t
-  :init
-  (progn
-    (setq dashboard-items '((recents   . 10)
-                            (bookmarks . 5)
-                            (projects  . 5)
-                            (agenda    . 5)))
-    (setq dashboard-item-shortcuts '((recents   . "r")
-                                     (bookmarks . "m")
-                                     (projects  . "p")
-                                     ))
+:ensure t
+:init
+(progn
+(setq dashboard-items '((recents   . 10)
+                      (bookmarks . 5)
+                      (projects  . 5)
+                      (agenda    . 5)))
+(setq dashboard-item-shortcuts '((recents   . "r")
+                                 (bookmarks . "m")
+                                 (projects  . "p")
+                                 (agenda    . "a")
+                                 ))
 
-    (setq dashboard-show-shortcuts nil)
-    (setq dashboard-center-contents nil)
-    (setq dashboard-banner-logo-title "Big")
-    (setq dashboard-set-file-icons t)
-    (setq dashboard-set-heading-icons t)
-    (setq dashboard-display-icons-p t) ; display icons on both GUI and terminal
-    (setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
-    (setq dashboard-startup-banner "~/Pictures/Trefoil.png")
-    (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-    (setq dashboard-set-init-info t)
+(setq dashboard-show-shortcuts nil)
+(setq dashboard-center-contents nil)
+(setq dashboard-banner-logo-title "Big")
+(setq dashboard-set-file-icons t)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
+(setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
+(setq dashboard-startup-banner "~/Pictures/Trefoil.png")
+(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+(setq dashboard-set-init-info t)
+;;  (setq dashboard-set-footer nil) 
 
-    (setq dashboard-startupify-list '(dashboard-insert-banner
-                                      dashboard-insert-newline
-                                      dashboard-insert-banner-title
-                                      dashboard-insert-newline
-                                      dashboard-insert-navigator
-                                      dashboard-insert-newline
-                                      dashboard-insert-init-info
-                                      dashboard-insert-items
-                                      dashboard-insert-newline))
-    )
+(setq dashboard-startupify-list '(dashboard-insert-banner
+                                  dashboard-insert-newline
+                                  dashboard-insert-banner-title
+                                  dashboard-insert-newline
+                                  dashboard-insert-navigator
+                                  dashboard-insert-newline
+                                  dashboard-insert-init-info
+                                  dashboard-insert-items
+                                  dashboard-insert-newline))
+  )
 
-  :config
-  (dashboard-setup-startup-hook))
+:config
+(dashboard-setup-startup-hook))
 
 (require 'doom-modeline)
 (doom-modeline-mode 1)
@@ -323,16 +325,6 @@
 
 (setq org-hide-emphasis-markers t)
 
-;; (require 'org-indent)
-;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
-  
-  ;; (add-to-list 'org-emphasis-alist
-  ;;              '("_" (:foreground "red")
-  ;;                ))
-
-  ;; (add-to-list 'org-emphasis-alist
-  ;;              '("+" (:foreground "LightGreen")
-  ;;                ))
 
 (defun efs/org-mode-setup ()
 ;;    (org-indent-mode)
@@ -496,8 +488,8 @@
               ("C-c C-c h" . lsp-ui-doc-glance))
 
   :config
-  ;; comment to disable rustfmt on save
-  (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
+;; comment to disable rustfmt on save
+(add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
 (defun rk/rustic-mode-hook ()
 ;; so that run C-c C-c C-r works without having to confirm, but don't try to
@@ -638,12 +630,7 @@
  '(flycheck-python-pycompile-executable "python3")
  '(flycheck-python-pylint-executable "python3")
  '(org-agenda-files '("~/project/org/3.org"))
- '(org-emphasis-alist
-   '(("*" bold) ("/" italic) ("_" (:foreground "red") verbatim)
-     ("+" (:foreground "LightGreen") verbatim) ("_" underline)
-     ("=" org-verbatim verbatim) ("~" org-code verbatim)
-     ("+" (:\"Cyan\" t) verbatim)))
- '(org-faces-easy-properties
+  '(org-faces-easy-properties
    '((todo . :background) (tag . :foreground) (priority . :foreground)))
  '(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
  '(org-startup-folded 'fold)
