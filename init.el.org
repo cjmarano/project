@@ -42,13 +42,13 @@
 #+end_src
 
 * compile if newer available
-# #+begin_src emacs-lisp
-# (setq load-prefer-newer t)
-# (add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250901.1341")
-# (require 'auto-compile)
-# (auto-compile-on-load-mode)
-# (auto-compile-on-save-mode)
-# #+end_src
+#+begin_src emacs-lisp
+;; # (setq load-prefer-newer t)
+;; # (add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250901.1341")
+;; # (require 'auto-compile)
+;; # (auto-compile-on-load-mode)
+;; # (auto-compile-on-save-mode)
+#+end_src
 
 * backup files to autosave dir.
 ** ;; Below expands to: ~/.cache/emacs/var/auto-save
@@ -100,7 +100,7 @@
    ;; (keymap-global-set "M-o" 'other-window)
    ;; (keymap-global-set "M-g" 'recentf)
 
-   ;; (dolist (mode '(org-mode-hook
+   (dolist (mode '(org-mode-hook
                    term-mode-hook
                    shell-mode-hook
                    eshell-mode-hook

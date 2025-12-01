@@ -33,11 +33,11 @@
 
          ))
 
-(setq load-prefer-newer t)
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20251111.1802")
-(require 'auto-compile)
-(auto-compile-on-load-mode)
-(auto-compile-on-save-mode)
+;; (setq load-prefer-newer t)
+;; (add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20251111.1802")
+;; (require 'auto-compile)
+;; (auto-compile-on-load-mode)
+;; (auto-compile-on-save-mode)
 
 (setq user-emacs-directory "~/.cache/emacs/")
 
@@ -88,8 +88,8 @@
 (setq recentf-max-saved-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-(when (display-graphic-p)
-  (context-menu-mode))
+;; (when (display-graphic-p)
+;;   (context-menu-mode))
 
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
@@ -312,6 +312,7 @@
                   (org-level-6 . 1.1)
                   (org-level-7 . 1.1)
                   (org-level-8 . 1.1))))
+(set-face-attribute (car face) nil :font "JetBrainsmono" :weight 'regular :height (cdr face)))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
@@ -327,13 +328,13 @@
 ;; (require 'org-indent)
 ;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
   
-  (add-to-list 'org-emphasis-alist
-               '("_" (:foreground "red")
-                 ))
+  ;; (add-to-list 'org-emphasis-alist
+  ;;              '("_" (:foreground "red")
+  ;;                ))
 
-  (add-to-list 'org-emphasis-alist
-               '("+" (:foreground "LightGreen")
-                 ))
+  ;; (add-to-list 'org-emphasis-alist
+  ;;              '("+" (:foreground "LightGreen")
+  ;;                ))
 
 (defun efs/org-mode-setup ()
 ;;    (org-indent-mode)
@@ -368,17 +369,17 @@
           ("tt" "Task" entry (file+olp "~/project/org/tasks/tasks.org" "Inbox")
            "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
 
-          ("j" "Journal Entries")
-          ("jj" "Journal" entry
-           (file+olp+datetree "~/project/org/journal/Journal.org")
-           "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-           ;; ,(dw/read-file-as-string "~/org/notes.org")
+         ("j" "Journal Entries")
+         ("jj" "Journal" entry
+          (file+olp+datetree "~/project/org/journal/Journal.org")
+          "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
+          ;; ,(dw/read-file-as-string "~/org/notes.org")
           
-           )
-          ))
+          )
+         ))
 
 (keymap-set global-map "C-c j" 
-              (lambda () (interactive) (org-capture nil "jj"))))
+              (lambda () (interactive) (org-capture nil "jj")))
 
 (use-package org-bullets
   :after org
@@ -460,6 +461,12 @@
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))  
 
+(require 'flymake-ruff)
+(add-hook 'python-mode-hook #'flymake-ruff-load)
+
+(require 'ruff-format)
+(add-hook 'python-mode-hook 'ruff-format-on-save-mode)
+
 (add-hook 'rust-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
 
@@ -473,13 +480,6 @@
 
 (setq python-python-command "$HOME/.pyenv/shims/python3")
 (setq python-shell-completion-native-enable nil)
-
-
-(require 'flymake-ruff)
-(add-hook 'python-mode-hook #'flymake-ruff-load)
-
-(require 'ruff-format)
-(add-hook 'python-mode-hook 'ruff-format-on-save-mode)
 
 (use-package rustic
   :ensure nil
@@ -640,10 +640,18 @@
  '(flycheck-python-pycompile-executable "python3")
  '(flycheck-python-pylint-executable "python3")
  '(org-agenda-files '("~/project/org/3.org"))
+ '(org-emphasis-alist
+   '(("*" bold) ("/" italic) ("_" (:foreground "red") verbatim)
+     ("+" (:foreground "LightGreen") verbatim) ("_" underline)
+     ("=" org-verbatim verbatim) ("~" org-code verbatim)
+     ("+" (:\"Cyan\" t) verbatim)))
  '(org-faces-easy-properties
    '((todo . :background) (tag . :foreground) (priority . :foreground)))
  '(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
  '(org-startup-folded 'fold)
+ '(org-structure-template-alist
+   '(("R" . "src rust") ("r" . "src ruby") ("L" . "src emacs-lisp")
+     ("l" . "src lisp") ("s" . "src")))
  '(org-tempo-keywords-alist nil)
  '(package-selected-packages
    '(0xc @ all-the-icons-nerd-fonts auto-compile cargo cargo-mode
