@@ -1,58 +1,9 @@
-* November.
+* December.
 * _Start times from < 4  on New,  and 7 for Big, no treemacs._  
-* COMPLETED 30OCT - 04NOV. Homogulated init.el on Big and new Broke/fixed Dashboard on New.
-CLOSED: [2025-11-06 Thu 10:53]
-** Broke Dashboard, couldnt click any items. After a lot of replacing init.el w/ Big init.el finally went back
-to previous init.el and that fixed click issue. Now init.el on Big and New NOT synched.
-* COMPLETED Need to check init.el.org to see which init.el it matches and if it needs to be modified.
-CLOSED: [2025-11-17 Mon 09:46]
-** Problem with org-emphasis-alist again. How fixed last time?
-* COMPLETED Dired - ls issue.  
-CLOSED: [2025-11-07 Fri 13:27]
-** macs ls does not support --dired -N; see 'dired-use-ls-dired'
-;; lines 98-99 in init.el on New, Big and init.el.org 
-(when (string= system-type "darwin")       
-  (setq dired-use-ls-dired nil))
-*** Seems to work.
-
-* COMPLETED Deleted duplicate org-tag-alist and dashboard-startupify-alist entries on New and Big.
-CLOSED: [2025-11-10 Mon 08:14]
-intersting that no dupes were found in the init.el.org file - is this a tangling error?
-* COMPLETED fixed org-emphasis-alist broken on New.
-CLOSED: [2025-11-17 Mon 09:18]
-Copied items on Big in org-emphasis-alist customize.
-_red_
-+green+
-* COMPLETED Project on Big suddenly had permission denied issues.
-CLOSED: [2025-11-17 Mon 09:19]
-Didn't bother troubleshooting. Deleted entire folder then cloned again.
-
-* COMPLETED Project on Big not showing all files. Removed folder and cloned again. 
+** COMPLETED Project on Big not showing all files. Removed folder and cloned again. 
 CLOSED: [2025-11-18 Tue 11:16]
 ** COMPLETED removed duplicate rust dirs from ~/project/rust.
 CLOSED: [2025-11-18 Tue 11:15]
-* COMPLETED +Fixed+ Blew up init.el on New trying to fix Org-tempo-keywords-alist issue.
-CLOSED: [2025-11-18 Tue 14:53]
-uncommenting org-structure-template-alist items broke emacs.
-In addition C-c C-, didn't work. putting it explicitly in as global-key    org-insert-structure-template
-gave erro can't find s  which is odd.
-** After deleting broken init and replacing with 17NOV freeze the C- C-, works again.
-repeated by uncommenting org-structure-template-alist and broek it again.
-** Maybe edit org-tempo-keywords-alist directly via customize.
-Tried it saved and applied restarted and default values were there. 
-Tried again, worked but got message: Warning (emacs): _Duplicated keys in ‘org-structure-template-alist’ and ‘org-tempo-keywords-alist’_
-Deleted everything in org-tempp-keywords-alist.
-* COMPLETED Froze init.el  Work on other things. NewFreeze19NOV.init.el is latest good b/u.
-CLOSED: [2025-10-03 Fri 14:40]* WAITING Prot emacs runs as GUI on New, as terminal app on Big. Why?
-** init.el.org synched to init.el on New - 19NOV.
-** Comparison of Info.plist on New and Big showed no diff.  Both emacs in Applications are 30.2
-both brew emacs are /opt/homebrew/bin/emacs BUT menu on New, after pressing f10 is different from menu on Big.
-This indcates that something is different.ech
-** emacsclient -c does open a new GUI frame.
-*** emac in /Applications/ does open faster than starting emacs --daemon then running emacsclient -c. but emacsclient -n $1 opens a file instantly if emacs is open and server is running.
-Still not sure why Big opens emacs in terminal while New opens with GUI.
-** on Big /opt/homebrew/bin/emacs -q -l ~/project//Prot//init.el opens brew emacs. Not on New.
-on new same command opens /Applications//emacs.app n idea why.
 * COMPLETED On New removed /Applications//Emacs.app and /opt/homebrew//bin/emacs then did: 
 CLOSED: [2025-11-24 Mon 11:14]
 brew install -f emacs-app )force to overlook existing man pages, etc.
@@ -114,4 +65,4 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 * NEXT Created new minimal init.el in ~/project/testdir/ will test at work and try on Plucky later.
 **  Copied that simpler init.el with additions, tested, then placed in testdir as small.init.el
 copy this to Plucky and test. If has correct basic org setup
-** might have to install fonts - Jetbrains and Source Code Pro 
+** might have to install fonts - Jetbrains and Source Code Pro  <-- changed the small init to Jetbrains for all fonts.
