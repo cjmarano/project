@@ -1,6 +1,6 @@
 * December.
-* _Start times from < 4  on New,  and 7 for Big, no treemacs._  
-** COMPLETED Project on Big not showing all files. Removed folder and cloned again. 
+* _Start times from ~ 4  on New,  and 7+ for Big,_
+* COMPLETED Project on Big not showing all files. Removed folder and cloned again.
 CLOSED: [2025-11-18 Tue 11:16]
 ** COMPLETED removed duplicate rust dirs from ~/project/rust.
 CLOSED: [2025-11-18 Tue 11:15]
@@ -19,6 +19,10 @@ added:
 (use-package treemacs
         :ensure t)
         
+* COMPLETED Homogulated init.el on Big and New and init.el.org. As freezeBoth01DEC.init.el
+CLOSED: [2025-12-01 Mon 13:40]
+* COMPLETED ~/project/testdir/init.el and project/small.init.el are the same.
+CLOSED: [2025-12-01 Mon 13:40]
 * Backup *init.el* then choose one language; iisp, rust, python and remove all others.
 
 ** Make sure syntax highlighting, completion and marginalia all working with the one language.
@@ -64,4 +68,9 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 **  Copied that simpler init.el with additions, tested, then placed in testdir as small.init.el
 copy this to Plucky and test. If has correct basic org setup
 ** might have to install fonts - Jetbrains and Source Code Pro  <-- changed the small init to Jetbrains for all fonts.
-* Homogulated init.el on Big and New and init.el.org. As freezeBoth01DEC.init.el
+** note: there's small.init.el on New and in project then there's the init.el in testdir. Differences?
+* Looking at packages that are installed but not needed. all-the-icons-dired: when I added
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)  to init.el I got duplicated icons in a dired buffer. Removed this line.
+Deleted some packages that appeard to be not needed. Again, this is on New only.
+* Installing rust-analyzer on new fixed server issue -  rustup component add rust-analyzer
+* Eglot cant find project on Big. error is eglot  Failed to load workspace.

@@ -151,12 +151,8 @@
   :config
   (dashboard-setup-startup-hook))
 
-
-
 (use-package doom-modeline
-(doom-modeline-mode 1)
-(use-package nerd-icons
-  :ensure t)
+  :ensure t
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
 
