@@ -38,7 +38,8 @@ Deleted some packages that appeard to be not needed. Again, this is on New only.
 * COMPLETED Broke init.el by adding lexical binding to quicklisp files. will have to figure out how to remove.
 CLOSED: [2025-12-03 Wed 13:51]
 ** Re-installed slime-helper.el
-* Installed emacs-plus 30 w/ native compile and am using it via en alias.
+* COMPLETED Installed emacs-plus 30 w/ native compile and am using it via en alias.
+CLOSED: [2025-12-05 Fri 07:28]
 ** Old emacs 30.2 from brew seems to still be in Applications although shortuct was sent.
 ** COMPLETED M-: (native-comp-available-p) <-- we don't have native compile evidently. 30.2
 CLOSED: [2025-12-04 Thu 08:07]
@@ -106,4 +107,5 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 ** Test rust to see what's actually connecting lsp-wise. Linting, formatting?
 *** restarted and tried again and both .py files were linted and completed with pylsp server.
 *** added spaces, not tabs and prettify, also tree-sitter integration on New's init.el:
-
+* on +New+: ec does not work. Emacsclient.app gives GUI ez works as intended en works.
+alias ec='/opt/homebrew/bin/emacsclient -n $1'  does NOT work. Flashes like it opened then closed immediately.
