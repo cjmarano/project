@@ -1,10 +1,11 @@
 * December.
 * _Start times from < 4  on New,  and 7+ for Big,_
-* COMPLETED Project on Big not showing all files. Removed folder and cloned again.
+* Misc.
+** COMPLETED Project on Big not showing all files. Removed folder and cloned again.
 CLOSED: [2025-11-18 Tue 11:16]
 ** COMPLETED removed duplicate rust dirs from ~/project/rust.
 CLOSED: [2025-11-18 Tue 11:15]
-* COMPLETED On New removed /Applications//Emacs.app and /opt/homebrew//bin/emacs then did: 
+** COMPLETED On New removed /Applications//Emacs.app and /opt/homebrew//bin/emacs then did: 
 CLOSED: [2025-11-24 Mon 11:14]
 brew install -f emacs-app )force to overlook existing man pages, etc.
 ** This is version 30.2 and should do native compilation <-- faster than compile.
@@ -12,33 +13,33 @@ brew install -f emacs-app )force to overlook existing man pages, etc.
 Startup time < 4 seconds. Have to see if there's any downside.
 ** Work with this setup on New for a while and see if okay then do the same with Big.
 ** Added (setq package-native-compile t) to init.el
-* COMPLETED Installed Treemacs. Testing.
+** COMPLETED Installed Treemacs. Testing.
 CLOSED: [2025-11-24 Mon 11:14]
 ** treemacs installed ace-window, pfuture, posframe, maybe macrostep?
 added:
 (use-package treemacs
         :ensure t)
         
-* COMPLETED Homogulated init.el on Big and New and init.el.org. As freezeBoth01DEC.init.el
+** COMPLETED ~/project/testdir/init.el and project/small.init.el are the same.
 CLOSED: [2025-12-01 Mon 13:40]
-* COMPLETED ~/project/testdir/init.el and project/small.init.el are the same.
+** COMPLETED Homogulated init.el on Big and New and init.el.org. As freezeBoth01DEC.init.el
 CLOSED: [2025-12-01 Mon 13:40]
-* COMPLETED Installing rust-analyzer on new fixed server issue -  rustup component add rust-analyzer
-CLOSED: [2025-12-03 Wed 09:19]
-* DONE Created new minimal init.el in ~/project/testdir/ will test at work and try on Plucky later.
+** DONE Created new minimal init.el in ~/project/testdir/ will test at work and try on Plucky later.
 CLOSED: [2025-12-03 Wed 09:20]
 **  Copied that simpler init.el with additions, tested, then placed in testdir as small.init.el
 copy this to Plucky and test. If has correct basic org setup
 ** might have to install fonts - Jetbrains and Source Code Pro  <-- changed the small init to Jetbrains for all fonts.
 ** note: there's small.init.el on New and in project then there's the init.el in testdir. Differences?
-* COMPLETED Looking at packages that are installed but not needed. all-the-icons-dired: when I added
+** COMPLETED Looking at packages that are installed but not needed. all-the-icons-dired: when I added
 CLOSED: [2025-12-03 Wed 13:47]
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)  to init.el I got duplicated icons in a dired buffer. Removed this line.
 Deleted some packages that appeard to be not needed. Again, this is on New only.
+* COMPLETED Installing rust-analyzer on new fixed server issue -  rustup component add rust-analyzer
+CLOSED: [2025-12-03 Wed 09:19]
 * COMPLETED Broke init.el by adding lexical binding to quicklisp files. will have to figure out how to remove.
 CLOSED: [2025-12-03 Wed 13:51]
 ** Re-installed slime-helper.el
-* COMPLETED Installed emacs-plus 30 w/ native compile and am using it via en alias.
+* COMPLETED Installed +emacs-plus 30+ w/ native compile and am using it via en alias.
 CLOSED: [2025-12-05 Fri 07:28]
 ** Old emacs 30.2 from brew seems to still be in Applications although shortuct was sent.
 ** COMPLETED M-: (native-comp-available-p) <-- we don't have native compile evidently. 30.2
@@ -107,5 +108,5 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 ** Test rust to see what's actually connecting lsp-wise. Linting, formatting?
 *** restarted and tried again and both .py files were linted and completed with pylsp server.
 *** added spaces, not tabs and prettify, also tree-sitter integration on New's init.el:
-* on +New+: ec does not work. Emacsclient.app gives GUI ez works as intended en works.
-alias ec='/opt/homebrew/bin/emacsclient -n $1'  does NOT work. Flashes like it opened then closed immediately.
+* on +New+: ec does now work. Emacsclient.app gives GUI ez works as intended en works.
+alias ec='/opt/homebrew/bin/emacsclient -n $1'  does work, wasn't Yesterday.. Flashed when it opened then closed immediately.
