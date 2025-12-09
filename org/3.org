@@ -129,3 +129,4 @@ which sounds like it's chocking on a lexical scope line.
   (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore)))
   (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore))
   (add-to-list 'desktop-minor-mode-handlers '(eglot-inlay-hints-mode . ignore)))
+* test of editor = emacs in git.
