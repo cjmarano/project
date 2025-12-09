@@ -125,3 +125,7 @@ un-re-installing slime-helper does not resolve issue no exact location when emac
 which sounds like it's chocking on a lexical scope line.
 ** Slime throws errors on native compile. - is slime-helper issue slime related.
 * Bookmarks, C-x r m  C-x rb C-x r l
+(with-eval-after-load 'desktop
+  (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore)))
+  (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore))
+  (add-to-list 'desktop-minor-mode-handlers '(eglot-inlay-hints-mode . ignore)))
