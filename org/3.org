@@ -123,3 +123,5 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 * enabling slime-helper.el on line 594 causes emacs to freeze on launch.
 un-re-installing slime-helper does not resolve issue no exact location when emacs --debug-init but error mentions -*-
 which sounds like it's chocking on a lexical scope line.
+** Slime throws errors on native compile. - is slime-helper issue slime related.
+* Bookmarks, C-x r m  C-x rb C-x r l
