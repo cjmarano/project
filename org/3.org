@@ -69,6 +69,22 @@ still works since alist is saved (as customized item?) with the correct settings
 CLOSED: [2025-12-03 Wed 13:51]
 ** on +New+: ec does now work. Emacsclient.app gives GUI ez works as intended en works.
 alias ec='/opt/homebrew/bin/emacsclient -n $1'  does work, wasn't Yesterday.. Flashed when it opened then closed immediately.apl1029
+* COMPLETED Changed editor = emacs in git.
+CLOSED: [2025-12-09 Tue 14:51]
+* COMPLETED Bookmarks, C-x r m  C-x rb C-x r l
+CLOSED: [2025-12-09 Tue 14:52]
+(with-eval-after-load 'desktop
+  (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore)))
+  (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore))
+  (add-to-list 'desktop-minor-mode-handlers '(eglot-inlay-hints-mode . ignore)))
+* NEXT Native compile working on New. and Big. Can't compile 30.2 on Plucky.
+
+/opt/homebrew/opt/emacs-plus@30/bin/emacs  <-- Native (is alias to below).
+
+/opt/homebrew/Cellar/emacs-plus@31/31.0.50/Emacs.app/Contents/MacOS//Emacs   <-- alias in /Applications goes here.
+(this is a script that sets the PATH variable then launches Emacs-real (the actual executable).
+
+/opt/homebrew/bin/emacs <-- (is alias to above).
 * Eglot cant find project on Big. error is eglot  Failed to load workspace.
 * Backup *init.el* then choose one language; iisp, rust, python and remove all others.
 
@@ -110,23 +126,10 @@ fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_ 
 ** Test rust to see what's actually connecting lsp-wise. Linting, formatting?
 *** restarted and tried again and both .py files were linted and completed with pylsp server.
 *** added spaces, not tabs and prettify, also tree-sitter integration on New's init.el:
-* Native compile working on New. and Big. Can't compile 30.2 on Plucky.
-
-/opt/homebrew/opt/emacs-plus@30/bin/emacs  <-- Native (is alias to below).
-
-/opt/homebrew/Cellar/emacs-plus@31/31.0.50/Emacs.app/Contents/MacOS//Emacs   <-- alias in /Applications goes here.
-(this is a script that sets the PATH variable then launches Emacs-real (the actual executable).
-
-/opt/homebrew/bin/emacs <-- (is alias to above).
-*  Eglot fails to discover rust or python workspaces. Python is working w/ syntx, Marginalia, etc.
+*  Eglot fails to discover rust or python workspaces. Python is working w/ syntax, Marginalia, etc.
 
 * enabling slime-helper.el on line 594 causes emacs to freeze on launch.
 un-re-installing slime-helper does not resolve issue no exact location when emacs --debug-init but error mentions -*-
 which sounds like it's chocking on a lexical scope line.
 ** Slime throws errors on native compile. - is slime-helper issue slime related.
-* Bookmarks, C-x r m  C-x rb C-x r l
-(with-eval-after-load 'desktop
-  (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore)))
-  (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore))
-  (add-to-list 'desktop-minor-mode-handlers '(eglot-inlay-hints-mode . ignore)))
-* test of editor = emacs in git.
+* json errors. why? -- may be eglot related.
