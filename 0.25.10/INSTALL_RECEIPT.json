@@ -1,0 +1,39 @@
+{
+  "homebrew_version": "5.0.5-6-g1882ec6",
+  "used_options": [],
+  "unused_options": [],
+  "built_as_bottle": true,
+  "poured_from_bottle": true,
+  "loaded_from_api": true,
+  "installed_as_dependency": true,
+  "installed_on_request": false,
+  "changed_files": [
+    "lib/pkgconfig/tree-sitter.pc"
+  ],
+  "time": 1765455023,
+  "source_modified_time": 1758577976,
+  "compiler": "clang",
+  "aliases": [],
+  "runtime_dependencies": [],
+  "source": {
+    "spec": "stable",
+    "versions": {
+      "stable": "0.25.10",
+      "head": null,
+      "version_scheme": 0,
+      "compatibility_version": null
+    },
+    "path": "/Users/charles.marano/Library/Caches/Homebrew/api/formula.jws.json",
+    "tap_git_head": "6b248fd4f682607f4bd9a28c27e973e2ca1dad26",
+    "tap": "homebrew/core"
+  },
+  "arch": "arm64",
+  "built_on": {
+    "os": "Macintosh",
+    "os_version": "macOS 26",
+    "cpu_family": "dunno",
+    "xcode": "26.1",
+    "clt": "26.1.0.0.1.1761104275",
+    "preferred_perl": "5.34"
+  }
+}
