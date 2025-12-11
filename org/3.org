@@ -1,5 +1,45 @@
 * December.
 * _Start times from < 4  on New,  and 7+ for Big,_
+* Backup *init.el* then choose one language; iisp, rust, python and remove all others.
+
+** Make sure syntax highlighting, completion and marginalia all working with the one language.
+** Rinse and repeat for the other two languages.
+**  lisp programming. see backup init.el below.
+*** Looking at https://lisp-lang.org/learn/writing-libraries
+did some of the examples.. writing files was interesting and useful.
+This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
+*** lisp is a mess. Tools are installed but need more time getting used to them.
+** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
+
+$ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
+$ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
+       --eval '(quicklisp-quickstart:install :path "~/.quicklisp")' \
+       --eval '(ql:add-to-init-file)' \
+       --quit
+
+       added quickproject
+       (ql:quickload "quicklisp-slime-helper")
+       (ql:quickload :quickproject)
+       (quiclproject:make-project "test-project")
+ 
+*** COMPLETED Practicals asdf examples are overly complicated and annoying.
+CLOSED: [2025-08-05 Tue 07:31]
+Practical Lisp and Lisp in a box are at leat 14 years old.
+*** COMPLETED Did re-install of Quicklisp on New & Big via: https://www.quicklisp.org/beta/#basic-commands
+CLOSED: [2025-08-05 Tue 07:32]
+  added dired-x to init.el on New so I can look at elisp via Info
+*** COMPLETED asdf is included whan Quicklisp is loaded. Check this on Big and New.
+CLOSED: [2025-08-05 Tue 07:33]
+*** COMPLETED Removed older lisp tutorials from 'watch later'.
+CLOSED: [2025-08-20 Wed 11:33]
+*** circle.lisp working after changes. hello.lisp working. array.lisp working but with errors.
++deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
+fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
+** Had to re-add quicklisp, quicklisp-slime-helper on Big.
+** Rust stuff see Backup init.el below.
+** Test rust to see what's actually connecting lsp-wise. Linting, formatting?
+*** restarted and tried again and both .py files were linted and completed with pylsp server.
+*** added spaces, not tabs and prettify, also tree-sitter integration on New's init.el:
 * Misc.
 ** COMPLETED Project on Big not showing all files. Removed folder and cloned again.
 CLOSED: [2025-11-18 Tue 11:16]
@@ -77,6 +117,16 @@ CLOSED: [2025-12-09 Tue 14:52]
   (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore)))
   (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore))
   (add-to-list 'desktop-minor-mode-handlers '(eglot-inlay-hints-mode . ignore)))
+* COMPLETED edited ~/.cache/emacs/var/project-list.el to add correct project dirs.
+CLOSED: [2025-12-10 Wed 09:27]
+** Eglot cant find project on Big. error is eglot  Failed to load workspace.
+* COMPLETED removed Apple, Kitty & Jamf entries from .zshrc PATH and updated all references to python.
+CLOSED: [2025-12-10 Wed 11:24]
+python 3.13.1 to 3.14.0
+* WAITING Disabled paredit because it throws compile warnings and doesn't seem that useful.
+** Will consider re-enabling if I feel like I'm missing some functionality.
+* TODO Eglot fails to discover rust or python workspaces. Python is working w/ syntax, Marginalia, etc.
+
 * NEXT Native compile working on New. and Big. Can't compile 30.2 on Plucky.
 
 /opt/homebrew/opt/emacs-plus@30/bin/emacs  <-- Native (is alias to below).
@@ -85,51 +135,11 @@ CLOSED: [2025-12-09 Tue 14:52]
 (this is a script that sets the PATH variable then launches Emacs-real (the actual executable).
 
 /opt/homebrew/bin/emacs <-- (is alias to above).
-* Eglot cant find project on Big. error is eglot  Failed to load workspace.
-* Backup *init.el* then choose one language; iisp, rust, python and remove all others.
-
-** Make sure syntax highlighting, completion and marginalia all working with the one language.
-** Rinse and repeat for the other two languages.
-**  lisp programming. see backup init.el below.
-*** Looking at https://lisp-lang.org/learn/writing-libraries
-did some of the examples.. writing files was interesting and useful.
-This was done on Big and New, tested, works. Need to do on Plucky and Ducky.
-*** lisp is a mess. Tools are installed but need more time getting used to them.
-** COMPLETED recommends are SBCL + Slime for compiling and interpeting respectively.
-
-$ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
-$ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
-       --eval '(quicklisp-quickstart:install :path "~/.quicklisp")' \
-       --eval '(ql:add-to-init-file)' \
-       --quit
-
-       added quickproject
-       (ql:quickload "quicklisp-slime-helper")
-       (ql:quickload :quickproject)
-       (quiclproject:make-project "test-project")
- 
-*** COMPLETED Practicals asdf examples are overly complicated and annoying.
-CLOSED: [2025-08-05 Tue 07:31]
-Practical Lisp and Lisp in a box are at leat 14 years old.
-*** COMPLETED Did re-install of Quicklisp on New & Big via: https://www.quicklisp.org/beta/#basic-commands
-CLOSED: [2025-08-05 Tue 07:32]
-  added dired-x to init.el on New so I can look at elisp via Info
-*** COMPLETED asdf is included whan Quicklisp is loaded. Check this on Big and New.
-CLOSED: [2025-08-05 Tue 07:33]
-*** COMPLETED Removed older lisp tutorials from 'watch later'.
-CLOSED: [2025-08-20 Wed 11:33]
-*** circle.lisp working after changes. hello.lisp working. array.lisp working but with errors.
-+deftest.lisp works with clisp, and with  sbcl when run with sbcl --script.+  block.lisp works after changes. _Dice2.lisp does not work._
-fooworld.lisp works. _hellowrld.lisp doesn't work_.    _main.lsip doesn't work_  sequence.lisp runs but throws error: undefined variable X.  Strings.lisp runs as a script.
-** Had to re-add quicklisp, quicklisp-slime-helper on Big.
-** Rust stuff see Backup init.el below.
-** Test rust to see what's actually connecting lsp-wise. Linting, formatting?
-*** restarted and tried again and both .py files were linted and completed with pylsp server.
-*** added spaces, not tabs and prettify, also tree-sitter integration on New's init.el:
-*  Eglot fails to discover rust or python workspaces. Python is working w/ syntax, Marginalia, etc.
-
 * enabling slime-helper.el on line 594 causes emacs to freeze on launch.
 un-re-installing slime-helper does not resolve issue no exact location when emacs --debug-init but error mentions -*-
 which sounds like it's chocking on a lexical scope line.
 ** Slime throws errors on native compile. - is slime-helper issue slime related.
 * json errors. why? -- may be eglot related.
+** problem with emacs-lisp mode - error is with rustic, which should not be involved.
+Did get a lisp file for do completion and marginalia but still getting rustic errors.
+** Commenting out Rustic on New temporarily to see if it fixes lisp issue.
