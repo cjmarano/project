@@ -23,13 +23,13 @@
 
 (defun packages-require (&rest packs)
   "Install and load a package. If the package is not available installs it automaticaly."
-  (mapc  (lambda (package)
-           (unless (package-installed-p package)
-             (package-install package)
-             )
-	       )
+(mapc  (lambda (package)
+         (unless (package-installed-p package)
+           (package-install package)
+           )
+         )
 
-         packs
+       packs
 
          ))
 
