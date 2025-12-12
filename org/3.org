@@ -158,7 +158,7 @@ CLOSED: [2025-12-12 Fri 13:49]
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 **  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
-* Native compile working on New. and Big. Can't compile 30.2 on Plucky.
+* TODO Native compile working on New. and Big. Can't compile 30.2 on Plucky.
 
 /opt/homebrew/opt/emacs-plus@30/bin/emacs  <-- Native (is alias to below).
 
@@ -169,5 +169,6 @@ CLOSED: [2025-12-12 Fri 13:49]
 * TODO Eglot fails to discover rust or python workspaces. Python is working w/ syntax, Marginalia, etc.
 
 * json errors. why? -- may be hint related.
-(setq-local lsp-inlay-hint-enable t)
+** note: the below line is a dupe of <-- 519.
+(setq-local lsp-inlay-hint-enable t)   <-- 533
 
