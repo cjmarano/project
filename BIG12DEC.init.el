@@ -12,14 +12,14 @@
 (package-initialize)
 
 (require 'use-package)
- 
+
 (setq package-native-compile t)
 
 ;; (use-package exec-path-from-shell
-;;  :ensure t
-;;  :config
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize))) 
+;;   :ensure t
+;;   :config
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize)) 
 
 (defun packages-require (&rest packs)
   "Install and load a package. If the package is not available installs it automaticaly."
@@ -314,6 +314,7 @@
                   (org-level-6 . 1.1)
                   (org-level-7 . 1.1)
                   (org-level-8 . 1.1))))
+  (set-face-attribute (car face) nil :font "JetBrainsmono" :weight 'regular :height (cdr face)))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
@@ -329,13 +330,13 @@
 ;; (require 'org-indent)
 ;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
   
-  (add-to-list 'org-emphasis-alist
-               '("_" (:foreground "red")
-                 ))
+  ;; (add-to-list 'org-emphasis-alist
+  ;;              '("_" (:foreground "red")
+  ;;                ))
 
-  (add-to-list 'org-emphasis-alist
-               '("+" (:foreground "LightGreen")
-                 ))
+  ;; (add-to-list 'org-emphasis-alist
+  ;;              '("+" (:foreground "LightGreen")
+  ;;                ))
 
 (defun efs/org-mode-setup ()
 ;;    (org-indent-mode)
@@ -551,18 +552,17 @@
 (lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
-
-(use-package rust-mode
-  :init
-  (setq rust-mode-treesitter-derive t))
-;; or just for rust-mode
-;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
-;; Load the language definition for Rust, if it hasn't been loaded.
-;; Return the language object.
-(tree-sitter-require 'rust)
-(tree-sitter-require 'python)
-(global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;; (use-package rust-mode
+;;   :init
+;;   (setq rust-mode-treesitter-derive t))
+;; ;; or just for rust-mode
+;; ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+;; ;; Load the language definition for Rust, if it hasn't been loaded.
+;; ;; Return the language object.
+;; (tree-sitter-require 'rust)
+;; (tree-sitter-require 'python)
+;; (global-tree-sitter-mode)
+;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
 (add-hook 'after-init-hook 'global-company-mode)
 (use-package company
@@ -586,16 +586,16 @@
 (require 'slime-autoloads)
 (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
 
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
-  
-;; Enable Paredit.
-(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
-(add-hook 'ielm-mode-hook 'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
-(add-hook 'lisp-mode-hook 'enable-paredit-mode)
-(add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
-(require 'paredit)
+;; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+
+;; ;; Enable Paredit.
+;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+;; (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
+;; (add-hook 'ielm-mode-hook 'enable-paredit-mode)
+;; (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+;; (add-hook 'lisp-mode-hook 'enable-paredit-mode)
+;; (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
+;; (require 'paredit)
 
 ;; Enable Rainbow Delimiters.
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
