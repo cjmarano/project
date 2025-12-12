@@ -74,7 +74,34 @@ copy this to Plucky and test. If has correct basic org setup
 CLOSED: [2025-12-03 Wed 13:47]
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)  to init.el I got duplicated icons in a dired buffer. Removed this line.
 Deleted some packages that appeard to be not needed. Again, this is on New only.
-* COMPLETED Installing rust-analyzer on new fixed server issue -  rustup component add rust-analyzer
+** Disabled paredit because it throws compile warnings and doesn't seem that useful.
+Is working on Big.
+** enabling slime-helper.el on line 584 causes emacs to freeze on launch.
+un-re-installing slime-helper does not resolve issue no exact location when emacs --debug-init but error mentions -*-
+which sounds like it's chocking on a lexical scope line.
+*** Slime throws errors on native compile. - is slime-helper issue slime related.
+** COMPLETED Removing tree-sitter from Elpa broke emacs w/ fatal exception. Tree-sitter ;; out in init.el
+CLOSED: [2025-12-11 Thu 13:44]
+Had to remove all references to tree-sitter to fix.
+Will need to examine to figure out what happened.
+Here's the part of init.el that broke things:
+;; (use-package rust-mode   _<-- enabling these three line stops emacs loading_
+;;   :init
+;;   (setq rust-mode-treesitter-derive t))
+;; ;; or just for rust-mode
+;; ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+;; ;; Load the language definition for Rust, if it hasn't been loaded.
+;; ;; Return the language object.
+;; (tree-sitter-require 'rust)
+;; (tree-sitter-require 'python)
+;; (global-tree-sitter-mode)  _<-- this line_
+;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode) _<-- this line_
+*** Above works on Big. What's different?
+*** Will consider re-enabling if I feel like I'm missing some functionality.
+** problem with emacs-lisp mode - error is with rustic, which should not be involved.
+Did get a lisp file for do completion and marginalia but still getting rustic errors.
+** Commenting out Rustic on New temporarily to see if it fixes lisp issue.
+** COMPLETED Installing rust-analyzer on new fixed server issue -  rustup component add rust-analyzer
 CLOSED: [2025-12-03 Wed 09:19]
 * COMPLETED Broke init.el by adding lexical binding to quicklisp files. will have to figure out how to remove.
 CLOSED: [2025-12-03 Wed 13:51]
@@ -123,6 +150,14 @@ CLOSED: [2025-12-10 Wed 09:27]
 * COMPLETED removed Apple, Kitty & Jamf entries from .zshrc PATH and updated all references to python.
 CLOSED: [2025-12-10 Wed 11:24]
 python 3.13.1 to 3.14.0
+* COMPLETED Friday 12DEC.  - Enabled flycheck in New, Big and init.el.org (w/o Elpy):
+CLOSED: [2025-12-12 Fri 13:49]
+
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+**  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
 * Native compile working on New. and Big. Can't compile 30.2 on Plucky.
 
 /opt/homebrew/opt/emacs-plus@30/bin/emacs  <-- Native (is alias to below).
@@ -133,41 +168,6 @@ python 3.13.1 to 3.14.0
 /opt/homebrew/bin/emacs <-- (is alias to above).
 * TODO Eglot fails to discover rust or python workspaces. Python is working w/ syntax, Marginalia, etc.
 
-* Misc. issues on New;
-** Disabled paredit because it throws compile warnings and doesn't seem that useful.
-Is working on Big.
-** enabling slime-helper.el on line 584 causes emacs to freeze on launch.
-un-re-installing slime-helper does not resolve issue no exact location when emacs --debug-init but error mentions -*-
-which sounds like it's chocking on a lexical scope line.
-*** Slime throws errors on native compile. - is slime-helper issue slime related.
-** COMPLETED Removing tree-sitter from Elpa broke emacs w/ fatal exception. Tree-sitter ;; out in init.el
-CLOSED: [2025-12-11 Thu 13:44]
-Had to remove all references to tree-sitter to fix.
-Will need to examine to figure out what happened.
-Here's the part of init.el that broke things:
-;; (use-package rust-mode   _<-- enabling these three line stops emacs loading_
-;;   :init
-;;   (setq rust-mode-treesitter-derive t))
-;; ;; or just for rust-mode
-;; ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
-;; ;; Load the language definition for Rust, if it hasn't been loaded.
-;; ;; Return the language object.
-;; (tree-sitter-require 'rust)
-;; (tree-sitter-require 'python)
-;; (global-tree-sitter-mode)  _<-- this line_
-;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode) _<-- this line_
-*** Above works on Big. What's different?
-*** Will consider re-enabling if I feel like I'm missing some functionality.
-** problem with emacs-lisp mode - error is with rustic, which should not be involved.
-Did get a lisp file for do completion and marginalia but still getting rustic errors.
-** Commenting out Rustic on New temporarily to see if it fixes lisp issue.
 * json errors. why? -- may be hint related.
 (setq-local lsp-inlay-hint-enable t)
 
-* Friday 12DEC.  - Enabled flycheck in New init.el (w/o Elpy):
-
-(use-package flycheck
-  :ensure t
-  :config
-  (add-hook 'after-init-hook #'global-flycheck-mode))
-*  NOTE: New and Big inits now different - New has simplifed Flycheck (w/o Elpy).
