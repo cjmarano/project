@@ -332,11 +332,7 @@
     ;; already links to the manual, if a function is referenced there.
     (global-set-key (kbd "C-h F") #'helpful-function)
 
-  ;; ( require 'smartparens-config)
-  ;; (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
-  ;; (add-hook 'common-lisp-mode-hook #'smartparens-mode)
-  ;; (add-hook 'lisp-mode-hook #'smartparens-mode)
-(use-package smartparens
+ (use-package smartparens
   :ensure smartparens  ;; install the package
   :hook (emacs-lisp-mode-hook common-lisp-mode-hook lisp-mode-hook)
   :config
@@ -631,13 +627,13 @@
 #+end_src
 
 * Tree-sitter
-#+begin_src emacs-lisp
-  (use-package treesit-auto
-    :ensure t
-    :config
-    (treesit-auto-install t)
-    (global-treesit-auto-mode)
-    )
+# #+begin_src emacs-lisp
+#   (use-package treesit-auto
+#     :ensure t
+#     :config
+#     (treesit-auto-install t)
+#     (global-treesit-auto-mode)
+#     )
 
 (use-package rust-mode
   :init
@@ -774,17 +770,13 @@
 
 * Development Setup
 #+begin_src emacs-lisp
-;; (elpy-enable)
+  (use-package flycheck
+      :ensure t
+      :config
+      (add-hook 'after-init-hok #'global-flycheck-mode))
+  
+  (setq gc-cons-threshold (expt 2 23)) ;; 8MB
+  (setq gc-cons-percentage 0.5)
 
-;; Enable Flycheck
-;; (when (require 'flycheck nil t)
-;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
-;; added to supress flymake error message when compliing python (12AUG2022)
-(remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
-
-(setq gc-cons-threshold (expt 2 23)) ;; 8MB
-(setq gc-cons-percentage 0.5)
-
-;; User-Defined init.el ends here
+  ;; User-Defined init.el ends here
 #+end_src

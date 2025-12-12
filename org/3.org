@@ -131,20 +131,17 @@ python 3.13.1 to 3.14.0
 (this is a script that sets the PATH variable then launches Emacs-real (the actual executable).
 
 /opt/homebrew/bin/emacs <-- (is alias to above).
-* json errors. why? -- may be eglot related.
-** problem with emacs-lisp mode - error is with rustic, which should not be involved.
-Did get a lisp file for do completion and marginalia but still getting rustic errors.
-** Commenting out Rustic on New temporarily to see if it fixes lisp issue.
 * TODO Eglot fails to discover rust or python workspaces. Python is working w/ syntax, Marginalia, etc.
 
-* WAITING enabling slime-helper.el on line 584 causes emacs to freeze on launch.
+* Misc. issues on New;
+** Disabled paredit because it throws compile warnings and doesn't seem that useful.
+Is working on Big.
+** enabling slime-helper.el on line 584 causes emacs to freeze on launch.
 un-re-installing slime-helper does not resolve issue no exact location when emacs --debug-init but error mentions -*-
 which sounds like it's chocking on a lexical scope line.
-** Slime throws errors on native compile. - is slime-helper issue slime related.
-* WAITING Disabled paredit because it throws compile warnings and doesn't seem that useful.
-Is working on Big.
-** Will consider re-enabling if I feel like I'm missing some functionality.
-* WAITING Removing tree-sitter from Elpa broke emacs w/ fatal exception.
+*** Slime throws errors on native compile. - is slime-helper issue slime related.
+** COMPLETED Removing tree-sitter from Elpa broke emacs w/ fatal exception. Tree-sitter ;; out in init.el
+CLOSED: [2025-12-11 Thu 13:44]
 Had to remove all references to tree-sitter to fix.
 Will need to examine to figure out what happened.
 Here's the part of init.el that broke things:
@@ -159,6 +156,18 @@ Here's the part of init.el that broke things:
 ;; (tree-sitter-require 'python)
 ;; (global-tree-sitter-mode)  _<-- this line_
 ;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode) _<-- this line_
-** Above works on Big. What's different?
+*** Above works on Big. What's different?
+*** Will consider re-enabling if I feel like I'm missing some functionality.
+** problem with emacs-lisp mode - error is with rustic, which should not be involved.
+Did get a lisp file for do completion and marginalia but still getting rustic errors.
+** Commenting out Rustic on New temporarily to see if it fixes lisp issue.
+* json errors. why? -- may be hint related.
+(setq-local lsp-inlay-hint-enable t)
 
+* Friday 12DEC.  - Enabled flycheck in New init.el (w/o Elpy):
 
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+*  NOTE: New and Big inits now different - New has simplifed Flycheck (w/o Elpy).

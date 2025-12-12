@@ -314,6 +314,7 @@
                   (org-level-6 . 1.1)
                   (org-level-7 . 1.1)
                   (org-level-8 . 1.1))))
+(set-face-attribute (car face) nil :font "JetBrainsmono" :weight 'regular :height (cdr face)))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
@@ -656,7 +657,7 @@
          smartparens toml-mode track-changes tree-sitter-langs
          treemacs treemacs-nerd-icons use-package vertico
          vterm which-key))
- '(savehist-additional-variables '(kill-ring register-alist\ ) t)
+ ;; '(savehist-additional-variables '(kill-ring register-alist\ ) t)
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))
 
