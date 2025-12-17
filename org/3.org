@@ -1,8 +1,6 @@
-gg* December.
-* _Start times from _< 2  on New,  and < 5 for Big,_
-* Backup *init.el* then choose one langua
-ge; iisp, rust, python and remove all others.
-
+* December.
+* _Start times from _< 3  on New,  and < 5 for Big,_
+* Backup *init.el* then choose one language; iisp, rust, python and remove all others.
 ** Make sure syntax highlighting, completion and marginalia all working with the one language.
 ** Rinse and repeat for the other two languages.
 **  lisp programming. see backup init.el below.
@@ -110,56 +108,15 @@ python 3.13.1 to 3.14.0
 ** COMPLETED Broke init.el by adding lexical binding to quicklisp files. will have to figure out how to remove.
 CLOSED: [2025-12-03 Wed 13:51]
 ** Re-installed slime-helper.el
-* COMPLETED Installed +emacs-plus 30+ w/ native compile and am using it via en alias.
-CLOSED: [2025-12-05 Fri 07:28]
-** Old emacs 30.2 from brew seems to still be in Applications although shortuct was sent.
-** COMPLETED M-: (native-comp-available-p) <-- we don't have native compile evidently. 30.2
-CLOSED: [2025-12-04 Thu 08:07]
-** Tried installing emacs-plus@31 via brew. Might have to remove everything on Plucky, use this.
-** COMPLETED Check paredit and smartparens<- native compile issue.
-CLOSED: [2025-12-04 Thu 08:07]
-** Paredit threw warnings but works fine.
-** Smartparens
-(setq native-comp-speed -1)  will kill native compile if put in early.init <-- didn't need.
-
-(setq native-comp-jit-compilation-deny-list '("sentence-navigation")) <-- didn't need.
-
-+Did this instead:+
-(use-package smartparens
-  :ensure smartparens  ;; install the package
-  :hook (emacs-lisp-mode-hook common-lisp-mode-hook lisp-mode-hook)
-  :config
-  ;; load default config
-  (require 'smartparens-config))
-** COMPLETED Structure-template-alist commented out in init.el but not needed.
-CLOSED: [2025-12-04 Thu 08:18]
-#+begin_src emacs-lisp
-#+end_src
-still works since alist is saved (as customized item?) with the correct settings.
-** COMPLETED problem is:   (load (expand-file-name "~/.quicklisp/slime-helper.el")) says -*- is issue.
-CLOSED: [2025-12-03 Wed 13:51]
-** on +New+: ec does now work. Emacsclient.app gives GUI ez works as intended en works.
-alias ec='/opt/homebrew/bin/emacsclient -n $1'  does work, wasn't Yesterday.. Flashed when it opened then closed immediately.apl1029
-* COMPLETED Changed editor = emacs in git.
-CLOSED: [2025-12-09 Tue 14:51]
-* COMPLETED Bookmarks, C-x r m  C-x rb C-x r l
+** COMPLETED Bookmarks, C-x r m  C-x rb C-x r l
 CLOSED: [2025-12-09 Tue 14:52]
 (with-eval-after-load 'desktop
   (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore)))
   (add-to-list 'desktop-minor-mode-handlers '(eglot--managed-mode . ignore))
   (add-to-list 'desktop-minor-mode-handlers '(eglot-inlay-hints-mode . ignore)))
-* COMPLETED edited ~/.cache/emacs/var/project-list.el to add correct project dirs.
-CLOSED: [2025-12-10 Wed 09:27]
-** Eglot cant find project on Big. error is eglot  Failed to load workspace.
-* COMPLETED Friday 12DEC.  - Enabled flycheck in New, Big and init.el.org (w/o Elpy):
-CLOSED: [2025-12-12 Fri 13:49]
-
-(use-package flycheck
-  :ensure t
-  :config
-  (add-hook 'after-init-hook #'global-flycheck-mode))
-**  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
-* COMPLETED emacs crashed out after an O.S. update. Working again now. Complained about tree-sitter.
+** COMPLETED Changed editor = emacs in git.
+CLOSED: [2025-12-09 Tue 14:51]
+** COMPLETED emacs crashed out after an O.S. update. Working again now. Complained about tree-sitter.
 CLOSED: [2025-12-15 Mon 13:46]
 emacs is currently launching from \/Applications/Emacs.app   30.2 <-- w/ no native compile.
 /opt/homebrew/bin/emacs is 30.2 w/o native compile.
@@ -219,7 +176,78 @@ Linking /opt/homebrew/Cellar/emacs-plus@30/30.2... 8713 symlinks created.
 
 /opt/homebrew/Cellar/emacs-plus@31/31.0.50/bin stable                                                                       10s
 ❯ emacs
-* json errors. why? -- may be hint related.
+* COMPLETED Installed +emacs-plus 30+ w/ native compile and am using it via en alias.
+CLOSED: [2025-12-05 Fri 07:28]
+** Old emacs 30.2 from brew seems to still be in Applications although shortuct was sent.
+** COMPLETED M-: (native-comp-available-p) <-- we don't have native compile evidently. 30.2
+CLOSED: [2025-12-04 Thu 08:07]
+** Tried installing emacs-plus@31 via brew. Might have to remove everything on Plucky, use this.
+** COMPLETED Check paredit and smartparens<- native compile issue.
+CLOSED: [2025-12-04 Thu 08:07]
+** Paredit threw warnings but works fine.
+** Smartparens
+(setq native-comp-speed -1)  will kill native compile if put in early.init <-- didn't need.
+
+(setq native-comp-jit-compilation-deny-list '("sentence-navigation")) <-- didn't need.
+
++Did this instead:+
+(use-package smartparens
+  :ensure smartparens  ;; install the package
+  :hook (emacs-lisp-mode-hook common-lisp-mode-hook lisp-mode-hook)
+  :config
+  ;; load default config
+  (require 'smartparens-config))
+** COMPLETED Structure-template-alist commented out in init.el but not needed.
+CLOSED: [2025-12-04 Thu 08:18]
+#+begin_src emacs-lisp
+#+end_src
+still works since alist is saved (as customized item?) with the correct settings.
+** COMPLETED problem is:   (load (expand-file-name "~/.quicklisp/slime-helper.el")) says -*- is issue.
+CLOSED: [2025-12-03 Wed 13:51]
+** on +New+: ec does now work. Emacsclient.app gives GUI ez works as intended en works.
+alias ec='/opt/homebrew/bin/emacsclient -n $1'  does work, wasn't Yesterday.. Flashed when it opened then closed immediately.apl1029
+** COMPLETED Uninstalled all emacs (emacs, emacs-plus@30, emacs-plus@31) then reinstalled.
+CLOSED: [2025-12-16 Tue 13:38]
+** brew install --cask jimeh/emacs-builds/emacs-app  <-- 30.2 with native-comp.
+emacs installed in //opt/homebrew//bin/emacs (emacs.app moved to /Applications.
+* COMPLETED edited ~/.cache/emacs/var/project-list.el to add correct project dirs.
+CLOSED: [2025-12-10 Wed 09:27]
+** Eglot cant find project on Big. error is eglot  Failed to load workspace.
+* COMPLETED Friday 12DEC.  - Enabled flycheck in New, Big and init.el.org (w/o Elpy):
+CLOSED: [2025-12-12 Fri 13:49]
+
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+**  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
+* COMPLETED org-emphasis-alist blew up on New and Big.
+CLOSED: [2025-12-16 Tue 13:38]
+
+Had to re-install the following:
+
+(require 'org-indent)
+(set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+  
+  (add-to-list 'org-emphasis-alist
+               '("_" (:foreground "red")
+                 ))
+
+  (add-to-list 'org-emphasis-alist
+               '("+" (:foreground "LightGreen")
+                 ))
+_foo_ +foo+ works correctly now.
+* COMPLETED Tree-sitter out on  New and Big then back.
+CLOSED: [2025-12-17 Wed 08:43]
+tree-sitter - is /opt/hombrew/opt in the PATH? Well it look slike Tree-sitter is loading.
+line 555 on:
+(straight-use-package 'tree-sitter)
+(straight-use-package 'tree-sitter-langs)
+(global-tree-sitter-mode)
+_done_ replace global-hl-ine-mode with tree-sitter-hl-mode
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode) 
+---
+* WAITING json errors. why? -- may be hint related.
 ** note: the below line is a dupe of <-- 519.
 (setq-local lsp-inlay-hint-enable t)   <-- 533
 * TODO Eglot fails to discover rust or python workspaces. Python is working w/ syntax, Marginalia, etc.
@@ -232,6 +260,16 @@ Linking /opt/homebrew/Cellar/emacs-plus@30/30.2... 8713 symlinks created.
 (this is a script that sets the PATH variable then launches Emacs-real (the actual executable).
 
 /opt/homebrew/bin/emacs <-- (is alias to above).
-* Uninstalled all emacs (emacs, emacs-plus@30, emacs-plus@31) then reinstalled.
-** brew install --cask jimeh/emacs-builds/emacs-app  <-- 30.2 with native-comp.
-emacs installed in //opt/homebrew//bin/emacs (emacs.app moved to /Applications.
+* Temporary changes, pending testing?
+** DONE Org emphasis is not in alist? - well, it's working after putting it into init.el.
+Rust-mode out on New and Big.
+Paredit out on New and Big.
+Show Fonts not necessary?
+Treemacs useful?
+Org Capture necessary?
+
+
+* Just spent 20 minutes fixing task templates (org-capture) then _nothing was saved to init.el!_ Very angry.
+** Don't really need org-capture - can use 3.org and Denote. Visit/fix this later.
+** so weird, removed all org capture but C-c c t still creates a task but in ~/.notes file.
+** doing a C-h k for C-c c gives org-capture and org-capture-template alist is empty.
