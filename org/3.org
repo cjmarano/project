@@ -280,7 +280,7 @@ CLOSED: [2025-12-18 Thu 08:13]
 * TODO Eglot fails to discover rust or python workspaces. Python is working w/ syntax, Marginalia, etc.
 
 * TODO Native compile working on Big & New. Can't compile 30.2 on Plucky.
-* Flycheck now working with elisp files on New. not on Big.
+* NEXT Flycheck now working with elisp files on New. not on Big.
 ** No idea why it started working. Could diff older init.el files to see what changed.
 ** Had to mess around with init.el after flycheck flagged lots of errors.
 * Added ;;; ...  -*- lexical-binding: nil -*- to init.el 
