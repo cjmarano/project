@@ -84,7 +84,7 @@
     (global-display-line-numbers-mode t)
     (column-number-mode t)
     (tool-bar-mode -1)
-    (global-hl-line-mode +)
+    ;; (global-hl-line-mode +)
     (setq global-auto-revert-mode 1)
     (setq auto-revert-use-notify t) 
     (setq use-short-answers t)
@@ -393,58 +393,66 @@
 #+end_src
 * Org setup
 #+begin_src emacs-lisp
-(defun efs/org-mode-setup ()
-;;    (org-indent-mode)
-(variable-pitch-mode 1)
-(visual-line-mode 1))
-;; ---------------------------------------------------------
+    (defun efs/org-mode-setup ()
+    ;;    (org-indent-mode)
+    (variable-pitch-mode 1)
+    (visual-line-mode 1))
+    ;; ---------------------------------------------------------
 
-  
-(setq org-agenda-files
-      '("~/project/org/journal/journal.org"
-        "~/project/org/notes/notes.org"
-        "~/project/org/tasks/tasks.org"
-        "~/project/org/daily/daily.org"))
+      
+    (setq org-agenda-files
+          '("~/project/org/journal/journal.org"
+            "~/project/org/notes/notes.org"
+            "~/project/org/tasks/tasks.org"
+            "~/project/org/daily/daily.org"))
 
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "DONE(d)")
-        (sequence "COMPLETED(c)")))
+    (setq org-todo-keywords
+          '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "DONE(d)")
+            (sequence "COMPLETED(c)")))
 
-(setq org-refile-targets
-        '(("Archive.org" :maxlevel . 1)
-          ("Tasks.org" :maxlevel . 1)))
+    (setq org-refile-targets
+            '(("Archive.org" :maxlevel . 1)
+              ("Tasks.org" :maxlevel . 1)))
 
-(setq org-tag-alist                   
-        '((:startgroup)
-                                        ; Put mutually exclusive tags here
-          (:endgroup)
-          ("@note" . ?t)
-          ("@code" . ?c)
-          ("@init" . ?i)))
+    (setq org-tag-alist                   
+            '((:startgroup)
+                                            ; Put mutually exclusive tags here
+              (:endgroup)
+              ("@note" . ?t)
+              ("@code" . ?c)
+              ("@init" . ?i)))
 
 
-(setq org-capture-templates
-        `(("t" "Tasks / Projects")
-          ("tt" "Task" entry (file+olp "~/project/org/tasks/tasks.org" "Inbox")
-           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+    ;; (setq org-capture-templates
+    ;;         `(("t" "Tasks / Projects")
+    ;;           ("tt" "Task" entry (file+olp "~/project/org/tasks/tasks.org" "Inbox")
+    ;;            "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
 
-          ("j" "Journal Entries")
-          ("jj" "Journal" entry
-           (file+olp+datetree "~/org/journal/Journal.org")
-           "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-           ;; ,(dw/read-file-as-string "~/org/notes.org")
-          
-           )
-          ))
+    ;;           ("j" "Journal Entries")
+    ;;           ("jj" "Journal" entry
+    ;;            (file+olp+datetree "~/org/journal/Journal.org")
+    ;;            "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
+    ;;            ;; ,(dw/read-file-as-string "~/org/notes.org")
+              
+    ;;            )
+    ;;           ))
 
-(keymap-set global-map "C-c j" 
-              (lambda () (interactive) (org-capture nil "jj"))))
+  ;; ;; sinpler capture   from orgmode.orgmode <-- broke init.el
+  ;; (setq org-capture-templates
+  ;;       '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+  ;;          "* TODO %?\n  %i\n  %a")
+  ;;         ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
+  ;;          "* %?\nEntered on %U\n  %i\n  %a")))
 
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+    ;; (keymap-set global-map "C-c j" 
+    ;;               (lambda () (interactive) (org-capture nil "jj")))
+
+    ;; (
+     use-package org-bullets
+      :after org
+      :hook (org-mode . org-bullets-mode)
+      :custom
+      (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 #+end_src
 * Org roam
 #+begin_src emacs-lisp
@@ -627,25 +635,22 @@
 #+end_src
 
 * Tree-sitter
-# #+begin_src emacs-lisp
-#   (use-package treesit-auto
-#     :ensure t
-#     :config
-#     (treesit-auto-install t)
-#     (global-treesit-auto-mode)
-#     )
+#+begin_src lisp
+  (require 'tree-sitter)
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
 
-(use-package rust-mode
-  :init
-  (setq rust-mode-treesitter-derive t))
-;; or just for rust-mode
-;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
-;; Load the language definition for Rust, if it hasn't been loaded.
-;; Return the language object.
-(tree-sitter-require 'rust)
-(tree-sitter-require 'python)
-(global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+  (use-package rust-mode
+    :init
+    (setq rust-mode-treesitter-derive t))
+  ;; or just for rust-mode
+  ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+  ;; Load the language definition for Rust, if it hasn't been loaded.
+  ;; Return the language object.
+  (tree-sitter-require 'rust)
+  (tree-sitter-require 'python)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 #+end_src
 
 * Enable company-mode globally.

@@ -1,0 +1,2 @@
+* TODO foo
+  [[file:~/.emacs.d/init.el::"* TODO %?\n %a\n %i")]]
