@@ -422,32 +422,12 @@
               ("@code" . ?c)
               ("@init" . ?i)))
 
+  (setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/project/org/tasks/tasks.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
 
-    ;; (setq org-capture-templates
-    ;;         `(("t" "Tasks / Projects")
-    ;;           ("tt" "Task" entry (file+olp "~/project/org/tasks/tasks.org" "Inbox")
-    ;;            "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
-
-    ;;           ("j" "Journal Entries")
-    ;;           ("jj" "Journal" entry
-    ;;            (file+olp+datetree "~/org/journal/Journal.org")
-    ;;            "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-    ;;            ;; ,(dw/read-file-as-string "~/org/notes.org")
-              
-    ;;            )
-    ;;           ))
-
-  ;; ;; sinpler capture   from orgmode.orgmode <-- broke init.el
-  ;; (setq org-capture-templates
-  ;;       '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
-  ;;          "* TODO %?\n  %i\n  %a")
-  ;;         ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
-  ;;          "* %?\nEntered on %U\n  %i\n  %a")))
-
-    ;; (keymap-set global-map "C-c j" 
-    ;;               (lambda () (interactive) (org-capture nil "jj")))
-
-    ;; (
      use-package org-bullets
       :after org
       :hook (org-mode . org-bullets-mode)

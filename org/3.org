@@ -1,5 +1,5 @@
 * December.
-* _Start times from _< 3  on New,  and < 5 for Big,_
+* _Start times from _< 4  on New,  and < 5 for Big,_
 * Backup *init.el* then choose one language; iisp, rust, python and remove all others.
 ** Make sure syntax highlighting, completion and marginalia all working with the one language.
 ** Rinse and repeat for the other two languages.
@@ -176,6 +176,13 @@ Linking /opt/homebrew/Cellar/emacs-plus@30/30.2... 8713 symlinks created.
 
 /opt/homebrew/Cellar/emacs-plus@31/31.0.50/bin stable                                                                       10s
 ❯ emacs
+** DONE Org emphasis is not in alist? - well, it's working after putting it into init.el.
+Rust-mode out on New and Big.
+Paredit out on New and Big.
+Show Fonts not necessary?
+Treemacs useful?
+Org Capture necessary?
+
 * COMPLETED Installed +emacs-plus 30+ w/ native compile and am using it via en alias.
 CLOSED: [2025-12-05 Fri 07:28]
 ** Old emacs 30.2 from brew seems to still be in Applications although shortuct was sent.
@@ -206,6 +213,14 @@ still works since alist is saved (as customized item?) with the correct settings
 CLOSED: [2025-12-03 Wed 13:51]
 ** on +New+: ec does now work. Emacsclient.app gives GUI ez works as intended en works.
 alias ec='/opt/homebrew/bin/emacsclient -n $1'  does work, wasn't Yesterday.. Flashed when it opened then closed immediately.apl1029
+** Tried installing 30.1 w/ native compile:
+/opt/homebrew/opt/emacs-plus@30/bin/emacs  <-- Native (is alias to below).
+
+/opt/homebrew/Cellar/emacs-plus@31/31.0.50/Emacs.app/Contents/MacOS//Emacs   <-- alias in /Applications goes here.
+(this is a script that sets the PATH variable then launches Emacs-real (the actual executable).
+
+/opt/homebrew/bin/emacs <-- (is alias to * Temporary changes, pending testing?
+
 ** COMPLETED Uninstalled all emacs (emacs, emacs-plus@30, emacs-plus@31) then reinstalled.
 CLOSED: [2025-12-16 Tue 13:38]
 ** brew install --cask jimeh/emacs-builds/emacs-app  <-- 30.2 with native-comp.
@@ -247,29 +262,24 @@ line 555 on:
 _done_ replace global-hl-ine-mode with tree-sitter-hl-mode
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode) 
 ---
+* COMPLETED Just spent 20 min fixing task templates (org-capture) then _nothing was saved to init.el!_.
+CLOSED: [2025-12-18 Thu 08:13]
+** So found an init from March and pasted that into New's init.el. Seems to work:
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/project/org/tasks/tasks.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
+         
+*** Don't really need org-capture - can use 3.org and Denote. Visit/fix this later.
+*so weird, removed all org capture but C-c c t still creates a task but in ~/.notes file.
+ doing a C-h k for C-c c gives org-capture and org-capture-template alist is empty.
 * WAITING json errors. why? -- may be hint related.
 ** note: the below line is a dupe of <-- 519.
 (setq-local lsp-inlay-hint-enable t)   <-- 533
 * TODO Eglot fails to discover rust or python workspaces. Python is working w/ syntax, Marginalia, etc.
 
 * TODO Native compile working on Big & New. Can't compile 30.2 on Plucky.
-
-/opt/homebrew/opt/emacs-plus@30/bin/emacs  <-- Native (is alias to below).
-
-/opt/homebrew/Cellar/emacs-plus@31/31.0.50/Emacs.app/Contents/MacOS//Emacs   <-- alias in /Applications goes here.
-(this is a script that sets the PATH variable then launches Emacs-real (the actual executable).
-
-/opt/homebrew/bin/emacs <-- (is alias to above).
-* Temporary changes, pending testing?
-** DONE Org emphasis is not in alist? - well, it's working after putting it into init.el.
-Rust-mode out on New and Big.
-Paredit out on New and Big.
-Show Fonts not necessary?
-Treemacs useful?
-Org Capture necessary?
-
-
-* Just spent 20 minutes fixing task templates (org-capture) then _nothing was saved to init.el!_ Very angry.
-** Don't really need org-capture - can use 3.org and Denote. Visit/fix this later.
-** so weird, removed all org capture but C-c c t still creates a task but in ~/.notes file.
-** doing a C-h k for C-c c gives org-capture and org-capture-template alist is empty.
+* Flycheck now working with elisp files.
+** No idea why it started working. Could diff older init.el files to see what changed.
+** Had to mess around with init.el after flycheck flagged lots of errors.

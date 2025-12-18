@@ -30,3 +30,12 @@ terminal apps offer are enough.
 **** 09:18 AM - Journal                                             :journal:
 
 Trying to remember how to use org-capture journal.
+*** 2025-12-18 Thursday
+**** Testing org-capture after it broke.
+Entered on [2025-12-18 Thu 07:57]
+  (setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/project/org/tasks/tasks.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
+
