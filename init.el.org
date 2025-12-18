@@ -1,7 +1,8 @@
 #+property: header-args :tangle "~/.emacs.d/newtest.el"
-
+;;; ...  -**- lexical-binding: nil -**- 
 * set up packages
 #+begin_src emacs-lisp
+
   (require 'package)
 
   (add-to-list 'package-archives
