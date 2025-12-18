@@ -20,10 +20,10 @@
 ;;   :ensure t
 ;;   :config
 (when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize)) 
+  (exec-path-from-shell-initialize))
 
 (defun packages-require (&rest packs)
-  "Install and load a package. If the package is not available installs it automaticaly."
+  "Install & load a package . If package not available install automaticaly."
   (mapc  (lambda (package)
            (unless (package-installed-p package)
              (package-install package)
@@ -67,9 +67,9 @@
 (global-display-line-numbers-mode t)
 (column-number-mode t)
 (tool-bar-mode -1)
-;; (global-hl-line-mode +1)
+(global-hl-line-mode +1)
 (setq global-auto-revert-mode 1)
-(setq auto-revert-use-notify t) 
+(setq auto-revert-use-notify t)
 (setq use-short-answers t)
 (setq ediff-split-window-function 'split-window-horizontally)
 (setq file-name-shadow-properties '(invisible t))
@@ -95,7 +95,7 @@
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
-(when (string= system-type "darwin")       
+(when (string= system-type "darwin")
   (setq dired-use-ls-dired nil))
 
 (add-hook 'dired-load-hook
@@ -135,7 +135,7 @@
 (setq dashboard-startup-banner "~/Pictures/Trefoil.png")
 (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 (setq dashboard-set-init-info t)
-;;  (setq dashboard-set-footer nil) 
+;;  (setq dashboard-set-footer nil)
 
 (setq dashboard-startupify-list '(dashboard-insert-banner
                                   dashboard-insert-newline
@@ -199,7 +199,7 @@
   :commands magit-status
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-  (keymap-global-set "C-x g" 'magit-status) 
+  (keymap-global-set "C-x g" 'magit-status)
 
 (use-package which-key
   :defer 0
@@ -237,12 +237,12 @@
        ("C-c i" . consult-info)
        ([remap Info-search] . consult-info)
        ;; C-x bindings in `ctl-x-map'
-       ("C-x M-:" . consult-complex-command)    
-       ("C-x b" . consult-buffer)               
+       ("C-x M-:" . consult-complex-command)
+       ("C-x b" . consult-buffer)
        ("C-x 4 b" . consult-buffer-other-window)
-       ("C-x 5 b" . consult-buffer-other-frame) 
-       ("C-x t b" . consult-buffer-other-tab)   
-       ("C-x r b" . consult-bookmark)           
+       ("C-x 5 b" . consult-buffer-other-frame)
+       ("C-x t b" . consult-buffer-other-tab)
+       ("C-x r b" . consult-bookmark)
        ("C-x p b" . consult-project-buffer)))
 
 (use-package consult-denote
@@ -340,7 +340,7 @@
                ))
 
 (defun efs/org-mode-setup ()
-;;    (org-indent-mode)
+"Second setup."
 (variable-pitch-mode 1)
 (visual-line-mode 1))
 ;; ---------------------------------------------------------
@@ -359,7 +359,7 @@
       '(("Archive.org" :maxlevel . 1)
         ("Tasks.org" :maxlevel . 1)))
 
-(setq org-tag-alist                   
+(setq org-tag-alist
       '((:startgroup)
                                       ; Put mutually exclusive tags here
         (:endgroup)
@@ -368,34 +368,10 @@
         ("@init" . ?i)))
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/project/org/tasks/tasks/org" "Tasks")
+      '(("t" "Todo" entry (file+headline "~/project/org/tasks/tasks.org" "Tasks")
          "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/Journal.org")
+        ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
-
-;; (setq org-capture-templates
-;;         `(("t" "Tasks / Projects")
-;;           ("tt" "Task" entry (file+olp "~/project/org/tasks/tasks.org" "Inbox")
-;;            "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
-
-;;          ("j" "Journal Entries")
-;;          ("jj" "Journal" entry
-;;           (file+olp+datetree "~/project/org/journal/Journal.org")
-;;           "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-;;           ;; ,(dw/read-file-as-string "~/org/notes.org")
-          
-;;           )
-;;          ))
-
-;; simpler capture from orgmode.org
-;; (setq org-capture-templates
-;;       '(("t" "Todo" entry (file+headline "~/project/org/gtd.org" "Tasks")
-;;          "* TODO %?\n %i\n %a")
-;;         ("j" "Journal" entry (file+olp+datetree "~/project/org/journal.org")
-;;          "* %?\nEntered on %U/n %i\n %a)))
-
-;; (keymap-set global-map "C-c j" 
-;;              (lambda () (interactive) (org-capture nil "jj")))
 
 (use-package org-bullets
   :after org
@@ -439,7 +415,7 @@
        (ruby . t)
        (eshell . t)
        (lisp . t)
-       (rust . t)      
+       (rust . t)
           ))
     (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
@@ -475,7 +451,7 @@
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
     (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))  
+    (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))
 
 (require 'flymake-ruff)
 (add-hook 'python-mode-hook #'flymake-ruff-load)
@@ -491,7 +467,7 @@
 
 (setq rust-format-on-save t)
 
-(setq python-indent-guess-indent-offset t)  
+(setq python-indent-guess-indent-offset t)
 (setq python-indent-guess-indent-offset-verbose nil)
 
 (setq python-python-command "$HOME/.pyenv/shims/python3")
@@ -510,7 +486,6 @@
               ("C-c C-c Q" . lsp-workspace-shutdown)
               ("C-c C-c s" . lsp-rust-analyzer-status)
               ("C-c C-c e" . lsp-rust-analyzer-expand-macro)
-              ;;              ("C-c C-c d" . dap-hydra)
               ("C-c C-c h" . lsp-ui-doc-glance))
 
   :config
@@ -518,10 +493,11 @@
 (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
 (defun rk/rustic-mode-hook ()
-;; so that run C-c C-c C-r works without having to confirm, but don't try to
-;; save rust buffers that are not file visiting. Once
-;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
-;; no longer be necessary.
+"Yoou can run C-c C-c C-r without having to confirm.  Don't try to
+save rust buffers that are not file visiting.  Once
+https://github.com/brotzeit/rustic/issues/253 has
+been resolved this should
+no longer be necessary."
 (when buffer-file-name
   (setq-local buffer-save-without-query t))
 (add-hook 'before-save-hook 'lsp-format-buffer nil t))
@@ -600,7 +576,7 @@
 
 ;; -----------Current Lisp Section ---------------------------------
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-(add-to-list 'load-path "~/.emacs.d/elpa/slime-20250918.2258/") 
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20250918.2258/")
 (require 'slime-autoloads)
 (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
 
@@ -692,4 +668,6 @@
 (setq gc-cons-threshold (expt 2 23)) ;; 8MB
 (setq gc-cons-percentage 0.5)
 
-;; User-Defined init.el ends here
+(provide 'init)
+;;; init.el ends here
+
