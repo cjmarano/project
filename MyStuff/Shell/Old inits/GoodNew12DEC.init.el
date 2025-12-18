@@ -23,15 +23,15 @@
 
 (defun packages-require (&rest packs)
   "Install and load a package. If the package is not available installs it automaticaly."
-  (mapc  (lambda (package)
-           (unless (package-installed-p package)
-             (package-install package)
-             )
-	       )
+(mapc  (lambda (package)
+         (unless (package-installed-p package)
+           (package-install package)
+           )
+         )
 
-         packs
+       packs
 
-         ))
+       ))
 
 ;; (setq load-prefer-newer t)
 ;; (add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20251111.1802")
@@ -657,8 +657,8 @@
               no-littering ob-rust orderless org-bullets org-roam
               paredit rainbow-delimiters ruff-format rustic seq
               show-font slime smartparens toml-mode track-changes
-              treemacs treemacs-nerd-icons use-package vertico vterm
-              which-key))
+              tree-sitter-langs treemacs treemacs-nerd-icons
+              use-package vertico vterm which-key))
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))
 
@@ -668,10 +668,14 @@
 ;; below is for delimiters in all programming modes.
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-(use-package flycheck
-  :ensure t
-  :config
-  (add-hook 'after-init-hook #'global-flycheck-mode))
+;; (elpy-enable)
+
+;; Enable Flycheck
+;; (when (require 'flycheck nil t)
+;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
+;; added to supress flymake error message when compliing python (12AUG2022)
+(remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
 
 (setq gc-cons-threshold (expt 2 23)) ;; 8MB
 (setq gc-cons-percentage 0.5)
