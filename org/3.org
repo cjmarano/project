@@ -1,5 +1,19 @@
+
 January.
-* _Start times from _< 4  on New,  and < 5 for Big,_
+* _Start times from _~3  on New,  and < 5 for Big,_
+* TODO Native compile working on Big & New. Can't compile 30.2 on Plucky.
+* COMPLETED Eglot fails to discover rust or python workspaces.
+CLOSED: [2025-12-19 Fri 08:54]
+** Python is working w/ syntax, Marginalia, etc.
+** Rust - load carog file 1st then src file and lsp will connect without complaining.
+* COMPLETED Tweaked ~/project/Prot/init.el to remove uneeded items.
+CLOSED: [2026-01-05 Mon 12:51]
+original saved in Prot folder as init.el.backup and init.el.original
+* WAITING Lexical scoping on New, Dynamic on Big.
+* WAITING json errors. why? -- may be hint related.
+** note: the below line is a dupe of <-- 519.
+(setq-local lsp-inlay-hint-enable t)   <-- 533
+** ruby-lsp not installed. used brew install ruby-lsp on new and big also ruff install on big.
 * COMPLETED Friday 12DEC.  - Enabled flycheck in New, Big and init.el.org (w/o Elpy):
 CLOSED: [2025-12-12 Fri 13:49]
 
@@ -8,19 +22,29 @@ CLOSED: [2025-12-12 Fri 13:49]
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 **  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
-* COMPLETED Eglot fails to discover rust or python workspaces.
-CLOSED: [2025-12-19 Fri 08:54]
-** Python is working w/ syntax, Marginalia, etc.
-** Rust - load carog file 1st then src file and lsp will connect without complaining.
-* TODO Native compile working on Big & New. Can't compile 30.2 on Plucky.
-* WAITING Lexical scoping on New, Dynamic on Big.
-* WAITING json errors. why? -- may be hint related.
-** note: the below line is a dupe of <-- 519.
-(setq-local lsp-inlay-hint-enable t)   <-- 533
-** ruby-lsp not installed. used brew install ruby-lsp on new and big also ruff install on big.
 * NEXT Flycheck now working with elisp files on New. not on Big.
 ** No idea why it started working. Could diff older init.el files to see what changed.
 ** Had to mess around with init.el after flycheck flagged lots of errors.
 ** Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
 ** copied init.el from New to Big, still not checking. Does Flycheck on Big need to know what the checker is?
 No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both machines.
+* WAITING Tree-sitter was running globaly - even on org files so modified it on New.
+
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
+(add-hook 'rust-mode-hook #'tree-sitter-mode)     _<-- added_
+(add-hook 'python-mode-hook #'tree-sitter-mode) _<-- added_
+
+;; (global-tree-sitter-mode)  _<-- commented out_
+
+;; (use-package rust-mode
+;;   :init
+;;   (setq rust-mode-treesitter-derive t))
+;; ;; or just for rust-mode
+;; ;; (add-hook 'rust-mode-hook #'tree-sitter-mode) +was same on 18AUG+
+;; ;; Load the language definition for Rust, if it hasn't been loaded.
+;; ;; Return the language object.
+;; (tree-sitter-require 'rust)
+;; (tree-sitter-require 'python)
+;; (global-tree-sitter-mode)  _<-- not this_
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode) _<-- same before (18AUG) and now (05Jan)_
