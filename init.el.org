@@ -506,7 +506,7 @@
   (add-hook 'python-mode-hook 'eglot-ensure)
   (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs
-                 '(python-mode . ("ruff" "server")))
+                 '(python-mode . ("ruff")))
     (with-eval-after-load 'eglot
     (add-hook 'after-save-hook 'eglot-format)))
   (with-eval-after-load 'eglot
