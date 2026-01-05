@@ -1,5 +1,5 @@
 #+property: header-args :tangle "~/.emacs.d/newtest.el"
-;;; ...  -**- lexical-binding: nil -**- 
+;;; ...  -**- lexical-binding: t -**- 
 * set up packages
 #+begin_src emacs-lisp
 
@@ -617,21 +617,25 @@
 
 * Tree-sitter
 #+begin_src lisp
-  (require 'tree-sitter)
-  (require 'tree-sitter-langs)
-  (global-tree-sitter-mode)
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
+(add-hook 'rust-mode-hook #'tree-sitter-mode)
+(add-hook 'python-mode-hook #'tree-sitter-mode
 
-  (use-package rust-mode
-    :init
-    (setq rust-mode-treesitter-derive t))
-  ;; or just for rust-mode
-  ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
-  ;; Load the language definition for Rust, if it hasn't been loaded.
-  ;; Return the language object.
-  (tree-sitter-require 'rust)
-  (tree-sitter-require 'python)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;;   (global-tree-sitter-mode)
+
+;;   (use-package rust-mode
+;;     :init
+;;     (setq rust-mode-treesitter-derive t))
+;;   ;; or just for rust-mode
+;;   ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+;;   ;; Load the language definition for Rust, if it hasn't been loaded.
+;;   ;; Return the language object.
+;;   (tree-sitter-require 'rust)
+;;   (tree-sitter-require 'python)
+;;   (global-tree-sitter-mode)
+
+;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 #+end_src
 
 * Enable company-mode globally.
