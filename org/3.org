@@ -7,6 +7,8 @@ January.
 CLOSED: [2025-12-19 Fri 08:54]
 ** Python is working w/ syntax, Marginalia, etc.
 ** Rust - load carog file 1st then src file and lsp will connect without complaining.
+* COMPLETED Is pyvenv useful? It's on Big, not on New.
+CLOSED: [2026-01-06 Tue 09:58]
 * COMPLETED Tweaked ~/project/Prot/init.el to remove uneeded items.
 CLOSED: [2026-01-05 Mon 12:51]
 original saved in Prot folder as init.el.backup and init.el.original
@@ -41,15 +43,20 @@ CLOSED: [2025-12-12 Fri 13:49]
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 **  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
+* WAITING json errors. why? -- may be hint related.
+** note: the below line is a dupe of <-- 519.
+(setq-local lsp-inlay-hint-enable t)   <-- 533
+** ruby-lsp not installed. used brew install ruby-lsp on new and big also ruff install on big.
 * NEXT Flycheck now working with elisp files on New. not on Big.
 ** No idea why it started working. Could diff older init.el files to see what changed.
 ** Had to mess around with init.el after flycheck flagged lots of errors.
 ** Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
 ** copied init.el from New to Big, still not checking. Does Flycheck on Big need to know what the checker is?
 No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both machines.
-* WAITING json errors. why? -- may be hint related.
-** note: the below line is a dupe of <-- 519.
-(setq-local lsp-inlay-hint-enable t)   <-- 533
-** ruby-lsp not installed. used brew install ruby-lsp on new and big also ruff install on big.
-* Is pyvenv useful? It's on Big, not on New.
 * Reconciled init.el on New with Big and init.el.org but now can't click on items in dashboard.
+** Had to copy Big's init.el to New to get back ability to click to open files in Dashboard.
+Question is, now, has that messed anything else up? Rust, Python, lisp, etc. ? Will need to check.
+** Proably broke flycheck w/ lisp (see above)_.
+** New has 115 packages in elpa, with 95 loaded. Big has 105 packages with 88 loaded.
+this is even though they now have the same init.el files.
+elpa will  be bigger than laoded due to signed packages with sam names.
