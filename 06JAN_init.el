@@ -643,19 +643,20 @@ no longer be necessary."
      ("l" . "src lisp") ("s" . "src")))
  '(org-tempo-keywords-alist nil)
  '(package-selected-packages
-   '(0blayout 0x0 0xc @ all-the-icons-nerd-fonts auto-compile cargo
-              cargo-mode color-theme-sanityinc-tomorrow company-box
-              consult-denote dashboard diffview doom-modeline eglot
-              exec-path-from-shell flycheck flycheck-eglot
-              flycheck-pyflakes flycheck-rust flymake-ruff helpful kkp
-              lsp-ui lua-mode magit marginalia material-theme
-              nerd-icons-completion nerd-icons-dired no-littering
-              ob-rust orderless org-bullets org-roam paredit pyvenv
-              rainbow-delimiters ruff-format rustic show-font slime
-              smartparens toml-mode track-changes tree-sitter-langs
-              treemacs treemacs-nerd-icons use-package vertico vterm
-              which-key))
- '(savehist-additional-variables '(kill-ring register-alist\ ) t)
+   '(0blayout 0xc @ all-the-icons all-the-icons-nerd-fonts auto-compile
+              bind-key cargo cargo-mode color-theme-sanityinc-tomorrow
+              company company-box consult consult-denote dashboard
+              denote diffview dired-hacks-utils dired-single
+              dired-subtree doom-modeline eglot elisp-refs
+              exec-path-from-shell external-completion flycheck
+              flycheck-eglot flycheck-pyflakes flycheck-rust
+              flymake-ruff helpful jsonrpc kkp lsp-ui lua-mode magit
+              marginalia material-theme nerd-icons-completion
+              nerd-icons-dired no-littering ob-rust orderless
+              org-bullets org-roam paredit rainbow-delimiters
+              ruff-format rustic seq show-font slime smartparens
+              toml-mode track-changes tree-sitter-langs treemacs treemacs-nerd-icons
+              use-package vertico vterm which-key))
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))
 

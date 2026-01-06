@@ -1,4 +1,5 @@
 
+
 January.
 * _Start times from _~3  on New,  and ~4 for Big,_
 * TODO Native compile working on Big & New. Can't compile 30.2 on Plucky.
@@ -51,3 +52,4 @@ No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both 
 (setq-local lsp-inlay-hint-enable t)   <-- 533
 ** ruby-lsp not installed. used brew install ruby-lsp on new and big also ruff install on big.
 * Is pyvenv useful? It's on Big, not on New.
+* Reconciled init.el on New with Big and init.el.org but now can't click on items in dashboard.
