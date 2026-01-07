@@ -71,3 +71,5 @@ No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both 
 ** lisp on New is odd. Slime is enabled, but Compay wants a language server (for eglot?).
 *** Flycheck does appear to be working in lisp buffers on New and Big.
 isp should NOT require a language server but eglot should work with lsp-mode.
+* init.el on New and Big, init.el.org and 07JAN_New_init.el all upda to date. _FREEZE!_
+_
