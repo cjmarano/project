@@ -1,4 +1,4 @@
-;;; ...  -*- lexical-binding: t -*-
+;;; ... -*- lexical-binding: t -*-
 (require 'package)
 
 (add-to-list 'package-archives
@@ -23,7 +23,7 @@
   (exec-path-from-shell-initialize))
 
 (defun packages-require (&rest packs)
-  "Install & load a package . If PACKS not available install automaticaly."
+  "Install & load a package . If package not available install automaticaly."
   (mapc  (lambda (package)
            (unless (package-installed-p package)
              (package-install package)
@@ -82,7 +82,7 @@
                 shell-mode-hook
                 eshell-mode-hook
                 vterm-mode-hook))
-(add-hook mode (lambda () (display-line-numbers-mode 0))))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (recentf-mode 1)
 (setq recentf-max-menu-items 10)
@@ -95,12 +95,12 @@
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
-(when (string= system-type "darwin")       
-(setq dired-use-ls-dired nil))
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired nil))
 
 (add-hook 'dired-load-hook
-    (lambda ()
-       (require 'dired-x)))
+          (lambda ()
+            (require 'dired-x)))
 
 (setq ediff-diff-options "--text")
 
@@ -115,10 +115,10 @@
 :ensure t
 :init
 (progn
-(setq dashboard-items '((recents . 10)
-                        (bookmarks .5)
-                        (projects . 5)
-                        (agenda . 5)))
+(setq dashboard-items '((recents   . 10)
+                      (bookmarks . 5)
+                      (projects  . 5)
+                      (agenda    . 5)))
 (setq dashboard-item-shortcuts '((recents   . "r")
                                  (bookmarks . "m")
                                  (projects  . "p")
@@ -135,17 +135,18 @@
 (setq dashboard-startup-banner "~/Pictures/Trefoil.png")
 (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 (setq dashboard-set-init-info t)
+;;  (setq dashboard-set-footer nil)
 
 (setq dashboard-startupify-list '(dashboard-insert-banner
-                              dashboard-insert-newline
-                              dashboard-insert-banner-title
-                              dashboard-insert-newline
-                              dashboard-insert-navigator
-                              dashboard-insert-newline
-                              dashboard-insert-init-info
-                              dashboard-insert-items
-                              dashboard-insert-newline))
-)
+                                  dashboard-insert-newline
+                                  dashboard-insert-banner-title
+                                  dashboard-insert-newline
+                                  dashboard-insert-navigator
+                                  dashboard-insert-newline
+                                  dashboard-insert-init-info
+                                  dashboard-insert-items
+                                  dashboard-insert-newline))
+  )
 
 :config
 (dashboard-setup-startup-hook))
@@ -287,11 +288,11 @@
 (global-set-key (kbd "C-h F") #'helpful-function)
 
 (use-package smartparens
- :ensure smartparens  ;; install the package
- :hook (emacs-lisp-mode-hook common-lisp-mode-hook lisp-mode-hook)
- :config
- ;; load default config
- (require 'smartparens-config))
+  :ensure smartparens  ;; install the package
+  :hook (emacs-lisp-mode-hook common-lisp-mode-hook lisp-mode-hook)
+  :config
+  ;; load default config
+  (require 'smartparens-config))
 
 (use-package org
   :pin gnu
@@ -369,10 +370,10 @@
         ("@init" . ?i)))
 
 (setq org-capture-templates
-    '(("t" "Todo" entry (file+headline "~/project/org/tasks/tasks.org" "Tasks")
-       "* TODO %?\n  %i\n  %a")
-      ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
-       "* %?\nEntered on %U\n  %i\n  %a")))
+      '(("t" "Todo" entry (file+headline "~/project/org/tasks/tasks.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
 
 (use-package org-bullets
   :after org
@@ -430,6 +431,10 @@
 
 (let ((org-confirm-babel-evaluate nil)))
 
+;; ---------------------------------------------------------
+;; Org section ends here -----------------------------------
+;; ---------------------------------------------------------
+
 (use-package eglot
   :ensure nil
   :defer t
@@ -438,11 +443,12 @@
   ;; could probably add ruby here
   ;; :hook (ruby-mode . eglot-ensure)
 (add-hook 'python-mode-hook 'eglot-ensure)
-  (with-eval-after-load 'eglot
+(with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs
                  '(python-mode . ("ruff")))
-    (with-eval-after-load 'eglot
-    (add-hook 'after-save-hook 'eglot-format)))
+;;    (with-eval-after-load 'eglot
+;;      (add-hook 'after-save-hook 'eglot-format))
+    )
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
     (with-eval-after-load 'eglot
@@ -474,7 +480,7 @@
   :ensure nil
   :defer t
   :bind (:map rustic-mode-map
-              ("M-j" . ls-ui-imenu)
+              ("M-j" . lsp-ui-imenu)
               ("M-?" . lsp-find-references)
               ("C-c C-c l" . flycheck-list-errors)
               ("C-c C-c a" . lsp-execute-code-action)
@@ -500,8 +506,8 @@ no longer be necessary."
 (add-hook 'before-save-hook 'lsp-format-buffer nil t))
 
 (use-package toml-mode
-:ensure nil
-:defer t)
+  :ensure nil
+  :defer t)
 
 (setq-local lsp-inlay-hint-enable t)
 ;; below from https://github.com/rksm/emacs-rust-config
@@ -512,7 +518,8 @@ no longer be necessary."
   :init
   (setq lsp-keymap-prefix "C-c l")
   :custom
-;; what to use when checking on-save. "check" is default, I prefer clippy
+  ;; what to use when checking on-save. "check" is default, I prefer clippy
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 (lsp-rust-analyzer-cargo-watch-command "clippy")
 (lsp-eldoc-render-all t)
 (lsp-idle-delay 0.6)
@@ -543,6 +550,7 @@ no longer be necessary."
 (require 'tree-sitter-langs)
 (add-hook 'rust-mode-hook #'tree-sitter-mode)
 (add-hook 'python-mode-hook #'tree-sitter-mode)
+;; (global-tree-sitter-mode)
 
 ;; (use-package rust-mode
 ;;   :init
@@ -624,16 +632,10 @@ no longer be necessary."
      "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
      default))
  '(denote-known-keywords '("emacs" "init" "general" "testing"))
- '(elpy-rpc-python-command "python3")
  '(flycheck-python-flake8-executable "python3")
  '(flycheck-python-pycompile-executable "python3")
  '(flycheck-python-pylint-executable "python3")
  '(org-agenda-files '("~/project/org/3.org"))
- '(org-emphasis-alist
-    '(("*" bold) ("/" italic) ("_" (:foreground "red") verbatim)
-      ("+" (:foreground "LightGreen") verbatim) ("_" underline)
-      ("=" org-verbatim verbatim) ("~" org-code verbatim)
-      ("+" (:\"Cyan\" t) verbatim)))
  '(org-faces-easy-properties
    '((todo . :background) (tag . :foreground) (priority . :foreground)))
  '(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
@@ -643,20 +645,19 @@ no longer be necessary."
      ("l" . "src lisp") ("s" . "src")))
  '(org-tempo-keywords-alist nil)
  '(package-selected-packages
-   '(0blayout 0xc @ all-the-icons all-the-icons-nerd-fonts auto-compile
-              bind-key cargo cargo-mode color-theme-sanityinc-tomorrow
-              company company-box consult consult-denote dashboard
-              denote diffview dired-hacks-utils dired-single
-              dired-subtree doom-modeline eglot elisp-refs
-              exec-path-from-shell external-completion flycheck
-              flycheck-eglot flycheck-pyflakes flycheck-rust
-              flymake-ruff helpful jsonrpc kkp lsp-ui lua-mode magit
-              marginalia material-theme nerd-icons-completion
-              nerd-icons-dired no-littering ob-rust orderless
-              org-bullets org-roam paredit rainbow-delimiters
-              ruff-format rustic seq show-font slime smartparens
-              toml-mode track-changes tree-sitter-langs treemacs treemacs-nerd-icons
-              use-package vertico vterm which-key))
+   '(0blayout 0x0 0xc @ all-the-icons-nerd-fonts auto-compile cargo
+              cargo-mode color-theme-sanityinc-tomorrow company-box
+              consult-denote dashboard diffview doom-modeline eglot
+              exec-path-from-shell flycheck flycheck-eglot
+              flycheck-pyflakes flycheck-rust flymake-ruff helpful kkp
+              lsp-ui lua-mode magit marginalia material-theme
+              nerd-icons-completion nerd-icons-dired no-littering
+              ob-rust orderless org-bullets org-roam paredit pyvenv
+              rainbow-delimiters ruff-format rustic show-font slime
+              smartparens toml-mode track-changes tree-sitter-langs
+              treemacs treemacs-nerd-icons use-package vertico vterm
+              which-key))
+ '(savehist-additional-variables '(kill-ring register-alist\ ) t)
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))
 

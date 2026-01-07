@@ -43,20 +43,31 @@ CLOSED: [2025-12-12 Fri 13:49]
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 **  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
-* WAITING json errors. why? -- may be hint related.
+* COMPLETED Reconciled init.el on New with Big and init.el.org but now can't click on items in dashboard.
+CLOSED: [2026-01-06 Tue 14:16]
+** Had to copy Big's init.el to New to get back ability to click to open files in Dashboard.
+Question is, now, has that messed anything else up? Rust, Python, lisp, etc. ? Will need to check.
+*** New has 115 packages in elpa, with 95 loaded. Big has 105 packages with 88 loaded.
+this is even though they now have the same init.el files.
+elpa will  be bigger than laoded due to signed packages with sam names.
+*** Python working on New after swapping Big's init.el to it to fix can't click issue with Dashboard.
+*** Rust Flycheck, eglot, and rust-analyzer working but no completion or marginalia that I can see.
+* COMPLETED json errors. why? -- was eglot related (after-save-hook.)
+CLOSED: [2026-01-07 Wed 11:13]
 ** note: the below line is a dupe of <-- 519.
 (setq-local lsp-inlay-hint-enable t)   <-- 533
 ** ruby-lsp not installed. used brew install ruby-lsp on new and big also ruff install on big.
-* NEXT Flycheck now working with elisp files on New. not on Big.
+**  On New: commenting out lines 449-450 resolved the json-rpc error.
+(with-eval-after-load 'eglot
+(add-hook 'after-save-hook 'eglot-format))
+* WAITING Rust-analyzer is working but needs more testing.
+*  Still having issue discovering workspace (rust). Look into this.
+* NEXT Flycheck now working with elisp files on New & Big.
 ** No idea why it started working. Could diff older init.el files to see what changed.
 ** Had to mess around with init.el after flycheck flagged lots of errors.
 ** Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
 ** copied init.el from New to Big, still not checking. Does Flycheck on Big need to know what the checker is?
 No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both machines.
-* Reconciled init.el on New with Big and init.el.org but now can't click on items in dashboard.
-** Had to copy Big's init.el to New to get back ability to click to open files in Dashboard.
-Question is, now, has that messed anything else up? Rust, Python, lisp, etc. ? Will need to check.
-** Proably broke flycheck w/ lisp (see above)_.
-** New has 115 packages in elpa, with 95 loaded. Big has 105 packages with 88 loaded.
-this is even though they now have the same init.el files.
-elpa will  be bigger than laoded due to signed packages with sam names.
+** lisp on New is odd. Slime is enabled, but Compay wants a language server (for eglot?).
+*** Flycheck does appear to be working in lisp buffers on New and Big.
+isp should NOT require a language server but eglot should work with lsp-mode.
