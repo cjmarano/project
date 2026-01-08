@@ -649,7 +649,7 @@ no longer be necessary."
               cargo-mode color-theme-sanityinc-tomorrow company-box
               consult-denote dashboard diffview doom-modeline eglot
               exec-path-from-shell flycheck flycheck-eglot
-              flycheck-pyflakes flycheck-rust flymake-ruff helpful kkp
+              flycheck-pyflakes flycheck-rust flymake-ruff helpful hydra kkp
               lsp-ui lua-mode magit marginalia material-theme
               nerd-icons-completion nerd-icons-dired no-littering
               ob-rust orderless org-bullets org-roam paredit pyvenv
