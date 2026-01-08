@@ -580,7 +580,7 @@
 
 * lsp mode
 #+begin_src emacs-lisp
-  (setq-local lsp-inlay-hint-enable t)
+  ;;  (setq-local lsp-inlay-hint-enable t)
   ;; below from https://github.com/rksm/emacs-rust-config
   (use-package lsp-mode
     :ensure nil

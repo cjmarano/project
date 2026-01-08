@@ -3,10 +3,6 @@
 January.
 * _Start times from _~3  on New,  and ~4 for Big,_
 * TODO Native compile working on Big & New. Can't compile 30.2 on Plucky.
-* COMPLETED Eglot fails to discover rust or python workspaces.
-CLOSED: [2025-12-19 Fri 08:54]
-** Python is working w/ syntax, Marginalia, etc.
-** Rust - load carog file 1st then src file and lsp will connect without complaining.
 * COMPLETED Is pyvenv useful? It's on Big, not on New.
 CLOSED: [2026-01-06 Tue 09:58]
 * COMPLETED Tweaked ~/project/Prot/init.el to remove uneeded items.
@@ -60,17 +56,29 @@ CLOSED: [2026-01-07 Wed 11:13]
 **  On New: commenting out lines 449-450 resolved the json-rpc error.
 (with-eval-after-load 'eglot
 (add-hook 'after-save-hook 'eglot-format))
+* DONE init.el on New and Big, init.el.org and 07JAN_New_init.el all upda to date. _FREEZE!_
+CLOSED: [2026-01-08 Thu 08:58]
+** WAITING Rust-analyzer is working but needs more testing.
+** NEXT Still having issue discovering workspace (rust). Look into this.
+*** commenting out all lines about hints stopped hints error.
+*** running M-x lsp-workspace-folders-remove then Mx lspt-workspace-folders-add did not fix issue.
+added the specific fold -->  ~/project/rust/hello_rust/  to folders did not fix Failed to load workspce.
+** I wonder if a toml file in the root of the project is needed?
+see https://github.com/emacs-rustic/rustic/issues/110 for a discussion on finding project root and workspace.
 * COMPLETED Flycheck now working with elisp files on New & Big.
 CLOSED: [2026-01-07 Wed 14:56]
-** No idea why it started working. Could diff older init.el files to see what changed.
-** Had to mess around with init.el after flycheck flagged lots of errors.
-** Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
-** copied init.el from New to Big, still not checking. Does Flycheck on Big need to know what the checker is?
-No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both machines.
+** Flycheck; C-c ! v to verify setup, C-c ! n (next), C-c ! p (prev), C-c ! | (all), C-c ! e (explain).
+*** No idea why it started working. Could diff older init.el files to see what changed.
+*** Had to mess around with init.el after flycheck flagged lots of errors.
+* WAITING Eglot fails to discover rust or python workspaces.
+** Python is working w/ syntax, Marginalia, etc.
+** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
+* Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
 ** lisp on New is odd. Slime is enabled, but Compay wants a language server (for eglot?).
 *** Flycheck does appear to be working in lisp buffers on New and Big.
 isp should NOT require a language server but eglot should work with lsp-mode.
-* WAITING Rust-analyzer is working but needs more testing.
-*  Still having issue discovering workspace (rust). Look into this.
-* init.el on New and Big, init.el.org and 07JAN_New_init.el all upda to date. _FREEZE!_xs
+*** copied init.el from New to Big, still not checking. Does Flycheck on Big need to know what the checker is?
+No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both machines.
+** in Terminal: cargo locate-project --workspace --message-format plain to find Cargo.toml
+* At this point I'm considering putting Rust aside and focusing on Python.
 
