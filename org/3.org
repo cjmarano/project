@@ -60,9 +60,8 @@ CLOSED: [2026-01-07 Wed 11:13]
 **  On New: commenting out lines 449-450 resolved the json-rpc error.
 (with-eval-after-load 'eglot
 (add-hook 'after-save-hook 'eglot-format))
-* WAITING Rust-analyzer is working but needs more testing.
-*  Still having issue discovering workspace (rust). Look into this.
-* NEXT Flycheck now working with elisp files on New & Big.
+* COMPLETED Flycheck now working with elisp files on New & Big.
+CLOSED: [2026-01-07 Wed 14:56]
 ** No idea why it started working. Could diff older init.el files to see what changed.
 ** Had to mess around with init.el after flycheck flagged lots of errors.
 ** Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
@@ -71,5 +70,7 @@ No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both 
 ** lisp on New is odd. Slime is enabled, but Compay wants a language server (for eglot?).
 *** Flycheck does appear to be working in lisp buffers on New and Big.
 isp should NOT require a language server but eglot should work with lsp-mode.
-* init.el on New and Big, init.el.org and 07JAN_New_init.el all upda to date. _FREEZE!_
-_
+* WAITING Rust-analyzer is working but needs more testing.
+*  Still having issue discovering workspace (rust). Look into this.
+* init.el on New and Big, init.el.org and 07JAN_New_init.el all upda to date. _FREEZE!_xs
+
