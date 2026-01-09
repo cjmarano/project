@@ -82,3 +82,4 @@ No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both 
 ** in Terminal: cargo locate-project --workspace --message-format plain to find Cargo.toml
 * At this point I'm considering putting Rust aside and focusing on Python.
 
+* On Plucky,text emacs doesn't give treesit error but graphical launch does. _investigate_
