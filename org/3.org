@@ -70,6 +70,10 @@ CLOSED: [2026-01-07 Wed 14:56]
 ** Flycheck; C-c ! v to verify setup, C-c ! n (next), C-c ! p (prev), C-c ! | (all), C-c ! e (explain).
 *** No idea why it started working. Could diff older init.el files to see what changed.
 *** Had to mess around with init.el after flycheck flagged lots of errors.
+* COMPLETED Yazi stopped showing previews. Removed yazi.toml from  ~/.config/
+CLOSED: [2026-01-12 Mon 11:09]
+and did brew reinstall yazi. This restored preview. No idea is anything was lost by removing yazi.toml
+** had to add a new yazi-default.toml and edit it to get show hidden and correct spacing (1, 4, 3).
 * WAITING Eglot fails to discover rust or python workspaces.
 ** Python is working w/ syntax, Marginalia, etc.
 ** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
@@ -82,4 +86,4 @@ No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both 
 ** in Terminal: cargo locate-project --workspace --message-format plain to find Cargo.toml
 * At this point I'm considering putting Rust aside and focusing on Python.
 
-* On Plucky,text emacs doesn't give treesit error but graphical launch does. _investigate_
+* On +Plucky+, terminal mode emacs doesn't give treesit error but graphical launch does. _investigate_
