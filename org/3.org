@@ -56,7 +56,7 @@ CLOSED: [2026-01-07 Wed 11:13]
 **  On New: commenting out lines 449-450 resolved the json-rpc error.
 (with-eval-after-load 'eglot
 (add-hook 'after-save-hook 'eglot-format))
-* DONE init.el on New and Big, init.el.org and 07JAN_New_init.el all upda to date. _FREEZE!_
+* COMPLETED init.el on New and Big, init.el.org and 07JAN_New_init.el all upda to date. _FREEZE!_
 CLOSED: [2026-01-08 Thu 08:58]
 ** WAITING Rust-analyzer is working but needs more testing.
 ** NEXT Still having issue discovering workspace (rust). Look into this.
@@ -74,6 +74,9 @@ CLOSED: [2026-01-07 Wed 14:56]
 CLOSED: [2026-01-12 Mon 11:09]
 and did brew reinstall yazi. This restored preview. No idea is anything was lost by removing yazi.toml
 ** had to add a new yazi-default.toml and edit it to get show hidden and correct spacing (1, 4, 3).
+** Big and New using catppuccin.mocha.
+* COMPLETED Updated Ruby to 4.0.0 then had to pip install colorls to get ll to work after. Also had to edit path in .zshrc
+CLOSED: [2026-01-13 Tue 09:20]
 * WAITING Eglot fails to discover rust or python workspaces.
 ** Python is working w/ syntax, Marginalia, etc.
 ** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
