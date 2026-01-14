@@ -1,7 +1,7 @@
 
 
 January.
-* _Start times from _~3  on New,  and ~4 for Big,_
+* _Start times from _~ 3.5, up from 3  on New,  and ~4 for Big,_
 * TODO Native compile working on Big & New. Can't compile 30.2 on Plucky.
 * COMPLETED Is pyvenv useful? It's on Big, not on New.
 CLOSED: [2026-01-06 Tue 09:58]
@@ -75,8 +75,10 @@ CLOSED: [2026-01-12 Mon 11:09]
 and did brew reinstall yazi. This restored preview. No idea is anything was lost by removing yazi.toml
 ** had to add a new yazi-default.toml and edit it to get show hidden and correct spacing (1, 4, 3).
 ** Big and New using catppuccin.mocha.
-* COMPLETED Updated Ruby to 4.0.0 then had to pip install colorls to get ll to work after. Also had to edit path in .zshrc
+* COMPLETED Updated Ruby to 4.0.0 had to pip install colorls after. Also had to edit path in .zshrc
 CLOSED: [2026-01-13 Tue 09:20]
+* COMPLETED 14JAN - init.el same on New, Big and init.el.org
+CLOSED: [2026-01-14 Wed 13:13]
 * WAITING Eglot fails to discover rust or python workspaces.
 ** Python is working w/ syntax, Marginalia, etc.
 ** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_

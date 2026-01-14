@@ -86,7 +86,7 @@
     (global-display-line-numbers-mode t)
     (column-number-mode t)
     (tool-bar-mode -1)
-    ;; (global-hl-line-mode +)
+    (global-hl-line-mode +)
     (setq global-auto-revert-mode 1)
     (setq auto-revert-use-notify t) 
     (setq use-short-answers t)
@@ -153,6 +153,7 @@
   (setq dashboard-item-shortcuts '((recents   . "r")
                                    (bookmarks . "m")
                                    (projects  . "p")
+                                   (agenda    . "a")
                                    ))
 
   (setq dashboard-show-shortcuts nil)
@@ -165,7 +166,7 @@
   (setq dashboard-startup-banner "~/Pictures/Trefoil.png")
   (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
   (setq dashboard-set-init-info t)
-  
+
   (setq dashboard-startupify-list '(dashboard-insert-banner
                                 dashboard-insert-newline
                                 dashboard-insert-banner-title
@@ -382,16 +383,16 @@
 
     (setq org-hide-emphasis-markers t)
 
-    ;; (require 'org-indent)
-    ;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+    (require 'org-indent)
+    (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
 
-         ;; (add-to-list 'org-emphasis-alist
-         ;;                     '("_" (:foreground "red")
-         ;;                       ))
+    (add-to-list 'org-emphasis-alist
+                         '("_" (:foreground "red")
+                           ))
 
-         ;; (add-to-list 'org-emphasis-alist
-         ;;                     '("+" (:foreground "LightGreen")
-         ;;                       ))
+     (add-to-list 'org-emphasis-alist
+                         '("+" (:foreground "LightGreen")
+                           ))
 #+end_src
 * Org setup
 #+begin_src emacs-lisp
@@ -496,47 +497,46 @@
 
 * Python
 #+begin_src emacs-lisp
-             (use-package eglot
-               :ensure nil
-               :defer t
-               :hook (python-mode . eglot-ensure)
-               :hook (rust-mode . eglot-ensure))
-              ;; could probably add ruby here
-              ;; :hook (ruby-mode . eglot-ensure)
+                 (use-package eglot
+                   :ensure nil
+                   :defer t
+                   :hook (python-mode . eglot-ensure)
+                   :hook (rust-mode . eglot-ensure))
+                  ;; could probably add ruby here
+                  ;; :hook (ruby-mode . eglot-ensure)
 
-    (add-hook 'python-mode-hook 'eglot-ensure)
-    (with-eval-after-load 'eglot
-      (add-to-list 'eglot-server-programs
-                   '(python-mode . ("ruff")))
-      
-;;     (with-eval-after-load 'eglot
-;;     (add-hook 'after-save-hook 'eglot-format)))
-    (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
-    (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
-    (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer"))) 
-      
-  (require 'flymake-ruff)
-  (add-hook 'python-mode-hook #'flymake-ruff-load)
+        (add-hook 'python-mode-hook 'eglot-ensure)
+        (with-eval-after-load 'eglot
+          (add-to-list 'eglot-server-programs
+                       '(python-mode . ("ruff"))
+          )
+          
+        (with-eval-after-load 'eglot
+        (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
+        (with-eval-after-load 'eglot
+        (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
+        (with-eval-after-load 'eglot
+        (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer"))) 
+          
+      (require 'flymake-ruff)
+      (add-hook 'python-mode-hook #'flymake-ruff-load)
 
-  (require 'ruff-format)
-  (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
-      
-  (add-hook 'rust-mode-hook
-            (lambda () (setq indent-tabs-mode nil)))
+      (require 'ruff-format)
+      (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
+          
+      (add-hook 'rust-mode-hook
+                (lambda () (setq indent-tabs-mode nil)))
 
-  (add-hook 'rust-mode-hook
-            (lambda () (prettify-symbols-mode)))
+      (add-hook 'rust-mode-hook
+                (lambda () (prettify-symbols-mode)))
 
-  (setq rust-format-on-save t)
+      (setq rust-format-on-save t)
 
-  (setq python-indent-guess-indent-offset t)  
-  (setq python-indent-guess-indent-offset-verbose nil)
+      (setq python-indent-guess-indent-offset t)  
+      (setq python-indent-guess-indent-offset-verbose nil)
 
-  (setq python-python-command "$HOME/.pyenv/shims/python3")
-  (setq python-shell-completion-native-enable nil)
+      (setq python-python-command "$HOME/.pyenv/shims/python3")
+      (setq python-shell-completion-native-enable nil)
 
 #+end_src
 
@@ -637,8 +637,7 @@
 ;;   (tree-sitter-require 'rust)
 ;;   (tree-sitter-require 'python)
 ;;   (global-tree-sitter-mode)
-
-;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 #+end_src
 
 * Enable company-mode globally.
@@ -667,16 +666,16 @@
  (require 'slime-autoloads)
  (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
 
-  (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+  ;; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
     
  ;; Enable Paredit.
- (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
- (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
- (add-hook 'ielm-mode-hook 'enable-paredit-mode)
- (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
- (add-hook 'lisp-mode-hook 'enable-paredit-mode)
- (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
- (require 'paredit)
+ ;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+ ;; (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
+ ;; (add-hook 'ielm-mode-hook 'enable-paredit-mode)
+ ;; (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+ ;; (add-hook 'lisp-mode-hook 'enable-paredit-mode)
+ ;; (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
+ ;; (require 'paredit)
 
 ;; Enable Rainbow Delimiters.
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
@@ -736,20 +735,19 @@
          ("l" . "src lisp") ("s" . "src")))
      '(org-tempo-keywords-alist nil)
      '(package-selected-packages
-       '(0x0 0xc @ all-the-icons all-the-icons-nerd-fonts auto-compile
+       '(0xc @ all-the-icons all-the-icons-nerd-fonts auto-compile
               bind-key cargo cargo-mode color-theme-sanityinc-tomorrow
               company company-box consult consult-denote dashboard
-              denote diffview dired-hacks-utils dired-single
-              dired-subtree doom-modeline eglot elisp-refs
-              exec-path-from-shell external-completion flycheck
+              denote diffview doom-modeline eglot
+              exec-path-from-shell flycheck flycheck-eglot
               flycheck-pyflakes flycheck-rust flymake-ruff helpful
-              jsonrpc kkp lsp-ui lua-mode magit marginalia
+              hydra kkp lsp-ui lua-mode magit marginalia
               material-theme nerd-icons-completion nerd-icons-dired
               no-littering ob-rust orderless org-bullets org-roam
-              paredit rainbow-delimiters ruff-format rustic seq
+              paredit pyvenv rainbow-delimiters ruff-format rustic
               show-font slime smartparens toml-mode track-changes
               tree-sitter-langs treemacs treemacs-nerd-icons
-              treesit-auto use-package vertico vterm which-key))
+              use-package vertico vterm which-key))
      ;; '(savehist-additional-variables '(kill-ring register-alist\ ) t)
      '(sort-fold-case t)
      '(warning-suppress-log-types '((use-package))))
