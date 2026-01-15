@@ -80,6 +80,11 @@ and did brew reinstall yazi. This restored preview. No idea is anything was lost
 CLOSED: [2026-01-13 Tue 09:20]
 * COMPLETED 14JAN - init.el same on New, Big and init.el.org
 CLOSED: [2026-01-14 Wed 13:13]
+* COMPLETED Cleaned up an tested aliases in .zshrc on New and Big.
+CLOSED: [2026-01-15 Thu 11:11]
+** COMPLETED Changed lx command alias in .zshrc so it shows time=modified instead of created:
+CLOSED: [2026-01-15 Thu 10:31]
+alias lx='eza -la --time=modified --color=always --icons=always --group-directories-first'
 * WAITING Eglot fails to discover rust or python workspaces.
 ** Python is working w/ syntax, Marginalia, etc.
 ** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
