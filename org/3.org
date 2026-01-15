@@ -3,6 +3,7 @@
 January.
 * _Start times from _~ 3.5, up from 3  on New,  and ~4 for Big,_
 * TODO Native compile working on Big & New. Can't compile 30.2 on Plucky.
+* On +Plucky+, terminal mode emacs doesn't give treesit error but graphical launch does. _investigate_
 * COMPLETED Is pyvenv useful? It's on Big, not on New.
 CLOSED: [2026-01-06 Tue 09:58]
 * COMPLETED Tweaked ~/project/Prot/init.el to remove uneeded items.
@@ -82,13 +83,12 @@ CLOSED: [2026-01-14 Wed 13:13]
 * WAITING Eglot fails to discover rust or python workspaces.
 ** Python is working w/ syntax, Marginalia, etc.
 ** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
-* Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
+* WAITING At this point I'm considering putting Rust aside and focusing on Python.
+
+* NEXT Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
 ** lisp on New is odd. Slime is enabled, but Compay wants a language server (for eglot?).
 *** Flycheck does appear to be working in lisp buffers on New and Big.
 isp should NOT require a language server but eglot should work with lsp-mode.
 *** copied init.el from New to Big, still not checking. Does Flycheck on Big need to know what the checker is?
 No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both machines.
 ** in Terminal: cargo locate-project --workspace --message-format plain to find Cargo.toml
-* At this point I'm considering putting Rust aside and focusing on Python.
-
-* On +Plucky+, terminal mode emacs doesn't give treesit error but graphical launch does. _investigate_
