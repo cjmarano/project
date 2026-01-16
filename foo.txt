@@ -1,0 +1,9 @@
+This is a line of text.
+This is another.
+     I tabbed this line.
+       I tabbed this twice.
+This ^ six spaces from one tab.
+That's ^ eight spaces from two tabs.
+       ^ eight spaces from one tab.
+Foo, bar, buzz
+     ^ back to six. 

@@ -1,0 +1,6 @@
+#+title:      Compaing Denote to org roam dailies.
+#+date:       [2026-01-16 Fri 11:30]
+#+filetags:   :testing:
+#+identifier: 20260116T113035
+
+Org roam dailies 

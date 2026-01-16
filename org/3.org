@@ -85,6 +85,8 @@ CLOSED: [2026-01-15 Thu 11:11]
 ** COMPLETED Changed lx command alias in .zshrc so it shows time=modified instead of created:
 CLOSED: [2026-01-15 Thu 10:31]
 alias lx='eza -la --time=modified --color=always --icons=always --group-directories-first'
+* COMPLETED Added alias ff: alias ff='du -a ~/project/ 2>/dev/null | grep -i $1'
+CLOSED: [2026-01-16 Fri 09:11]
 * WAITING Eglot fails to discover rust or python workspaces.
 ** Python is working w/ syntax, Marginalia, etc.
 ** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
@@ -97,3 +99,4 @@ isp should NOT require a language server but eglot should work with lsp-mode.
 *** copied init.el from New to Big, still not checking. Does Flycheck on Big need to know what the checker is?
 No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both machines.
 ** in Terminal: cargo locate-project --workspace --message-format plain to find Cargo.toml
+* Testing org roam daily.

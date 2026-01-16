@@ -1,0 +1,6 @@
+#+title:      Testing again
+#+date:       [2026-01-16 Fri 09:58]
+#+filetags:   :testing:
+#+identifier: 20260116T095827
+
+Testing denote again, I should really use it more.
