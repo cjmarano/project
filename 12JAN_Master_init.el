@@ -545,10 +545,10 @@ no longer be necessary."
 (lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
-(require 'tree-sitter)
-(require 'tree-sitter-langs)
-(add-hook 'rust-mode-hook #'tree-sitter-mode)
-(add-hook 'python-mode-hook #'tree-sitter-mode)
+;; (require 'tree-sitter)
+;; (require 'tree-sitter-langs)
+;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+;; (add-hook 'python-mode-hook #'tree-sitter-mode)
 ;; (global-tree-sitter-mode)
 
 ;; (use-package rust-mode
@@ -561,7 +561,7 @@ no longer be necessary."
 ;; (tree-sitter-require 'rust)
 ;; (tree-sitter-require 'python)
 ;; (global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
 (add-hook 'after-init-hook 'global-company-mode)
 (use-package company

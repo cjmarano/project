@@ -100,3 +100,5 @@ isp should NOT require a language server but eglot should work with lsp-mode.
 No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both machines.
 ** in Terminal: cargo locate-project --workspace --message-format plain to find Cargo.toml
 * Testing org roam daily.
+* .zshrc aliaswa not up to date on Plucky and Ducky.
+* init.el on Plucky not showing icons for org files.
