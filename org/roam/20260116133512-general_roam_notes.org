@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       85D36FC5-0BA6-41F8-A4B6-AC85E7446C13
+:END:
+#+title: General Roam Notes.
+This is an org-roam node.
