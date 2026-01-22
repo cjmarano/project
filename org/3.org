@@ -2,7 +2,7 @@
 
 January.
 * _Start times from _~ 3.5, up from 3  on New,  and ~4 for Big,_
-* TODO Native compile working on Big & New. Can't compile 30.2 on Plucky.
+* TODO Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 * COMPLETED Misc.
 CLOSED: [2026-01-20 Tue 07:40]
 ** COMPLETED Is pyvenv useful? It's on Big, not on New.
@@ -45,7 +45,7 @@ CLOSED: [2026-01-16 Fri 09:11]
 ** .zshrc alias was not up to date on Plucky and Ducky.
 * COMPLETED Lexical scoping on New, Big and init.el.org.
 CLOSED: [2026-01-05 Mon 13:39]
-* COMPLETED Tree-sitter was running globaly - even on org files so modified it on New, Big, init.el.org.
+* COMPLETED Tree-sitter was running globally - even on org files so modified it on New, Big, init.el.org.
 CLOSED: [2026-01-05 Mon 13:35]
 
 (require 'tree-sitter)
