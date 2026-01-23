@@ -89,9 +89,12 @@ CLOSED: [2025-12-12 Fri 13:49]
 **  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
 * COMPLETED 14JAN - init.el same on New, Big and init.el.org _freeze_
 CLOSED: [2026-01-14 Wed 13:13]
-* WAITING At this point I'm considering putting Rust aside and focusing on Python.
+* COMPLETED Removed lsp-treemacs from init.el on New and Big and init.el.org
+CLOSED: [2026-01-22 Thu 10:44]
+* COMPLETED At this point I'm considering putting Rust aside and focusing on Python.
+CLOSED: [2026-01-22 Thu 10:52]
 
-* WAITING Eglot fails to discover rust or python workspaces.
+** WAITING Eglot fails to discover rust workspaces.
 ** Python is working w/ syntax, Marginalia, etc.
 ** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
 * WAITING Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
