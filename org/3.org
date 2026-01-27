@@ -113,3 +113,4 @@ No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both 
 * On +Plucky+, terminal mode emacs doesn't give treesit error but graphical launch does. _investigate_
 * On +Plucky+ init.el issue - not showing icons for org files. _org-bullets?_
 * Testing org roam daily.
+foo
