@@ -97,6 +97,12 @@ CLOSED: [2026-01-22 Thu 10:52]
 ** WAITING Eglot fails to discover rust workspaces.
 ** Python is working w/ syntax, Marginalia, etc.
 ** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
+* COMPLETED on Big and New, changed .zshrc autoload -Uz compinit && compinit -i
+CLOSED: [2026-01-27 Tue 13:25]
+This is to stop complaint about insecure directory -  ~/.rbenv/  which looks exaclty like .pyenv
+Tried chmoding and 755ing the entire .rbenv directory but did not fix issue.
+Next step would be to add a line to .zshrc to ignore insecure directories.
+** This is probably because root is not charles.marano so compaudit sees owner as wrong.
 * WAITING Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
 ** lisp on New is odd. Slime is enabled, but Compay wants a language server (for eglot?).
 *** Flycheck does appear to be working in lisp buffers on New and Big.
