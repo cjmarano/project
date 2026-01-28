@@ -1,8 +1,8 @@
-
-
 January.
 * _Start times from _~ 3.5, up from 3  on New,  and ~4 for Big,_
-* TODO Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+* On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+* On +Plucky+, terminal mode emacs doesn't give treesit error but graphical launch does. _investigate_
+* On +Plucky+ init.el issue - not showing icons for org files. _org-bullets?_
 * COMPLETED Misc.
 CLOSED: [2026-01-20 Tue 07:40]
 ** COMPLETED Is pyvenv useful? It's on Big, not on New.
@@ -87,7 +87,7 @@ CLOSED: [2025-12-12 Fri 13:49]
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 **  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
-* COMPLETED 14JAN - init.el same on New, Big and init.el.org _freeze_
+* COMPLETED 28JAN - init.el same on New, Big and init.el.org _freeze_
 CLOSED: [2026-01-14 Wed 13:13]
 * COMPLETED Removed lsp-treemacs from init.el on New and Big and init.el.org
 CLOSED: [2026-01-22 Thu 10:44]
@@ -110,8 +110,5 @@ isp should NOT require a language server but eglot should work with lsp-mode.
 *** copied init.el from New to Big, still not checking. Does Flycheck on Big need to know what the checker is?
 No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both machines.
 ** in Terminal: cargo locate-project --workspace --message-format plain to find Cargo.toml
-* On +Plucky+, terminal mode emacs doesn't give treesit error but graphical launch does. _investigate_
-* On +Plucky+ init.el issue - not showing icons for org files. _org-bullets?_
 * Testing org roam daily.
-foo
-bar
+* Look at journal or org-roam for ability to step back in time to see changes.
