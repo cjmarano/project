@@ -1,3 +1,14 @@
+* Testing changes to init.el
+
+emacs -batch -l ~/.emacs.d/init.el --eval '(message "init.el loaded successfully")'
+
+* Finding large files
+find . -type f -exec ls -sh {} + | sort -rh | head -n 10
+
+find ~ -type f -size +1G
+
+find . -type f -exec ls -lh {} + | sort -rh -k 5 | head -n 10
+
 * Ruff
 ruff check
 ruff  check --fix
