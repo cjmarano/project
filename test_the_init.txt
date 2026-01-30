@@ -1,0 +1,1 @@
+emacs -batch -l  ~/.emacs.d/init.el --eval '(message "init.el loaded successfully~")'
