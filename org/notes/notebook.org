@@ -1,3 +1,5 @@
+* to show an info file:  C-c C-h i 
+
 * Testing changes to init.el
 
 emacs -batch -l ~/.emacs.d/init.el --eval '(message "init.el loaded successfully")'
@@ -41,6 +43,27 @@ C-c, C-q set tag
 C-c, C-, then l for lisp (is org-insert-structure-template)
 
 ----
+* Org Roam
+C-c n d n  new org roam daily
+C-c n d Y  create a daily for Yesterday
+C-c n d T  create a daily for Tomorrow
+C-c n d y  view daily for Yesterday
+C-d n d t   view daily for tomorrow
+C-c n d b  view previous entry
+C-c n d f   view next entry
+
+C-c n l org roam buffer toggle
+C-c n f org roam node find
+C-c n i org roam node insert
+
+C-M-i completion at point
+
+C-c n d completion at point
+C-c c org capture
+C-c a agenda
+C-c l org-store-ink
+C-c C-l org-insert-link
+
 * Building emacs from scratch
 sudo apt install git build-essentials automake
 sudo apt build-dep emacs
