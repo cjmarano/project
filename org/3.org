@@ -121,6 +121,6 @@ C-c n i to insert link to another note.
 C-c n d d to see Today's notes.
 C-c n f to see list of all notes.
 ** C-c c then j for  journal (and not C-c j) C-c a does open agenda.
-* Org journal entries all go into the same file --> journal.org
+** Org journal entries all go into the same file --> journal.org
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
