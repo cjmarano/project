@@ -38,4 +38,14 @@ Entered on [2025-12-18 Thu 07:57]
          "* TODO %?\n  %i\n  %a")
         ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
-
+* 2026
+** 2026-01 January
+*** 2026-01-29 Thursday
+**** This is a journal entry.
+Entered on [2026-01-29 Thu 14:06]
+  
+  [[file:~/.emacs.d/init.el::variable-pitch-mode 1]]
+**** 
+Entered on [2026-01-29 Thu 14:08]
+  
+  [[file:~/project/org/3.org::*C-c c then j for journal (and not C-c j) C-c a does open agenda][C-c c then j for journal (and not C-c j) C-c a does open agenda]]
