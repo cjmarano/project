@@ -1,8 +1,11 @@
 January.
 * _Start times from _~ 3.5, up from 3  on New,  and ~4 for Big,_
-* On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+* WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 * On +Plucky+, terminal mode emacs doesn't give treesit error but GUI does. _investigate_
-* On +Plucky+ init.el issue - not showing icons for org files. _org-bullets?_
+** /snap/bin/emacs %F installed. Throws errors but is better than previous /usr/local/bin/emacs-30.2
+Snap version is 31.0.50. not 30.2 
+** On +Plucky+ init.el issue - not showing icons for org files. _org-bullets?_
+resolved temporarily by using Snap version of emacs as above.
 * COMPLETED Misc.
 CLOSED: [2026-01-20 Tue 07:40]
 ** COMPLETED Is pyvenv useful? It's on Big, not on New.
@@ -43,9 +46,9 @@ alias lx='eza -la --time=modified --color=always --icons=always --group-director
 ** COMPLETED Added alias ff: alias ff='du -a ~/project/ 2>/dev/null | grep -i $1'
 CLOSED: [2026-01-16 Fri 09:11]
 ** .zshrc alias was not up to date on Plucky and Ducky.
-* COMPLETED Lexical scoping on New, Big and init.el.org.
+** COMPLETED Lexical scoping on New, Big and init.el.org.
 CLOSED: [2026-01-05 Mon 13:39]
-* COMPLETED Tree-sitter was running globally - so modified it on New, Big, init.el.org.
+** COMPLETED Tree-sitter was running globally - so modified it on New, Big, init.el.org.
 CLOSED: [2026-01-05 Mon 13:35]
 
 (require 'tree-sitter)
@@ -66,6 +69,14 @@ CLOSED: [2026-01-05 Mon 13:35]
 ;; (tree-sitter-require 'python)
 ;; (global-tree-sitter-mode)  _<-- not this_
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode) _<-- same before (18AUG) and now (05Jan)_
+** COMPLETED At this point I'm considering putting Rust aside and focusing on Python.
+CLOSED: [2026-01-22 Thu 10:52]
+
+** WAITING Eglot fails to discover rust workspaces.
+** Python is working w/ syntax, Marginalia, etc.
+** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
+** COMPLETED Removed lsp-treemacs from init.el on New and Big and init.el.org
+CLOSED: [2026-01-22 Thu 10:44]
 * COMPLETED json errors. why? -- was eglot related (after-save-hook.)
 CLOSED: [2026-01-07 Wed 11:13]
 ** note: the below line is a dupe of <-- 519.
@@ -89,14 +100,6 @@ CLOSED: [2025-12-12 Fri 13:49]
 **  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
 * COMPLETED 28JAN - init.el same on New, Big and init.el.org _freeze_
 CLOSED: [2026-01-14 Wed 13:13]
-* COMPLETED Removed lsp-treemacs from init.el on New and Big and init.el.org
-CLOSED: [2026-01-22 Thu 10:44]
-* COMPLETED At this point I'm considering putting Rust aside and focusing on Python.
-CLOSED: [2026-01-22 Thu 10:52]
-
-** WAITING Eglot fails to discover rust workspaces.
-** Python is working w/ syntax, Marginalia, etc.
-** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
 * COMPLETED on Big and New, changed .zshrc autoload -Uz compinit && compinit -i
 CLOSED: [2026-01-27 Tue 13:25]
 This is to stop complaint about insecure directory -  ~/.rbenv/  which looks exaclty like .pyenv
