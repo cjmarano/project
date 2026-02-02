@@ -1,19 +1,24 @@
 February.
 * _Start times from _~ 3.5, up from 3  on New,  and ~4 for Big,_
 <<<<<<< HEAD
-* On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 * Misc.
 ** On +Plucky+, terminal mode emacs doesn't give treesit error but GUI does. _investigate_
 Intstalled Snap emacs (v. 28.0.2) works in graphic mode.
 ** On +Plucky+ init.el issue - not showing icons for org files. _org-bullets?_
 Might be same issue as on New. Emacs from Snap fixed the issue.
 =======
-* WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-* On +Plucky+, terminal mode emacs doesn't give treesit error but GUI does. _investigate_
+** On +Plucky+, terminal mode emacs doesn't give treesit error but GUI does. _investigate_
 ** /snap/bin/emacs %F installed. Throws errors but is better than previous /usr/local/bin/emacs-30.2
 Snap version is 31.0.50. not 30.2 
 ** On +Plucky+ init.el issue - not showing icons for org files. _org-bullets?_
 resolved temporarily by using Snap version of emacs as above.
+** COMPLETED 28JAN - init.el same on New, Big and init.el.org _freeze_
+CLOSED: [2026-01-14 Wed 13:13]
+** COMPLETED command to eval init.el
+CLOSED: [2026-01-29 Thu 11:02]
+emacs -batch -l  ~~/.emacs.d/init.el --eval '(message "init.el loaded successfully~")'
+* On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+* WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 * COMPLETED Misc.
 CLOSED: [2026-01-20 Tue 07:40]
 ** COMPLETED Is pyvenv useful? It's on Big, not on New.
@@ -132,19 +137,12 @@ CLOSED: [2025-12-12 Fri 13:49]
   (add-hook 'after-init-hook #'global-flycheck-mode))
 **  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
 <<<<<<< HEAD
-* Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
-=======
-* COMPLETED 28JAN - init.el same on New, Big and init.el.org _freeze_
-CLOSED: [2026-01-14 Wed 13:13]
 * COMPLETED on Big and New, changed .zshrc autoload -Uz compinit && compinit -i
 CLOSED: [2026-01-27 Tue 13:25]
 This is to stop complaint about insecure directory -  ~/.rbenv/  which looks exaclty like .pyenv
 Tried chmoding and 755ing the entire .rbenv directory but did not fix issue.
 Next step would be to add a line to .zshrc to ignore insecure directories.
 ** This is probably because root is not charles.marano so compaudit sees owner as wrong.
-* COMPLETED command to eval init.el
-CLOSED: [2026-01-29 Thu 11:02]
-emacs -batch -l  ~~/.emacs.d/init.el --eval '(message "init.el loaded successfully~")'
 * WAITING Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
 >>>>>>> 5da828ed6225a57b5052a3c8f5fab020afb6d73e
 ** lisp on New is odd. Slime is enabled, but Compay wants a language server (for eglot?).
@@ -164,5 +162,6 @@ C-c n f to see list of all notes.
 ** Org journal entries all go into the same file --> journal.org
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
-* NEXT On 02FEB major changes to init.el on New, not reflected on Big on init.el.org yet.
-* Lots of issues w/ init.el changes on New. It loads now. Did I fix anything?
+* Test init.el on New. +Freeze init.el on Big and init.el.org+
+** Lots of issues w/ init.el changes on New. It loads now. Did I fix anything?
+** NEXT On 02FEB major changes to init.el on New, not reflected on Big on init.el.org yet.
