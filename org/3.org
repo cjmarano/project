@@ -1,51 +1,14 @@
-January.
+February.
 * _Start times from _~ 3.5, up from 3  on New,  and ~4 for Big,_
 * On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-* On +Plucky+, terminal mode emacs doesn't give treesit error but GUI does. _investigate_
-* On +Plucky+ init.el issue - not showing icons for org files. _org-bullets?_
-* COMPLETED Misc.
-CLOSED: [2026-01-20 Tue 07:40]
-** COMPLETED Is pyvenv useful? It's on Big, not on New.
-CLOSED: [2026-01-06 Tue 09:58]
-** COMPLETED Tweaked ~/project/Prot/init.el to remove uneeded items.
-CLOSED: [2026-01-05 Mon 12:51]
-original saved in Prot folder as init.el.backup and init.el.original
-** COMPLETED Reconciled init.el on New with Big and init.el.org but now can't click on items in dashboard.
-CLOSED: [2026-01-06 Tue 14:16]
-** Had to copy Big's init.el to New to get back ability to click to open files in Dashboard.
-Question is, now, has that messed anything else up? Rust, Python, lisp, etc. ? Will need to check.
-*** New has 115 packages in elpa, with 95 loaded. Big has 105 packages with 88 loaded.
-this is even though they now have the same init.el files.
-elpa will  be bigger than laoded due to signed packages with sam names.
-*** Python working on New after swapping Big's init.el to it to fix can't click issue with Dashboard.
-*** Rust Flycheck, eglot, and rust-analyzer working but no completion or marginalia that I can see.
-** COMPLETED init.el on New and Big, init.el.org and 07JAN_New_init.el all upda to date. _FREEZE!_
-CLOSED: [2026-01-08 Thu 08:58]
-** WAITING Rust-analyzer is working but needs more testing.
-** NEXT Still having issue discovering workspace (rust). Look into this.
-*** commenting out all lines about hints stopped hints error.
-*** running M-x lsp-workspace-folders-remove then Mx lspt-workspace-folders-add did not fix issue.
-added the specific fold -->  ~/project/rust/hello_rust/  to folders did not fix Failed to load workspce.
-** I wonder if a toml file in the root of the project is needed?
-see https://github.com/emacs-rustic/rustic/issues/110 for a discussion on finding project root and workspace.
-** COMPLETED Yazi stopped showing previews. Removed yazi.toml from  ~/.config/
-CLOSED: [2026-01-12 Mon 11:09]
-and did brew reinstall yazi. This restored preview. No idea is anything was lost by removing yazi.toml
-** had to add a new yazi-default.toml and edit it to get show hidden and correct spacing (1, 4, 3).
-** Big and New using catppuccin.mocha.
-** COMPLETED Updated Ruby to 4.0.0 had to pip install colorls after. Also had to edit path in .zshrc
-CLOSED: [2026-01-13 Tue 09:20]
-** COMPLETED Cleaned up an tested aliases in .zshrc on New and Big.
-CLOSED: [2026-01-15 Thu 11:11]
-** COMPLETED Changed lx command alias in .zshrc so it shows time=modified instead of created:
-CLOSED: [2026-01-15 Thu 10:31]
-alias lx='eza -la --time=modified --color=always --icons=always --group-directories-first'
-** COMPLETED Added alias ff: alias ff='du -a ~/project/ 2>/dev/null | grep -i $1'
-CLOSED: [2026-01-16 Fri 09:11]
-** .zshrc alias was not up to date on Plucky and Ducky.
-* COMPLETED Lexical scoping on New, Big and init.el.org.
+* Misc.
+** On +Plucky+, terminal mode emacs doesn't give treesit error but GUI does. _investigate_
+Intstalled Snap emacs (v. 28.0.2) works in graphic mode.
+** On +Plucky+ init.el issue - not showing icons for org files. _org-bullets?_
+Might be same issue as on New. Emacs from Snap fixed the issue.
+** COMPLETED Lexical scoping on New, Big and init.el.org.
 CLOSED: [2026-01-05 Mon 13:39]
-* COMPLETED Tree-sitter was running globally - so modified it on New, Big, init.el.org.
+** COMPLETED Tree-sitter was running globally - so modified it on New, Big, init.el.org.
 CLOSED: [2026-01-05 Mon 13:35]
 
 (require 'tree-sitter)
@@ -66,6 +29,30 @@ CLOSED: [2026-01-05 Mon 13:35]
 ;; (tree-sitter-require 'python)
 ;; (global-tree-sitter-mode)  _<-- not this_
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode) _<-- same before (18AUG) and now (05Jan)_
+** COMPLETED Removed lsp-treemacs from init.el on New and Big and init.el.org
+CLOSED: [2026-01-22 Thu 10:44]
+** COMPLETED on Big and New, changed .zshrc autoload -Uz compinit && compinit -i
+CLOSED: [2026-01-27 Tue 13:25]
+This is to stop complaint about insecure directory -  ~/.rbenv/  which looks exaclty like .pyenv
+Tried chmoding and 755ing the entire .rbenv directory but did not fix issue.
+Next step would be to add a line to .zshrc to ignore insecure directories.
+** This is probably because root is not charles.marano so compaudit sees owner as wrong.
+** COMPLETED At this point I'm considering putting Rust aside and focusing on Python.
+CLOSED: [2026-01-22 Thu 10:52]
+
+** WAITING Eglot fails to discover rust workspaces.
+** Python is working w/ syntax, Marginalia, etc.
+** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
+** COMPLETED Something broke org-bullets during init.el cleanup on New.
+fixed with command at lines 357, 348
+CLOSED: [2026-02-02 Mon 12:31]
+Also had duplicat exec-path-from-shell intries.
+** With Lisp files - company back end not connected.
+** COMPLETED command to eval init.el
+CLOSED: [2026-01-29 Thu 11:02]
+emacs -batch -l  ~~/.emacs.d/init.el --eval '(message "init.el loaded successfully~")'
+** COMPLETED 28JAN - init.el same on New, Big and init.el.org _freeze_
+CLOSED: [2026-01-14 Wed 13:13]
 * COMPLETED json errors. why? -- was eglot related (after-save-hook.)
 CLOSED: [2026-01-07 Wed 11:13]
 ** note: the below line is a dupe of <-- 519.
@@ -87,26 +74,7 @@ CLOSED: [2025-12-12 Fri 13:49]
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 **  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
-* COMPLETED 28JAN - init.el same on New, Big and init.el.org _freeze_
-CLOSED: [2026-01-14 Wed 13:13]
-* COMPLETED Removed lsp-treemacs from init.el on New and Big and init.el.org
-CLOSED: [2026-01-22 Thu 10:44]
-* COMPLETED At this point I'm considering putting Rust aside and focusing on Python.
-CLOSED: [2026-01-22 Thu 10:52]
-
-** WAITING Eglot fails to discover rust workspaces.
-** Python is working w/ syntax, Marginalia, etc.
-** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
-* COMPLETED on Big and New, changed .zshrc autoload -Uz compinit && compinit -i
-CLOSED: [2026-01-27 Tue 13:25]
-This is to stop complaint about insecure directory -  ~/.rbenv/  which looks exaclty like .pyenv
-Tried chmoding and 755ing the entire .rbenv directory but did not fix issue.
-Next step would be to add a line to .zshrc to ignore insecure directories.
-** This is probably because root is not charles.marano so compaudit sees owner as wrong.
-* COMPLETED command to eval init.el
-CLOSED: [2026-01-29 Thu 11:02]
-emacs -batch -l  ~~/.emacs.d/init.el --eval '(message "init.el loaded successfully~")'
-* WAITING Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
+* Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
 ** lisp on New is odd. Slime is enabled, but Compay wants a language server (for eglot?).
 *** Flycheck does appear to be working in lisp buffers on New and Big.
 isp should NOT require a language server but eglot should work with lsp-mode.
@@ -124,3 +92,5 @@ C-c n f to see list of all notes.
 ** Org journal entries all go into the same file --> journal.org
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
+* NEXT On 02FEB major changes to init.el on New, not reflected on Big on init.el.org yet.
+* Lots of issues w/ init.el changes on New. It loads now. Did I fix anything?
