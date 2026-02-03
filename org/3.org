@@ -165,3 +165,4 @@ while org roam dailies go into sepearte files (even if created on same day) with
 * Test init.el on New. +Freeze init.el on Big and init.el.org+
 ** Lots of issues w/ init.el changes on New. It loads now. Did I fix anything?
 ** NEXT On 02FEB major changes to init.el on New, not reflected on Big on init.el.org yet.
+* Focus follows mouse in Terminal: defaults write com.apple.Terminal FocusFollowsMouse -string YES
