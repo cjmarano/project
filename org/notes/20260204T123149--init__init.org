@@ -1,0 +1,8 @@
+#+title:      init
+#+date:       [2026-02-04 Wed 12:31]
+#+filetags:   :init:
+#+identifier: 20260204T123149
+
+Tried a new init.el based on an init I found at https://whhone.com/emacs-config/#enable-lexical-binding
+
+Didn't laster, didnt compile w/o errors saved it as newtest2.el and restored previous init.el

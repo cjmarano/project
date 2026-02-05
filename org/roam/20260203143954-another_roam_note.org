@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       B71C24B6-A5D0-4DF9-8C3B-4FE7C3AB0820
+:END:
+#+title: Another Roam Note.
+This is a Roam Note created on 03FEB as part of the "Which should I use?" tesing of Roam, Journal and Denote.
+

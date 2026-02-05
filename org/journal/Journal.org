@@ -49,3 +49,18 @@ Entered on [2026-01-29 Thu 14:06]
 Entered on [2026-01-29 Thu 14:08]
   
   [[file:~/project/org/3.org::*C-c c then j for journal (and not C-c j) C-c a does open agenda][C-c c then j for journal (and not C-c j) C-c a does open agenda]]
+** 2026-02 February
+*** 2026-02-03 Tuesday
+**** Tuesday journal entry.
+Didn't do much after blowing up init.el on New Yesterday while trying to eliminate compile errors.
+Going to leave init.el alone for a while and focus on Org-journal, Org-Roam and Denote.
+Entered on [2026-02-03 Tue 12:49]
+  
+  [[file:~/project/org/3.org::*Focus follows mouse in Terminal: defaults write com.apple.Terminal FocusFollowsMouse -string YES][Focus follows mouse in Terminal: defaults write com.apple.Terminal FocusFollowsMouse -string YES]]
+*** 2026-02-04 Wednesday
+**** So created a new init.el based on https://whhone.com/emacs-config/#enable-lexical-binding
+and it did not cut down loading time or provide aany immediate benefits but did throw eompile errors.
+Saved it as ~/project/newtest2.el  and reverted to 02FEB (highly modified init.el Big and init.el.org stil have older 28JAN init.el
+Entered on [2026-02-04 Wed 14:03]
+  
+  [[file:~/project/org/3.org::*Misc.][Misc.]]

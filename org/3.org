@@ -17,8 +17,10 @@ CLOSED: [2026-01-14 Wed 13:13]
 ** COMPLETED command to eval init.el
 CLOSED: [2026-01-29 Thu 11:02]
 emacs -batch -l  ~~/.emacs.d/init.el --eval '(message "init.el loaded successfully~")'
-* On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+** Focus follows mouse in Terminal:
+defaults write com.apple.Terminal FocusFollowsMouse -string YES
 * WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 * COMPLETED Misc.
 CLOSED: [2026-01-20 Tue 07:40]
 ** COMPLETED Is pyvenv useful? It's on Big, not on New.
@@ -115,7 +117,7 @@ CLOSED: [2026-01-14 Wed 13:13]
 ** COMPLETED Removed lsp-treemacs from init.el on New and Big and init.el.org
 CLOSED: [2026-01-22 Thu 10:44]
 >>>>>>> 5da828ed6225a57b5052a3c8f5fab020afb6d73e
-* COMPLETED json errors. why? -- was eglot related (after-save-hook.)
+** COMPLETED json errors. why? -- was eglot related (after-save-hook.)
 CLOSED: [2026-01-07 Wed 11:13]
 ** note: the below line is a dupe of <-- 519.
 (setq-local lsp-inlay-hint-enable t)   <-- 533
@@ -143,6 +145,11 @@ This is to stop complaint about insecure directory -  ~/.rbenv/  which looks exa
 Tried chmoding and 755ing the entire .rbenv directory but did not fix issue.
 Next step would be to add a line to .zshrc to ignore insecure directories.
 ** This is probably because root is not charles.marano so compaudit sees owner as wrong.
+* +Now+ Test init.el on New.   +Freeze init.el on Big and init.el.org+ 04FEB
+** NEXT Lots of issues w/ init.el changes on New. It loads now. Did I fix anything?
+** NEXT On 02FEB major changes to init.el on New, not reflected on Big on init.el.org yet.
+** Created a different init.el using https://whhone.com/emacs-config/#enable-lexical-binding
+While it was different from my init.el if didn't seem to have any particular advantages. Saved as ~/project/clean.init.el
 * WAITING Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
 >>>>>>> 5da828ed6225a57b5052a3c8f5fab020afb6d73e
 ** lisp on New is odd. Slime is enabled, but Compay wants a language server (for eglot?).
@@ -162,7 +169,3 @@ C-c n f to see list of all notes.
 ** Org journal entries all go into the same file --> journal.org
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
-* Test init.el on New. +Freeze init.el on Big and init.el.org+
-** Lots of issues w/ init.el changes on New. It loads now. Did I fix anything?
-** NEXT On 02FEB major changes to init.el on New, not reflected on Big on init.el.org yet.
-* Focus follows mouse in Terminal: defaults write com.apple.Terminal FocusFollowsMouse -string YES

@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       7BFE413B-5ED1-4593-AD1D-F89ED1ACC9AC
+:END:
+#+title: After newtest2.el experiment.
+Tried a new init.el based on an init I found at https://whhone.com/emacs-config/#enable-lexical-binding
+
+Didn't laster, didnt compile w/o errors saved it as newtest2.el and restored previous init.el
+
