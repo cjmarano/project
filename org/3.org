@@ -169,3 +169,4 @@ C-c n f to see list of all notes.
 ** Org journal entries all go into the same file --> journal.org
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
+** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.

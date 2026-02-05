@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       A8D0C7C4-5999-491B-B9EC-2AEF1466A8C7
+:END:
+#+title: foo
+testing new default notes template.
+
+(("d" "default" plain "%?"
+           :if-new
+           (file+head "${slug}.org"
+                      "#+title: ${title}\n#+date: %u\n#+lastmod: \n\n")
+           :immediate-finish t))
+        time-stamp-start "#\\+lastmod: [\t]*")

@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       3CB35EC8-113F-43B5-8B3C-6CE81BD27B95
+:END:
+#+title: bar
+Still testing.
+
+[[file:20260205111027-foo.org][link to foo
