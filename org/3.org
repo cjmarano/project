@@ -170,3 +170,5 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
+
+* Moved some folders (Tree-sitter, ez-themes, tmux-plugins, powerlevel 10k to ~/Software/
