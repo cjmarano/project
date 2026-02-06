@@ -16,11 +16,13 @@
 
 (setq package-native-compile t)
 
-;; (use-package exec-path-from-shell
-;;   :ensure t
-;;   :config
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
+(defun my-exec-path-from-shell-initialize ()
+     (when (memq window-system '(mac ns x))
+       (exec-path-from-shell-initialize)))
+
+(use-package exec-path-from-shell
+  :init
+  (add-hook 'after-init-hook 'my-exec-path-from-shell-initialize))
 
 (defun packages-require (&rest packs)
   "Install & load a package . If package not available install automaticaly."
@@ -33,12 +35,6 @@
          packs
 
          ))
-
-;; (setq load-prefer-newer t)
-;; (add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20260101.1821")
-;; (require 'auto-compile)
-;; (auto-compile-on-load-mode)
-;; (auto-compile-on-save-mode)
 
 (setq user-emacs-directory "~/.cache/emacs/")
 
@@ -89,18 +85,11 @@
 (setq recentf-max-saved-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-;; (when (display-graphic-p)
-;;   (context-menu-mode))
-
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired nil))
-
-(add-hook 'dired-load-hook
-          (lambda ()
-            (require 'dired-x)))
 
 (setq ediff-diff-options "--text")
 
@@ -181,11 +170,11 @@
 (use-package nerd-icons-completion
   :config)
 
-(use-package show-font
-  :ensure t
-  :bind
-  (("C-c s f" . show-font-select-preview)
-   ("C-c s t" . show-font-tabulated)))
+;; (use-package show-font
+;;   :ensure t
+;;   :bind
+;;   (("C-c s f" . show-font-select-preview)
+;;    ("C-c s t" . show-font-tabulated)))
 
 (use-package orderless
   :ensure t
@@ -206,8 +195,6 @@
   :config
   (which-key-mode)
   (setq which-key-idle-delay .9))
-
-(setq vterm-always-compile-module t)
 
 (use-package vterm
   :defer t
@@ -299,7 +286,8 @@
   :hook (org-mode . efs/org-mode-setup)
   :config
   (setq org-ellipsis " ▾")
-
+  (variable-pitch-mode 1)
+  (visual-line-mode 1))
   (defun efs/org-font-setup ()
     ;; Replace list hyphen with dot
     (font-lock-add-keywords 'org-mode
@@ -340,10 +328,6 @@
              '("+" (:foreground "LightGreen")
                ))
 
-(defun efs/org-mode-setup ()
-"Second setup."
-(variable-pitch-mode 1)
-(visual-line-mode 1))
 ;; ---------------------------------------------------------
 
 (setq org-agenda-files
@@ -369,7 +353,13 @@
         ("@init" . ?i)))
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/project/org/tasks/tasks.org" "Tasks")
+      '(("d" "default" plain "%?"
+           :if-new
+           (file+head "${slug}.org"
+                      "#+title: ${title}\n#+date: %u\n#+lastmod: \n\n")
+           :immediate-finish t)
+        time-stamp-start "#\\+lastmod: [\t]*")
+      (("t" "Todo" entry (file+headline "~/project/org/tasks/tasks.org" "Tasks")
          "* TODO %?\n  %i\n  %a")
         ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
@@ -412,11 +402,11 @@
       (org-babel-do-load-languages
           'org-babel-load-languages
           '((emacs-lisp . t)
-          (python . t)
-       (ruby . t)
-       (eshell . t)
-       (lisp . t)
-       (rust . t)
+            (python . t)
+            (ruby . t)
+            (eshell . t)
+            (lisp . t)
+            (rust . t)
           ))
     (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
@@ -428,7 +418,7 @@
 ;; (add-to-list 'org-structure-template-alist '("r" . "src ruby"))
 ;; (add-to-list 'org-structure-template-alist '("s" . "src shell"))
 
-(let ((org-confirm-babel-evaluate nil)))
+;; (let ((org-confirm-babel-evaluate nil)))
 
 ;; ---------------------------------------------------------
 ;; Org section ends here -----------------------------------
@@ -533,7 +523,8 @@ no longer be necessary."
 (lsp-rust-analyzer-display-reborrow-hints nil)
 :config
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-(lsp-enable-which-key-integration t))
+;; (lsp-enable-which-key-integration t)
+)
 
 (use-package lsp-ui
   :ensure nil
