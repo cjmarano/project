@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       3D0B78DE-92AD-437C-B82E-A6A5863E22B1
+:END:
+#+title: 2026-02-10
+* Today I was trying to figure out why emacs lisp files threw a Comany - capf error.
+the reason is that lisp and elisp files do NOT use a language server so there's nothing for Comany to connect to.
+Company global mode need be removed but want it for Python and Rust so will need to figure that out.
+While looking at init.el found a couple of issues with face variable and while trying fix bew up init.el so badly
+that I was unable to unfubar it.
+** Because init.el gets compiled to an .elc file on new changing the init.el file does NOT immediately
+change the init.elc making it hard to see if changes are correct.
+** Need to use _emacs -batch -l_  ~/.emacs.d/init.el --eval '(message "init.el loaded successfully~")'
+to confirm init.el is good BEFORE saving any changes to the file.
+** actually had to go back to 28JAN init.el to get things working.
+will need to compare with 06FEB FREEZE file and see the diffs.
