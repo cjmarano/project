@@ -1,10 +1,10 @@
-;;; ...  -*- lexical-binding: t -*-
+;;; ... -*- lexical-binding: t -*-
 (require 'package)
 
 (add-to-list 'package-archives
-                  '("melpa" . "https://melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
-                  '("elpa"  . "https://elpa.gnu.org/packages/")t)
+	         '("elpa"  . "https://elpa.gnu.org/packages/")t)
 (add-to-list 'package-archives
              '("nongnu" . "https://elpa.nongnu.org/nongnu/")t)
 (add-to-list 'package-archives
@@ -23,7 +23,7 @@
   (exec-path-from-shell-initialize))
 
 (defun packages-require (&rest packs)
-  "Install & load a package . If PACKS not available install automaticaly."
+  "Install & load a package . If package not available install automaticaly."
   (mapc  (lambda (package)
            (unless (package-installed-p package)
              (package-install package)
@@ -48,7 +48,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-(add-to-list 'default-frame-alist '(height . 60))
+(add-to-list 'default-frame-alist '(height . 28))
 (add-to-list 'default-frame-alist '(width . 110))
 
 (server-start)
@@ -77,35 +77,30 @@
 (setq-default create-lockfiles nil)
 (delete-selection-mode 1)
 
-;; (keymap-global-set "M-p" 'previous-buffer)
-;; (keymap-global-set "M-n" 'next-buffer)
-;; (keymap-global-set "M-o" 'other-window)
-;; (keymap-global-set "M-g" 'recentf)
-
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
                 eshell-mode-hook
                 vterm-mode-hook))
-(add-hook mode (lambda () (display-line-numbers-mode 0))))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (recentf-mode 1)
 (setq recentf-max-menu-items 10)
 (setq recentf-max-saved-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
-   
+
 ;; (when (display-graphic-p)
-;;    (context-menu-mode))
+;;   (context-menu-mode))
 
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
-(when (string= system-type "darwin")       
-(setq dired-use-ls-dired nil))
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired nil))
 
 (add-hook 'dired-load-hook
-    (lambda ()
-       (require 'dired-x)))
+          (lambda ()
+            (require 'dired-x)))
 
 (setq ediff-diff-options "--text")
 
@@ -120,18 +115,19 @@
 :ensure t
 :init
 (progn
-(setq dashboard-items '((recents . 10)
-                        (bookmarks .5)
-                        (projects . 5)
-                        (agenda . 5)))
+(setq dashboard-items '((recents   . 10)
+                      (bookmarks . 5)
+                      (projects  . 5)
+                      (agenda    . 5)))
 (setq dashboard-item-shortcuts '((recents   . "r")
                                  (bookmarks . "m")
                                  (projects  . "p")
+                                 (agenda    . "a")
                                  ))
 
 (setq dashboard-show-shortcuts nil)
 (setq dashboard-center-contents nil)
-(setq dashboard-banner-logo-title "New")
+(setq dashboard-banner-logo-title "Big")
 (setq dashboard-set-file-icons t)
 (setq dashboard-set-heading-icons t)
 (setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
@@ -141,15 +137,15 @@
 (setq dashboard-set-init-info t)
 
 (setq dashboard-startupify-list '(dashboard-insert-banner
-                              dashboard-insert-newline
-                              dashboard-insert-banner-title
-                              dashboard-insert-newline
-                              dashboard-insert-navigator
-                              dashboard-insert-newline
-                              dashboard-insert-init-info
-                              dashboard-insert-items
-                              dashboard-insert-newline))
-)
+                                  dashboard-insert-newline
+                                  dashboard-insert-banner-title
+                                  dashboard-insert-newline
+                                  dashboard-insert-navigator
+                                  dashboard-insert-newline
+                                  dashboard-insert-init-info
+                                  dashboard-insert-items
+                                  dashboard-insert-newline))
+  )
 
 :config
 (dashboard-setup-startup-hook))
@@ -161,7 +157,7 @@
 (setq doom-modeline-buffer-file-name-style 'file-name)
 ;; (setq doom-modeline-major-mode-color-icon t)
 ;; (setq doom-modeline-major-mode-icon t)
-(setq doom-modeline-buffer-encoding t
+(setq doom-modeline-buffer-encoding t)
 (setq doom-modeline-env-version t)
 (setq doom-modeline-env-enable-python t)
 (setq doom-modeline-env-enable-ruby t)
@@ -184,7 +180,7 @@
 
 (use-package nerd-icons-completion
   :config)
-  
+
 (use-package show-font
   :ensure t
   :bind
@@ -195,14 +191,14 @@
   :ensure t
   :custom
   (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles  basic partial-completion)))))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
 (use-package magit
-   :defer t 
-   :commands magit-status
-   :custom
-   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-   (keymap-global-set "C-x g" 'magit-status) 
+  :defer t
+  :commands magit-status
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+  (keymap-global-set "C-x g" 'magit-status)
 
 (use-package which-key
   :defer 0
@@ -214,7 +210,7 @@
 (setq vterm-always-compile-module t)
 
 (use-package vterm
-  :defer t 
+  :defer t
   :ensure t)
 
 (use-package vertico
@@ -242,12 +238,12 @@
        ("C-c i" . consult-info)
        ([remap Info-search] . consult-info)
        ;; C-x bindings in `ctl-x-map'
-       ("C-x M-:" . consult-complex-command)    
-       ("C-x b" . consult-buffer)               
+       ("C-x M-:" . consult-complex-command)
+       ("C-x b" . consult-buffer)
        ("C-x 4 b" . consult-buffer-other-window)
-       ("C-x 5 b" . consult-buffer-other-frame) 
-       ("C-x t b" . consult-buffer-other-tab)   
-       ("C-x r b" . consult-bookmark)           
+       ("C-x 5 b" . consult-buffer-other-frame)
+       ("C-x t b" . consult-buffer-other-tab)
+       ("C-x r b" . consult-bookmark)
        ("C-x p b" . consult-project-buffer)))
 
 (use-package consult-denote
@@ -291,11 +287,11 @@
 (global-set-key (kbd "C-h F") #'helpful-function)
 
 (use-package smartparens
- :ensure smartparens  ;; install the package
- :hook (emacs-lisp-mode-hook common-lisp-mode-hook lisp-mode-hook)
- :config
- ;; load default config
- (require 'smartparens-config))
+  :ensure smartparens  ;; install the package
+  :hook (emacs-lisp-mode-hook common-lisp-mode-hook lisp-mode-hook)
+  :config
+  ;; load default config
+  (require 'smartparens-config))
 
 (use-package org
   :pin gnu
@@ -321,7 +317,7 @@
                   (org-level-7 . 1.1)
                   (org-level-8 . 1.1))))
   (set-face-attribute (car face) nil :font "JetBrainsmono" :weight 'regular :height (cdr face)))
-        
+
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
 (set-face-attribute 'org-code unspecified :inherit '(shadow fixed-pitch))
@@ -345,10 +341,10 @@
                ))
 
 (defun efs/org-mode-setup ()
-  ;;    (org-indent-mode)
-  (variable-pitch-mode 1)
-  (visual-line-mode 1))
-  ;; ---------------------------------------------------------
+"Second setup."
+(variable-pitch-mode 1)
+(visual-line-mode 1))
+;; ---------------------------------------------------------
 
 (setq org-agenda-files
       '("~/project/org/journal/journal.org"
@@ -373,10 +369,10 @@
         ("@init" . ?i)))
 
 (setq org-capture-templates
-    '(("t" "Todo" entry (file+headline "~/project/org/tasks/tasks.org" "Tasks")
-       "* TODO %?\n  %i\n  %a")
-      ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
-       "* %?\nEntered on %U\n  %i\n  %a")))
+      '(("t" "Todo" entry (file+headline "~/project/org/tasks/tasks.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
 
 (use-package org-bullets
   :after org
@@ -413,20 +409,16 @@
 (setq org-log-done 'time)
 
 (with-eval-after-load 'org
-    (org-babel-do-load-languages
-        'org-babel-load-languages
-        '((emacs-lisp . t)
-        (python . t)
-     (ruby . t)
-     (eshell . t)
-     (lisp . t)
-     (rust . t)      
-        ))
-  (push '("conf-unix" . conf-unix) org-src-lang-modes))
-  
- ;; (with-eval-after-load 'org
- ;;  ;; This is needed as of Org 9.2
-  (require 'org-tempo)
+      (org-babel-do-load-languages
+          'org-babel-load-languages
+          '((emacs-lisp . t)
+          (python . t)
+       (ruby . t)
+       (eshell . t)
+       (lisp . t)
+       (rust . t)
+          ))
+    (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
 (require 'org-tempo)
 
@@ -438,6 +430,10 @@
 
 (let ((org-confirm-babel-evaluate nil)))
 
+;; ---------------------------------------------------------
+;; Org section ends here -----------------------------------
+;; ---------------------------------------------------------
+
 (use-package eglot
   :ensure nil
   :defer t
@@ -446,24 +442,25 @@
   ;; could probably add ruby here
   ;; :hook (ruby-mode . eglot-ensure)
 (add-hook 'python-mode-hook 'eglot-ensure)
-  (with-eval-after-load 'eglot
+(with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs
                  '(python-mode . ("ruff")))
+;;    (with-eval-after-load 'eglot
+;;      (add-hook 'after-save-hook 'eglot-format))
+    )
     (with-eval-after-load 'eglot
-    (add-hook 'after-save-hook 'eglot-format)))
-  (with-eval-after-load 'eglot
-  (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
-  (with-eval-after-load 'eglot
-  (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
-  (with-eval-after-load 'eglot
-  (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer"))) 
-    
+    (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
+    (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
+    (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))
+
 (require 'flymake-ruff)
 (add-hook 'python-mode-hook #'flymake-ruff-load)
 
 (require 'ruff-format)
 (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
-    
+
 (add-hook 'rust-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
 
@@ -472,7 +469,7 @@
 
 (setq rust-format-on-save t)
 
-(setq python-indent-guess-indent-offset t)  
+(setq python-indent-guess-indent-offset t)
 (setq python-indent-guess-indent-offset-verbose nil)
 
 (setq python-python-command "$HOME/.pyenv/shims/python3")
@@ -482,7 +479,7 @@
   :ensure nil
   :defer t
   :bind (:map rustic-mode-map
-              ("M-j" . ls-ui-imenu)
+              ("M-j" . lsp-ui-imenu)
               ("M-?" . lsp-find-references)
               ("C-c C-c l" . flycheck-list-errors)
               ("C-c C-c a" . lsp-execute-code-action)
@@ -508,10 +505,10 @@ no longer be necessary."
 (add-hook 'before-save-hook 'lsp-format-buffer nil t))
 
 (use-package toml-mode
-:ensure nil
-:defer t)
+  :ensure nil
+  :defer t)
 
-(setq-local lsp-inlay-hint-enable t)
+;; (setq-local lsp-inlay-hint-enable t)
 ;; below from https://github.com/rksm/emacs-rust-config
 (use-package lsp-mode
   :ensure nil
@@ -520,7 +517,8 @@ no longer be necessary."
   :init
   (setq lsp-keymap-prefix "C-c l")
   :custom
-;; what to use when checking on-save. "check" is default, I prefer clippy
+  ;; what to use when checking on-save. "check" is default, I prefer clippy
+;; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 (lsp-rust-analyzer-cargo-watch-command "clippy")
 (lsp-eldoc-render-all t)
 (lsp-idle-delay 0.6)
@@ -550,7 +548,8 @@ no longer be necessary."
 (require 'tree-sitter)
 (require 'tree-sitter-langs)
 (add-hook 'rust-mode-hook #'tree-sitter-mode)
-(add-hook 'python-mode-hook #'tree-sitter-mode
+(add-hook 'python-mode-hook #'tree-sitter-mode)
+;; (global-tree-sitter-mode)
 
 ;; (use-package rust-mode
 ;;   :init
@@ -616,61 +615,52 @@ no longer be necessary."
  '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
  '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
 
-  (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-  '(backup-directory-alist '(("" . "~/.backups")))
-  '(company-box-enable-icon t)
-  '(company-box-icons-alist 'company-box-icons-images)
-  '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
-  '(custom-safe-themes
-      '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
-      "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
-      "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
-      "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
-      default))
-  '(denote-known-keywords '("emacs" "init" "general" "testing"))
-  '(elpy-rpc-python-command "python3")
-  '(flycheck-python-flake8-executable "python3")
-  '(flycheck-python-pycompile-executable "python3")
-  '(flycheck-python-pylint-executable "python3")
-  '(org-agenda-files '("$HOME/project/org/3.org"))
-  '(org-emphasis-alist
-    '(("*" bold) ("/" italic) ("_" (:foreground "red") verbatim)
-      ("+" (:foreground "LightGreen") verbatim) ("_" underline)
-      ("=" org-verbatim verbatim) ("~" org-code verbatim)
-      ("+" (:\"Cyan\" t) verbatim)))
-  '(org-faces-easy-properties
-    '((todo . :background) (tag . :foreground) (priority . :foreground)))
-  '(org-id-locations-file
-    "/$HOME/.cache/emacs/var/org/id-locations.el")
-  '(org-startup-folded 'fold)
-  '(org-structure-template-alist
-    '(("R" . "src rust") ("r" . "src ruby") ("L" . "src emacs-lisp")
-      ("l" . "src lisp") ("s" . "src")))
-  '(org-tempo-keywords-alist nil)
-  '(package-selected-packages
-    '(0x0 0xc @ all-the-icons all-the-icons-nerd-fonts auto-compile
-           bind-key cargo cargo-mode color-theme-sanityinc-tomorrow
-           company company-box consult consult-denote dashboard
-           denote diffview dired-hacks-utils dired-single
-           dired-subtree doom-modeline eglot elisp-refs
-           exec-path-from-shell external-completion flycheck
-           flycheck-pyflakes flycheck-rust flymake-ruff helpful
-           jsonrpc kkp lsp-ui lua-mode magit marginalia
-           material-theme nerd-icons-completion nerd-icons-dired
-           no-littering ob-rust orderless org-bullets org-roam
-           paredit rainbow-delimiters ruff-format rustic seq
-           show-font slime smartparens toml-mode track-changes
-           tree-sitter-langs treemacs treemacs-nerd-icons
-           treesit-auto use-package vertico vterm which-key))
-  ;; '(savehist-additional-variables '(kill-ring register-alist\ ) t)
-  '(sort-fold-case t)
-  '(warning-suppress-log-types '((use-package))))
-   
-   (python-shell-interpeter "$HOME/.pyenv/shims/python3")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(backup-directory-alist '(("" . "~/.backups")))
+ '(company-box-enable-icon t)
+ '(company-box-icons-alist 'company-box-icons-images)
+ '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
+ '(custom-safe-themes
+   '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
+     "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
+     "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
+     "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
+     default))
+ '(denote-known-keywords '("emacs" "init" "general" "testing"))
+ '(flycheck-python-flake8-executable "python3")
+ '(flycheck-python-pycompile-executable "python3")
+ '(flycheck-python-pylint-executable "python3")
+ '(org-agenda-files '("~/project/org/3.org"))
+ '(org-faces-easy-properties
+   '((todo . :background) (tag . :foreground) (priority . :foreground)))
+ '(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
+ '(org-startup-folded 'fold)
+ '(org-structure-template-alist
+   '(("R" . "src rust") ("r" . "src ruby") ("L" . "src emacs-lisp")
+     ("l" . "src lisp") ("s" . "src")))
+ '(org-tempo-keywords-alist nil)
+ '(package-selected-packages
+   '(0xc @ all-the-icons-nerd-fonts auto-compile bind-key cargo
+              cargo-mode color-theme-sanityinc-tomorrow company company-box
+              consult consult-denote dashboard denote diffview doom-modeline eglot
+              exec-path-from-shell flycheck flycheck-eglot
+              flycheck-pyflakes flycheck-rust flymake-ruff helpful
+              hydra kkp lsp-ui lua-mode magit marginalia
+              material-theme nerd-icons-completion nerd-icons-dired
+              no-littering ob-rust orderless org-bullets org-roam
+              paredit pyvenv rainbow-delimiters ruff-format rustic
+              show-font slime smartparens toml-mode track-changes
+              tree-sitter-langs treemacs treemacs-nerd-icons
+              use-package vertico vterm which-key))
+ '(savehist-additional-variables '(kill-ring register-alist\ ) t)
+ '(sort-fold-case t)
+ '(warning-suppress-log-types '((use-package))))
+
+'(python-shell-interpeter "$HOME/.pyenv/shims/python3")
 
 ;; duplicate of above? add-hook is different than selected packages.
 ;; below is for delimiters in all programming modes.
