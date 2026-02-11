@@ -16,11 +16,11 @@
 
 (setq package-native-compile t)
 
-;; (use-package exec-path-from-shell
-;;   :ensure t
-;;   :config
+(use-package exec-path-from-shell
+  :ensure t
+  :config
 (when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
+  (exec-path-from-shell-initialize)))
 
 (defun packages-require (&rest packs)
   "Install & load a package . If package not available install automaticaly."
@@ -48,7 +48,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-(add-to-list 'default-frame-alist '(height . 28))
+(add-to-list 'default-frame-alist '(height . 60))
 (add-to-list 'default-frame-alist '(width . 110))
 
 (server-start)
@@ -385,7 +385,7 @@
   :init
   (setq org-roam-v2-ack t)
   :custom
-  (org-roam-directory "~/projects/org/roam")
+  (org-roam-directory "~/project/org/roam")
   (org-roam-completion-everywhere t)
 
   :bind (("C-c n l" . org-roam-buffer-toggle)
@@ -413,10 +413,10 @@
           'org-babel-load-languages
           '((emacs-lisp . t)
           (python . t)
-       (ruby . t)
-       (eshell . t)
-       (lisp . t)
-       (rust . t)
+          (ruby . t)
+          (eshell . t)
+          (lisp . t)
+          (rust . t)
           ))
     (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
@@ -565,9 +565,9 @@ no longer be necessary."
 
 (add-hook 'after-init-hook 'global-company-mode)
 (use-package company
-  :ensure
-  ;;  :after lsp-mode
-  ;;  :hook (lsp-mode . company-mode)
+  :defer
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
   :bind (:map company-active-map
               ("<tab>" . company-complete-selection))
           (:map python-mode-map
@@ -648,14 +648,14 @@ no longer be necessary."
               cargo-mode color-theme-sanityinc-tomorrow company company-box
               consult consult-denote dashboard denote diffview doom-modeline eglot
               exec-path-from-shell flycheck flycheck-eglot
-              flycheck-pyflakes flycheck-rust flymake-ruff helpful
-              hydra kkp lsp-ui lua-mode magit marginalia
-              material-theme nerd-icons-completion nerd-icons-dired
-              no-littering ob-rust orderless org-bullets org-roam
-              paredit pyvenv rainbow-delimiters ruff-format rustic
-              show-font slime smartparens toml-mode track-changes
-              tree-sitter-langs treemacs treemacs-nerd-icons
-              use-package vertico vterm which-key))
+              flycheck-pyflakes flycheck-rust flymake-ruff helpful hydra kkp
+              lsp-ui lua-mode magit marginalia material-theme
+              nerd-icons-completion nerd-icons-dired no-littering
+              ob-rust orderless org-bullets org-roam paredit pyvenv
+              rainbow-delimiters ruff-format rustic show-font slime
+              smartparens toml-mode track-changes tree-sitter-langs
+              treemacs treemacs-nerd-icons use-package vertico vterm
+              which-key))
  '(savehist-additional-variables '(kill-ring register-alist\ ) t)
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))

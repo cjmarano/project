@@ -12,8 +12,8 @@
                     '("elpa"  . "https://elpa.gnu.org/packages/")t)
   (add-to-list 'package-archives
                     '("nongnu" . "https://elpa.nongnu.org/nongnu/")t)
-  ;; (add-to-list 'package-archives
-  ;;                   '("org" . "https://orgmode.org/elpa/")t)
+  (add-to-list 'package-archives
+                    '("org" . "https://orgmode.org/elpa/")t)
 
    (package-initialize)
 
@@ -147,14 +147,14 @@
   :init
   (progn
   (setq dashboard-items '((recents . 10)
-                          (bookmarks .5)
-                          (projects . 5)
-                          (agenda . 5)))
+                                        (bookmarks .5)
+                                        (projects . 5)
+                                        (agenda . 5)))
   (setq dashboard-item-shortcuts '((recents   . "r")
-                                   (bookmarks . "m")
-                                   (projects  . "p")
-                                   (agenda    . "a")
-                                   ))
+                                                      (bookmarks . "m")
+                                                      (projects  . "p")
+                                                      (agenda    . "a")
+                                                      ))
 
   (setq dashboard-show-shortcuts nil)
   (setq dashboard-center-contents nil)
@@ -191,7 +191,7 @@
 (setq doom-modeline-buffer-file-name-style 'file-name)
 ;; (setq doom-modeline-major-mode-color-icon t)
 ;; (setq doom-modeline-major-mode-icon t)
-(setq doom-modeline-buffer-encoding t
+(setq doom-modeline-buffer-encoding t)
 (setq doom-modeline-env-version t)
 (setq doom-modeline-env-enable-python t)
 (setq doom-modeline-env-enable-ruby t)
@@ -431,7 +431,7 @@
         ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
 
-     use-package org-bullets
+  (use-package org-bullets
       :after org
       :hook (org-mode . org-bullets-mode)
       :custom
@@ -475,10 +475,10 @@
           'org-babel-load-languages
           '((emacs-lisp . t)
           (python . t)
-       (ruby . t)
-       (eshell . t)
-       (lisp . t)
-       (rust . t)      
+          (ruby . t)
+          (eshell . t)
+          (lisp . t)
+          (rust . t)      
           ))
     (push '("conf-unix" . conf-unix) org-src-lang-modes))
     
@@ -497,19 +497,19 @@
 
 * Python
 #+begin_src emacs-lisp
-                 (use-package eglot
-                   :ensure nil
-                   :defer t
-                   :hook (python-mode . eglot-ensure)
-                   :hook (rust-mode . eglot-ensure))
-                  ;; could probably add ruby here
-                  ;; :hook (ruby-mode . eglot-ensure)
+(use-package eglot
+     :ensure nil
+     :defer t
+     :hook (python-mode . eglot-ensure)
+     :hook (rust-mode . eglot-ensure))
+    ;; could probably add ruby here
+    ;; :hook (ruby-mode . eglot-ensure)
 
-        (add-hook 'python-mode-hook 'eglot-ensure)
-        (with-eval-after-load 'eglot
-          (add-to-list 'eglot-server-programs
-                       '(python-mode . ("ruff"))
-          )
+   (add-hook 'python-mode-hook 'eglot-ensure)
+   (with-eval-after-load 'eglot
+     (add-to-list 'eglot-server-programs
+                  '(python-mode . ("ruff"))
+     ))
           
         (with-eval-after-load 'eglot
         (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
@@ -623,7 +623,7 @@
 (require 'tree-sitter)
 (require 'tree-sitter-langs)
 (add-hook 'rust-mode-hook #'tree-sitter-mode)
-(add-hook 'python-mode-hook #'tree-sitter-mode
+(add-hook 'python-mode-hook #'tree-sitter-mode)
 
 ;;   (global-tree-sitter-mode)
 
@@ -644,9 +644,9 @@
 #+begin_src emacs-lisp
 (add-hook 'after-init-hook 'global-company-mode)
 (use-package company
-  :ensure
-  ;;  :after lsp-mode
-  ;;  :hook (lsp-mode . company-mode)
+  :defer
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
   :bind (:map company-active-map
               ("<tab>" . company-complete-selection))
           (:map python-mode-map

@@ -144,6 +144,7 @@ isp should NOT require a language server but eglot should work with lsp-mode.
 *** copied init.el from New to Big, still not checking. Does Flycheck on Big need to know what the checker is?
 No, seems to know it's emacs-lisp.  C-c ! v shows everything looks o.k. on both machines.
 ** in Terminal: cargo locate-project --workspace --message-format plain to find Cargo.toml
+** Message that init-b37b2215-f5be85ad.eln needs to be recompiled.
 * COMPLETED Flycheck now working with elisp files on New & Big.
 CLOSED: [2026-01-07 Wed 14:56]
 ** Flycheck; C-c ! v to verify setup, C-c ! n (next), C-c ! p (prev), C-c ! | (all), C-c ! e (explain).
@@ -158,6 +159,19 @@ CLOSED: [2025-12-12 Fri 13:49]
   (add-hook 'after-init-hook #'global-flycheck-mode))
 **  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
 <<<<<<< HEAD
+* COMPLETED Synched init.el on New, Big and init.el.org +Freeze on 11FEB+ .
+CLOSED: [2026-02-11 Wed 09:54]
+tangled init.el.org to get ~/.emacs.d/newtest.el then checked it with test the init.
+everything should now be in synch.
+** Note: after copying New's init.el to Big stat time on Big ent to < 4 sec.
+** COMPLETED +Now+ Test init.el on New.   +Freeze init.el on Big and init.el.org+ 04FEB
+CLOSED: [2026-02-11 Wed 09:52]
+** NEXT Lots of issues w/ init.el changes on New. It loads now. Did I fix anything?
+** NEXT On 02FEB major changes to init.el on New, not reflected on Big on init.el.org yet.
+** Broke init.el hard on new. had to roll back to ~/project/28JAN_Master_init.el
+while looking at company issue had issues with face in org and other items. Couldn't fix.
+** changed ~/.cache/emacs/var/org/id-locations.el to 755 to see I could get rid of:
+Could not read ‘org-id-locations’ from $HOME/.cache/emacs/var/org/id-locations.el, setting it to nil
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
 ** dailies go in ~/project/org/roam/daily
@@ -171,14 +185,3 @@ while org roam dailies go into sepearte files (even if created on same day) with
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
 * NEXT Experiment more with dired. Finish updating ~/test/diredCommands.txt 
-* +Now+ Test init.el on New.   +Freeze init.el on Big and init.el.org+ 04FEB
-** NEXT Lots of issues w/ init.el changes on New. It loads now. Did I fix anything?
-** NEXT On 02FEB major changes to init.el on New, not reflected on Big on init.el.org yet.
-** Broke init.el hard on new. had to roll back to ~/project/28JAN_Master_init.el
-while looking at company issue had issues with face in org and other items. Couldn't fix.
-* changed ~/.cache/emacs/var/org/id-locations.el to 755 to see I could get rid of:
-Could not read ‘org-id-locations’ from $HOME/.cache/emacs/var/org/id-locations.el, setting it to nil
-* Seeing this:
-Invalid face attribute :background nil
-Invalid face attribute :background nil [9 times]
-* Message that init-b37b2215-f5be85ad.eln needs to be recompiled.
