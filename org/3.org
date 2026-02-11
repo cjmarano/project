@@ -1,5 +1,5 @@
 February.
-* _Start times from _~ 3.5, up from 3  on New,  and ~4 for Big,_
+* _Start times from _~ 3.2, up from 3  on New,  and ~4 for Big,_
 <<<<<<< HEAD
 * Misc.
 ** On +Plucky+, terminal mode emacs doesn't give treesit error but GUI does. _investigate_
@@ -125,6 +125,14 @@ CLOSED: [2026-01-07 Wed 11:13]
 **  On New: commenting out lines 449-450 resolved the json-rpc error.
 (with-eval-after-load 'eglot
 (add-hook 'after-save-hook 'eglot-format))
+** COMPLETED on Big and New, changed .zshrc autoload -Uz compinit && compinit -i
+CLOSED: [2026-01-27 Tue 13:25]
+This is to stop complaint about insecure directory -  ~/.rbenv/  which looks exaclty like .pyenv
+Tried chmoding and 755ing the entire .rbenv directory but did not fix issue.
+Next step would be to add a line to .zshrc to ignore insecure directories.
+** This is probably because root is not charles.marano so compaudit sees owner as wrong.
+** COMPLETED Moved some folders (Tree-sitter, ez-themes, tmux-plugins, powerlevel 10k to ~/Software/
+CLOSED: [2026-02-06 Fri 13:26]
 * COMPLETED Flycheck now working with elisp files on New & Big.
 CLOSED: [2026-01-07 Wed 14:56]
 ** Flycheck; C-c ! v to verify setup, C-c ! n (next), C-c ! p (prev), C-c ! | (all), C-c ! e (explain).
@@ -139,17 +147,6 @@ CLOSED: [2025-12-12 Fri 13:49]
   (add-hook 'after-init-hook #'global-flycheck-mode))
 **  NOTE: New, init.el.org, and Big have simplifed Flycheck (w/o Elpy).
 <<<<<<< HEAD
-* COMPLETED on Big and New, changed .zshrc autoload -Uz compinit && compinit -i
-CLOSED: [2026-01-27 Tue 13:25]
-This is to stop complaint about insecure directory -  ~/.rbenv/  which looks exaclty like .pyenv
-Tried chmoding and 755ing the entire .rbenv directory but did not fix issue.
-Next step would be to add a line to .zshrc to ignore insecure directories.
-** This is probably because root is not charles.marano so compaudit sees owner as wrong.
-* +Now+ Test init.el on New.   +Freeze init.el on Big and init.el.org+ 04FEB
-** NEXT Lots of issues w/ init.el changes on New. It loads now. Did I fix anything?
-** NEXT On 02FEB major changes to init.el on New, not reflected on Big on init.el.org yet.
-** Created a different init.el using https://whhone.com/emacs-config/#enable-lexical-binding
-While it was different from my init.el if didn't seem to have any particular advantages. Saved as ~/project/clean.init.el
 * WAITING Eglot couldn't determine lsp-server on Big even though it says emacs-lisp.
 >>>>>>> 5da828ed6225a57b5052a3c8f5fab020afb6d73e
 ** lisp on New is odd. Slime is enabled, but Compay wants a language server (for eglot?).
@@ -170,5 +167,9 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
-
-* Moved some folders (Tree-sitter, ez-themes, tmux-plugins, powerlevel 10k to ~/Software/
+* NEXT Experiment more with dired. Finish updating ~/test/diredCommands.txt 
+* +Now+ Test init.el on New.   +Freeze init.el on Big and init.el.org+ 04FEB
+** NEXT Lots of issues w/ init.el changes on New. It loads now. Did I fix anything?
+** NEXT On 02FEB major changes to init.el on New, not reflected on Big on init.el.org yet.
+** Created a different init.el using https://whhone.com/emacs-config/#enable-lexical-binding
+While it was different from my init.el if didn't seem to have any particular advantages. Saved as ~/project/clean.init.el
