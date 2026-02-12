@@ -185,3 +185,7 @@ while org roam dailies go into sepearte files (even if created on same day) with
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
 * NEXT Experiment more with dired. Finish updating ~/test/diredCommands.txt 
+* Rust-analyzer works w/ eglot and lsp-mode - eglot is lighter weight.
+maybe remove all refeneronces to lsp-mode from init.el and make user eglot is aware of rust-analyzer.
+* Python file in ~/python/ did not show any completions but a file in ~/project/python/helloworld/ did.
+I wonder if that's because the helloworld file had .git file so emacs understood it was a project.
