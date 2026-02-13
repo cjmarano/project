@@ -190,3 +190,4 @@ maybe remove all refeneronces to lsp-mode from init.el and make user eglot is aw
 * Python file in ~/python/ did not show any completions but a file in ~/project/python/helloworld/ did.
 I wonder if that's because the helloworld file had .git file so emacs understood it was a project.
 ** editied the ~/.cache/emacs/var/project-list.el file to add ~/python and change ~/project/lisp/lisp/ to ~/project/lisp/ 
+* +Plucky+ - Make 3.14 Python the version that's used by system.
