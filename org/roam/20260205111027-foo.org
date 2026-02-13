@@ -10,3 +10,6 @@ testing new default notes template.
                       "#+title: ${title}\n#+date: %u\n#+lastmod: \n\n")
            :immediate-finish t))
         time-stamp-start "#\\+lastmod: [\t]*")
+
+
+        Yeah, didn't really work removed it from init.el

@@ -64,3 +64,8 @@ Saved it as ~/project/newtest2.el  and reverted to 02FEB (highly modified init.e
 Entered on [2026-02-04 Wed 14:03]
   
   [[file:~/project/org/3.org::*Misc.][Misc.]]
+*** 2026-02-12 Thursday
+**** Python file in ~/python directory don't give completion, etc. but file in ~/project/python/helloworld/ does. Project related?
+Entered on [2026-02-12 Thu 08:44]
+  
+  [[file:~/project/org/3.org::*Put aside for now and check lisp, elisp?][Put aside for now and check lisp, elisp?]]
