@@ -5,6 +5,8 @@ This is another.
 This ^ six spaces from one tab.
 That's ^ eight spaces from two tabs.
        ^ eight spaces from one tab.
-Foo, bar, buzz
+Foo, bar, baz
      ^ back to six.
        and more tab.
+What comes after baz?
+Disappointment.

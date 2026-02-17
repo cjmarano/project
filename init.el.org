@@ -1,4 +1,3 @@
-
 #+property: header-args :tangle "~/.emacs.d/newtest.el"
 ;;; ...  -**- lexical-binding: t -**- 
 * set up packages
@@ -540,7 +539,6 @@
 
 #+end_src
 
-
 * Rust mode
 #+begin_src emacs-lisp
         (use-package rustic
@@ -661,12 +659,12 @@
 
 * Lisp mode
 #begin_src emacs-lisp
-(add-to-list 'load-path "~/.emacs.d/elpa/slime-20260202.1412")
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20260217.222")
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
- (require 'slime-autoloads
- (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy)))))
-    
+(require 'slime-autoloads
+(eval-after-load "slime"  '(progn (slime-setup '(slime-fancy)))))
+ 
  ;; Enable Paredit.
  ;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
  ;; (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
