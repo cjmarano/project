@@ -21,6 +21,7 @@ emacs -batch -l  ~~/.emacs.d/init.el --eval '(message "init.el loaded successful
 defaults write com.apple.Terminal FocusFollowsMouse -string YES
 * WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 ** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+* +Plucky+ - Make 3.14 Python the version that's used by system.
 * COMPLETED Misc.
 CLOSED: [2026-01-20 Tue 07:40]
 ** COMPLETED Is pyvenv useful? It's on Big, not on New.
@@ -172,6 +173,11 @@ CLOSED: [2026-02-11 Wed 09:52]
 while looking at company issue had issues with face in org and other items. Couldn't fix.
 ** changed ~/.cache/emacs/var/org/id-locations.el to 755 to see I could get rid of:
 Could not read ‘org-id-locations’ from $HOME/.cache/emacs/var/org/id-locations.el, setting it to nil
+* Python file in ~/python/ did not show any completions but a file in ~/project/python/helloworld/ did.
+I wonder if that's because the helloworld file had .git file so emacs understood it was a project.
+** editied the ~/.cache/emacs/var/project-list.el file to add ~/python and change ~/project/lisp/lisp/ to ~/project/lisp/
+* Rust-analyzer works w/ eglot and lsp-mode - eglot is lighter weight.
+maybe remove all refeneronces to lsp-mode from init.el and make user eglot is aware of rust-analyzer.
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
 ** dailies go in ~/project/org/roam/daily
@@ -184,10 +190,7 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
-* NEXT Experiment more with dired. Finish updating ~/test/diredCommands.txt 
-* Rust-analyzer works w/ eglot and lsp-mode - eglot is lighter weight.
-maybe remove all refeneronces to lsp-mode from init.el and make user eglot is aware of rust-analyzer.
-* Python file in ~/python/ did not show any completions but a file in ~/project/python/helloworld/ did.
-I wonder if that's because the helloworld file had .git file so emacs understood it was a project.
-** editied the ~/.cache/emacs/var/project-list.el file to add ~/python and change ~/project/lisp/lisp/ to ~/project/lisp/ 
-* +Plucky+ - Make 3.14 Python the version that's used by system.
+* TODO Experiment more with dired. Finish updating ~/test/diredCommands.txt 
+* NEXT Changed init.el on New, Big and init.el.org to get slime and slime-helper working.
+** Repl now functions as expected with company, capf, etc. and SLIME evaluating items from buffer.
+** Start writing test progs in common lisp.

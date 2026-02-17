@@ -661,12 +661,11 @@
 
 * Lisp mode
 #begin_src emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20260202.1412")
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-(add-to-list 'load-path "~/.emacs.d/elpa/slime-20250918.2258/")
- (require 'slime-autoloads)
- (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
-
-  ;; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+ (require 'slime-autoloads
+ (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy)))))
     
  ;; Enable Paredit.
  ;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
