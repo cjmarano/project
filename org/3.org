@@ -1,5 +1,5 @@
 February.
-* _Start times from _~ 3.2, up from 3  on New,  and ~4 for Big,_
+* _Start times from _~ 4, up from 3  on New,  and ~ 5 for Big,_
 <<<<<<< HEAD
 * Misc.
 ** On +Plucky+, terminal mode emacs doesn't give treesit error but GUI does. _investigate_
@@ -21,7 +21,7 @@ emacs -batch -l  ~~/.emacs.d/init.el --eval '(message "init.el loaded successful
 defaults write com.apple.Terminal FocusFollowsMouse -string YES
 * WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 ** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-* +Plucky+ - Make 3.14 Python the version that's used by system.
+* WAITING On +Plucky+ - Make 3.14 Python the version that's used by system.
 * COMPLETED Misc.
 CLOSED: [2026-01-20 Tue 07:40]
 ** COMPLETED Is pyvenv useful? It's on Big, not on New.
@@ -99,16 +99,10 @@ Next step would be to add a line to .zshrc to ignore insecure directories.
 >>>>>>> 5da828ed6225a57b5052a3c8f5fab020afb6d73e
 ** COMPLETED At this point I'm considering putting Rust aside and focusing on Python.
 CLOSED: [2026-01-22 Thu 10:52]
-
 ** WAITING Eglot fails to discover rust workspaces.
 ** Python is working w/ syntax, Marginalia, etc.
 ** Rust - load cargo file 1st then src file and lsp will connect without complaining. _<-- not any longer!_
 <<<<<<< HEAD
-** COMPLETED Something broke org-bullets during init.el cleanup on New.
-fixed with command at lines 357, 348
-CLOSED: [2026-02-02 Mon 12:31]
-Also had duplicat exec-path-from-shell intries.
-** With Lisp files - company back end not connected.
 ** COMPLETED command to eval init.el
 CLOSED: [2026-01-29 Thu 11:02]
 emacs -batch -l  ~~/.emacs.d/init.el --eval '(message "init.el loaded successfully~")'
@@ -173,11 +167,16 @@ CLOSED: [2026-02-11 Wed 09:52]
 while looking at company issue had issues with face in org and other items. Couldn't fix.
 ** changed ~/.cache/emacs/var/org/id-locations.el to 755 to see I could get rid of:
 Could not read ‘org-id-locations’ from $HOME/.cache/emacs/var/org/id-locations.el, setting it to nil
+* COMPLETED Changed init.el on New, Big and init.el.org to get slime and slime-helper working.
+CLOSED: [2026-02-17 Tue 12:13]
+** Repl now functions as expected with company, capf, etc. and SLIME evaluating items from buffer.
+** Start writing test progs in common lisp.
+* COMPLETED Rust-analyzer works w/ eglot and lsp-mode - eglot is lighter weight.
+CLOSED: [2026-02-17 Tue 12:14]
+maybe remove all refeneronces to lsp-mode from init.el and make user eglot is aware of rust-analyzer.
 * Python file in ~/python/ did not show any completions but a file in ~/project/python/helloworld/ did.
 I wonder if that's because the helloworld file had .git file so emacs understood it was a project.
 ** editied the ~/.cache/emacs/var/project-list.el file to add ~/python and change ~/project/lisp/lisp/ to ~/project/lisp/
-* Rust-analyzer works w/ eglot and lsp-mode - eglot is lighter weight.
-maybe remove all refeneronces to lsp-mode from init.el and make user eglot is aware of rust-analyzer.
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
 ** dailies go in ~/project/org/roam/daily
@@ -190,7 +189,6 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
-* TODO Experiment more with dired. Finish updating ~/test/diredCommands.txt 
-* NEXT Changed init.el on New, Big and init.el.org to get slime and slime-helper working.
-** Repl now functions as expected with company, capf, etc. and SLIME evaluating items from buffer.
-** Start writing test progs in common lisp.
+* WAITING File list not updating.
+* WAITING Experiment more with dired. Finish updating ~/test/diredCommands.txt 
+* NEXT emacs on New wouln't load. Issue was slime version. Changed it on New and Big and init.el.org
