@@ -4,3 +4,5 @@ This file has multiple lines.
 
 use ec foo.txt to confirm emacs server is running.
 
+which it should be.
+
