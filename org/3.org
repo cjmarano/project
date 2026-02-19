@@ -180,6 +180,10 @@ CLOSED: [2026-02-18 Wed 09:14]
 CLOSED: [2026-02-18 Wed 09:19]
 * COMPLETED Vterm works and has correct $PATH.
 CLOSED: [2026-02-18 Wed 10:52]
+* DONE Lisp projects goA into ~/.quicklisp/local-projects/ 
+CLOSED: [2026-02-19 Thu 12:16]
+* NEXT Looking at $PATH from zshrc vs. exec-path from emacs.
+Basically the same. Is this because of exec-path-from-shell?
 * WAITING Experiment more with dired. Finish updating ~/test/diredCommands.txt 
 * Python file in ~/python/ did not show any completions but a file in ~/project/python/helloworld/ did.
 I wonder if that's because the helloworld file had .git file so emacs understood it was a project.
@@ -196,6 +200,3 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
-* Looking at $PATH from zshrc vs. exec-path from emacs.
-Basically the same. Is this because of exec-path-from-shell?
-* Lisp projects go into ~/.quicklisp/local-projects/ 
