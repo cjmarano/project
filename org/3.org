@@ -174,6 +174,13 @@ CLOSED: [2026-02-17 Tue 12:13]
 * COMPLETED Rust-analyzer works w/ eglot and lsp-mode - eglot is lighter weight.
 CLOSED: [2026-02-17 Tue 12:14]
 maybe remove all refeneronces to lsp-mode from init.el and make user eglot is aware of rust-analyzer.
+* COMPLETED init on New wouln't load. Issue was slime version. Changed on New and Big and init.el.org
+CLOSED: [2026-02-18 Wed 09:14]
+* COMPLETED File list not updating. Cleared the file.
+CLOSED: [2026-02-18 Wed 09:19]
+* COMPLETED Vterm works and has correct $PATH.
+CLOSED: [2026-02-18 Wed 10:52]
+* WAITING Experiment more with dired. Finish updating ~/test/diredCommands.txt 
 * Python file in ~/python/ did not show any completions but a file in ~/project/python/helloworld/ did.
 I wonder if that's because the helloworld file had .git file so emacs understood it was a project.
 ** editied the ~/.cache/emacs/var/project-list.el file to add ~/python and change ~/project/lisp/lisp/ to ~/project/lisp/
@@ -189,6 +196,6 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
-* WAITING File list not updating.
-* WAITING Experiment more with dired. Finish updating ~/test/diredCommands.txt 
-* NEXT emacs on New wouln't load. Issue was slime version. Changed it on New and Big and init.el.org
+* Looking at $PATH from zshrc vs. exec-path from emacs.
+Basically the same. Is this because of exec-path-from-shell?
+* Lisp projects go into ~/.quicklisp/local-projects/ 
