@@ -31,11 +31,11 @@
 
          ))
 
-(setq load-prefer-newer t)
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250414.1548")
-(require 'auto-compile)
-(auto-compile-on-load-mode)
-(auto-compile-on-save-mode)
+;; (setq load-prefer-newer t)
+;; (add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20260101.1821")
+;; (require 'auto-compile)
+;; (auto-compile-on-load-mode)
+;; (auto-compile-on-save-mode)
 
 (setq user-emacs-directory "~/.cache/emacs/")
 
@@ -96,8 +96,8 @@
   (setq dired-use-ls-dired nil))
 
 (add-hook 'dired-load-hook
-          (lambda ()
-            (require 'dired-x)))
+  (lambda ()
+    (require 'dired-x)))
 
 (setq ediff-diff-options "--text")
 
@@ -177,12 +177,6 @@
 
 (use-package nerd-icons-completion
   :config)
-
-(use-package show-font
-  :ensure t
-  :bind
-  (("C-c s f" . show-font-select-preview)
-   ("C-c s t" . show-font-tabulated)))
 
 (use-package orderless
   :ensure t
