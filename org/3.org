@@ -180,14 +180,15 @@ CLOSED: [2026-02-18 Wed 09:14]
 CLOSED: [2026-02-18 Wed 09:19]
 * COMPLETED Vterm works and has correct $PATH.
 CLOSED: [2026-02-18 Wed 10:52]
-* DONE Lisp projects goA into ~/.quicklisp/local-projects/ 
-CLOSED: [2026-02-19 Thu 12:16]
-* NEXT Looking at $PATH from zshrc vs. exec-path from emacs.
+* COMPLETED Looking at $PATH from zshrc vs. exec-path from emacs.
+CLOSED: [2026-02-20 Fri 12:12]
 Basically the same. Is this because of exec-path-from-shell?
-* WAITING Experiment more with dired. Finish updating ~/test/diredCommands.txt 
-* Python file in ~/python/ did not show any completions but a file in ~/project/python/helloworld/ did.
+* COMPLETED Python file in ~/python/ did not show any completions, file in ~/project/python/helloworld/ did.
+CLOSED: [2026-02-20 Fri 12:20]
 I wonder if that's because the helloworld file had .git file so emacs understood it was a project.
 ** editied the ~/.cache/emacs/var/project-list.el file to add ~/python and change ~/project/lisp/lisp/ to ~/project/lisp/
+* NEXT Lisp projects goA into ~/.quicklisp/local-projects/  +change that?+
+* WAITING Experiment more with dired.
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
 ** dailies go in ~/project/org/roam/daily
