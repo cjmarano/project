@@ -201,3 +201,22 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
+* LISP. Using (ql:quickload "cl-project") then
+(cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
+got a skeleton for the project and a main.lisp in the scr subdir.
+looks like this:
+
+drwxr-xr-x@    - charles.marano 25 Feb 12:55   src
+drwxr-xr-x@    - charles.marano 25 Feb 12:55   tests
+.rw-r--r--@   68 charles.marano 25 Feb 12:55   .gitignore
+.rw-r--r--@  559 charles.marano 25 Feb 12:55   my-project.asd
+.rw-r--r--@   40 charles.marano 25 Feb 12:55   README.markdown
+.rw-r--r--@   41 charles.marano 25 Feb 12:55   README.org
+
+main.lisp looks like this:
+
+(uiop:define-package my-project
+   2 │   (:use #:cl))
+   3 │ (in-package #:my-project)
+   4 │
+   5 │ ;; blah blah blah.
