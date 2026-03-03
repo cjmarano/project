@@ -22,6 +22,7 @@ defaults write com.apple.Terminal FocusFollowsMouse -string YES
 * WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 ** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 * WAITING On +Plucky+ - Make 3.14 Python the version that's used by system.
+* NEXT Ducky is on emacs 28 so many packages don't work correctly.
 * COMPLETED Misc.
 CLOSED: [2026-01-20 Tue 07:40]
 ** COMPLETED Is pyvenv useful? It's on Big, not on New.
