@@ -79,3 +79,12 @@ I am Bastien.
 (greeting "Bar")Hello!
 
 I am Bar and you are foo.
+
+(defun greeting (from-name)
+  (let ((your-name (read-from-minibuffer "Enter your name: ")))
+    (switch-to-buffer-other-window "*test*")
+    (erase-buffer)
+    (insert (format "Hello %s!\n\nI am %s." your-name from-name))
+    (other-window 1)))
+
+(greeting "Baz")

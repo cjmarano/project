@@ -45,3 +45,5 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
+*  Big failed after update. Reticulating Splines after restart. Could not clear it.
+had to re-image the machine.
