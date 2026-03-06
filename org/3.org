@@ -47,3 +47,4 @@ main.lisp looks like this:
    5 │ ;; blah blah blah.
 *  Big failed after update. Reticulating Splines after restart. Could not clear it.
 had to re-image the machine.
+** Notes in the black book, including all software that needed install via brew.
