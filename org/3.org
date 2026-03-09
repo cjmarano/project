@@ -1,17 +1,22 @@
 March.
-* _Start times from _3  on New,  and ~ 4 for Big,_
+* _Start times ~ _3  on New,  and ~ 4 for Big,_
 <<<<<<< HEAD
 * Misc.
 *** /snap/bin/emacs %F installed. Throws errors but is better than previous /usr/local/bin/emacs-30.2
 Snap version is 31.0.50. not 30.2 
 *** Focus follows mouse in Terminal:
 defaults write com.apple.Terminal FocusFollowsMouse -string YES
+** COMPLETED Vterm works and has correct $PATH.
+CLOSED: [2026-02-18 Wed 10:52]
+** DONE Rebuilt: Big failed after update. Reticulating Splines after restart. Could not clear it.
+CLOSED: [2026-03-09 Mon 08:41]
+had to re-image the machine.
+** Notes in the black book, including all software that needed install via brew.
+* Installed emacs 30.2 via homebrew on Ducky.
+** NEXT Ducky is on emacs 28 so many packages don't work correctly.
 * WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 ** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 * WAITING On +Plucky+ - Make 3.14 Python the version that's used by system.
-* NEXT Ducky is on emacs 28 so many packages don't work correctly.
-* COMPLETED Vterm works and has correct $PATH.
-CLOSED: [2026-02-18 Wed 10:52]
 * NEXT Lisp projects go into ~/.quicklisp/local-projects/  +change that?+
 * WAITING Experiment more with dired.
 * Look at journal or org-roam for ability to step back in time to see changes.
@@ -45,6 +50,3 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-*  Big failed after update. Reticulating Splines after restart. Could not clear it.
-had to re-image the machine.
-** Notes in the black book, including all software that needed install via brew.
