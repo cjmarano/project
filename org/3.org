@@ -14,10 +14,13 @@ had to re-image the machine.
 ** Notes in the black book, including all software that needed install via brew.
 * Installed emacs 30.2 via homebrew on Ducky.
 ** NEXT Ducky is on emacs 28 so many packages don't work correctly.
+* DONE 560 natively compiles items in ~/.cache/emacs/eln-cache/
+CLOSED: [2026-03-10 Tue 13:12]
+* WAITING Lisp projects go into ~/.quicklisp/local-projects/  +change that?+
 * WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+** installed 30.2 on Ducky via Homebrew. Check if native compile works.
 ** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 * WAITING On +Plucky+ - Make 3.14 Python the version that's used by system.
-* NEXT Lisp projects go into ~/.quicklisp/local-projects/  +change that?+
 * WAITING Experiment more with dired.
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
