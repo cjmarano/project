@@ -50,3 +50,4 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
+* Cleaned up init.el on New and init.el.org - This is now the new 10 MAR_FREEZE.init.el

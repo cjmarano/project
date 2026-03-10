@@ -1,3 +1,5 @@
+
+;;; ... -*- lexical-binding: t -*-
 (require 'package)
 
 (add-to-list 'package-archives
@@ -6,12 +8,14 @@
 	         '("elpa"  . "https://elpa.gnu.org/packages/")t)
 (add-to-list 'package-archives
              '("nongnu" . "https://elpa.nongnu.org/nongnu/")t)
-;; (add-to-list 'package-archives
-;;              '("org" . "https://orgmode.org/elpa/")t)
+(add-to-list 'package-archives
+             '("org" . "https://orgmode.org/elpa/")t)
 
 (package-initialize)
 
 (require 'use-package)
+
+(setq package-native-compile t)
 
 (use-package exec-path-from-shell
   :ensure t
@@ -30,12 +34,6 @@
          packs
 
          ))
-
-;; (setq load-prefer-newer t)
-;; (add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20260101.1821")
-;; (require 'auto-compile)
-;; (auto-compile-on-load-mode)
-;; (auto-compile-on-save-mode)
 
 (setq user-emacs-directory "~/.cache/emacs/")
 
@@ -86,9 +84,6 @@
 (setq recentf-max-saved-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-;; (when (display-graphic-p)
-;;   (context-menu-mode))
-
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
@@ -96,8 +91,8 @@
   (setq dired-use-ls-dired nil))
 
 (add-hook 'dired-load-hook
-  (lambda ()
-    (require 'dired-x)))
+          (lambda ()
+            (require 'dired-x)))
 
 (setq ediff-diff-options "--text")
 
@@ -152,8 +147,6 @@
 (use-package nerd-icons
   :ensure t)
 (setq doom-modeline-buffer-file-name-style 'file-name)
-;; (setq doom-modeline-major-mode-color-icon t)
-;; (setq doom-modeline-major-mode-icon t)
 (setq doom-modeline-buffer-encoding t)
 (setq doom-modeline-env-version t)
 (setq doom-modeline-env-enable-python t)
@@ -177,6 +170,12 @@
 
 (use-package nerd-icons-completion
   :config)
+
+(use-package show-font
+  :ensure t
+  :bind
+  (("C-c s f" . show-font-select-preview)
+   ("C-c s t" . show-font-tabulated)))
 
 (use-package orderless
   :ensure t
@@ -421,10 +420,6 @@
 
 (let ((org-confirm-babel-evaluate nil)))
 
-;; ---------------------------------------------------------
-;; Org section ends here -----------------------------------
-;; ---------------------------------------------------------
-
 (use-package eglot
   :ensure nil
   :defer t
@@ -540,6 +535,7 @@ no longer be necessary."
 (require 'tree-sitter-langs)
 (add-hook 'rust-mode-hook #'tree-sitter-mode)
 (add-hook 'python-mode-hook #'tree-sitter-mode)
+
 ;; (global-tree-sitter-mode)
 
 ;; (use-package rust-mode
@@ -570,8 +566,7 @@ no longer be necessary."
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
-;; -----------Current Lisp Section ---------------------------------
-(add-to-list 'load-path "~/.emacs.d/elpa/slime-20260217.222")
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20260303.1754")
 ;; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
 ;; (require 'slime-autoloads
@@ -665,4 +660,6 @@ no longer be necessary."
 (setq gc-cons-percentage 0.5)
 
 (provide 'init)
+
+(put 'erase-buffer 'disabled nil)
 ;;; init.el ends here

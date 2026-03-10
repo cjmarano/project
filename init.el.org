@@ -42,14 +42,6 @@
          ))
 #+end_src
 
-* compile if newer available
-#+begin_src emacs-lisp
-;; # (setq load-prefer-newer t)
-;; # (add-to-list 'load-path "~/.emacs.d/elpa/auto-compile-20250901.1341")
-;; # (require 'auto-compile)
-;; # (auto-compile-on-load-mode)
-;; # (auto-compile-on-save-mode)
-#+end_src
 
 * backup files to autosave dir.
 ** ;; Below expands to: ~/.cache/emacs/var/auto-save
@@ -96,11 +88,6 @@
     (setq-default create-lockfiles nil)
     (delete-selection-mode 1)
 
-   ;; (keymap-global-set "M-p" 'previous-buffer)
-   ;; (keymap-global-set "M-n" 'next-buffer)
-   ;; (keymap-global-set "M-o" 'other-window)
-   ;; (keymap-global-set "M-g" 'recentf)
-
    (dolist (mode '(org-mode-hook
                    term-mode-hook
                    shell-mode-hook
@@ -113,9 +100,6 @@
    (setq recentf-max-saved-items 25)
    (global-set-key "\C-x\ \C-r" 'recentf-open-files)
       
-   ;; (when (display-graphic-p)
-   ;;    (context-menu-mode))
-
    (setq delete-by-moving-to-trash t)
    (setq dired-dwim-target t)
 
@@ -188,8 +172,6 @@
 (use-package nerd-icons
   :ensure t)
 (setq doom-modeline-buffer-file-name-style 'file-name)
-;; (setq doom-modeline-major-mode-color-icon t)
-;; (setq doom-modeline-major-mode-icon t)
 (setq doom-modeline-buffer-encoding t)
 (setq doom-modeline-env-version t)
 (setq doom-modeline-env-enable-python t)
@@ -659,11 +641,11 @@
 
 * Lisp mode
 #begin_src emacs-lisp
-(add-to-list 'load-path "~/.emacs.d/elpa/slime-20260217.222")
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20260303.1754")
+;; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-(require 'slime-autoloads
-(eval-after-load "slime"  '(progn (slime-setup '(slime-fancy)))))
+;; (require 'slime-autoloads
+;; (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy)))))
  
  ;; Enable Paredit.
  ;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
@@ -762,9 +744,12 @@
       :ensure t
       :config
       (add-hook 'after-init-hok #'global-flycheck-mode))
-  
+
   (setq gc-cons-threshold (expt 2 23)) ;; 8MB
   (setq gc-cons-percentage 0.5)
 
+  (provide 'init)
+
+(put 'erase-buffer 'disabled nil)
   ;; User-Defined init.el ends here
 #+end_src
