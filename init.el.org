@@ -1,4 +1,6 @@
 #+property: header-args :tangle "~/.emacs.d/newtest.el"
+;;; init.el --- Initialization file for Emacs
+;;; Commentary: Emacs Startup File --- initialization for Emacs
 ;;; ...  -**- lexical-binding: t -**- 
 * set up packages
 #+begin_src emacs-lisp
@@ -640,13 +642,13 @@
 #+end_src
 
 * Lisp mode
-#begin_src emacs-lisp
-(add-to-list 'load-path "~/.emacs.d/elpa/slime-20260303.1754")
-;; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+#+begin_src emacs-lisp
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20260303.1754")
 ;; (require 'slime-autoloads
-;; (eval-after-load "slime"  '(progn (slime-setup '(slime-fancy)))))
- 
+;; slime-setup
+;; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+
  ;; Enable Paredit.
  ;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
  ;; (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)

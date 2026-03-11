@@ -14,14 +14,8 @@ had to re-image the machine.
 ** Notes in the black book, including all software that needed install via brew.
 * Installed emacs 30.2 via homebrew on Ducky.
 ** NEXT Ducky is on emacs 28 so many packages don't work correctly.
-* DONE 560 natively compiles items in ~/.cache/emacs/eln-cache/
-CLOSED: [2026-03-10 Tue 13:12]
-* WAITING Lisp projects go into ~/.quicklisp/local-projects/  +change that?+
-* WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-** installed 30.2 on Ducky via Homebrew. Check if native compile works.
-** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-* WAITING On +Plucky+ - Make 3.14 Python the version that's used by system.
-* WAITING Experiment more with dired.
+* ODD thing, init.el.org had a missing '+' in one of the the #+begin_src emacs-lisp lines
+this threw an error at the BOTTOM of the source block even though #+end_src was fine.
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
 ** dailies go in ~/project/org/roam/daily
@@ -34,7 +28,28 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
-* LISP. Using (ql:quickload "cl-project") then
+* Tab function doesn't work in scratch buffer. Also completions messes with Tab.
+* Tried changing hl-line
+Didn't work using: (set-face-background 'hl-line "Magenta")
+
+Might try:
+
+(use-package hl-line                                                                                                                                                                                                                                          :custom-face
+  (hl-line ((t (:background "#FF00FF")))))
+
+  Yeah, that didn't work either. Low priority, leave if for now.
+  
+* COMPLETED 560 natively compiles items in ~/.cache/emacs/eln-cache/
+CLOSED: [2026-03-10 Tue 13:12]
+* COMPLETED Cleaned up init.el on New and init.el.org - This is now the new 10 MAR_FREEZE.init.el
+CLOSED: [2026-03-11 Wed 09:18]
+* WAITING Lisp projects go into ~/.quicklisp/local-projects/  +change that?+
+* WAITING On +Plucky+ - Make 3.14 Python the version that's used by system.
+* WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+** installed 30.2 on Ducky via Homebrew. Check if native compile works.
+** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+* WAITING Experiment more with dired.
+* NEXT LISP. Using (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
 got a skeleton for the project and a main.lisp in the scr subdir.
 looks like this:
@@ -53,4 +68,3 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* Cleaned up init.el on New and init.el.org - This is now the new 10 MAR_FREEZE.init.el
