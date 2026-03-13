@@ -72,3 +72,4 @@ main.lisp looks like this:
 ** Had to remove all refs to treemacs and nerd-icons.
 ** other issues. Works for now w/ GUI and is in the Menu.
 ** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
+* init.el keeps getting corruped. Saved 12MAR_FREEZE.init.el to project dir.
