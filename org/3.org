@@ -27,8 +27,6 @@ Might try:
 ** ODD thing, init.el.org had a missing '+' in one of the the #+begin_src emacs-lisp lines
 this threw an error at the BOTTOM of the source block even though #+end_src was fine.
 ** Lisp projects go into ~/.quicklisp/local-projects/  +change that?+ _no_.
-* Installed emacs 30.2 via homebrew on Ducky.
-** NEXT Ducky is on emacs 28 so many packages don't work correctly.
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
 ** dailies go in ~/project/org/roam/daily
@@ -42,13 +40,22 @@ while org roam dailies go into sepearte files (even if created on same day) with
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
 * Tab function doesn't work in scratch buffer. Also completions messes with Tab.
-* COMPLETED Cleaned up init.el on New and init.el.org - This is now the new 10 MAR_FREEZE.init.el
+* init.el keeps getting corruped. Saved 12MAR_FREEZE.init.el to project dir.
+* COMPLETED Cleaned up init.el on New and init.el.org - This is now the new 12MAR_FREEZE.init.el
 CLOSED: [2026-03-11 Wed 09:18]
+* COMPLETED Issue with id-locations - org roam. Fixed after org-id-update-id-locations run multiple times.
+CLOSED: [2026-03-16 Mon 11:03]
 * WAITING On +Plucky+ - Make 3.14 Python the version that's used by system.
-* WAITING On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+* WAITING Experiment more with dired.
+* NEXT installed emacs 30.2 via snap on +Plucky+. Works but:
+** Had to remove all refs to treemacs and nerd-icons.
+** other issues. Works for now w/ GUI and is in the Menu.
+** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
+** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 ** installed 30.2 on Ducky via Homebrew. Check if native compile works.
 ** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-* WAITING Experiment more with dired.
+* Installed emacs 30.2 via homebrew on Ducky.
+** NEXT Ducky is on emacs 28 so many packages don't work correctly.
 * NEXT LISP. Using (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
 got a skeleton for the project and a main.lisp in the scr subdir.
@@ -68,8 +75,7 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* installed emacs 30.2 via snap on +Plucky+. Works but:
-** Had to remove all refs to treemacs and nerd-icons.
-** other issues. Works for now w/ GUI and is in the Menu.
-** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
-* init.el keeps getting corruped. Saved 12MAR_FREEZE.init.el to project dir.
+* eglot with Rust to eliminate lsp-mode & lsp-ui ?
+* (let ((org-confirm-babel-evaluate nil)))  <-- should I toggle this customize then remove this line?
+* added defer to lsp-mode -- test this.
+* Started misc-notes.org and copying everything from black notebook to org.

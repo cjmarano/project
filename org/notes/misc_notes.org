@@ -1,0 +1,23 @@
+* Natively compiled files are in ~/.cache/emacs/eln-cache/30.2
+* tree-sitter .dylib files are in ~.,cache/emacs/tree-sitter
+* ~/.pyenv/shims/python3 is an alias to ~/opt/homebrew/lib/pyton3
+* Note: Vertico supplies minibuffer completions. Corfu supplies in buffer completions via pop-ups. Company is in buffer completions.
+* Note: eglot is lighter weight alternative to lsp-mode. Choose one, not both.bat no
+* Reminder: C-c, C-v, C-t is Tangle.
+* Reminder: C-a, C-k kill entire line. C-S, <bksp> does same thing.
+* Reminder: C-, C-h, i open an info file.
+C-x # close frame
+* M-x checkdoc-minor-mode (turn on or OFF)
+60 characters for docstrings
+;;; Top is name and short description
+;;; Commentary
+;;; Code
+
+*  Re-enabling pylsp in init.el (22OCT) restored marginalia, syntax highlithging, etc.
+also no rpc issue.
+
+C-x, r, w Register window
+C-x, r, j jump back to registered window.
+
+//opt/homebrew/share/emacs//site-lisp/
+

@@ -41,6 +41,28 @@ Tab headline to lower level
 Shift + up/down to change priority
 C-c, C-q set tag
 C-c, C-, then l for lisp (is org-insert-structure-template)
+C-c, c is capture then t = todo and j = journal
+C-c, n, d, n is daily;
+C-c, C-o open link in rog-mode
+C-c, <RET>  same.
+C-c, C-l org insert link then file:
+or
+C-u, C-c, C-l is type file by default
+C-c n a org-roam-alias-add
+C-c n o  promote org heading to a node.
+C-c n t add tag
+C-c, C-c add tag to heading
+C-c n i insert link
+C-c n l lists all l iks to current bufferC-c & go back from link
+
+C-c n d n daily
+
+C-c c j journal
+
+S-b denote
+
+C-c n f roam
+
 
 ----
 * Org Roam
@@ -352,3 +374,41 @@ M-% query and replace
 -! to replace all.
 M-n or M-p to cycle replace.
 M-s h hilite can change color and can canel.
+
+* Project.el
+C-x p select project
+C-x p f open file in project's dir.
+C-x p b switch buffers in project's dir.
+C-x p k kill all    "           "    "           "
+M-x project-remember-projects-under   adds all projects in tnis buffer
+C-c p g regex search the project
+C-x p r replace text in project
+C-x g magit
+C-x p s shell
+C-x p p project switch project
+C-x p b switch to other buffer for this project
+
+* find
+
+Find <path> expression options, tests, actions
+-maxdepth (option)
+-name, -type, size (test)
+-print, exec (action)
+
+example find . -type d   <-- show dirs only
+
+find . -name "*.txt" -exec mv {} /path/to/new/directory \;
+
+find . -siaze +100M -mtime -7
+
+find . -type f -iname "**foobar**"  <-- case insensitive (vs. name, which IS case sensitive)
+
+note: du is recursive find is not
+
+df | grep file
+
+alias ff''=du -a ~/project/ | grep -i $!'
+
+alias ff='du -a ~/project/ 2>/dev/null |grep -i $1'
+
+

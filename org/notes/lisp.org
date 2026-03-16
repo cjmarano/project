@@ -1,3 +1,20 @@
+Slime connects emacs & ruinning lisp instance
+ASDF is like make
+Quicklisp is library manager
+sbcl --load <filename>
+C-c, C-q slime-close-parens-at-point
+cl-user> DEFUN
+cl-user > quit
+C-c, C-c compile
+C-c, C-z switch to repl.
+q = quit debugger
+compile file produces <filename>.fasl
+C-C, C-l load in slime
+C-c, C-k no longer slime, is mapped to org-kill-note-or-show-branches
+# | multi line comment
+
+
+
 form  --> evaluate <-- an object that can be evaluated.
 List, symbols, other object types.
 
