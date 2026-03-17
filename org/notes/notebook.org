@@ -1,4 +1,19 @@
-* to show an info file:  C-c C-h i 
+* Movement
+M-r Top, Center, Bottom (vs. C-l)
+M-m 1st char of lin 0 ignores tabs and spaces at beginning of line.
+C-M-p C-M-n next/last function
+C-M-u C-M-d next/last function
+M-d kill word (M-- M-d is kill word backwards)
+C-- is same as M--
+C-M-k kill sexp
+C-<bkspc> delete backwards
+M-\ delete whitespace
+M-q fill paragraph
+C-x h hilite whole buffer
+M-z zap to charC-x, C-0 remove blank lines.
+C-x, z repeat complex command.
+
+* To show an info file:  C-c C-h i 
 
 * Testing changes to init.el
 
@@ -17,7 +32,6 @@ ruff  check --fix
 ruff format
 ruff check --watch
 ( commented out pylsp when adding ruff. may need to pus pyslp back in.)
-
 
 * Consult
 C-x b is remapped to consult-buffer
@@ -191,6 +205,7 @@ C-c l lsp-mode
 C-x, C-j dired jump (jump to directory file is in)
 C-x, C-r open recent
 C-c, C-_ cycle mark ring
+C-h, m describe commands for current mode.
 
 * Dired
 M-p or M-n to cycle prev, next buffer
@@ -390,6 +405,7 @@ C-x p b switch to other buffer for this project
 
 * find
 
+
 Find <path> expression options, tests, actions
 -maxdepth (option)
 -name, -type, size (test)
@@ -411,4 +427,7 @@ alias ff''=du -a ~/project/ | grep -i $!'
 
 alias ff='du -a ~/project/ 2>/dev/null |grep -i $1'
 
-
+* Brew
+pyenv-sync
+rbenv-sync
+setup-ruby

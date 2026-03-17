@@ -1,20 +1,27 @@
+Lisp projects go in ~/.quicklisp/local-projects.
+(this can be changed ql: local-projects-directory
 Slime connects emacs & ruinning lisp instance
 ASDF is like make
 Quicklisp is library manager
 sbcl --load <filename>
-C-c, C-q slime-close-parens-at-point
-cl-user> DEFUN
-cl-user > quit
-C-c, C-c compile
-C-c, C-z switch to repl.
-q = quit debugger
-compile file produces <filename>.fasl
+
+M-x slime
+M-x describe-bindings very useful shows bindings fo rall modes enabled in currect buffer.
+
 C-C, C-l load in slime
 C-c, C-k no longer slime, is mapped to org-kill-note-or-show-branches
+C-c, C-q slime-close-parens-at-point
+C-c, C-c compile
+C-c, C-z switch to repl.
+C-M-x eval defun
+C-x, C-e eval with result in minibuffer;
+C-j after an sexp to evaluate it in current buffer.
+cl-user> DEFUN
+cl-user > quit
+q = quit debugger
+compile file produces <filename>.fasl
+
 # | multi line comment
-
-
-
 form  --> evaluate <-- an object that can be evaluated.
 List, symbols, other object types.
 
