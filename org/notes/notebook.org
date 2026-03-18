@@ -1,19 +1,147 @@
-* Movement
-M-r Top, Center, Bottom (vs. C-l)
-M-m 1st char of lin 0 ignores tabs and spaces at beginning of line.
-C-M-p C-M-n next/last function
-C-M-u C-M-d next/last function
-M-d kill word (M-- M-d is kill word backwards)
-C-- is same as M--
-C-M-k kill sexp
-C-<bkspc> delete backwards
-M-\ delete whitespace
-M-q fill paragraph
-C-x h hilite whole buffer
-M-z zap to charC-x, C-0 remove blank lines.
-C-x, z repeat complex command.
-* Replace : with newline:
-M-x replace-string <RET> : C-q C-j
+* Bookmarks
+C-x r m ret set bookmark at point
+C-x r m <bookmark name> ret (set name bookmark at point)
+C-x r b <bookmark name> jump to named bookmark
+C-x r l list all bookmarks
+M-x bookmarks-save
+M-x bookmakr-del ret <bookmark name> ret
+
+* Brew
+pyenv-sync
+rbenv-sync
+setup-ruby
+* Building emacs from scratch
+sudo apt install git build-essentials automake
+sudo apt build-dep emacs
+git clone https://git.savannah.gnu.org/git/emacs.git
+./autogen.sh
+./configure
+make
+unset emacs-load-path
+
+OR
+
+git clone   git://git.su.gnu.org/emacs.git
+cd emacs
+sudo apt-install build-essential
+-- with tree-sitter
+--without pip
+make -j 3 (nproc)
+src / emacs -q
+
+* Comments
+init files with outline-minor-mode can combine with org mode.
+(load-custom-file ; <filename> )  one ; is inline comment
+;;; outline heading level 1 (four ; is level 2, five is level 3, etc.)
+M-x outline-minor-mode
+M-x outline-demote
+M-x outline-promote
+M-x consult-outline  <-- jump to top level entries - those with ;;;
+* Consult
+C-x b is remapped to consult-buffer
+C-x r b remapped to consult-bookmarks
+C-x p b remapped to consult-project-buffer
+
+* Denote
+C-c n f consult denote find
+C-c n g consult denote grep
+C-c C-k org-kill-note-or-show-branches
+(Abort triggers dieriectory does not exist create? (y/n) dialog.
+* Dired
+M-p or M-n to cycle prev, next buffer
+M-del to clear
+~/ to delete (not shadow) previous path
+in Dired;
+o to open file
+C-x 0 to close
+C to copy
+R to rename
+D to delete
+up is back
+m/u mark/unmark
+U unmark all
+X to execute
+C-x, C-u toggle editable/read only C-c. C-c to commit
+%-m mark files (regexp)
+M odify permissions +x, +w, +r
+M-x Project-find-file
+    C-x p f
+M-x consult-find
+    #<item>#
+C-x, C-f M-n <ret>
+     (is Prot's find)
+C-c d then @ to use same buffer.
+
+* emacs client
+emacsclient -e "sexexp"
+emacsclient -c -editemacs --daemon
+M-x server-start
+M-:   "      "
+M-x server-force-shutdown
+
+C-u, C-x, C-c kill emacs server
+C-x 5 0 cose frame
+v, x, c (kill emacs, save buffers)
+
+* Eval expression
+C-x, e
+C-M, x
+Alt, n
+C-u, n
+M, n
+
+* find
+
+
+Find <path> expression options, tests, actions
+-maxdepth (option)
+-name, -type, size (test)
+-print, exec (action)
+
+example find . -type d   <-- show dirs only
+
+find . -name "*.txt" -exec mv {} /path/to/new/directory \;
+
+find . -siaze +100M -mtime -7
+
+find . -type f -iname "**foobar**"  <-- case insensitive (vs. name, which IS case sensitive)
+
+note: du is recursive find is not
+
+df | grep file
+
+alias ff''=du -a ~/project/ | grep -i $!'
+
+alias ff='du -a ~/project/ 2>/dev/null |grep -i $1'
+
+* Finding large files
+find . -type f -exec ls -sh {} + | sort -rh | head -n 10
+
+find ~ -type f -size +1G
+
+find . -type f -exec ls -lh {} + | sort -rh -k 5 | head -n 10
+
+* fzf
+C-t search files and directories
+C-r search command history
+M-c chage current directory
+* git
+M-x git-status (or C-x g)
+* Grep
+grep default
+grep --color-auto -nH --null -e' + "pattern"
+instead:
+(setopt grep-command "grep --color=auto -rni -A1"
+lgrep search current directory - NOT recursive.
+rgrep recursive search.
+Zrgrep search compressed files.
+find-grep every file in directory tree.
+vc-git-grep runs git-grep.
+counsel-grep search current buffer.
+find-grep-dired find file name display in buffer.
+find-name-dired similar to above.
+kill-grep kill running grep processes.
+
 * Info Mode
 How an info file C-c C-h i
 q= exit
@@ -46,29 +174,74 @@ click cross references to go there, l to return
 f = specify cross  referene <RET>
 f ? show all cross references for current node
 
-* Testing changes to init.el
+* isearch
+C-s C-r are forward, back.
+M-e edit search.
+<RET> stop@found item.
+M-b stop@previous word.
+M-m beginning of line.
+M-e e.o.l.
 
-emacs -batch -l ~/.emacs.d/init.el --eval '(message "init.el loaded successfully")'
+C-s, C-s search again.
+C-r, C-r    "           "   reverse.
+M-M s Regexp search.
+C-M-r  Regexp search, reverse.
 
-* Finding large files
-find . -type f -exec ls -sh {} + | sort -rh | head -n 10
+C-M-s repeat last regexp search.
+C-M-r       "               "           "   reverse.
 
-find ~ -type f -size +1G
+M-x occur regexp standalone buffer.
 
-find . -type f -exec ls -lh {} + | sort -rh -k 5 | head -n 10
+M-s o send isearch to occur.
 
-* Ruff
-ruff check
-ruff  check --fix
-ruff format
-ruff check --watch
-( commented out pylsp when adding ruff. may need to pus pyslp back in.)
+M-% query and replace
+-y to replace one by one.
+-! to replace all.
+M-n or M-p to cycle replace.
+M-s h hilite can change color and can canel.
 
-* Consult
-C-x b is remapped to consult-buffer
-C-x r b remapped to consult-bookmarks
-C-x p b remapped to consult-project-buffer
+* ls command (and aliases)
+alias lb='cd ..'
+alias lf='colorls -lath'
+alias lg='colorls --gs'
+alias ll='colorls -loa --sd'
+alias lz='eza -la  --time=modified --color=always --icons=always'
+alias ly='eza -lha --color=always --icons=always --group-directories-first'
+alias lx='eza -la --time=created --color=always --icons=always --group-directories-first'
 
+alias myip="curl http://ipecho.net/plain; echo"
+alias bu='emacs -q -l ~/project/Prot/init.el &'
+alias ec='emacsclient -n $1'
+alias ez="emacsclient --create-frame $1"0
+
+* Misc
+C-u C-x C-c kill emacs, save buffer
+C-c j journal jj
+C-c, c, jj then C-x, C-s, and C-c, C-c 
+C-x p projectile mode map
+C-M, i compile at point
+C-c, c capture
+C-c a agenda
+C-c l lsp-mode
+C-x, C-j dired jump (jump to directory file is in)
+C-x, C-r open recent
+C-c, C-_ cycle mark ring
+C-h, m describe commands for current mode.
+
+* Movement
+M-r Top, Center, Bottom (vs. C-l)
+M-m 1st char of lin 0 ignores tabs and spaces at beginning of line.
+C-M-p C-M-n next/last function
+C-M-u C-M-d next/last function
+M-d kill word (M-- M-d is kill word backwards)
+C-- is same as M--
+C-M-k kill sexp
+C-<bkspc> delete backwards
+M-\ delete whitespace
+M-q fill paragraph
+C-x h hilite whole buffer
+M-z zap to charC-x, C-0 remove blank lines.
+C-x, z repeat complex command.
 * Org Mode
 Shift-tab rotate status
 C-c, C-t    "      "
@@ -132,24 +305,60 @@ C-c a agenda
 C-c l org-store-ink
 C-c C-l org-insert-link
 
-* Building emacs from scratch
-sudo apt install git build-essentials automake
-sudo apt build-dep emacs
-git clone https://git.savannah.gnu.org/git/emacs.git
-./autogen.sh
-./configure
-make
-unset emacs-load-path
+* Organizing init file
+;; comment
+; inline notation
+;;; outline heading level 1
+;;;; outline heading level 2
+M-x outline minor mode
+M-x consult-outline
+C-c C-,  insert code block
 
-OR
+* Project.el
+C-x p select project
+C-x p f open file in project's dir.
+C-x p b switch buffers in project's dir.
+C-x p k kill all    "           "    "           "
+M-x project-remember-projects-under   adds all projects in tnis buffer
+C-c p g regex search the project
+C-x p r replace text in project
+C-x g magit
+C-x p s shell
+C-x p p project switch project
+C-x p b switch to other buffer for this project
 
-git clone   git://git.su.gnu.org/emacs.git
-cd emacs
-sudo apt-install build-essential
--- with tree-sitter
---without pip
-make -j 3 (nproc)
-src / emacs -q
+* Regexp
+in lisp need \\ to escap a character.
+interactive (isearch, etc.) only needs one \
+~  $  ^  .  *  +  ?  [  \  -
+] if it ends an alternative special.
+\  escaped so special.
+. matches any character except newline.
+ * matches precedding char zero or more times.
++ one or more times. (* matches 0 or more).
+? once or not at all.
+ *? +? ??
+ ^ beginning of line.
+ ? end of line.
+ [charset]
+ ^ any char's those in set.
+alt-s, o list lines matching regexp
+
+* Replace : with newline:
+M-x replace-string <RET> : C-q C-j
+* Ruff
+ruff check
+ruff  check --fix
+ruff format
+ruff check --watch
+( commented out pylsp when adding ruff. may need to pus pyslp back in.)
+
+* Searching
+C-s, C-w search for word at point
+C-s, C-M-y search for charactoers at point
+C-s, M-s, C-e search for whole lines at point
+M-% search and replace
+M-s, M-> show previous search
 
 * Shell
 type -a bash will show all installed versions.
@@ -160,12 +369,26 @@ fuser - list pid of all processes that have open files.
 pid of
 mkdir -p parent/child1,child2,child3, {grand kids}.
 
-* Use-package
-:demand t <-- load immediately at startup (useful for completion frameworks).
-:defer <-- load after startup.
-:hook <-- load when hook invoked.
-:mode <-- load when file will extension is opened.
-:after <-- after other, specified, pasckages loaded.
+* Smart-Parens
+M-x sp-cheat-sheet.
+
+ | R W X |
+ | 4 2 1 |
+
+* Sorting
+C-M-@ sortM-<#>
+C-u <#> sort by field
+C-u sort last field
+C-xes repeat last command
+
+* Tangle
+C-c, C-v, C-t tangle
+C-c, C-v, t   tangle
+C-c, C-, |  source block lisp
+
+* Testing changes to init.el
+
+emacs -batch -l ~/.emacs.d/init.el --eval '(message "init.el loaded successfully")'
 
 * Text commands
 C-x <TAB> then <-- or --> change indent on selected region.
@@ -199,6 +422,17 @@ C-u, C-j just to last mark in ring
 C-u, C-spc pop last mark off ring
 M-h select bock
 M-c, \   format region
+M-^ join prvious line
+M- \ delete whitespace
+M-i insert whitespace
+C-<BKSPC> kill <--
+M-<SPC> only 1 space between chars.
+M-c, M-v, M-l Caps, upcase, lowercase
+C-x, C-, comment our current line
+C-M-\ re-indent region
+M-q fill paragraph
+M-d delete word M--, M-d delete word <--
+C-M-k kill sexpresion at point
 M- l lowercase selected region
 M-u uppercase     "           "
 M-c initial Caps
@@ -208,166 +442,25 @@ C-spc set mark
 C-x, C-x exchange pint and mark
 C-u, C-spc jump to previous marks
 
-* Searching
-C-s, C-w search for word at point
-C-s, C-M-y search for charactoers at point
-C-s, M-s, C-e search for whole lines at point
-M-% search and replace
-M-s, M-> show previous search
+* Use-package
+:demand t <-- load immediately at startup (useful for completion frameworks).
+:defer <-- load after startup.
+:hook <-- load when hook invoked.
+:mode <-- load when file will extension is opened.
+:after <-- after other, specified, pasckages loaded.
 
-* Sorting
-C-M-@ sortM-<#>
-C-u <#> sort by field
-C-u sort last field
-C-xes repeat last command
+* UV
+uv init produces:
 
+my-app
+|- .python-version
+|- README.md
+|- main.py
+|_ pyproject.toml
 * Windows
 C-x 2 horizontal split
 C-x 3 vertical split
 C-x + balance
-
-* Misc
-C-u C-x C-c kill emacs, save buffer
-C-c j journal jj
-C-c, c, jj then C-x, C-s, and C-c, C-c 
-C-x p projectile mode map
-C-M, i compile at point
-C-c, c capture
-C-c a agenda
-C-c l lsp-mode
-C-x, C-j dired jump (jump to directory file is in)
-C-x, C-r open recent
-C-c, C-_ cycle mark ring
-C-h, m describe commands for current mode.
-
-* Dired
-M-p or M-n to cycle prev, next buffer
-M-del to clear
-~/ to delete (not shadow) previous path
-in Dired;
-o to open file
-C-x 0 to close
-C to copy
-R to rename
-D to delete
-up is back
-m/u mark/unmark
-U unmark all
-X to execute
-C-x, C-u toggle editable/read only C-c. C-c to commit
-%-m mark files (regexp)
-M odify permissions +x, +w, +r
-M-x Project-find-file
-    C-x p f
-M-x consult-find
-    #<item>#
-C-x, C-f M-n <ret>
-     (is Prot's find)
-C-c d then @ to use same buffer.
-
-* Organizing init file
-;; comment
-; inline notation
-;;; outline heading level 1
-;;;; outline heading level 2
-M-x outline minor mode
-M-x consult-outline
-C-c C-,  insert code block
-
-* Eval expression
-C-x, e
-C-M, x
-Alt, n
-C-u, n
-M, n
-
-* Bookmarks
-C-x r m ret set bookmark at point
-C-x r m <bookmark name> ret (set name bookmark at point)
-C-x r b <bookmark name> jump to named bookmark
-C-x r l list all bookmarks
-M-x bookmarks-save
-M-x bookmakr-del ret <bookmark name> ret
-
-* ZSHELL STUFF
-C-t is fzf search files and directories
-C-r is command history
-M-c change current directory
---
-Super, k is same as C-l or clear
-
-* emacs client
-emacsclient -e "sexexp"
-emacsclient -c -editemacs --daemon
-M-x server-start
-M-:   "      "
-M-x server-force-shutdown
-
-C-u, C-x, C-c kill emacs server
-C-x 5 0 cose frame
-v, x, c (kill emacs, save buffers)
-
-* Tangle
-C-c, C-v, C-t tangle
-C-c, C-v, t   tangle
-C-c, C-, |  source block lisp
-
-* Denote
-C-c n f consult denote find
-C-c n g consult denote grep
-C-c C-k org-kill-note-or-show-branches
-(Abort triggers dieriectory does not exist create? (y/n) dialog.
-* ls command (and aliases)
-alias lb='cd ..'
-alias lf='colorls -lath'
-alias lg='colorls --gs'
-alias ll='colorls -loa --sd'
-alias lz='eza -la  --time=modified --color=always --icons=always'
-alias ly='eza -lha --color=always --icons=always --group-directories-first'
-alias lx='eza -la --time=created --color=always --icons=always --group-directories-first'
-
-alias myip="curl http://ipecho.net/plain; echo"
-alias bu='emacs -q -l ~/project/Prot/init.el &'
-alias ec='emacsclient -n $1'
-alias ez="emacsclient --create-frame $1"0
-
-* Regexp
-in lisp need \\ to escap a character.
-interactive (isearch, etc.) only needs one \
-~  $  ^  .  *  +  ?  [  \  -
-] if it ends an alternative special.
-\  escaped so special.
-. matches any character except newline.
- * matches precedding char zero or more times.
-+ one or more times. (* matches 0 or more).
-? once or not at all.
- *? +? ??
- ^ beginning of line.
- ? end of line.
- [charset]
- ^ any char's those in set.
-alt-s, o list lines matching regexp
-
-* Grep
-grep default
-grep --color-auto -nH --null -e' + "pattern"
-instead:
-(setopt grep-command "grep --color=auto -rni -A1"
-lgrep search current directory - NOT recursive.
-rgrep recursive search.
-Zrgrep search compressed files.
-find-grep every file in directory tree.
-vc-git-grep runs git-grep.
-counsel-grep search current buffer.
-find-grep-dired find file name display in buffer.
-find-name-dired similar to above.
-kill-grep kill running grep processes.
-
-* Smart-Parens
-M-x sp-cheat-sheet.
-
- | R W X |
- | 4 2 1 |
 
 * Yazi
  up/down or j/k to move
@@ -390,92 +483,10 @@ M-x sp-cheat-sheet.
  P same but overwrite
 X Y cancel operation
 
-* Comments
-init files with outline-minor-mode can combine with org mode.
-(load-custom-file ; <filename> )  one ; is inline comment
-;;; outline heading level 1 (four ; is level 2, five is level 3, etc.)
-M-x outline-minor-mode
-M-x outline-demote
-M-x outline-promote
-M-x consult-outline  <-- jump to top level entries - those with ;;;
-* isearch
-C-s C-r are forward, back.
-M-e edit search.
-<RET> stop@found item.
-M-b stop@previous word.
-M-m beginning of line.
-M-e e.o.l.
+* ZSHELL STUFF
+C-t is fzf search files and directories
+C-r is command history
+M-c change current directory
+--
+Super, k is same as C-l or clear
 
-C-s, C-s search again.
-C-r, C-r    "           "   reverse.
-M-M s Regexp search.
-C-M-r  Regexp search, reverse.
-
-C-M-s repeat last regexp search.
-C-M-r       "               "           "   reverse.
-
-M-x occur regexp standalone buffer.
-
-M-s o send isearch to occur.
-
-M-% query and replace
--y to replace one by one.
--! to replace all.
-M-n or M-p to cycle replace.
-M-s h hilite can change color and can canel.
-
-* Project.el
-C-x p select project
-C-x p f open file in project's dir.
-C-x p b switch buffers in project's dir.
-C-x p k kill all    "           "    "           "
-M-x project-remember-projects-under   adds all projects in tnis buffer
-C-c p g regex search the project
-C-x p r replace text in project
-C-x g magit
-C-x p s shell
-C-x p p project switch project
-C-x p b switch to other buffer for this project
-
-* find
-
-
-Find <path> expression options, tests, actions
--maxdepth (option)
--name, -type, size (test)
--print, exec (action)
-
-example find . -type d   <-- show dirs only
-
-find . -name "*.txt" -exec mv {} /path/to/new/directory \;
-
-find . -siaze +100M -mtime -7
-
-find . -type f -iname "**foobar**"  <-- case insensitive (vs. name, which IS case sensitive)
-
-note: du is recursive find is not
-
-df | grep file
-
-alias ff''=du -a ~/project/ | grep -i $!'
-
-alias ff='du -a ~/project/ 2>/dev/null |grep -i $1'
-
-* Brew
-pyenv-sync
-rbenv-sync
-setup-ruby
-* fzf
-C-t search files and directories
-C-r search command history
-M-c chage current directory
-* git
-M-x git-status (or C-x g)
-* UV
-uv init produces:
-
-my-app
-|- .python-version
-|- README.md
-|- main.py
-|_ pyproject.toml

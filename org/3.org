@@ -52,6 +52,8 @@ while org roam dailies go into sepearte files (even if created on same day) with
 * init.el keeps getting corruped. Saved 12MAR_FREEZE.init.el to project dir.
 * COMPLETED Cleaned up init.el on New and init.el.org - This is now the new 12MAR_FREEZE.init.el
 CLOSED: [2026-03-11 Wed 09:18]
+* COMPLETED C-x, h to select whole org buffer then M-x org-sort-entries <RETURN> then a for alphabetical.
+CLOSED: [2026-03-18 Wed 13:16]
 * WAITING On +Plucky+ - Make 3.14 Python the version that's used by system.
 * WAITING Experiment more with dired.
 * NEXT installed emacs 30.2 via snap on +Plucky+. Works but:
@@ -85,8 +87,8 @@ main.lisp looks like this:
 * NEXT eglot with Rust to eliminate lsp-mode & lsp-ui ?
 * (let ((org-confirm-babel-evaluate nil)))  <-- should I toggle this customize then remove this line?
 * added defer to lsp-mode -- test this.
-* Started misc-notes.org and copying everything from black notebook to org.
 * Had to comment out slime-helper. Why?
 * Move load-path up from 589~ closer to top?
 * Commented out; rust mode paredit, global-tree-sitter-mode
 ** Is Paredit needed?
+* TODO Started misc-notes.org and copying everything from black notebook to org.

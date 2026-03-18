@@ -21,6 +21,10 @@ cl-user > quit
 q = quit debugger
 compile file produces <filename>.fasl
 
+C-M-p C-M-n next/previous function
+C-M-u from inside function go to outer block
+C-M-d go deeper into function
+
 # | multi line comment
 form  --> evaluate <-- an object that can be evaluated.
 List, symbols, other object types.
