@@ -4,3 +4,4 @@ This is a new line.
        and tabbed again here.
 This line is flush with left border.
      Tab works here     but  not    in scratch buffer.
+Tab  Tab Tab. Don't like auto-completions here.

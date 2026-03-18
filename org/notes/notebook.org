@@ -12,8 +12,39 @@ M-q fill paragraph
 C-x h hilite whole buffer
 M-z zap to charC-x, C-0 remove blank lines.
 C-x, z repeat complex command.
-
-* To show an info file:  C-c C-h i 
+* Replace : with newline:
+M-x replace-string <RET> : C-q C-j
+* Info Mode
+How an info file C-c C-h i
+q= exit
+H - list all commands
+d return here
+h = 1st time
+Right-click will select item
+n - next
+p = previous
+<SPACE> = forward at end of node to next node
+<DEL> or <BKSPC> = back<--delete at beginning of node moves to previous node
+PgUP and PgDOWN work as normal
+C-l clear screen
+b = beginning
+? = help H in standalone reader, x to get back in stand alone reader
+M-x visible-mode
+] go to next node
+[ go to previous node
+m = go to subnode
+u = up from submenu
+<TAB> next subtopic
+<UpARROW> <TAB Previous subtopic
+i = search info
+l = list, goes through history
+r is opposite
+L  creates node w/ history
+d directory (shows all info nodes)
+t = top of manual
+click cross references to go there, l to return
+f = specify cross  referene <RET>
+f ? show all cross references for current node
 
 * Testing changes to init.el
 
@@ -44,6 +75,9 @@ C-c, C-t    "      "
 C-ret create new item
 M-ret under same level
 M-up/down move item
+C-c C-n next headline
+C-c C-p previous headline
+C-c C-j search for headline then C-s to find next match.
 C-c, C-l insert link
 C-c, C-o open link at point
  | table
@@ -55,9 +89,7 @@ Tab headline to lower level
 Shift + up/down to change priority
 C-c, C-q set tag
 C-c, C-, then l for lisp (is org-insert-structure-template)
-C-c, c is capture then t = todo and j = journal
-C-c, n, d, n is daily;
-C-c, C-o open link in rog-mode
+C-c, C-o open link in org-mode
 C-c, <RET>  same.
 C-c, C-l org insert link then file:
 or
@@ -71,7 +103,7 @@ C-c n l lists all l iks to current bufferC-c & go back from link
 
 C-c n d n daily
 
-C-c c j journal
+C-c, c is capture then t = todo and j = journal
 
 S-b denote
 
@@ -136,8 +168,10 @@ mkdir -p parent/child1,child2,child3, {grand kids}.
 :after <-- after other, specified, pasckages loaded.
 
 * Text commands
+C-x <TAB> then <-- or --> change indent on selected region.
 M-x replace-string ret : ret C-q, C-j ret (replace : with newline).
 M-x sort-lines
+M-y cycle kill ring
 C-x, C-i or C-x tab indent
 C-M-@ sort lines
 Cu, C-spc prev mark
@@ -174,14 +208,12 @@ C-spc set mark
 C-x, C-x exchange pint and mark
 C-u, C-spc jump to previous marks
 
-
 * Searching
 C-s, C-w search for word at point
 C-s, C-M-y search for charactoers at point
 C-s, M-s, C-e search for whole lines at point
 M-% search and replace
 M-s, M-> show previous search
-
 
 * Sorting
 C-M-@ sortM-<#>
@@ -195,6 +227,7 @@ C-x 3 vertical split
 C-x + balance
 
 * Misc
+C-u C-x C-c kill emacs, save buffer
 C-c j journal jj
 C-c, c, jj then C-x, C-s, and C-c, C-c 
 C-x p projectile mode map
@@ -230,6 +263,7 @@ M-x consult-find
     #<item>#
 C-x, C-f M-n <ret>
      (is Prot's find)
+C-c d then @ to use same buffer.
 
 * Organizing init file
 ;; comment
@@ -238,6 +272,7 @@ C-x, C-f M-n <ret>
 ;;;; outline heading level 2
 M-x outline minor mode
 M-x consult-outline
+C-c C-,  insert code block
 
 * Eval expression
 C-x, e
@@ -254,14 +289,12 @@ C-x r l list all bookmarks
 M-x bookmarks-save
 M-x bookmakr-del ret <bookmark name> ret
 
-
 * ZSHELL STUFF
 C-t is fzf search files and directories
 C-r is command history
 M-c change current directory
 --
 Super, k is same as C-l or clear
-
 
 * emacs client
 emacsclient -e "sexexp"
@@ -282,7 +315,8 @@ C-c, C-, |  source block lisp
 * Denote
 C-c n f consult denote find
 C-c n g consult denote grep
-
+C-c C-k org-kill-note-or-show-branches
+(Abort triggers dieriectory does not exist create? (y/n) dialog.
 * ls command (and aliases)
 alias lb='cd ..'
 alias lf='colorls -lath'
@@ -431,3 +465,17 @@ alias ff='du -a ~/project/ 2>/dev/null |grep -i $1'
 pyenv-sync
 rbenv-sync
 setup-ruby
+* fzf
+C-t search files and directories
+C-r search command history
+M-c chage current directory
+* git
+M-x git-status (or C-x g)
+* UV
+uv init produces:
+
+my-app
+|- .python-version
+|- README.md
+|- main.py
+|_ pyproject.toml
