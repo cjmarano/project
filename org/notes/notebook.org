@@ -360,6 +360,12 @@ C-s, M-s, C-e search for whole lines at point
 M-% search and replace
 M-s, M-> show previous search
 
+* Selection
+C-spc set mark
+C-x, C-x exchange point and mark
+C-u, C-spc jump to prvious mark
+save-excursion saves the location of point moves cursor bak there after a function is evaluated.
+
 * Shell
 type -a bash will show all installed versions.
 #!/usr/bin/env -
@@ -385,6 +391,9 @@ C-xes repeat last command
 C-c, C-v, C-t tangle
 C-c, C-v, t   tangle
 C-c, C-, |  source block lisp
+M-x org-denote-block (C-c, C-d, d) also (C-c, C-v, C-c)
+#+startup: content indent 
+#+property: header-rogs :tangle "init.el"
 
 * Testing changes to init.el
 

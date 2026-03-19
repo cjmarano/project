@@ -3,12 +3,17 @@ Lisp projects go in ~/.quicklisp/local-projects.
 Slime connects emacs & ruinning lisp instance
 ASDF is like make
 Quicklisp is library manager
+ielm is repl
+
 sbcl --load <filename>
 
 M-x slime
+
 M-x describe-bindings very useful shows bindings fo rall modes enabled in currect buffer.
 
 C-C, C-l load in slime
+
+* General slime and sbcl
 C-c, C-k no longer slime, is mapped to org-kill-note-or-show-branches
 C-c, C-q slime-close-parens-at-point
 C-c, C-c compile
@@ -25,6 +30,11 @@ C-M-p C-M-n next/previous function
 C-M-u from inside function go to outer block
 C-M-d go deeper into function
 
+M- . then name of function will show source code
+
+M-, as alternative to C-x b after an M-. command
+
+* Common Lisp
 # | multi line comment
 form  --> evaluate <-- an object that can be evaluated.
 List, symbols, other object types.
@@ -42,8 +52,6 @@ can't evaluate buffers
 func has to go 1st (+300(-12 1))
 
 type-of
-
-ielm is repl
 
 predicate is func that takes value and returns t or nil
 
@@ -86,6 +94,7 @@ rassq asociation  value
 
 plist - property list  key-value pairs
 
+* Sbcl 
 sbcl  quicklisp sbcl.rc file
 sbcl to install slime:
  *  (qlLquickload "quiclisp-slime-??? ")  <-- lost last part of this.
@@ -120,9 +129,9 @@ C-h, o describe symbol
 
 C-u, C-h, i info mode for external files
 
-M-. jump to next function
+M-. jump to next function (Meta-period)
 
-M-, return to original location as alternative to C-x b after a M-. command 
+M-, return to original location as alternative to C-x b after a M-. command (Meta-comma)
 
 C, cd h doc
 
@@ -130,6 +139,18 @@ C-, --> or C-,<--- move parens
 
 C, ] A close open parens (may not need A, not clear in notebook.
 
+C-cd, h doc?
+
+C, ] close open parens.
+
+(concat "abc" "def")  concatenate strings
+
+(substring "The quick... 16 19) from 16 to 19 for example (string counted from 0)
+
+p = predicate is functions property t or nol?
+
+(something)                    something
+     ^ eval as function            eval as variable
 
 * asdf and Quicklisp
 asdf is make, config, compile basically.Quicklisp is a library manager for lisp that runs on top of asdf allows downloads and installs.
@@ -186,9 +207,45 @@ p = prdicate is funtion's property t or nil?
   do something if test returns fas)   <-- notice lesser indent on else line.
 
   sav-ecursions saves location of point and move cursor back there after a function is evaluated
+* setq  and other stuff.
+setq =  set variable to this literal value variables
+set = set assigns list to variable   symbols
+setf = set function. Can set part of a list  is a macro
+' single quote is data, not a function
+
+(setq <value> set quote  set variable) _<-- no backtick '_
+Above is convenience instead of (Set '<variable)
+setqalso allows mutliple variables to be set
+
+    (setq someitem '(value)
+        someothervalue <value>
+        anothervalue <value> )
+
+make-variable-buffer-local
+
+setq-default is set value for all future buffers
+* Scope
+Scope:
+Global
+Local --> let let*
+let* allows use of variables in subequent functions
+
+if-let when-let
+
+example of local vs global scope
+
+(setq x 5)                                   _
+                                                     |
+(defun do-some-math (y)             |     local to function 
+    (+ x y))                                   _|
+
+ (do-some-math 10)    <-- evaluates to 15
+
+ (let ((x 15))
+     (do-some-math 10)) <-evaluates to 25 - is external to the function
 
 *  Lexical Binding 
-  ;;; -*- lexical-binding: t -**-
+                         ;;; -*- lexical-binding: t -**-
 
   scope of let under lecial binding is limited to body of let statement
   otherwise in dynamic binding scope ca be Global (for other functions in/under the let body).
@@ -202,6 +259,7 @@ p = prdicate is funtion's property t or nil?
           (get <variable>
 
 * Dynamic Binding
+
 is default for elisp
 changing variable with let changes it globally
 NOTE: some variables are 'special' and ae dynamic even when lexical scoping = t
@@ -214,3 +272,5 @@ member returns value if in list, nil otherwise
 does-exist returns lin on and after value
 do-list
 when
+
+* 
