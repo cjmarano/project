@@ -54,6 +54,8 @@ while org roam dailies go into sepearte files (even if created on same day) with
 CLOSED: [2026-03-11 Wed 09:18]
 * COMPLETED C-x, h to select whole org buffer then M-x org-sort-entries <RETURN> then a for alphabetical.
 CLOSED: [2026-03-18 Wed 13:16]
+* COMPLETED Started misc-notes.org and copying everything from black notebook to org.
+CLOSED: [2026-03-19 Thu 10:41]
 * WAITING On +Plucky+ - Make 3.14 Python the version that's used by system.
 * WAITING Experiment more with dired.
 * NEXT installed emacs 30.2 via snap on +Plucky+. Works but:
@@ -91,4 +93,5 @@ main.lisp looks like this:
 * Move load-path up from 589~ closer to top?
 * Commented out; rust mode paredit, global-tree-sitter-mode
 ** Is Paredit needed?
-* TODO Started misc-notes.org and copying everything from black notebook to org.
+* slime-helper still and issue. Updated slime version then uncommented slime-helper line
+emacs humg on load, again. Hard to comment out slime-helper line. This is *after* I re-installed slime-helper using ql in SBCL.
