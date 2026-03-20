@@ -48,13 +48,16 @@
 * backup files to autosave dir.
 ** ;; Below expands to: ~/.cache/emacs/var/auto-save
 #+begin_src emacs-lisp
-(setq user-emacs-directory "~/.cache/emacs/")
+  (setq user-emacs-directory "~/.cache/emacs/")
 
-(use-package no-littering)
+  ;; Setup load-path, autoloads and your lisp system
+  (add-to-list 'load-path "~/.emacs.d/elpa")
 
-(require 'no-littering)
-(setq auto-save-file-name-transforms
-      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+  (use-package no-littering)
+
+  (require 'no-littering)
+  (setq auto-save-file-name-transforms
+        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 #+end_src
 
 * Basic setup
@@ -469,6 +472,7 @@
    ;;  ;; This is needed as of Org 9.2
     (require 'org-tempo)
 
+  ;;  below is in Cutom section.
   ;;  (add-to-list 'org-structure-template-alist '("l" . "src lispine"))
   ;;  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
   ;;  (add-to-list 'org-structure-template-alist '("py" . "src python")))
@@ -663,8 +667,7 @@
 (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 
-;; Setup load-path, autoloads and your lisp system
-(add-to-list 'load-path "~/.emacs.d/elpa")
+
 #+end_src
 
 * Custom

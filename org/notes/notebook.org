@@ -243,6 +243,7 @@ C-x h hilite whole buffer
 M-z zap to charC-x, C-0 remove blank lines.
 C-x, z repeat complex command.
 * Org Mode
+C-x, h to select whole org buffer then M-x org-sort-entries <RETURN> then a for alphabetical.
 Shift-tab rotate status
 C-c, C-t    "      "
 C-ret create new item
