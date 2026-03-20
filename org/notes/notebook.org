@@ -326,7 +326,15 @@ C-x g magit
 C-x p s shell
 C-x p p project switch project
 C-x p b switch to other buffer for this project
-
+* Python
+Using PIP & venv;
+mkdir <dir name>
+cd <dir name>
+Python3 -m venv .venv
+source .venv/bin/activate
+pip install <dir name>
+touch main.py
+pip freeze requirements.txt    <-- good to know.
 * Regexp
 in lisp need \\ to escap a character.
 interactive (isearch, etc.) only needs one \
@@ -459,6 +467,13 @@ C-u, C-spc jump to previous marks
 :after <-- after other, specified, pasckages loaded.
 
 * UV
+uv init <new dir>
+cd <new dir>
+or
+cd <existing dir>
+uv init
+
+options;  --app    --lib (build python packages)
 uv init produces:
 
 my-app

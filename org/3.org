@@ -48,8 +48,8 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
-* Tab function doesn't work in scratch buffer. Also completions messes with Tab.
-* init.el keeps getting corruped. Saved 12MAR_FREEZE.init.el to project dir.
+* Tab function doesn't work in scratch buffer or org buffer. Also completions mess with Tab.
+* _init.el_ keeps getting corruped. Saved 12MAR_FREEZE.init.el to project dir.
 * COMPLETED Cleaned up init.el on New and init.el.org - This is now the new 12MAR_FREEZE.init.el
 CLOSED: [2026-03-11 Wed 09:18]
 * COMPLETED C-x, h to select whole org buffer then M-x org-sort-entries <RETURN> then a for alphabetical.
@@ -58,6 +58,8 @@ CLOSED: [2026-03-18 Wed 13:16]
 CLOSED: [2026-03-19 Thu 10:41]
 * WAITING On +Plucky+ - Make 3.14 Python the version that's used by system.
 * WAITING Experiment more with dired.
+* WAITING slime-helper still and issue. Updated slime version then uncommented slime-helper line
+emacs humg on load, again. Hard to comment out slime-helper line. This is *after* I re-installed slime-helper using ql in SBCL.
 * NEXT installed emacs 30.2 via snap on +Plucky+. Works but:
 ** Had to remove all refs to treemacs and nerd-icons.
 ** other issues. Works for now w/ GUI and is in the Menu.
@@ -65,7 +67,7 @@ CLOSED: [2026-03-19 Thu 10:41]
 ** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 ** installed 30.2 on Ducky via Homebrew. Check if native compile works.
 ** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-* Installed emacs 30.2 via homebrew on Ducky.
+** Installed emacs 30.2 via homebrew on Ducky.
 ** NEXT Ducky is on emacs 28 so many packages don't work correctly.
 * NEXT LISP. Using (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
@@ -93,5 +95,4 @@ main.lisp looks like this:
 * Move load-path up from 589~ closer to top?
 * Commented out; rust mode paredit, global-tree-sitter-mode
 ** Is Paredit needed?
-* slime-helper still and issue. Updated slime version then uncommented slime-helper line
-emacs humg on load, again. Hard to comment out slime-helper line. This is *after* I re-installed slime-helper using ql in SBCL.
+* +>>>DONE<<<+ Notes copied from paper to notebook.org
