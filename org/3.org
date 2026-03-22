@@ -43,6 +43,8 @@ CLOSED: [2026-03-20 Fri 11:28]
 ** Move load-path up from 589~ closer to top? Yes, done.
 ** Started misc-notes.org and copying everything from black notebook to org.
 ** Notes copied from paper to notebook.org
+** COMPLETED On +Plucky+ - Make 3.14 Python the version that's used by system.
+CLOSED: [2026-03-21 Sat 12:02]
 * COMPLETED Cleaned up init.el on New and init.el.org - This is now the new 20MAR_FREEZE.init.el
 CLOSED: [2026-03-11 Wed 09:18]
 * COMPLETED LISP. Using (ql:quickload "cl-project") then
@@ -68,20 +70,6 @@ main.lisp looks like this:
 * COMPLETED Friday 20MAR did +pip install 'python-lsp-server[all]'+nn
 CLOSED: [2026-03-20 Fri 11:17]
 Python *appears* to be working properly with completions, etc.
-* WAITING On +Plucky+ - Make 3.14 Python the version that's used by system.
-* WAITING Experiment more with dired.
-* WAITING slime-helper still an issue. Updated slime version then uncommented slime-helper line BUT
-emacs humg on load, again. Hard to comment out slime-helper line. This is *after* I re-installed slime-helper using ql in SBCL.
-** Had to comment out slime-helper. Why?
-* NEXT installed emacs 30.2 via snap on +Plucky+. Works but:
-** Had to remove all refs to treemacs and nerd-icons.
-** other issues. Works for now w/ GUI and is in the Menu.
-** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
-** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-** installed 30.2 on Ducky via Homebrew. Check if native compile works.
-** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-** Installed emacs 30.2 via homebrew on Ducky.
-** NEXT Ducky is on emacs 28 so many packages don't work correctly.
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
 ** dailies go in ~/project/org/roam/daily
@@ -97,3 +85,14 @@ while org roam dailies go into sepearte files (even if created on same day) with
 * Commented out; rust mode paredit, global-tree-sitter-mode
 ** Is Paredit needed?
 *
+* WAITING Experiment more with dired.
+* WAITING slime-helper still an issue. Updated slime version then uncommented slime-helper line BUT
+emacs humg on load, again. Hard to comment out slime-helper line. This is *after* I re-installed slime-helper using ql in SBCL.
+** Had to comment out slime-helper. Why?
+* NEXT installed emacs 30.2 via snap on +Plucky+. Works but:
+** Had to remove all refs to treemacs and nerd-icons.
+** other issues. Works for now w/ GUI and is in the Menu.
+** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
+** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+** installed 30.2 on Ducky via Homebrew. Check if native compile works.
+* Ducky is on emacs 28 so many packages don't work correctly.
