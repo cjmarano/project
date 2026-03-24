@@ -1,3 +1,4 @@
+
 March.
 * _Start times ~ _3  on New,  and ~ 4 for Big,_
 <<<<<<< HEAD
@@ -101,3 +102,4 @@ there were dulicate lines. Removed them and re-organized through  to 499.
 * Commented out; paredit, global-tree-sitter-mode Paredit probably not needed.
 ** Is Paredit needed?
 *
+* C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
