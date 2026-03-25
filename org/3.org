@@ -2,6 +2,7 @@
 March.
 * _Start times ~ _3  on New,  and ~ 4 for Big,_
 <<<<<<< HEAD
+* _>>>Data keeps getting corrupted in the project dir<<<_
 * Misc.
 *** /snap/bin/emacs %F installed. Throws errors but is better than previous /usr/local/bin/emacs-30.2
 Snap version is 31.0.50. not 30.2 
@@ -71,9 +72,33 @@ main.lisp looks like this:
 * COMPLETED Friday 20MAR did +pip install 'python-lsp-server[all]'+nn
 CLOSED: [2026-03-20 Fri 11:17]
 Python *appears* to be working properly with completions, etc.
-* COMPLETED RUST syntax highlighting and completieon working. Python /seems/ to be working.
-Commented out; rust mode
-CLOSED: [2026-03-24 Tue 11:10]
+
+* COMPLETED C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
+CLOSED: [2026-03-25 Wed 09:12]
+* COMPLETED 24MAR on +New+: made changed to section after line 426 - eglot. This affected Python, maybe?
+CLOSED: [2026-03-25 Wed 09:14]
+** there were dulicate lines. Removed them and re-organized through  to 499.
+** had to revert to 20MAR _FREEZE.init.el
+* COMPLETED org-lint threw error about headline in 3.org. Removed item, error disappeared, lost headline.
+CLOSED: [2026-03-25 Wed 11:06]
+* COMPLETED Added 'Issue' to list of otg todo keywords.
+CLOSED: [2026-03-25 Wed 12:11]
+* ISSUE Tried adding code to disable flycheck in org-mode buffers but couldn't get it to work.
+CLOSED: [2026-03-25 Wed 11:12]
+* WAITING installed emacs 30.2 via snap on +Plucky+. Works but:
+** Had to remove all refs to treemacs and nerd-icons.
+** other issues. Works for now w/ GUI and is in the Menu.
+** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
+** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
+** installed 30.2 on Ducky via Homebrew. Check if native compile works.
+* WAITING Ducky is on emacs 28 so many packages don't work correctly.
+* WAITING Commented out; paredit, global-tree-sitter-mode Paredit probably not needed.
+** Is Paredit needed?
+*
+* NEXT slime-helper still an issue. Updated slime version then uncommented slime-helper line BUT
+emacs humg on load, again. Hard to comment out slime-helper line. This is *after* I re-installed slime-helper using ql in SBCL.
+** Had to comment out slime-helper. Why?
+* NEXT Experiment more with dired.
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
 ** dailies go in ~/project/org/roam/daily
@@ -86,20 +111,3 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
-* NEXT installed emacs 30.2 via snap on +Plucky+. Works but:
-** Had to remove all refs to treemacs and nerd-icons.
-** other issues. Works for now w/ GUI and is in the Menu.
-** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
-** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-** installed 30.2 on Ducky via Homebrew. Check if native compile works.
-* NEXT Ducky is on emacs 28 so many packages don't work correctly.
-* WAITING Experiment more with dired.
-* WAITING slime-helper still an issue. Updated slime version then uncommented slime-helper line BUT
-emacs humg on load, again. Hard to comment out slime-helper line. This is *after* I re-installed slime-helper using ql in SBCL.
-** Had to comment out slime-helper. Why?
-* 24MAR on +New+: made changed to section after line 426 - eglot. This affected Python, maybe?
-there were dulicate lines. Removed them and re-organized through  to 499.
-* Commented out; paredit, global-tree-sitter-mode Paredit probably not needed.
-** Is Paredit needed?
-*
-* C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.

@@ -229,6 +229,8 @@ C-c, C-_ cycle mark ring
 C-h, m describe commands for current mode.
 
 * Movement
+M-g, c is M-x goto-char
+M-g, g is M-x goto-line (as is S-l)
 M-r Top, Center, Bottom (vs. C-l)
 M-m 1st char of lin 0 ignores tabs and spaces at beginning of line.
 C-M-p C-M-n next/last function
