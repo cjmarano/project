@@ -5,3 +5,4 @@ This is a new line.
 This line is flush with left border.
      Tab works here     but  not    in scratch buffer.
 Tab  Tab Tab. Don't like auto-completions here.
+It's Thursday 26MAR. 

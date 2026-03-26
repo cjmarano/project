@@ -345,7 +345,7 @@
         "~/project/org/daily/daily.org"))
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "DONE(d)")
+      '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "DONE(d)" "ISSUE(i)")
         (sequence "COMPLETED(c)")))
 
 (setq org-refile-targets

@@ -47,6 +47,32 @@ CLOSED: [2026-03-20 Fri 11:28]
 ** Notes copied from paper to notebook.org
 ** COMPLETED On +Plucky+ - Make 3.14 Python the version that's used by system.
 CLOSED: [2026-03-21 Sat 12:02]
+** COMPLETED Friday 20MAR did +pip install 'python-lsp-server[all]'+nn
+CLOSED: [2026-03-20 Fri 11:17]
+Python *appears* to be working properly with completions, etc.
+
+** COMPLETED 24MAR on +New+: made changed to section after line 426 - eglot. This affected Python, maybe?
+CLOSED: [2026-03-25 Wed 09:14]
+** there were dulicate lines. Removed them and re-organized through  to 499.
+** had to revert to 20MAR _FREEZE.init.el
+** COMPLETED org-lint threw error about headline in 3.org. Removed item, error disappeared, lost headline.
+CLOSED: [2026-03-25 Wed 11:06]
+** COMPLETED Added 'Issue' to list of otg todo keywords.
+CLOSED: [2026-03-25 Wed 12:11]
+** COMPLETED Yazi won't open pdf files. And opening files in emacs crashes emacs. cont,
+CLOSED: [2026-03-26 Thu 08:44]
+** Hitting o or <RET> on a text file opens it in emacs but that stops Yazi (not &). Once emacs quit Yazi resumes.
+** COMPLETED slime-helper still an issue. Updated slime version then uncommented slime-helper line BUT
+CLOSED: [2026-03-26 Thu 11:23]
+emacs humg on load, again. Hard to comment out slime-helper line. This is *after* I re-installed slime-helper using ql in SBCL.
+** Had to comment out slime-helper. Why?
+** ISSUE Slime-helper appears to be gone from github. Forget about it/remove from init.el?
+CLOSED: [2026-03-26 Thu 11:11]
+** Removed slime-helper-master from elpa and then did (ql.... slime-helper didn't matter, won't load.
+** aslo slime has to be updated by hand. Did this on all inits at work.
+
+** ISSUE Tried adding code to disable flycheck in org-mode buffers but couldn't get it to work.
+CLOSED: [2026-03-25 Wed 11:12]
 * COMPLETED Cleaned up init.el on New and init.el.org - This is now the new 20MAR_FREEZE.init.el
 CLOSED: [2026-03-11 Wed 09:18]
 * COMPLETED LISP. Using (ql:quickload "cl-project") then
@@ -69,22 +95,8 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* COMPLETED Friday 20MAR did +pip install 'python-lsp-server[all]'+nn
-CLOSED: [2026-03-20 Fri 11:17]
-Python *appears* to be working properly with completions, etc.
-
 * COMPLETED C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
 CLOSED: [2026-03-25 Wed 09:12]
-* COMPLETED 24MAR on +New+: made changed to section after line 426 - eglot. This affected Python, maybe?
-CLOSED: [2026-03-25 Wed 09:14]
-** there were dulicate lines. Removed them and re-organized through  to 499.
-** had to revert to 20MAR _FREEZE.init.el
-* COMPLETED org-lint threw error about headline in 3.org. Removed item, error disappeared, lost headline.
-CLOSED: [2026-03-25 Wed 11:06]
-* COMPLETED Added 'Issue' to list of otg todo keywords.
-CLOSED: [2026-03-25 Wed 12:11]
-* ISSUE Tried adding code to disable flycheck in org-mode buffers but couldn't get it to work.
-CLOSED: [2026-03-25 Wed 11:12]
 * ISSUE rustic-clippy & cargo-clippy not enabled as checkers rust-clippy is /listed/ as checker, where is it?
 CLOSED: [2026-03-25 Wed 13:28]
 * WAITING installed emacs 30.2 via snap on +Plucky+. Works but:
@@ -97,14 +109,11 @@ CLOSED: [2026-03-25 Wed 13:28]
 * WAITING Commented out; paredit, global-tree-sitter-mode Paredit probably not needed.
 ** Is Paredit needed?
 *
-* NEXT slime-helper still an issue. Updated slime version then uncommented slime-helper line BUT
-emacs humg on load, again. Hard to comment out slime-helper line. This is *after* I re-installed slime-helper using ql in SBCL.
-** Had to comment out slime-helper. Why?
+* WAITING Experiment more with dired.
 * NEXT Flycheck is global but;
 ** org-lint is enabled for org files
-** lsp is enabled for Rust but clippy is note
+** lsp is enabled for Rust but clippy is not
 ** many python linters are available but none are enabled.
-* NEXT Experiment more with dired.
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
 ** dailies go in ~/project/org/roam/daily
