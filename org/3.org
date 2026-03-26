@@ -85,6 +85,8 @@ CLOSED: [2026-03-25 Wed 11:06]
 CLOSED: [2026-03-25 Wed 12:11]
 * ISSUE Tried adding code to disable flycheck in org-mode buffers but couldn't get it to work.
 CLOSED: [2026-03-25 Wed 11:12]
+* ISSUE rustic-clippy & cargo-clippy not enabled as checkers rust-clippy is /listed/ as checker, where is it?
+CLOSED: [2026-03-25 Wed 13:28]
 * WAITING installed emacs 30.2 via snap on +Plucky+. Works but:
 ** Had to remove all refs to treemacs and nerd-icons.
 ** other issues. Works for now w/ GUI and is in the Menu.
@@ -98,6 +100,10 @@ CLOSED: [2026-03-25 Wed 11:12]
 * NEXT slime-helper still an issue. Updated slime version then uncommented slime-helper line BUT
 emacs humg on load, again. Hard to comment out slime-helper line. This is *after* I re-installed slime-helper using ql in SBCL.
 ** Had to comment out slime-helper. Why?
+* NEXT Flycheck is global but;
+** org-lint is enabled for org files
+** lsp is enabled for Rust but clippy is note
+** many python linters are available but none are enabled.
 * NEXT Experiment more with dired.
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
