@@ -73,8 +73,21 @@ CLOSED: [2026-03-26 Thu 11:11]
 
 ** ISSUE Tried adding code to disable flycheck in org-mode buffers but couldn't get it to work.
 CLOSED: [2026-03-25 Wed 11:12]
-* COMPLETED Cleaned up init.el on New and init.el.org - This is now the new 20MAR_FREEZE.init.el
+** COMPLETED Commented out; paredit. Paredit probably not needed.
+CLOSED: [2026-03-27 Fri 09:01]
+** Is Paredit needed?
+*
+** NEXT Flycheck is global but;
+** org-lint is enabled for org files
+** COMPLETED lsp is enabled for Rust but clippy is not
+CLOSED: [2026-03-27 Fri 09:14]
+*** ISSUE rustic-clippy & cargo-clippy not enabled as checkers rust-clippy is /listed/ as checker, where is it?
+** Solution was to run  +rustic-flycheck-setup+
+** linters stil flakey for rust but syntax hiliting and completeion at point working.
+* COMPLETED Cleaned up init.el on New and init.el.org - This is now the new 26MAR_FREEZE.init.el
 CLOSED: [2026-03-11 Wed 09:18]
+* COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
+CLOSED: [2026-03-27 Fri 08:35]
 * COMPLETED LISP. Using (ql:quickload "cl-project") then
 CLOSED: [2026-03-20 Fri 11:15]
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
@@ -95,25 +108,15 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* COMPLETED C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
-CLOSED: [2026-03-25 Wed 09:12]
-* ISSUE rustic-clippy & cargo-clippy not enabled as checkers rust-clippy is /listed/ as checker, where is it?
-CLOSED: [2026-03-25 Wed 13:28]
-* WAITING installed emacs 30.2 via snap on +Plucky+. Works but:
+* WAITING installed emacs 30.2 via snap  on +Plucky+. Works but:
 ** Had to remove all refs to treemacs and nerd-icons.
 ** other issues. Works for now w/ GUI and is in the Menu.
 ** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
 ** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
 ** installed 30.2 on Ducky via Homebrew. Check if native compile works.
 * WAITING Ducky is on emacs 28 so many packages don't work correctly.
-* WAITING Commented out; paredit, global-tree-sitter-mode Paredit probably not needed.
-** Is Paredit needed?
-*
+* WAITING  tree-sitter disabled.
 * WAITING Experiment more with dired.
-* NEXT Flycheck is global but;
-** org-lint is enabled for org files
-** lsp is enabled for Rust but clippy is not
-** many python linters are available but none are enabled.
 * Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
 ** dailies go in ~/project/org/roam/daily
