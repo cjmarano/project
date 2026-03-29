@@ -108,13 +108,19 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* WAITING installed emacs 30.2 via snap  on +Plucky+. Works but:
+* WAITING installed emacs 30.2 via snap  on +Plucky. (/snap/bin/emacs %F) Works but:
 ** Had to remove all refs to treemacs and nerd-icons.
 ** other issues. Works for now w/ GUI and is in the Menu.
 ** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
 ** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-** installed 30.2 on Ducky via Homebrew. Check if native compile works.
-* WAITING Ducky is on emacs 28 so many packages don't work correctly.
+* installed 30.2 on Ducky via Homebrew. Terminal only. Check if native compile works.
+** WAITING Ducky /usr/bin is on emacs 28 so many packages don't work correctly.
+** treemacs disabled. -- why?
+** showfonts removed -- don't care.
+** company and company-box -- need 30.2
+** global-flycheck mode -- again, probably due to emacs version.
+** _error_ -- dashboard complains about ansi.
+** _error_ -- slime-asdf complains about second.
 * WAITING  tree-sitter disabled.
 * WAITING Experiment more with dired.
 * Look at journal or org-roam for ability to step back in time to see changes.
