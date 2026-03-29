@@ -108,7 +108,8 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* WAITING installed emacs 30.2 via snap  on +Plucky. (/snap/bin/emacs %F) Works but:
+* NEXT installed emacs 30.2 via snap  on +Plucky. (/snap/bin/emacs %F) Works but:
+** recompiled init.el then changed some items causing warning. Good now w/ no warnings.
 ** Had to remove all refs to treemacs and nerd-icons.
 ** other issues. Works for now w/ GUI and is in the Menu.
 ** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
