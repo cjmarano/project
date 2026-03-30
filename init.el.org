@@ -607,24 +607,24 @@
 
 * Tree-sitter
 #+begin_src lisp
-(require 'tree-sitter)
-(require 'tree-sitter-langs)
-(add-hook 'rust-mode-hook #'tree-sitter-mode)
-(add-hook 'python-mode-hook #'tree-sitter-mode)
+  (require 'tree-sitter)
+  (require 'tree-sitter-langs)
+  (add-hook 'rust-mode-hook #'tree-sitter-mode)
+  (add-hook 'python-mode-hook #'tree-sitter-mode)
 
-;;   (global-tree-sitter-mode)
+  ;;   (global-tree-sitter-mode)
 
-;;   (use-package rust-mode
-;;     :init
-;;     (setq rust-mode-treesitter-derive t))
-;;   ;; or just for rust-mode
-;;   ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
-;;   ;; Load the language definition for Rust, if it hasn't been loaded.
-;;   ;; Return the language object.
-;;   (tree-sitter-require 'rust)
-;;   (tree-sitter-require 'python)
-;;   (global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+ (use-package rust-mode
+   :init
+ (setq rust-mode-treesitter-derive t))
+ ;; or just for rust-mode
+ ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+ ;; Load the language definition for Rust, if it hasn't been loaded.
+ ;; Return the language object.
+ (tree-sitter-require 'rust)
+ (tree-sitter-require 'python)
+ (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 #+end_src
 
 * Enable company-mode globally.
@@ -648,25 +648,26 @@
 
 * Lisp mode
 #+begin_src emacs-lisp
-(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-(add-to-list 'load-path "~/.emacs.d/elpa/slime-20260323.2010")
-;; (require 'slime-autoloads
-;; slime-setup
-;; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+  (add-to-list 'load-path "~/.emacs.d/elpa/slime-20260323.2010")
+  (load (expand-file-name "~/.quicklisp/slime-helper.el")
+  (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+  (require 'slime-autoloads)
+  (eval-after-load "slime" '(progn (slime-setup '(slime-fancy))))
 
- ;; Enable Paredit.
- ;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
- ;; (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
- ;; (add-hook 'ielm-mode-hook 'enable-paredit-mode)
- ;; (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
- ;; (add-hook 'lisp-mode-hook 'enable-paredit-mode)
- ;; (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
- ;; (require 'paredit)
 
-;; Enable Rainbow Delimiters.
-(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
+       ;; Enable Paredit.
+       ;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+       ;; (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
+       ;; (add-hook 'ielm-mode-hook 'enable-paredit-mode)
+       ;; (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+       ;; (add-hook 'lisp-mode-hook 'enable-paredit-mode)
+       ;; (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
+       ;; (require 'paredit)
+
+      ;; Enable Rainbow Delimiters.
+      (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+      (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
+      (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 
 
 #+end_src

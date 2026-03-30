@@ -1,6 +1,6 @@
 
 March.
-* _Start times ~ _3  on New,  and ~ 4 for Big,_
+* _Start times up on New to > _3  and ~ 4 for Big,_
 <<<<<<< HEAD
 * _>>>Data keeps getting corrupted in the project dir<<<_
 * Misc.
@@ -84,6 +84,10 @@ CLOSED: [2026-03-27 Fri 09:14]
 *** ISSUE rustic-clippy & cargo-clippy not enabled as checkers rust-clippy is /listed/ as checker, where is it?
 ** Solution was to run  +rustic-flycheck-setup+
 ** linters stil flakey for rust but syntax hiliting and completeion at point working.
+** COMPLETED Had to sync 3.org on New with Plucky version.
+CLOSED: [2026-03-30 Mon 08:56]
+** COMPLETED tree-sitter now enabled on New and Big and init.el.org .
+CLOSED: [2026-03-30 Mon 14:33]
 * COMPLETED Cleaned up init.el on New and init.el.org - This is now the new 26MAR_FREEZE.init.el
 CLOSED: [2026-03-11 Wed 09:18]
 * COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
@@ -108,23 +112,10 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* NEXT installed emacs 30.2 via snap  on +Plucky. (/snap/bin/emacs %F) Works but:
-** recompiled init.el then changed some items causing warning. Good now w/ no warnings.
-** Had to remove all refs to treemacs and nerd-icons.
-** other issues. Works for now w/ GUI and is in the Menu.
-** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
-** On +Plucky+ Native compile working on Big & New. Can't byte compile 30.2 on Plucky.
-* installed 30.2 on Ducky via Homebrew. Terminal only. Check if native compile works.
-** WAITING Ducky /usr/bin is on emacs 28 so many packages don't work correctly.
-** treemacs disabled. -- why?
-** showfonts removed -- don't care.
-** company and company-box -- need 30.2
-** global-flycheck mode -- again, probably due to emacs version.
-** _error_ -- dashboard complains about ansi.
-** _error_ -- slime-asdf complains about second.
-* WAITING  tree-sitter disabled.
+* COMPLETED Native compile working on Big & New.
+CLOSED: [2026-03-30 Mon 08:56]
 * WAITING Experiment more with dired.
-* Look at journal or org-roam for ability to step back in time to see changes.
+* WAITING Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
 ** dailies go in ~/project/org/roam/daily
 C-c n d n to capture a new note.
@@ -136,3 +127,26 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
+* NEXT installed emacs 30.2 on +Plucky+ via snap  . (/snap/bin/emacs %F) Works but:
+** recompiled init.el then changed some items causing warning. Good now w/ no warnings.
+** Had to remove all refs to treemacs and nerd-icons.
+** other issues. Works for now w/ GUI and is in the Menu.
+** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
+** Snap 30.2 on +Plucky+  Can't byte compile 30.2 on Plucky.
+* NEXT installed emacs 30.2 on +Ducky+ via Homebrew. Terminal only. Check if native compile works.
+** WAITING Ducky /usr/bin is on emacs 28 so many packages don't work correctly.
+** treemacs disabled. -- why?
+** showfonts removed -- don't care.
+** company and company-box -- need 30.2
+** global-flycheck mode -- again, probably due to emacs version.
+** _error_ -- dashboard complains about ansi.
+** _error_ -- slime-asdf complains about second.
+* Slime-helper is working on Big. Re-enabled it in init.el.org NOT working on New.
+** current slime setup on init.el on Big and init.el.org (commented out on New):
+
+ (add-to-list 'load-path "~/.emacs.d/elpa/slime-20260323.2010")
+  (load (expand-file-name "~/.quicklisp/slime-helper.el")
+  (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+  (require 'slime-autoloads)
+  (eval-after-load "slime" '(progn (slime-setup '(slime-fancy))))
+  
