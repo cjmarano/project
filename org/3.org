@@ -88,7 +88,24 @@ CLOSED: [2026-03-27 Fri 09:14]
 CLOSED: [2026-03-30 Mon 08:56]
 ** COMPLETED tree-sitter now enabled on New and Big and init.el.org .
 CLOSED: [2026-03-30 Mon 14:33]
-* COMPLETED Cleaned up init.el on New and init.el.org - This is now the new 26MAR_FREEZE.init.el
+** COMPLETED On New only (so far) ran profile-dotemacs.el - most time taken up by flycheck
+CLOSED: [2026-03-31 Tue 12:38]
+(which was loading EVERY language) and oddly erase-buffer. Removed a bunch of flycheck languages
+and ;; out erase-buffer and load time for init.el went from 3.3/3.9 6o 3.1
+** re-enabling flycheck-global-mode increased start time for init.el to 3.5/3.6 secs
+but flycheck now enabled in python and common-lisp buffers as well as rust.
+** Nothing to be done on Big or init.el.org since flycheck global wasn't changed there.
+** COMPLETED Slime-helper is working on Big and New after deleted/reinstalled Slime, slime-helperon New.
+CLOSED: [2026-03-31 Tue 10:56]
+** current slime setup on init.el on Big and init.el.org (commented out on New):
+
+ (add-to-list 'load-path "~/.emacs.d/elpa/slime-20260323.2010")
+  (load (expand-file-name "~/.quicklisp/slime-helper.el")
+  (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+  ;; (require 'slime-autoloads)
+  ;; (eval-after-load "slime" '(progn (slime-setup '(slime-fancy))))
+  
+* COMPLETED Cleaned up init.el on New and init.el.org - This is now the new +31MAR_FREEZE.init.el+
 CLOSED: [2026-03-11 Wed 09:18]
 * COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
 CLOSED: [2026-03-27 Fri 08:35]
@@ -112,8 +129,12 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* COMPLETED Native compile working on Big & New.
+* COMPLETED 31MAR On New and Big: no errors and native compile working.
+CLOSED: [2026-03-31 Tue 09:25]
+** COMPLETED Native compile working on Big & New.
 CLOSED: [2026-03-30 Mon 08:56]
+* COMPLETED sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: , quit (that's comma, quit).
+CLOSED: [2026-03-31 Tue 10:58]
 * WAITING Experiment more with dired.
 * WAITING Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
@@ -141,12 +162,3 @@ while org roam dailies go into sepearte files (even if created on same day) with
 ** global-flycheck mode -- again, probably due to emacs version.
 ** _error_ -- dashboard complains about ansi.
 ** _error_ -- slime-asdf complains about second.
-* Slime-helper is working on Big. Re-enabled it in init.el.org NOT working on New.
-** current slime setup on init.el on Big and init.el.org (commented out on New):
-
- (add-to-list 'load-path "~/.emacs.d/elpa/slime-20260323.2010")
-  (load (expand-file-name "~/.quicklisp/slime-helper.el")
-  (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-  (require 'slime-autoloads)
-  (eval-after-load "slime" '(progn (slime-setup '(slime-fancy))))
-  

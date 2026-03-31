@@ -1,13 +1,51 @@
-   0.051725083s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint: stale: changed "/Users/charles.marano/project/rust/hello_rust/src/main.rs"
-   0.051745167s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:           (vs) "/Users/charles.marano/project/rust/hello_rust/target/debug/.fingerprint/hello_rust-f25ee511f7092a9c/dep-bin-hello_rust"
-   0.051747875s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1774020429, nanos: 263354304 } < FileTime { seconds: 1774618776, nanos: 572238171 }
-   0.061268292s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint: fingerprint dirty for hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust)/Check { test: false }/TargetInner { name: "hello_rust", doc: true, ..: with_path("/Users/charles.marano/project/rust/hello_rust/src/main.rs", Edition2024) }
-   0.061276583s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/Users/charles.marano/project/rust/hello_rust/target/debug/.fingerprint/hello_rust-f25ee511f7092a9c/dep-bin-hello_rust", reference_mtime: FileTime { seconds: 1774020429, nanos: 263354304 }, stale: "/Users/charles.marano/project/rust/hello_rust/src/main.rs", stale_mtime: FileTime { seconds: 1774618776, nanos: 572238171 } }))
-   0.067147750s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint: stale: changed "/Users/charles.marano/project/rust/hello_rust/src/main.rs"
-   0.067151250s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:           (vs) "/Users/charles.marano/project/rust/hello_rust/target/debug/.fingerprint/hello_rust-69e028116df07005/dep-test-bin-hello_rust"
-   0.067153167s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1774020429, nanos: 263364470 } < FileTime { seconds: 1774618776, nanos: 572238171 }
-   0.073165750s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint: fingerprint dirty for hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust)/Check { test: true }/TargetInner { name: "hello_rust", doc: true, ..: with_path("/Users/charles.marano/project/rust/hello_rust/src/main.rs", Edition2024) }
-   0.073170958s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/Users/charles.marano/project/rust/hello_rust/target/debug/.fingerprint/hello_rust-69e028116df07005/dep-test-bin-hello_rust", reference_mtime: FileTime { seconds: 1774020429, nanos: 263364470 }, stale: "/Users/charles.marano/project/rust/hello_rust/src/main.rs", stale_mtime: FileTime { seconds: 1774618776, nanos: 572238171 } }))
+   0.072229458s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint: fingerprint error for hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust)/Check { test: false }/TargetInner { name: "hello_rust", doc: true, ..: with_path("/Users/charles.marano/project/rust/hello_rust/src/main.rs", Edition2024) }
+   0.072259375s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/charles.marano/project/rust/hello_rust/target/debug/.fingerprint/hello_rust-1f75880936a78f4a/bin-hello_rust`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   6: cargo::ops::cargo_compile::compile_ws
+   7: cargo::ops::cargo_compile::compile_with_exec
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::cli::main
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+   0.081413000s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint: fingerprint error for hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust)/Check { test: true }/TargetInner { name: "hello_rust", doc: true, ..: with_path("/Users/charles.marano/project/rust/hello_rust/src/main.rs", Edition2024) }
+   0.081421083s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/charles.marano/project/rust/hello_rust/target/debug/.fingerprint/hello_rust-519004ec0203d2aa/test-bin-hello_rust`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   6: cargo::ops::cargo_compile::compile_ws
+   7: cargo::ops::cargo_compile::compile_with_exec
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::cli::main
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
     Checking hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust)
 error: could not compile `hello_rust` (bin "hello_rust") due to 1 previous error; 1 warning emitted
 warning: build failed, waiting for other jobs to finish...

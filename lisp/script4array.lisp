@@ -1,4 +1,4 @@
-;;; #!/opt/homebrew/bin/sbcl
+#!/opt/homebrew/bin/sbcl
 (defvar my-array)
 (write (setf my-array (make-array '(10))))
 (terpri)
