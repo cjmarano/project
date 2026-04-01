@@ -1,4 +1,3 @@
-
 March.
 * _Start times up on New to > _3  and ~ 4 for Big,_
 <<<<<<< HEAD
@@ -105,8 +104,12 @@ CLOSED: [2026-03-31 Tue 10:56]
   ;; (require 'slime-autoloads)
   ;; (eval-after-load "slime" '(progn (slime-setup '(slime-fancy))))
   
-* COMPLETED Cleaned up init.el on New and init.el.org - This is now the new +31MAR_FREEZE.init.el+
+* COMPLETED Cleaned up init.el on New and init.el.org - Latest init is +01APR_FREEZE.init.el+
 CLOSED: [2026-03-11 Wed 09:18]
+** COMPLETED 31MAR On New and Big: no errors and native compile working.
+CLOSED: [2026-03-31 Tue 09:25]
+** COMPLETED Native compile working on Big & New.
+CLOSED: [2026-03-30 Mon 08:56]
 * COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
 CLOSED: [2026-03-27 Fri 08:35]
 * COMPLETED LISP. Using (ql:quickload "cl-project") then
@@ -129,10 +132,6 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* COMPLETED 31MAR On New and Big: no errors and native compile working.
-CLOSED: [2026-03-31 Tue 09:25]
-** COMPLETED Native compile working on Big & New.
-CLOSED: [2026-03-30 Mon 08:56]
 * COMPLETED sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: , quit (that's comma, quit).
 CLOSED: [2026-03-31 Tue 10:58]
 * WAITING Experiment more with dired.
@@ -162,3 +161,4 @@ while org roam dailies go into sepearte files (even if created on same day) with
 ** global-flycheck mode -- again, probably due to emacs version.
 ** _error_ -- dashboard complains about ansi.
 ** _error_ -- slime-asdf complains about second.
+* 

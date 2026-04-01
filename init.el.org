@@ -63,7 +63,7 @@
 * Basic setup
 
 #+begin_src emacs-lisp
-     (add-to-list 'default-frame-alist '(height . 60))
+     (add-to-list 'default-frame-alist '(height . 28))
      (add-to-list 'default-frame-alist '(width . 110))
 
      (server-start)
@@ -147,7 +147,7 @@
 
   (setq dashboard-show-shortcuts nil)
   (setq dashboard-center-contents nil)
-  (setq dashboard-banner-logo-title "New")
+  (setq dashboard-banner-logo-title "Change me")
   (setq dashboard-set-file-icons t)
   (setq dashboard-set-heading-icons t)
   (setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
@@ -178,8 +178,8 @@
 (use-package nerd-icons
   :ensure t)
 (setq doom-modeline-buffer-file-name-style 'file-name)
-(setq doom-modeline-buffer-encoding t)
-(setq doom-modeline-env-version t)
+;; (setq doom-modeline-buffer-encoding t)
+;; (setq doom-modeline-env-version t)
 (setq doom-modeline-env-enable-python t)
 (setq doom-modeline-env-enable-ruby t)
 (setq doom-modeline-env-enable-rust t)
@@ -473,13 +473,6 @@
    ;;  ;; This is needed as of Org 9.2
     (require 'org-tempo)
 
-  ;;  below is in Cutom section.
-  ;;  (add-to-list 'org-structure-template-alist '("l" . "src lispine"))
-  ;;  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
-  ;;  (add-to-list 'org-structure-template-alist '("py" . "src python")))
-  ;; (add-to-list 'org-structure-template-alist '("r" . "src ruby"))
-  ;; (add-to-list 'org-structure-template-alist '("s" . "src shell"))
-
   (let ((org-confirm-babel-evaluate nil)))
 #+end_src
 
@@ -648,26 +641,16 @@
 
 * Lisp mode
 #+begin_src emacs-lisp
-  (add-to-list 'load-path "~/.emacs.d/elpa/slime-20260323.2010")
+  (add-to-list 'load-path "~/.emacs.d/elpa/slime-20260329.2133")
   (load (expand-file-name "~/.quicklisp/slime-helper.el")
   (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
   (require 'slime-autoloads)
   (eval-after-load "slime" '(progn (slime-setup '(slime-fancy))))
 
-
-       ;; Enable Paredit.
-       ;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
-       ;; (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
-       ;; (add-hook 'ielm-mode-hook 'enable-paredit-mode)
-       ;; (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
-       ;; (add-hook 'lisp-mode-hook 'enable-paredit-mode)
-       ;; (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
-       ;; (require 'paredit)
-
-      ;; Enable Rainbow Delimiters.
-      (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
-      (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
-      (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
+  ;; Enable Rainbow Delimiters.
+  (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 
 
 #+end_src
@@ -718,7 +701,7 @@
      '(org-startup-folded 'fold)
      '(org-structure-template-alist
        '(("R" . "src rust") ("r" . "src ruby") ("L" . "src emacs-lisp")
-         ("l" . "src lisp") ("s" . "src")))
+         ("l" . "src lisp") ("p" . "src python") ("s" . "src")))
      '(org-tempo-keywords-alist nil)
      '(package-selected-packages
        '(0xc @ all-the-icons all-the-icons-nerd-fonts auto-compile
