@@ -61,4 +61,5 @@ while org roam dailies go into sepearte files (even if created on same day) with
 CLOSED: [2026-04-01 Wed 12:15]
 ** ISSUE -- slime-asdf complains about second.
 CLOSED: [2026-04-01 Wed 12:15]
-* 
+* Tried Prelude and it ruined emacs. Had to try to re-install packages that were deleted.
+** Org not formatting properly, had to comment out rainbow delimeters, LOTS of issues.
