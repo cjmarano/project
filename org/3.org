@@ -32,6 +32,10 @@ main.lisp looks like this:
    5 │ ;; blah blah blah.
 * COMPLETED sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: , quit (that's comma, quit).
 CLOSED: [2026-03-31 Tue 10:58]
+* DONE Tried Prelude and it ruined emacs. Had to Restore older Dirs.
+CLOSED: [2026-04-03 Fri 11:05]
+** Used Druva to restore to pre-Prelude state; .config, .cache, .emacs.d
+*** after restore things /seem/ to be back to normal. Will do more checking.
 * WAITING Experiment more with dired.
 * WAITING Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
@@ -61,5 +65,3 @@ while org roam dailies go into sepearte files (even if created on same day) with
 CLOSED: [2026-04-01 Wed 12:15]
 ** ISSUE -- slime-asdf complains about second.
 CLOSED: [2026-04-01 Wed 12:15]
-* Tried Prelude and it ruined emacs. Had to try to re-install packages that were deleted.
-** Org not formatting properly, had to comment out rainbow delimeters, LOTS of issues.
