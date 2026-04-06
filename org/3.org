@@ -49,19 +49,22 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
+* NEXT Tried to change background for Sanity Tomorrow Eighties
+** Changed background from 2d2d2d to 212c31 but did not seem to change.
+***** possibly uing older file (byte compiled or elc?
 * NEXT installed emacs 30.2 on +Plucky+ via snap  . (/snap/bin/emacs %F) Works but:
 ** recompiled init.el then changed some items causing warning. Good now w/ no warnings.
 ** Had to remove all refs to treemacs and nerd-icons.
 ** other issues. Works for now w/ GUI and is in the Menu.
 ** Note: /usr/local/bin//emacs-30.2 throws treesit error. The snap verson /snap/bin/emacs %F doesn't.
 ** Snap 30.2 on +Plucky+  Can't byte compile 30.2 on Plucky.
+*** is this the same libgccjit error I'm seeing on Ducky?
 * NEXT installed emacs 30.2 on +Ducky+ via Homebrew. Terminal only. Check if native compile works.
-** WAITING Ducky /usr/bin is on emacs 28 so many packages don't work correctly.
+** WAITING Ducky /usr/bin is on emacs 28 so many packages don't work correctly. <-- see next line.
+** homebrew install of 30.2. worked but only in terminal mode, not in GUI.
 ** treemacs disabled. -- why?
 ** showfonts removed -- don't care.
 ** company and company-box -- need 30.2
 ** global-flycheck mode -- again, probably due to emacs version.
-** ISSUE  -- dashboard complains about ansi.
-CLOSED: [2026-04-01 Wed 12:15]
-** ISSUE -- slime-asdf complains about second.
-CLOSED: [2026-04-01 Wed 12:15]
+** native compile does NOT work on Ducky. Missing libgccjit.
+
