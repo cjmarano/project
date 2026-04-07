@@ -1,5 +1,5 @@
 April.
-* _Start times up on New to > _3  and ~ 4 for Big,_
+* _Start times up on New to ~ 3.2  and ~ 4 for Big,_
 <<<<<<< HEAD
 * _>>>Data keeps getting corrupted in the project dir<<<_
 * COMPLETED Cleaned up init.el on New and init.el.org - Latest init is +01APR_FREEZE.init.el+
@@ -36,6 +36,9 @@ CLOSED: [2026-03-31 Tue 10:58]
 CLOSED: [2026-04-03 Fri 11:05]
 ** Used Druva to restore to pre-Prelude state; .config, .cache, .emacs.d
 *** after restore things /seem/ to be back to normal. Will do more checking.
+* COMPLETED Changed Consult-denote-find from C-c n f (Which is org-raom-find) to C-d d.
+CLOSED: [2026-04-07 Tue 10:35]
+
 * WAITING Experiment more with dired.
 * WAITING Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
@@ -67,4 +70,3 @@ while org roam dailies go into sepearte files (even if created on same day) with
 ** company and company-box -- need 30.2
 ** global-flycheck mode -- again, probably due to emacs version.
 ** native compile does NOT work on Ducky. Missing libgccjit.
-
