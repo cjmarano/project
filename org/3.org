@@ -39,6 +39,8 @@ CLOSED: [2026-04-03 Fri 11:05]
 * COMPLETED Changed Consult-denote-find from C-c n f (Which is org-raom-find) to C-d d.
 CLOSED: [2026-04-07 Tue 10:35]
 
+* ISSUE List-colors-display on New shows only some colors and appears to overwrite items.
+CLOSED: [2026-04-07 Tue 14:00]
 * WAITING Experiment more with dired.
 * WAITING Look at journal or org-roam for ability to step back in time to see changes.
 ** Testing org roam daily.
