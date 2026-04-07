@@ -52,6 +52,7 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
+* NEXT Created ~/.configure/git/ignore file and added .DS_store to it to fix git asking to add that file as tracked.
 * NEXT Tried to change background for Sanity Tomorrow Eighties
 ** Changed background from 2d2d2d to 212c31 but did not seem to change.
 ***** possibly uing older file (byte compiled or elc?
