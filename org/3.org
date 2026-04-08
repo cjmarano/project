@@ -2,14 +2,19 @@ April.
 * _Start times up on New to ~ 3.2  and ~ 4 for Big,_
 <<<<<<< HEAD
 * _>>>Data keeps getting corrupted in the project dir<<<_
+* misc
+** DONE Tried Prelude and it ruined emacs. Had to Restore older Dirs.
+CLOSED: [2026-04-03 Fri 11:05]
+** Used Druva to restore to pre-Prelude state; .config, .cache, .emacs.d
+*** after restore things /seem/ to be back to normal. Will do more checking.
+** COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
+CLOSED: [2026-03-27 Fri 08:35]
 * COMPLETED Cleaned up init.el on New and init.el.org - Latest init is +01APR_FREEZE.init.el+
 CLOSED: [2026-03-11 Wed 09:18]
 ** COMPLETED 31MAR On New and Big: no errors and native compile working.
 CLOSED: [2026-03-31 Tue 09:25]
 ** COMPLETED Native compile working on Big & New.
 CLOSED: [2026-03-30 Mon 08:56]
-* COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
-CLOSED: [2026-03-27 Fri 08:35]
 * COMPLETED LISP. Using (ql:quickload "cl-project") then
 CLOSED: [2026-03-20 Fri 11:15]
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
@@ -32,10 +37,6 @@ main.lisp looks like this:
    5 │ ;; blah blah blah.
 * COMPLETED sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: , quit (that's comma, quit).
 CLOSED: [2026-03-31 Tue 10:58]
-* DONE Tried Prelude and it ruined emacs. Had to Restore older Dirs.
-CLOSED: [2026-04-03 Fri 11:05]
-** Used Druva to restore to pre-Prelude state; .config, .cache, .emacs.d
-*** after restore things /seem/ to be back to normal. Will do more checking.
 * COMPLETED Changed Consult-denote-find from C-c n f (Which is org-raom-find) to C-d d.
 CLOSED: [2026-04-07 Tue 10:35]
 
