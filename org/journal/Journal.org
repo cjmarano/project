@@ -75,3 +75,15 @@ Entered on [2026-02-12 Thu 08:44]
 Entered on [2026-03-16 Mon 10:30]
   
   [[file:~/project/org/3.org::*LISP. Using (ql:quickload "cl-project") then][LISP. Using (ql:quickload "cl-project") then]]
+** 2026-04 April
+*** 2026-04-09 Thursday
+**** This is C-c c then j org-capture journal
+this is some text
+here's some more
+* a Headline.
+** a subhead
+*** sub-sub heading
+**** now we're on level 4.
+Entered on [2026-04-09 Thu 09:34]
+  
+  [[file:~/project/org/3.org::*native compile does NOT work on Ducky. Missing libgccjit.][native compile does NOT work on Ducky. Missing libgccjit.]]

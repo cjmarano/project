@@ -9,6 +9,9 @@ CLOSED: [2026-04-03 Fri 11:05]
 *** after restore things /seem/ to be back to normal. Will do more checking.
 ** COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
 CLOSED: [2026-03-27 Fri 08:35]
+** COMPLETED Made .gitignore file in ~/project. Added .DS_Store. Did not fix issue. git clean -f did.
+CLOSED: [2026-04-09 Thu 09:23]
+** Created ~/.configure/git/ignore file and added .DS_store to it to fix git asking to add that file as tracked.
 * COMPLETED Cleaned up init.el on New and init.el.org - Latest init is +01APR_FREEZE.init.el+
 CLOSED: [2026-03-11 Wed 09:18]
 ** COMPLETED 31MAR On New and Big: no errors and native compile working.
@@ -37,10 +40,13 @@ main.lisp looks like this:
    5 │ ;; blah blah blah.
 * COMPLETED sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: , quit (that's comma, quit).
 CLOSED: [2026-03-31 Tue 10:58]
-* COMPLETED Changed Consult-denote-find from C-c n f (Which is org-raom-find) to C-d d.
+* COMPLETED Changed Consult-denote-find from C-c n f (Which is org-raom-find) to C-c d.
 CLOSED: [2026-04-07 Tue 10:35]
 
-* ISSUE List-colors-display on New shows only some colors and appears to overwrite items.
+* WAITING Tried to change background for Sanity Tomorrow Eighties
+** Changed background from 2d2d2d to 212c31 but did not seem to change.
+***** possibly uing older file (byte compiled or elc?
+** ISSUE List-colors-display on New shows only some colors and appears to overwrite items.
 CLOSED: [2026-04-07 Tue 14:00]
 * WAITING Experiment more with dired.
 * WAITING Look at journal or org-roam for ability to step back in time to see changes.
@@ -55,10 +61,6 @@ C-c n f to see list of all notes.
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
 ** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
-* NEXT Created ~/.configure/git/ignore file and added .DS_store to it to fix git asking to add that file as tracked.
-* NEXT Tried to change background for Sanity Tomorrow Eighties
-** Changed background from 2d2d2d to 212c31 but did not seem to change.
-***** possibly uing older file (byte compiled or elc?
 * NEXT installed emacs 30.2 on +Plucky+ via snap  . (/snap/bin/emacs %F) Works but:
 ** recompiled init.el then changed some items causing warning. Good now w/ no warnings.
 ** Had to remove all refs to treemacs and nerd-icons.

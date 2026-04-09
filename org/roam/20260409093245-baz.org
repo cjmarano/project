@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       72DE22AA-60CB-42CA-BC9D-10E01AB81A7E
+:END:
+#+title: baz
+This is a test of C-c n i  which is org-roam-node-insert.

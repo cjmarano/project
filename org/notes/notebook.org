@@ -127,6 +127,8 @@ C-r search command history
 M-c chage current directory
 * git
 M-x git-status (or C-x g)
+in terminal - git clean -f to remove 'ghost' files.
+also see git update-index
 * Grep
 grep default
 grep --color-auto -nH --null -e' + "pattern"
