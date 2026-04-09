@@ -1,0 +1,6 @@
+#+title:      Zettelkasten
+#+date:       [2026-04-09 Thu 12:13]
+#+filetags:   :general:
+#+identifier: 20260409T121331
+
+Added some items from Youtube to New's init file - Denote keystroke bindings.

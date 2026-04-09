@@ -76,3 +76,40 @@ while org roam dailies go into sepearte files (even if created on same day) with
 ** company and company-box -- need 30.2
 ** global-flycheck mode -- again, probably due to emacs version.
 ** native compile does NOT work on Ducky. Missing libgccjit.
+* Journaling
+** denote produces seperate files. Files have date in filename.
+** org-roam can do links and back links. Uses SQL database. Seperate notes.
+** org-roam-dailies creates seperate files for each _day_ but can have multiple entries under each day.
+** org-capture then journal puts everything into one file.
+** links between notes in org-roam work. This is zettelkasten.
+** Org-roam IDs and Denote 
+*  Added some items from Youtube to New's init file - Denote keystroke bindings.
+(use-package denote
+  :ensure t
+  :hook (dired-mode . denote-dired-mode)
+  :bind
+  (("C-c n n" . denote)
+   ("C-c n r" . denote-rename-file)
+   ("C-c n l" . denote-link)
+   ("C-c n c" . denote-link-after-creating)
+   ("C-c n b" . denote-backlinks)
+   ("C-c n d" . denote-dired)
+   ("C-c n g" . denote-grep))
+  :config
+(setq denote-directory (expand-file-name "~/project/org/notes/"))
+(setq denotes-known-keywords '("emacs" "init" "general" "shell"))
+(setq denote-file-type nil))
+(keymap-global-set "s-b" 'denote)
+
+(setq completion-styles '(substring basic))
+
+WAS:
+
+(setq denote-directory (expand-file-name "~/project/org/notes/"))
+(setq denotes-known-keywords '("emacs" "init" "general" "shell"))
+(setq denote-file-type nil)
+(add-hook 'dired-mode-hook #'denote-dired-mode)
+(keymap-global-set "s-b" 'denote)
+
+(setq completion-styles '(substring basic))
+** The config stuff I took from the Interwebs had C-c n n for Demote I already had Super-b so I'll use that.
