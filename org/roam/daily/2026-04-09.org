@@ -3,3 +3,4 @@
 :END:
 #+title: 2026-04-09
 * This is a new daily note on Thursday.
+* This is an org-roam daily.
