@@ -1,6 +1,0 @@
-#+title:      Testing Denote again.
-#+date:       [2026-03-16 Mon 10:32]
-#+filetags:   :general:
-#+identifier: 20260316T103207
-
-Testing Denote, again on Monday.

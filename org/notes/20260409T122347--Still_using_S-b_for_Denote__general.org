@@ -1,0 +1,6 @@
+#+title:      Still using S-b for Denote
+#+date:       [2026-04-09 Thu 12:23]
+#+filetags:   :general:
+#+identifier: 20260409T122347
+
+The config stuff I took from the Interwebs had C-c n n for Demote I already had Super-b so I'll use that.

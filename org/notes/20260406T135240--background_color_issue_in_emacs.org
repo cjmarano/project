@@ -1,0 +1,9 @@
+#+title:      Background color issue in emacs.
+#+date:       [2026-04-06 Mon 13:52]
+#+filetags:   :emacs:
+#+identifier: 20260406T135240
+
+Couldn't change background color of Sanity Tomorrow Eighties. Altered .el file but emacs isn't using it.
+Tried byte compiling it, no different.
+
+Otherwise init.el on New working as intended.

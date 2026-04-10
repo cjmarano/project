@@ -1,0 +1,6 @@
+#+title:      Notes on register vs. Bookmarks.
+#+date:       [2025-04-17 Thu 14:06]
+#+filetags:   :emacs:
+#+identifier: 20250417T140628
+
+Registers are not saved between sessions, even though resister added to savehist additional items.
