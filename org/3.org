@@ -115,4 +115,5 @@ while org roam dailies go into sepearte files (even if created on same day) with
 ** links between notes in org-roam work. This is zettelkasten.
 ** Org-roam IDs and Denote timestamps are almost the same but not interchnageable.
 ** by default Denote notes have tags.  org-roam files do not.
+** _denote_ seems to be closest to zettelkasten methods due to tags.
 * 

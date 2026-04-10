@@ -1,0 +1,15 @@
+* Journaling
+** denote produces seperate files. Files have date in filename.
+** org-roam can do links and back links. Uses SQL database. Seperate notes.
+** org-roam-dailies creates seperate files for each _day_ but can have multiple entries under each day.
+** org-capture then journal puts everything into one file.
+** links between notes in org-roam work. This is zettelkasten.
+** Org-roam IDs and Denote timestamps are almost the same but not interchnageable.
+** by default Denote notes have tags.  org-roam files do not.
+** _denote_ seems to be closest to zettelkasten methods due to tags.
+* Date top left. If day's note go to anothre page then date top right. Hilite or Emphasize date.
+** Number every page as Right page gets number, left page gets numbe and 'a' ex. 93a
+*** this tells you at a glance whether linked info is on the left or right.
+* Index/TOC at front. Most iems are atomic and should go into emacsor are cheat sheets and /may/ get printed and pasted into journal.
+* Will start using Denote in zettelkasten manner. Deleted test notes, renamed useful notes.
+** Userful note titles important. Also need to decide on keywords.
