@@ -41,7 +41,7 @@
 
 (use-package no-littering)
 
-(require 'no-littering)
+;; (require 'no-littering)
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
@@ -145,7 +145,7 @@
 :config
 (dashboard-setup-startup-hook))
 
-(require 'doom-modeline)
+(use-package 'doom-modeline)
 (doom-modeline-mode 1)
 (use-package nerd-icons
   :ensure t)
@@ -168,7 +168,7 @@
 ;; expression matching any character between words you give it.
 (setq search-whitespace-regexp ".*?")
 
-(require 'nerd-icons-completion)
+(use-package 'nerd-icons-completion)
 (nerd-icons-completion-mode)
 
 (use-package nerd-icons-completion
@@ -455,10 +455,10 @@
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))
 
-(require 'flymake-ruff)
+(use-package 'flymake-ruff)
 (add-hook 'python-mode-hook #'flymake-ruff-load)
 
-(require 'ruff-format)
+(use-package 'ruff-format)
 (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
 
 (add-hook 'rust-mode-hook
@@ -545,8 +545,8 @@ no longer be necessary."
 (lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
-(require 'tree-sitter)
-(require 'tree-sitter-langs)
+(use-package 'tree-sitter)
+;; (require 'tree-sitter-langs)
 (add-hook 'rust-mode-hook #'tree-sitter-mode)
 (add-hook 'python-mode-hook #'tree-sitter-mode)
 
@@ -662,8 +662,8 @@ no longer be necessary."
               nerd-icons-dired no-littering ob-rust orderless
               org-bullets org-roam paredit pyvenv rainbow-delimiters
               ruff-format rustic show-font slime smartparens toml-mode
-              track-changes tree-sitter-langs treemacs
-              treemacs-nerd-icons use-package vertico vterm which-key))
+              track-changes treemacstreemacs-nerd-icons use-package
+              vertico vterm which-key))
  '(savehist-additional-variables '(kill-ring register-alist\ ) t)
  '(sort-fold-case t)
  '(warning-suppress-log-types '((use-package))))
