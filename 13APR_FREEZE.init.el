@@ -425,13 +425,6 @@
 
 (require 'org-tempo)
 
-;; Below is in custom section.
-;; (add-to-list 'org-structure-template-alist '("l" . "src emacs-lisp"))
-;; (add-to-list 'org-structure-template-alist '("L" . "src lisp"))
-;; (add-to-list 'org-structure-template-alist '("p" . "src python"))
-;; (add-to-list 'org-structure-template-alist '("r" . "src ruby"))
-;; (add-to-list 'org-structure-template-alist '("s" . "src shell"))
-
 (let ((org-confirm-babel-evaluate nil)))
 
 (use-package eglot
@@ -495,11 +488,11 @@
 (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
 (defun rk/rustic-mode-hook ()
-"Yoou can run C-c C-c C-r without having to confirm.  Don't try to
-save rust buffers that are not file visiting.  Once
-https://github.com/brotzeit/rustic/issues/253 has
-been resolved this should
-no longer be necessary."
+;; You can run C-c C-c C-r without having to confirm.  Don't try to
+;; save rust buffers that are not file visiting.  Once
+;; https://github.com/brotzeit/rustic/issues/253 has
+;; been resolved this should
+;; no longer be necessary.
 (when buffer-file-name
   (setq-local buffer-save-without-query t))
 (add-hook 'before-save-hook 'lsp-format-buffer nil t))
@@ -549,19 +542,18 @@ no longer be necessary."
 ;; (require 'tree-sitter-langs)
 (add-hook 'rust-mode-hook #'tree-sitter-mode)
 (add-hook 'python-mode-hook #'tree-sitter-mode)
-
 ;; (global-tree-sitter-mode)
 
-;; (use-package rust-mode
-;;   :init
-;;   (setq rust-mode-treesitter-derive t))
-;; ;; or just for rust-mode
-;; ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
-;; ;; Load the language definition for Rust, if it hasn't been loaded.
-;; ;; Return the language object.
-;; (tree-sitter-require 'rust)
-;; (tree-sitter-require 'python)
-;; (global-tree-sitter-mode)
+(use-package rust-mode
+  :init
+  (setq rust-mode-treesitter-derive t))
+;; or just for rust-mode
+;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+;; Load the language definition for Rust, if it hasn't been loaded.
+;; Return the language object.
+(tree-sitter-require 'rust)
+(tree-sitter-require 'python)
+(global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
 (add-hook 'after-init-hook 'global-company-mode)
@@ -580,11 +572,12 @@ no longer be necessary."
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
-(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+;; -----------Current Lisp Section ---------------------------------
 (add-to-list 'load-path "~/.emacs.d/elpa/slime-20260329.2133")
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
-;; (require 'slime-autoloads
-;; (slime-setup)
+(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+(require 'slime-autoloads)
+(eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
 
 ;; ;; Enable Paredit.
 ;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
@@ -628,20 +621,9 @@ no longer be necessary."
      "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
      default))
  '(denote-known-keywords '("emacs" "init" "general" "testing"))
- '(flycheck-checkers
-   '(lsp c/c++-clang c/c++-gcc c/c++-cppcheck emacs-lisp
-         emacs-lisp-checkdoc json-python-json json-jq
-         markdown-markdownlint-cli markdown-markdownlint-cli2
-         markdown-mdl markdown-pymarkdown org-lint python-flake8
-         python-ruff python-pylint python-pycompile python-pyright
-         python-mypy ruby-rubocop ruby-chef-cookstyle ruby-standard
-         ruby-reek ruby rust-cargo rust rust-clippy rustic-clippy
-         sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck
-         texinfo textlint yaml-actionlint yaml-jsyaml yaml-yamllint))
  '(flycheck-python-flake8-executable "python3")
  '(flycheck-python-pycompile-executable "python3")
  '(flycheck-python-pylint-executable "python3")
- '(list-colors-sort nil)
  '(org-agenda-files '("~/project/org/3.org"))
  '(org-faces-easy-properties
    '((todo . :background) (tag . :foreground) (priority . :foreground)))
@@ -649,7 +631,7 @@ no longer be necessary."
  '(org-startup-folded 'fold)
  '(org-structure-template-alist
    '(("R" . "src rust") ("r" . "src ruby") ("L" . "src emacs-lisp")
-     ("l" . "src lisp") ("s" . "src")))
+     ("l" . "src lisp") ("p" . "src python") ("s" . "src")))
  '(org-tempo-keywords-alist nil)
  '(package-selected-packages
    '(0blayout 0xc @ all-the-icons-nerd-fonts auto-compile bind-key cargo
@@ -684,7 +666,4 @@ no longer be necessary."
 (setq gc-cons-percentage 0.5)
 
 (provide 'init)
-
-;; erase the whole buffer when shell command complete.
-;; (put 'erase-buffer 'disabled nil)
 ;;; init.el ends here
