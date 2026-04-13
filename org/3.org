@@ -38,7 +38,7 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* COMPLETED sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: , quit (that's comma, quit).
+* COMPLETED sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: do comma- quit).
 CLOSED: [2026-03-31 Tue 10:58]
 * COMPLETED Changed Consult-denote-find from C-c n f (Which is org-raom-find) to C-c d.
 CLOSED: [2026-04-07 Tue 10:35]
@@ -107,13 +107,4 @@ while org roam dailies go into sepearte files (even if created on same day) with
 ** company and company-box -- need 30.2
 ** global-flycheck mode -- again, probably due to emacs version.
 ** native compile does NOT work on Ducky. Missing libgccjit.
-* Journaling
-** denote produces seperate files. Files have date in filename.
-** org-roam can do links and back links. Uses SQL database. Seperate notes.
-** org-roam-dailies creates seperate files for each _day_ but can have multiple entries under each day.
-** org-capture then journal puts everything into one file.
-** links between notes in org-roam work. This is zettelkasten.
-** Org-roam IDs and Denote timestamps are almost the same but not interchnageable.
-** by default Denote notes have tags.  org-roam files do not.
-** _denote_ seems to be closest to zettelkasten methods due to tags.
 * 
