@@ -1,0 +1,9 @@
+#+title:      Decided to use denote for Zettelkasten.
+#+date:       [2026-04-14 Tue 10:46]
+#+filetags:   :general: :journal:
+#+identifier: 20260414T104612
+
+Going to use Denote for Zettlekasten.
+Not sure is also using journal would have any benefit.
+Have to try searching Denote notes.
+Is journal dependent on org-roam?

@@ -204,56 +204,67 @@
 * misc packages
 ** added 25AUG2023 to solve image type issue ---------------
 #+begin_src emacs-lisp
-   (require 'nerd-icons-completion)
-   (nerd-icons-completion-mode)
+     (require 'nerd-icons-completion)
+     (nerd-icons-completion-mode)
 
-   (use-package nerd-icons-completion
-     :config)
+     (use-package nerd-icons-completion
+       :config)
+       
+     (use-package show-font
+       :ensure t
+       :bind
+       (("C-c s f" . show-font-select-preview)
+        ("C-c s t" . show-font-tabulated)))
+
+     (use-package orderless
+       :ensure t
+       :custom
+       (completion-styles '(orderless basic))
+       (completion-category-overrides '((file (styles  basic partial-completion)))))
+
+     (use-package magit
+        :defer t 
+        :commands magit-status
+        :custom
+        (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+        (keymap-global-set "C-x g" 'magit-status) 
+
+     (use-package which-key
+       :defer 0
+       :diminish which-key-mode
+       :config
+       (which-key-mode)
+       (setq which-key-idle-delay .9))
+
+     (use-package vterm
+       :defer t 
+       :ensure t)
+
+     (use-package vertico
+        :init
+        (vertico-mode))
+
+     (use-package nerd-icons-dired
+        :hook (dired-mode . nerd-icons-dired-mode))
+
+  (use-package denote
+  :ensure t
+  :hook (dired-mode . denote-dired-mode)
+  :bind
+  (("C-c n r" . denote-rename-file)
+   ("C-c n l" . denote-link)
+   ("C-c n c" . denote-link-after-creating)
+   ("C-c n b" . denote-backlinks)
+    )
+  :config
+  (setq denote-directory (expand-file-name "~/project/org/notes/"))
+  (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
+  (setq denote-file-type nil)
+  (add-hook 'dired-mode-hook #'denote-dired-mode)
+  (keymap-global-set "s-b" 'denote))
+
+  (setq completion-styles '(substring basic))
      
-   (use-package show-font
-     :ensure t
-     :bind
-     (("C-c s f" . show-font-select-preview)
-      ("C-c s t" . show-font-tabulated)))
-
-   (use-package orderless
-     :ensure t
-     :custom
-     (completion-styles '(orderless basic))
-     (completion-category-overrides '((file (styles  basic partial-completion)))))
-
-   (use-package magit
-      :defer t 
-      :commands magit-status
-      :custom
-      (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-      (keymap-global-set "C-x g" 'magit-status) 
-
-   (use-package which-key
-     :defer 0
-     :diminish which-key-mode
-     :config
-     (which-key-mode)
-     (setq which-key-idle-delay .9))
-
-   (use-package vterm
-     :defer t 
-     :ensure t)
-
-   (use-package vertico
-      :init
-      (vertico-mode))
-
-   (use-package nerd-icons-dired
-      :hook (dired-mode . nerd-icons-dired-mode))
-
-   (setq denote-directory (expand-file-name "~/project/org/notes/"))
-   (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
-   (setq denote-file-type nil)
-   (add-hook 'dired-mode-hook #'denote-dired-mode)
-   (keymap-global-set "s-b" 'denote)
-
-   (setq completion-styles '(substring basic))
 #+end_src
 
 * Consult

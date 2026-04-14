@@ -3,39 +3,44 @@ April.
 <<<<<<< HEAD
 * _>>>Data keeps getting corrupted in the project dir<<<_
 * misc
-** DONE Tried Prelude and it ruined emacs. Had to Restore older Dirs.
-CLOSED: [2026-04-03 Fri 11:05]
-** Used Druva to restore to pre-Prelude state; .config, .cache, .emacs.d
+** COMPLETED Tried Prelude and it ruined emacs. Had to Restore older Dirs.
+CLOSED: [2026-04-14 Tue 10:03]
+*** Used Druva to restore to pre-Prelude state; .config, .cache, .emacs.d
 *** after restore things /seem/ to be back to normal. Will do more checking.
 ** COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
 CLOSED: [2026-03-27 Fri 08:35]
 ** COMPLETED Made .gitignore file in ~/project. Added .DS_Store. Did not fix issue. git clean -f did.
 CLOSED: [2026-04-09 Thu 09:23]
-** Created ~/.configure/git/ignore file and added .DS_store to it to fix git asking to add that file as tracked.
-** ISSUE Tried to change background for Sanity Tomorrow Eighties
-CLOSED: [2026-04-13 Mon 09:40]
-** Changed background from 2d2d2d to 212c31 but did not seem to change.
-***** possibly uing older file (byte compiled or elc?
-** ISSUE List-colors-display on New shows only some colors and appears to overwrite items.
+** COMPLETED Testing org roam daily.
+CLOSED: [2026-04-14 Tue 10:01]
+** DONE Created ~/.configure/git/ignore file and added .DS_store to it to fix git asking to add that file as tracked.
+CLOSED: [2026-04-14 Tue 10:02]
+** DONE List-colors-display on New shows only some colors and appears to overwrite items.
+CLOSED: [2026-04-14 Tue 10:02]
+*** Re-install of emacs for mac resolved issue (More file corruption?)
 CLOSED: [2026-04-07 Tue 14:00]
+** ISSUE Changed background from 2d2d2d to 212c31 but did not seem to change.
+CLOSED: [2026-04-14 Tue 10:01]
+***** possibly uing older file (byte compiled or elc?
+*** ISSUE Tried to change background for Sanity Tomorrow Eighties
+CLOSED: [2026-04-13 Mon 09:40]
 ** COMPLETED Look at journal or org-roam for ability to step back in time to see changes.
 CLOSED: [2026-04-13 Mon 09:41]
-** Testing org roam daily.
-** dailies go in ~/project/org/roam/daily
+*** dailies go in ~/project/org/roam/daily
 C-c n d n to capture a new note.
 C-c n i to insert link to another note.
 C-c n d d to see Today's notes.
 C-c n f to see list of all notes.
-** C-c c then j for  journal (and not C-c j) C-c a does open agenda.
-** Org journal entries all go into the same file --> journal.org
+*** C-c c then j for  journal (and not C-c j) C-c a does open agenda.
+*** Org journal entries all go into the same file --> journal.org
 while org roam dailies go into sepearte files (even if created on same day) with leading date.
 *** how are org roam dailies and denote notes different?
-** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
+*** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
 ** COMPLETED 0blayout threw error - no autoload. Not sure we it's even installed. Re-install fixed.
 CLOSED: [2026-04-13 Mon 09:50]
 ** COMPLETED Commenting out ln 549 Load-treesitter-langs did NOT affect LSP. Language loads when a file needs it.
 CLOSED: [2026-04-13 Mon 12:45]
-* COMPLETED Cleaned up init.el on New and init.el.org - Latest init is +01APR_FREEZE.init.el+
+* COMPLETED Cleaned up init.el on New and init.el.org - Latest init is +13APR_New_FREEZE.init.el+
 CLOSED: [2026-03-11 Wed 09:18]
 ** COMPLETED 31MAR On New and Big: no errors and native compile working.
 CLOSED: [2026-03-31 Tue 09:25]
@@ -72,13 +77,11 @@ CLOSED: [2026-04-09 Thu 12:46]
   :ensure t
   :hook (dired-mode . denote-dired-mode)
   :bind
-  (("C-c n n" . denote)
-   ("C-c n r" . denote-rename-file)
+  (("C-c n r" . denote-rename-file) 
    ("C-c n l" . denote-link)
-   ("C-c n c" . denote-link-after-creating)
-   ("C-c n b" . denote-backlinks)
-   ("C-c n d" . denote-dired)
-   ("C-c n g" . denote-grep))
+   ("C-c n c" . denote-link-after-creating) 
+   ("C-c n b" . denote-backlinks) 
+   )
   :config
 (setq denote-directory (expand-file-name "~/project/org/notes/"))
 (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
@@ -101,6 +104,8 @@ WAS:
 CLOSED: [2026-04-13 Mon 13:17]
 ** use-package infers :defer t so package does not load immediately.
 ** Note: did NOT change require statements that looked like part of fuctions (not sepearte on own line).
+* COMPLETED Modified init.el on New for Denote keystrokes. Some bound to org-roam. Didn't change that.
+CLOSED: [2026-04-14 Tue 11:21]
 * WAITING Experiment more with dired.
 * WAITING Homogulated init.el from New on Big and tried it on New - longer load times. See why.
 * NEXT installed emacs 30.2 on +Plucky+ via snap  . (/snap/bin/emacs %F) Works but:
