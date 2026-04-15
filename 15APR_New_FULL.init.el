@@ -217,18 +217,19 @@
   :ensure t
   :hook (dired-mode . denote-dired-mode)
   :bind
-  (("C-c n r" . denote-rename-file)
-   ("C-c n l" . denote-link)
-   ("C-c n c" . denote-link-after-creating)
-   ("C-c n b" . denote-backlinks)
-    )
+  ;; (("C-c n r" . denote-rename-file)
+  ;;  ("C-c n l" . denote-link)
+  ;;  ("C-c n c" . denote-link-after-creating)
+  ;;  ("C-c n b" . denote-backlinks)
+  ;;   )
   :config
 (setq denote-directory (expand-file-name "~/project/org/notes/"))
 (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
-(setq denote-file-type nil)
-(keymap-global-set "s-b" 'denote))
-
 (setq completion-styles '(substring basic))
+(setq denote-file-type nil))
+(keymap-global-set "s-b" 'denote)
+
+
 
 (use-package consult
 ;; Replace bindings. Lazily loaded due by `use-package'.
