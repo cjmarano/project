@@ -112,6 +112,7 @@ CLOSED: [2026-04-15 Wed 10:56]
 CLOSED: [2026-04-15 Wed 10:54]
 ** WAITING Homogulated init.el from New on Big and tried it on New - longer load times. See why.
 * WAITING Experiment more with dired.
+* WAITING Experiment with UV mode.
 * NEXT installed emacs 30.2 on +Plucky+ via snap  . (/snap/bin/emacs %F) Works but:
 ** Snap 30.2 on +Plucky+  Can't byte compile 30.2 on Plucky.
 *** is this the same libgccjit error I'm seeing on Ducky?
