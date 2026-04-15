@@ -1,0 +1,16 @@
+#+title:      Commnented out some Denote keys
+#+date:       [2026-04-15 Wed 10:31]
+#+filetags:   :init:
+#+identifier: 20260415T103109
+
+commented out:
+
+;; (("C-c n r" . denote-rename-file)
+  ;;  ("C-c n l" . denote-link)
+  ;;  ("C-c n c" . denote-link-after-creating)
+  ;;  ("C-c n b" . denote-backlinks)
+  ;;   )
+
+  while troubleshooting failure of s-b.
+
+  Will reenable them later and see if they work correctly.
