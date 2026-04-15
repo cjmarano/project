@@ -106,8 +106,12 @@ CLOSED: [2026-04-13 Mon 13:17]
 ** Note: did NOT change require statements that looked like part of fuctions (not sepearte on own line).
 * COMPLETED Mod to init.el on New for Denote keystrokes. Some ~ bound to org-roam. Didn't change that.
 CLOSED: [2026-04-14 Tue 11:21]
+* COMPLETED Spotlight search broken on New. Did:  sudo mdutil -E /  to re-enable indexing. Then restart.
+CLOSED: [2026-04-15 Wed 10:56]
+* DONE Fixed Denote, doom-modeline, ;; out some denote keys. New, Big, init.el.org Happy w/result.
+CLOSED: [2026-04-15 Wed 10:54]
+** WAITING Homogulated init.el from New on Big and tried it on New - longer load times. See why.
 * WAITING Experiment more with dired.
-* WAITING Homogulated init.el from New on Big and tried it on New - longer load times. See why.
 * NEXT installed emacs 30.2 on +Plucky+ via snap  . (/snap/bin/emacs %F) Works but:
 ** Snap 30.2 on +Plucky+  Can't byte compile 30.2 on Plucky.
 *** is this the same libgccjit error I'm seeing on Ducky?
@@ -123,4 +127,6 @@ CLOSED: [2026-04-14 Tue 11:21]
 ** company and company-box -- need 30.2
 ** global-flycheck mode -- again, probably due to emacs version.
 ** native compile does NOT work on Ducky. Missing libgccjit.
-*  Spotlight search broken on New. Had to:  sudo mdutil -E /  to re-enable indexing. Known issue.
+* DONE Comenting out eglot in New's init.el killed pop-ups in Python and Rust so that's a thing.
+CLOSED: [2026-04-15 Wed 12:56]
+* NEXT Try removing all lsp-mode and lsp-ui lines and see what happens.

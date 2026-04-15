@@ -1,5 +1,5 @@
-   0.092072750s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint: fingerprint error for hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust)/Check { test: false }/TargetInner { name: "hello_rust", doc: true, ..: with_path("/Users/charles.marano/project/rust/hello_rust/src/main.rs", Edition2024) }
-   0.092099208s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/charles.marano/project/rust/hello_rust/target/debug/.fingerprint/hello_rust-1f75880936a78f4a/bin-hello_rust`
+   0.024103459s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint: fingerprint error for hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust)/Check { test: false }/TargetInner { name: "hello_rust", doc: true, ..: with_path("/Users/charles.marano/project/rust/hello_rust/src/main.rs", Edition2024) }
+   0.024132250s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/charles.marano/project/rust/hello_rust/target/debug/.fingerprint/hello_rust-793570d8c49953fb/bin-hello_rust`
 
 Caused by:
     No such file or directory (os error 2)
@@ -22,8 +22,8 @@ Stack backtrace:
   14: std::rt::lang_start::<()>::{closure#0}
   15: std::rt::lang_start_internal
   16: _main
-   0.101879375s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint: fingerprint error for hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust)/Check { test: true }/TargetInner { name: "hello_rust", doc: true, ..: with_path("/Users/charles.marano/project/rust/hello_rust/src/main.rs", Edition2024) }
-   0.101887875s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/charles.marano/project/rust/hello_rust/target/debug/.fingerprint/hello_rust-519004ec0203d2aa/test-bin-hello_rust`
+   0.033167834s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint: fingerprint error for hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust)/Check { test: true }/TargetInner { name: "hello_rust", doc: true, ..: with_path("/Users/charles.marano/project/rust/hello_rust/src/main.rs", Edition2024) }
+   0.033173625s  INFO prepare_target{force=false package_id=hello_rust v0.1.0 (/Users/charles.marano/project/rust/hello_rust) target="hello_rust"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/charles.marano/project/rust/hello_rust/target/debug/.fingerprint/hello_rust-e30747848735800d/test-bin-hello_rust`
 
 Caused by:
     No such file or directory (os error 2)
