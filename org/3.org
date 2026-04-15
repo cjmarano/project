@@ -104,7 +104,7 @@ WAS:
 CLOSED: [2026-04-13 Mon 13:17]
 ** use-package infers :defer t so package does not load immediately.
 ** Note: did NOT change require statements that looked like part of fuctions (not sepearte on own line).
-* COMPLETED Modified init.el on New for Denote keystrokes. Some bound to org-roam. Didn't change that.
+* COMPLETED Mod to init.el on New for Denote keystrokes. Some ~ bound to org-roam. Didn't change that.
 CLOSED: [2026-04-14 Tue 11:21]
 * WAITING Experiment more with dired.
 * WAITING Homogulated init.el from New on Big and tried it on New - longer load times. See why.
@@ -123,3 +123,4 @@ CLOSED: [2026-04-14 Tue 11:21]
 ** company and company-box -- need 30.2
 ** global-flycheck mode -- again, probably due to emacs version.
 ** native compile does NOT work on Ducky. Missing libgccjit.
+*  Spotlight search broken on New. Had to:  sudo mdutil -E /  to re-enable indexing. Known issue.
