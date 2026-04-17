@@ -119,4 +119,7 @@ change back to an earlier state.
 ** Line 77 on New's init.el pulls in org-extra-empasis. Lines 342-348 are my additions to org-empasis-alist in
 case I decide to remove them later if org-extra-emphasis works well.
 
-
+** Adding to org-extra-emphasis: added !@red!@ and !!green1!! !%yellow!% also,  @!Test@! !&Background!&
+** Background tags only activate when cursor is NOT on the line containing them. Odd.
+** need to fool around with the colors more. background colors are tough.
+* @!Test@!
