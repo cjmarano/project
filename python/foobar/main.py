@@ -1,5 +1,5 @@
 def main():
-    print("Hello from python!")
+    print("Hello from foobar!")
     print("Foo Bar Buzz")
 
 
