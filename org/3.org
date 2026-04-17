@@ -123,3 +123,4 @@ case I decide to remove them later if org-extra-emphasis works well.
 ** Background tags only activate when cursor is NOT on the line containing them. Odd.
 ** need to fool around with the colors more. background colors are tough.
 * @!Test@!
+* Where the Hell is the copy of org-extra-emphasis.el I used? It's in ~/.emacs.d/elpa/ 
