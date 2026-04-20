@@ -88,7 +88,7 @@ CLOSED: [2026-04-09 Thu 12:46]
   :hook (dired-mode . denote-dired-mode)
   :bind
   (("C-c n r" . denote-rename-file) 
-   ("C-c n l" . denote-link)
+  ("C-c n l" . denote-link)
    ("C-c n c" . denote-link-after-creating) 
    ("C-c n b" . denote-backlinks) 
    )
@@ -113,14 +113,13 @@ WAS:
 * DONE Fixed Denote, doom-modeline, ;; out some denote keys. New, Big, init.el.org Happy w/result.
 CLOSED: [2026-04-15 Wed 10:54]
 ** WAITING Homogulated init.el from New on Big and tried it on New - longer load times. See why.
-* Installed org-extra-emphasis on New. It blew out my org-emphasis-alist entries but does work.
-** Note: the package didn't overwrite the alist, it just superceded it so I can always remove the package to
+* Adding to org-extra-emphasis: added !@red!@ and !!green1!! !%yellow!% also,  @!Test@! !&Background!&
+*** Background tags only activate when cursor is NOT on the line containing them. Odd.
+*** need to fool around with the colors more. background colors are tough.
+** Installed org-extra-emphasis on New. It blew out my org-emphasis-alist entries but does work.
+*** Note: the package didn't overwrite the alist, it just superceded it so I can always remove the package to
 change back to an earlier state.
-** Line 77 on New's init.el pulls in org-extra-empasis. Lines 342-348 are my additions to org-empasis-alist in
+*** Line 77 on New's init.el pulls in org-extra-empasis. Lines 342-348 are my additions to org-empasis-alist in
 case I decide to remove them later if org-extra-emphasis works well.
 
-** Adding to org-extra-emphasis: added !@red!@ and !!green1!! !%yellow!% also,  @!Test@! !&Background!&
-** Background tags only activate when cursor is NOT on the line containing them. Odd.
-** need to fool around with the colors more. background colors are tough.
-* @!Test@!
-* Where the Hell is the copy of org-extra-emphasis.el I used? It's in ~/.emacs.d/elpa/ 
+**  @!Test@!  Where the Hell is the copy of org-extra-emphasis.el I used? It's in ~/.emacs.d/elpa/ 
