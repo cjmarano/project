@@ -1,4 +1,4 @@
-April.
+!&April!& 
 * _Start times down on New to < 3  and ~ 3.4 for Big,_
 <<<<<<< HEAD
 * !@>>>Data keeps getting corrupted in the project dir<<<_!@
@@ -113,7 +113,9 @@ WAS:
 * DONE Fixed Denote, doom-modeline, ;; out some denote keys. New, Big, init.el.org Happy w/result.
 CLOSED: [2026-04-15 Wed 10:54]
 ** WAITING Homogulated init.el from New on Big and tried it on New - longer load times. See why.
+
 * Adding to org-extra-emphasis: added !@red!@ and !!green1!! !%yellow!% also,  @!Test@! !&Background!&
+
 *** Background tags only activate when cursor is NOT on the line containing them. Odd.
 *** need to fool around with the colors more. background colors are tough.
 ** Installed org-extra-emphasis on New. It blew out my org-emphasis-alist entries but does work.
@@ -123,3 +125,6 @@ change back to an earlier state.
 case I decide to remove them later if org-extra-emphasis works well.
 
 **  @!Test@!  Where the Hell is the copy of org-extra-emphasis.el I used? It's in ~/.emacs.d/elpa/ 
+@@Yellow@@   &&foo&& 
+*  &&FOO&& &&<-- DarkOrange1 
+*  @@Bar@@  @@<-- yellow2
