@@ -1,5 +1,5 @@
 !&April!& 
-* _Start times down on New to < 3  and ~ 3.4 for Big,_
+* _Start times down on New to < 3  and ~ 3.4 for Big over 4 for Plucky,_
 <<<<<<< HEAD
 * !@>>>Data keeps getting corrupted in the project dir<<<_!@
 * misc
@@ -126,5 +126,5 @@ case I decide to remove them later if org-extra-emphasis works well.
 
 **  @!Test@!  Where the Hell is the copy of org-extra-emphasis.el I used? It's in ~/.emacs.d/elpa/ 
 @@Yellow@@   &&foo&& 
-*  &&FOO&& &&<-- DarkOrange1 
+*  &&FOO&& &&<-- gray19 -- fail! Too dark, doesn't show up. 
 *  @@Bar@@  @@<-- yellow2
