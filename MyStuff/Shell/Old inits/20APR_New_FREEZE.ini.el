@@ -19,8 +19,8 @@
 (use-package exec-path-from-shell
   :ensure t
   :config
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize)))
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))) 
 
 (defun packages-require (&rest packs)
   "Install & load a package . If package not available install automaticaly."
@@ -45,7 +45,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-(add-to-list 'default-frame-alist '(height . 28))
+(add-to-list 'default-frame-alist '(height . 60))
 (add-to-list 'default-frame-alist '(width . 110))
 
 (server-start)
@@ -74,7 +74,11 @@
 (setq-default create-lockfiles nil)
 (delete-selection-mode 1)
 
-(dolist (mode '(org-mode-hook
+(use-package org-extra-emphasis)
+
+
+(
+ dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
                 eshell-mode-hook
@@ -122,7 +126,7 @@
 
 (setq dashboard-show-shortcuts nil)
 (setq dashboard-center-contents nil)
-(setq dashboard-banner-logo-title "Big")
+(setq dashboard-banner-logo-title "New")
 (setq dashboard-set-file-icons t)
 (setq dashboard-set-heading-icons t)
 (setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
@@ -150,14 +154,14 @@
 (use-package nerd-icons
   :ensure t)
 (setq doom-modeline-buffer-file-name-style 'file-name)
-;; (setq doom-modeline-buffer-encoding nil)
-;; (setq doom-modeline-env-version nil)
+(setq doom-modeline-buffer-encoding nil)
+(setq doom-modeline-env-version nil)
 (setq doom-modeline-env-enable-python t)
 (setq doom-modeline-env-enable-ruby t)
 (setq doom-modeline-env-enable-rust t)
 (setq doom-modeline-minor-modes t)
-(setq doom-modeline-lsp t)
-(setq doom-modeline-lsp-icon t)
+;; (setq doom-modeline-lsp t)
+;; (setq doom-modeline-lsp-icon t)
 (setq doom-modeline-buffer-name t)
 (setq doom-modeline-project-detection 'auto)
 
@@ -217,11 +221,11 @@
   :ensure t
   :hook (dired-mode . denote-dired-mode)
   :bind
-;;   (("C-c n r" . denote-rename-file)
-;;    ("C-c n l" . denote-link)
-;;    ("C-c n c" . denote-link-after-creating)
-;;    ("C-c n b" . denote-backlinks)
-;; )
+  ;; (("C-c n r" . denote-rename-file)
+  ;;  ("C-c n l" . denote-link)
+  ;;  ("C-c n c" . denote-link-after-creating)
+  ;;  ("C-c n b" . denote-backlinks)
+  ;;   )
   :config
 (setq denote-directory (expand-file-name "~/project/org/notes/"))
 (setq denotes-known-keywords '("emacs" "init" "general" "shell"))
@@ -544,16 +548,16 @@
 (add-hook 'python-mode-hook #'tree-sitter-mode)
 ;; (global-tree-sitter-mode)
 
-(use-package rust-mode
-  :init
-  (setq rust-mode-treesitter-derive t))
-;; or just for rust-mode
-;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
-;; Load the language definition for Rust, if it hasn't been loaded.
-;; Return the language object.
-(tree-sitter-require 'rust)
-(tree-sitter-require 'python)
-(global-tree-sitter-mode)
+;; (use-package rust-mode
+;;   :init
+;;   (setq rust-mode-treesitter-derive t))
+;; ;; or just for rust-mode
+;; ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+;; ;; Load the language definition for Rust, if it hasn't been loaded.
+;; ;; Return the language object.
+;; (tree-sitter-require 'rust)
+;; (tree-sitter-require 'python)
+;; (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
 (add-hook 'after-init-hook 'global-company-mode)
@@ -572,12 +576,20 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
-;; -----------Current Lisp Section ---------------------------------
+(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
 (add-to-list 'load-path "~/.emacs.d/elpa/slime-20260329.2133")
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-(require 'slime-autoloads)
-(eval-after-load "slime"  '(progn (slime-setup '(slime-fancy))))
+;; (require 'slime-autoloads
+;; (slime-setup)
+
+;; ;; Enable Paredit.
+;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+;; (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
+;; (add-hook 'ielm-mode-hook 'enable-paredit-mode)
+;; (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+;; (add-hook 'lisp-mode-hook 'enable-paredit-mode)
+;; (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
+;; (require 'paredit)
 
 ;; Enable Rainbow Delimiters.
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
@@ -605,12 +617,23 @@
  '(company-box-icons-alist 'company-box-icons-images)
  '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
  '(custom-safe-themes
-   '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
+   '("6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1"
+     "ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
      "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
      "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
      "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
      default))
  '(denote-known-keywords '("emacs" "init" "general" "testing"))
+ '(flycheck-checkers
+   '(lsp c/c++-clang c/c++-gcc c/c++-cppcheck emacs-lisp
+         emacs-lisp-checkdoc json-python-json json-jq
+         markdown-markdownlint-cli markdown-markdownlint-cli2
+         markdown-mdl markdown-pymarkdown org-lint python-flake8
+         python-ruff python-pylint python-pycompile python-pyright
+         python-mypy ruby-rubocop ruby-chef-cookstyle ruby-standard
+         ruby-reek ruby rust-cargo rust rust-clippy rustic-clippy
+         sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck
+         texinfo textlint yaml-actionlint yaml-jsyaml yaml-yamllint))
  '(flycheck-python-flake8-executable "python3")
  '(flycheck-python-pycompile-executable "python3")
  '(flycheck-python-pylint-executable "python3")
@@ -657,4 +680,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-

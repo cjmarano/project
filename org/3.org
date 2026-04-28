@@ -128,3 +128,4 @@ case I decide to remove them later if org-extra-emphasis works well.
 ** @@Bar@@  @@<-- yellow2
 * /Applications/Emacs.app/Contents/MacOS/bin/emacsclient ~/project/testdir/foo.txt does not respect
 the theme. also is NOT Graphical, opens in terminal mode.
+* !@28APR!@ - compared inits on New and Big. 
