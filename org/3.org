@@ -89,6 +89,39 @@ WAS:
 
 (setq completion-styles '(substring basic))
 ** The config stuff I took from the Interwebs had C-c n n for Demote I already had Super-b so I'll use that.
+* Adding to org-extra-emphasis: added !@red!@ and !!green1!! !%yellow!% also,  @!Test@! !&Background!&
+*** Background tags only activate when cursor is NOT on the line containing them. Odd.
+*** need to fool around with the colors more. background colors are tough.
+** Installed org-extra-emphasis on New. It blew out my org-emphasis-alist entries but does work.
+*** Note: the package didn't overwrite the alist, it just superceded it so I can always remove the package to
+change back to an earlier state.
+*** Line 77 on New's init.el pulls in org-extra-empasis. Lines 342-348 are my additions to org-empasis-alist in
+case I decide to remove them later if org-extra-emphasis works well.
+
+**  @!Test@!  Where the Hell is the copy of org-extra-emphasis.el I used? It's in ~/.emacs.d/elpa/ 
+@@Yellow@@   &&foo&& 
+**  &&FOO&& &&<-- gray19 -- fail! Too dark, doesn't show up. 
+** @@Bar@@  @@<-- yellow2
+** !! is !!GREEN!!
+** !@ is !@RED!@
+** !% is !%YELLOW!%
+** !& is !&Firebrick Bacground!&
+** @! is @!Grey Background@!
+** @@ is @@Yellow Background@@
+** && is &&Dark Orange Background&&
+*** or not? That's with the purple?
+* COMPLETED Tried to install an info item.
+CLOSED: [2026-04-29 Wed 12:58]
+** Secret was to add /opt/homebrew/share/info/ to info-additional-directory-list.
+install-info --info-dir=/opt/homebrew/share/info ~/Software/muse.info
+** Tried adding /opt/homebrew/share/info to info-default-directory-list but it did not transfer to info-directory-list.
+** doing:   !%/opt/homebrew/opt/texinfo/bin!/info!%   gave texinfo display, including muse.info so...
+*** muse.info probably not showing up in emacs because it was a texinfo file, not an info file.
+*** comaprison of texinfo Top Directory and emacs info Top Directory proves they are pulling from two different places.
+ the texinfo stuff seems to be the standard GNU stuff that should be in info. The stuff in emacs appears to be odd-ducks.
+* COMPLETED Changed Consult-denote-find from C-c n f (Which is org-raom-find) to C-c d.
+CLOSED: [2026-04-07 Tue 10:35]
+** !!maybe change to Super!! something to match S-b denote? 
 * WAITING LISP. Using (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
 got a skeleton for the project and a main.lisp in the scr subdir.
@@ -109,23 +142,6 @@ main.lisp looks like this:
    4 │
    5 │ ;; blah blah blah.
 * WAITING sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: do comma- quit).
-* COMPLETED Changed Consult-denote-find from C-c n f (Which is org-raom-find) to C-c d.
-CLOSED: [2026-04-07 Tue 10:35]
-** !!maybe change to Super!! something to match S-b denote? 
-* Adding to org-extra-emphasis: added !@red!@ and !!green1!! !%yellow!% also,  @!Test@! !&Background!&
-
-*** Background tags only activate when cursor is NOT on the line containing them. Odd.
-*** need to fool around with the colors more. background colors are tough.
-** Installed org-extra-emphasis on New. It blew out my org-emphasis-alist entries but does work.
-*** Note: the package didn't overwrite the alist, it just superceded it so I can always remove the package to
-change back to an earlier state.
-*** Line 77 on New's init.el pulls in org-extra-empasis. Lines 342-348 are my additions to org-empasis-alist in
-case I decide to remove them later if org-extra-emphasis works well.
-
-**  @!Test@!  Where the Hell is the copy of org-extra-emphasis.el I used? It's in ~/.emacs.d/elpa/ 
-@@Yellow@@   &&foo&& 
-**  &&FOO&& &&<-- gray19 -- fail! Too dark, doesn't show up. 
-** @@Bar@@  @@<-- yellow2
 * /Applications/Emacs.app/Contents/MacOS/bin/emacsclient ~/project/testdir/foo.txt does not respect
 the theme. also is NOT Graphical, opens in terminal mode.
 * !@28APR!@ - compared inits on New and Big. 
