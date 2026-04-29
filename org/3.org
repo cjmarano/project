@@ -89,6 +89,7 @@ WAS:
 
 (setq completion-styles '(substring basic))
 ** The config stuff I took from the Interwebs had C-c n n for Demote I already had Super-b so I'll use that.
+** !@28APR!@ - compared inits on New and Big. 
 * Adding to org-extra-emphasis: added !@red!@ and !!green1!! !%yellow!% also,  @!Test@! !&Background!&
 *** Background tags only activate when cursor is NOT on the line containing them. Odd.
 *** need to fool around with the colors more. background colors are tough.
@@ -144,4 +145,5 @@ main.lisp looks like this:
 * WAITING sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: do comma- quit).
 * /Applications/Emacs.app/Contents/MacOS/bin/emacsclient ~/project/testdir/foo.txt does not respect
 the theme. also is NOT Graphical, opens in terminal mode.
-* !@28APR!@ - compared inits on New and Big. 
+* Blew up init.el on Big somehow. Did a partial load of init.el and got it working again BUT:
+now have to do repeated diffs as I put back the stuff I took out until I find the part that slows emacs loading down to 70 seconds.
