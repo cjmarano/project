@@ -147,3 +147,6 @@ main.lisp looks like this:
 the theme. also is NOT Graphical, opens in terminal mode.
 * Blew up init.el on Big somehow. Did a partial load of init.el and got it working again BUT:
 now have to do repeated diffs as I put back the stuff I took out until I find the part that slows emacs loading down to 70 seconds.
+* init.el on Plucky is now exactly the same as 28APR_MASTER_.init.el
+** That said, I want to compare the modified init.el on Big with 28APR_MASTER_.init.el then see what
+version of init.el will become the standard.
