@@ -76,7 +76,6 @@
 
 (use-package org-extra-emphasis)
 
-
 (
  dolist (mode '(org-mode-hook
                 term-mode-hook
