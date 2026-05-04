@@ -154,7 +154,7 @@ CLOSED: [2026-05-04 Mon 09:51]
 ** COMPLETED Changed Consult-denote-find from C-c n f (Which is org-raom-find) to C-c d.
 CLOSED: [2026-04-07 Tue 10:35]
 ** !!maybe change to Super!! something to match S-b denote? 
-* ISSUE @@emacs@@ showing permission errors for no reason when opened from terminal.
+* ISSUE !!emacs!! showing permission errors for no reason when opened from terminal.
 CLOSED: [2026-05-04 Mon 12:50]
 ** Had no version of homebrew emacs installed. Tried installing emacs-plus@30 again. Didn't fix.
 ** Tried reindexing;
@@ -181,3 +181,5 @@ version of init.el will become the standard.
 * Coninuing above: slight changes on 28APR_MASTER_.init.el after:
 comparing to the modified init.el from Big. These slight changes have not made it to Plucky, New or
 init.el.og yet.
+** 28APR_MASTER_.init.el changes overwritten bringing it back to match New's init.el
+
