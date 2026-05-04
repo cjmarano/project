@@ -7,3 +7,4 @@ This line is flush with left border.
 Tab  Tab Tab. Don't like auto-completions here.
 It's Thursday 26MAR. 
 This is s test after swaping Apple keyboad on New for MS Sculpt.
+So, lot of data corruption on New. Things that worked one day breaking the next.

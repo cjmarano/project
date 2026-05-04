@@ -1,0 +1,182 @@
+!&April!& 
+* _Start times down on New to < 3  and ~ 3.4 for Big over 4 for Plucky,_
+<<<<<<< HEAD
+* !@>>>Data keeps getting corrupted in the project dir<<<_!@
+* WAITING sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: do comma- quit).
+* WAITING LISP. Using (ql:quickload "cl-project") then
+(cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
+got a skeleton for the project and a main.lisp in the scr subdir.
+looks like this:
+
+drwxr-xr-x@    - charles.marano 25 Feb 12:55   src
+drwxr-xr-x@    - charles.marano 25 Feb 12:55   tests
+.rw-r--r--@   68 charles.marano 25 Feb 12:55   .gitignore
+.rw-r--r--@  559 charles.marano 25 Feb 12:55   my-project.asd
+.rw-r--r--@   40 charles.marano 25 Feb 12:55   README.markdown
+.rw-r--r--@   41 charles.marano 25 Feb 12:55   README.org
+
+main.lisp looks like this:
+
+(uiop:define-package my-project
+   2 │   (:use #:cl))
+   3 │ (in-package #:my-project)
+   4 │
+   5 │ ;; blah blah blah.
+* !!misc!!
+** COMPLETED Tried Prelude and it ruined emacs. Had to Restore older Dirs.
+CLOSED: [2026-04-14 Tue 10:03]
+*** Used Druva to restore to pre-Prelude state; .config, .cache, .emacs.d
+*** after restore things /seem/ to be back to normal. Will do more checking.
+** COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
+CLOSED: [2026-03-27 Fri 08:35]
+** COMPLETED Made .gitignore file in ~/project. Added .DS_Store. Did not fix issue. git clean -f did.
+CLOSED: [2026-04-09 Thu 09:23]
+** COMPLETED Testing org roam daily.
+CLOSED: [2026-04-14 Tue 10:01]
+** DONE Created ~/.configure/git/ignore file and added .DS_store to it to fix git asking to add that file as tracked.
+CLOSED: [2026-04-14 Tue 10:02]
+** DONE List-colors-display on New shows only some colors and appears to overwrite items.
+CLOSED: [2026-04-14 Tue 10:02]
+*** Re-install of emacs for mac resolved issue (More file corruption?)
+CLOSED: [2026-04-07 Tue 14:00]
+** ISSUE Changed background from 2d2d2d to 212c31 but did not seem to change.
+CLOSED: [2026-04-14 Tue 10:01]
+***** possibly uing older file (byte compiled or elc?
+*** ISSUE Tried to change background for Sanity Tomorrow Eighties
+CLOSED: [2026-04-13 Mon 09:40]
+** COMPLETED Look at journal or org-roam for ability to step back in time to see changes.
+CLOSED: [2026-04-13 Mon 09:41]
+*** dailies go in ~/project/org/roam/daily
+C-c n d n to capture a new note.
+C-c n i to insert link to another note.
+C-c n d d to see Today's notes.
+C-c n f to see list of all notes.
+*** C-c c then j for  journal (and not C-c j) C-c a does open agenda.
+*** Org journal entries all go into the same file --> journal.org
+while org roam dailies go into sepearte files (even if created on same day) with leading date.
+*** how are org roam dailies and denote notes different?
+*** Majpr feature of Roam is ability to x-linkg notes and a db so search is easier.
+** COMPLETED 0blayout threw error - no autoload. Not sure we it's even installed. Re-install fixed.
+CLOSED: [2026-04-13 Mon 09:50]
+** COMPLETED Commenting out ln 549 Load-treesitter-langs did NOT affect LSP. Language loads when a file needs it.
+CLOSED: [2026-04-13 Mon 12:45]
+** DONE Comenting out eglot in New's init.el killed pop-ups in Python and Rust so that's a thing.
+CLOSED: [2026-04-15 Wed 12:56]
+** COMPLETED Changed (require '<package name>) to (use-package '<package namne>) for speed.
+CLOSED: [2026-04-13 Mon 13:17]
+** use-package infers :defer t so package does not load immediately.
+** Note: did NOT change require statements that looked like part of fuctions (not sepearte on own line).
+** COMPLETED Spotlight search broken on New. Did:  sudo mdutil -E /  to re-enable indexing. Then restart.
+CLOSED: [2026-04-15 Wed 10:56]
+** DONE Fixed Denote, doom-modeline, ;; out some denote keys. New, Big, init.el.org Happy w/result.
+CLOSED: [2026-04-15 Wed 10:54]
+** WAITING Homogulated init.el from New on Big and tried it on New - longer load times. See why.
+
+** COMPLETED Cleaned up init.el on New and init.el.org - Latest init is +20APR_New_FREEZE.init.el+
+CLOSED: [2026-03-11 Wed 09:18]
+** COMPLETED 31MAR On New and Big: no errors and native compile working.
+CLOSED: [2026-03-31 Tue 09:25]
+** COMPLETED Native compile working on Big & New.
+CLOSED: [2026-03-30 Mon 08:56]
+** COMPLETED Mod to init.el on New for Denote keystrokes. Some ~ bound to org-roam. Didn't change that.
+CLOSED: [2026-04-14 Tue 11:21]
+** COMPLETED Added some items from Youtube to New's init file - Denote keystroke bindings.
+CLOSED: [2026-04-09 Thu 12:46]
+(use-package denote
+  :ensure t
+  :hook (dired-mode . denote-dired-mode)
+  :bind
+  (("C-c n r" . denote-rename-file) 
+  ("C-c n l" . denote-link)
+   ("C-c n c" . denote-link-after-creating) 
+   ("C-c n b" . denote-backlinks) 
+   )
+  :config
+(setq denote-directory (expand-file-name "~/project/org/notes/"))
+(setq denotes-known-keywords '("emacs" "init" "general" "shell"))
+(setq denote-file-type nil))
+(keymap-global-set "s-b" 'denote)
+
+(setq completion-styles '(substring basic))
+
+WAS:
+
+(setq denote-directory (expand-file-name "~/project/org/notes/"))
+(setq denotes-known-keywords '("emacs" "init" "general" "shell"))
+(setq denote-file-type nil)
+(add-hook 'dired-mode-hook #'denote-dired-mode)
+(keymap-global-set "s-b" 'denote)
+
+(setq completion-styles '(substring basic))
+** The config stuff I took from the Interwebs had C-c n n for Demote I already had Super-b so I'll use that.
+** !@28APR!@ - compared inits on New and Big. 
+** COMPLETED Blew up init.el on Big somehow. Did a partial load of init.el and got it working again BUT:
+CLOSED: [2026-05-04 Mon 09:52]
+now have to do repeated diffs as I put back the stuff I took out until I find the part that slows emacs loading down to 70 seconds.
+** COMPLETED Tried to install an info item.
+CLOSED: [2026-04-29 Wed 12:58]
+** Secret was to add /opt/homebrew/share/info/ to info-additional-directory-list.
+install-info --info-dir=/opt/homebrew/share/info ~/Software/muse.info
+** Tried adding /opt/homebrew/share/info to info-default-directory-list but it did not transfer to info-directory-list.
+** doing:   !%/opt/homebrew/opt/texinfo/bin!/info!%   gave texinfo display, including muse.info so...
+*** muse.info probably not showing up in emacs because it was a texinfo file, not an info file.
+*** comaprison of texinfo Top Directory and emacs info Top Directory proves they are pulling from two different places.
+ the texinfo stuff seems to be the standard GNU stuff that should be in info. The stuff in emacs appears to be odd-ducks.
+** ISSUE /Applications/Emacs.app/Contents/MacOS/bin/emacsclient ~/project/testdir/foo.txt does not respect
+CLOSED: [2026-05-04 Mon 09:52]
+the theme. also is NOT Graphical, opens in terminal mode.
+* Adding to org-extra-emphasis: added !@red!@ and !!green1!! !%yellow!% also,  @!Test@! !&Background!&
+*** Background tags only activate when cursor is NOT on the line containing them. Odd.
+*** need to fool around with the colors more. background colors are tough.
+** Installed org-extra-emphasis on New. It blew out my org-emphasis-alist entries but does work.
+*** Note: the package didn't overwrite the alist, it just superceded it so I can always remove the package to
+change back to an earlier state.
+*** Line 77 on New's init.el pulls in org-extra-empasis. Lines 342-348 are my additions to org-empasis-alist in
+case I decide to remove them later if org-extra-emphasis works well.
+
+**  @!Test@!  Where the Hell is the copy of org-extra-emphasis.el I used? It's in ~/.emacs.d/elpa/ 
+@@Yellow@@   &&foo&& 
+**  &&FOO&& &&<-- gray19 -- fail! Too dark, doesn't show up. 
+** @@Bar@@  @@<-- yellow2
+** !! is !!GREEN!!
+** !@ is !@RED!@
+** !% is !%YELLOW!%
+** !& is !&Firebrick Bacground!&
+** @! is @!Grey Background@!
+** @@ is @@Yellow Background@@
+** && is &&Dark Orange Background&&
+*** or not? That's with the purple?
+* COMPLETED Changed Consult-denote-find from C-c n f (Which is org-raom-find) to C-c d.
+CLOSED: [2026-04-07 Tue 10:35]
+** !!maybe change to Super!! something to match S-b denote? 
+* COMPLETED On new: error when trying to open a file using C-x, C-f.
+** Used backtace C-h e to troubleshoot.
+CLOSED: [2026-05-04 Mon 09:51]
+** Problems mentioned Company, Vertico and Marginalia, probably Vertico. Did a package-reinstall for all then a package-remcompile for all that seems to have fixed the problem.
+** Is this another example of file corruption on this Mac (New)? <-- Happened  on Big also.
+* @@emacs@@ showing permission errors for no reason when opened from terminal.
+** Had no version of homebrew emacs installed. Tried installing emacs-plus@30 again. Didn't fix.
+** Tried reindexing;
+sudo mdutil -Ei off     sudo mdutil -Ei on
+** Emacs still not showing when typed into terminal and it throws a permission denied error when run
+MacBook seems to think that /Applications//Emacs.app is correct and it should have the right permissions.
+Sttrangely ec command  works correctly.
+** emacs on Big = /opt/homebrew//bin//emacs
+* init.el on Plucky, New and init.el.org  now exactly the same as 28APR_MASTER_.init.el
+** That said, I want to compare the modified init.el on Big with 28APR_MASTER_.init.el then see what
+version of init.el will become the standard.
+** Also need to confirm init.el.org matches 28APR_MASTER_.init.el
+** tried copying 28APR_MASTER_.init.el to Big and it caused issues. Reverted.
+** In addition list-packages on Big seemed to stall or hang.
+** init.el on Big has exec-path-from-shell ;; out.
+** also has packages-require function commented out.
+** 430~:
+
+(with-eval-after-load 'eglot
+(add-hook 'after-save-hook 'eglot-format))
+
+** Rust section of init.el on Big simplified, does NOT match Plucky, New, init.el.org
+** Basically whole programming part of init.el is different on Big.
+* Coninuing above: slight changes on 28APR_MASTER_.init.el after:
+comparing to the modified init.el from Big. These slight changes have not made it to Plucky, New or
+init.el.og yet.
