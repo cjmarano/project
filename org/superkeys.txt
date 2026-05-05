@@ -1,0 +1,30 @@
+S-a Mark whole buffer *
+S-b  Denote *
+S-c ns copy unclude secondary
+S-d iSearch back
+S-e iSearch yank killed
+S-f iSearch
+S-g iSearch repeat forward
+S-h hide emacs
+S-i      available
+S-j exchange point and mark
+S-k kill current buffer *
+S-l goto line *
+S-m iconify frame
+S-n make frame  *
+S-o make frame using panel
+S-p pring buffer *
+S-q save buffers, kill emacs   *
+S-r      available
+S-s save buffer  *
+S-t set font
+S-u revert buffer *
+S-v org yank
+S-w delete frame
+S-x kill region (cut)  *
+S-y ns paste secondary
+S-z undo  *
+
+C-c, d denote find
+C-c, r update recentf list
+

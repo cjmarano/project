@@ -1,5 +1,5 @@
 !!May!!
-* Start times down on New to < 3  and ~ 3.4 for Big over 4 for Plucky,_
+* Start times down on New to < 3  and < 3 for Big over 4 for Plucky,_
 
 * !@>>>Data keeps getting corrupted in the project dir<<<_!@
 * WAITING sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: do comma- quit).
@@ -22,27 +22,6 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* Adding to org-extra-emphasis: added !@red!@ and !!green1!! !%yellow!% also,  @!Test@! !&Background!&
-*** Background tags only activate when cursor is NOT on the line containing them. Odd.
-*** need to fool around with the colors more. background colors are tough.
-** Installed org-extra-emphasis on New. It blew out my org-emphasis-alist entries but does work.
-*** Note: the package didn't overwrite the alist, it just superceded it so I can always remove the package to
-change back to an earlier state.
-*** Line 77 on New's init.el pulls in org-extra-empasis. Lines 342-348 are my additions to org-empasis-alist in
-case I decide to remove them later if org-extra-emphasis works well.
-
-**  @!Test@!  Where the Hell is the copy of org-extra-emphasis.el I used? It's in ~/.emacs.d/elpa/ 
-@@Yellow@@   &&foo&& 
-**  &&FOO&& &&<-- gray19 -- fail! Too dark, doesn't show up. 
-** @@Bar@@  @@<-- yellow2
-** !! is !!GREEN!!
-** !@ is !@RED!@
-** !% is !%YELLOW!%
-** !& is !&Firebrick Bacground!&
-** @! is @!Grey Background@!
-** @@ is @@Yellow Background@@
-** && is &&Dark Orange Background&&
-*** or not? That's with the purple?
 * !!misc!!
 ** COMPLETED Tried Prelude and it ruined emacs. Had to Restore older Dirs.
 CLOSED: [2026-04-14 Tue 10:03]
@@ -154,8 +133,9 @@ CLOSED: [2026-05-04 Mon 09:51]
 ** COMPLETED Changed Consult-denote-find from C-c n f (Which is org-raom-find) to C-c d.
 CLOSED: [2026-04-07 Tue 10:35]
 ** !!maybe change to Super!! something to match S-b denote? 
-* ISSUE !!emacs!! showing permission errors for no reason when opened from terminal.
-CLOSED: [2026-05-04 Mon 12:50]
+** COMPLETED !!emacs!! showing permission errors for no reason when opened from terminal.
+** re-installed homebrew emacs, deleted alias in .zshrc and linked brew emacs to emacs in .zshrc
+CLOSED: [2026-05-05 Tue 09:33]
 ** Had no version of homebrew emacs installed. Tried installing emacs-plus@30 again. Didn't fix.
 ** Tried reindexing;
 sudo mdutil -Ei off     sudo mdutil -Ei on
@@ -163,23 +143,63 @@ sudo mdutil -Ei off     sudo mdutil -Ei on
 MacBook seems to think that /Applications//Emacs.app is correct and it should have the right permissions.
 Sttrangely ec command  works correctly.
 ** emacs on Big = /opt/homebrew//bin//emacs
-* init.el on Plucky, New and init.el.org  now almost the same as 28APR_MASTER_.init.el
+
+* DONE Adding to org-extra-emphasis:
+added !@red!@ and !!green1!! !%yellow!% also,  @!Test@! !&Background!&
+CLOSED: [2026-05-05 Tue 09:35]
+*** Background tags only activate when cursor is NOT on the line containing them. Odd.
+*** need to fool around with the colors more. background colors are tough.
+** Installed org-extra-emphasis on New. It blew out my org-emphasis-alist entries but does work.
+*** Note: the package didn't overwrite the alist, it just superceded it so I can always remove the package to
+change back to an earlier state.
+*** Line 77 on New's init.el pulls in org-extra-empasis. Lines 342-348 are my additions to org-empasis-alist in
+case I decide to remove them later if org-extra-emphasis works well.
+
+**  @!Test@!  Where the Hell is the copy of org-extra-emphasis.el I used? It's in ~/.emacs.d/elpa/ 
+@@Yellow@@   &&foo&& 
+**  &&FOO&& &&<-- gray19 -- fail! Too dark, doesn't show up. 
+** @@Bar@@  @@<-- yellow2
+** !! is !!GREEN!!
+** !@ is !@RED!@
+** !% is !%YELLOW!%
+** !& is !&Firebrick Bacground!&
+** @! is @!Grey Background@!
+** @@ is @@Yellow Background@@
+** && is &&Dark Orange Background&&
+*** or not? That's with the purple?
+** DONE Original org-emphasis
+CLOSED: [2026-05-05 Tue 09:32]
+
+_underline_  is _
+
++test+  strike through is +
+
+*bold*  bold is *
+
+/italic/
+
+=verbatim=  = is verbatim
+
+~code~ = code
+
+* ISSUE list-packages on Big and New seem to stall or hang.
+* All !@changes to init.el!@ should be made on init.el.org then tangled to assure all same.!&
+** init.el on Plucky, New and init.el.org  now almost the same as 28APR_MASTER_.init.el
 ** That said, I want to compare the modified init.el on Big with 28APR_MASTER_.init.el then see what
 version of init.el will become the standard.
 ** Also need to confirm init.el.org matches 28APR_MASTER_.init.el
 ** tried copying 28APR_MASTER_.init.el to Big and it caused issues. Reverted.
-** In addition list-packages on Big seemed to stall or hang.
 ** init.el on Big has exec-path-from-shell ;; out.
 ** also has packages-require function commented out.
-** 430~:
 
+** 430~:
 (with-eval-after-load 'eglot
 (add-hook 'after-save-hook 'eglot-format))
 
 ** Rust section of init.el on Big simplified, does NOT match Plucky, New, init.el.org
-** Basically whole programming part of init.el is different on Big.
-* Coninuing above: slight changes on 28APR_MASTER_.init.el after:
+** Coninuing above: slight changes on 28APR_MASTER_.init.el after:
 comparing to the modified init.el from Big. These slight changes have not made it to Plucky, New or
 init.el.og yet.
 ** 28APR_MASTER_.init.el changes overwritten bringing it back to match New's init.el
 
+* Basically whole programming part of init.el is different on Big.
