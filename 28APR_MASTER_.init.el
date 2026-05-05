@@ -338,19 +338,10 @@
 (require 'org-indent)
 (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
   
-(add-to-list 'org-emphasis-alist
-             '("_" (:foreground "red")
-               ))
-
-(add-to-list 'org-emphasis-alist
-             '("+" (:foreground "LightGreen")
-               ))
-
 (defun efs/org-mode-setup ()
 "Second setup."
 (variable-pitch-mode 1)
 (visual-line-mode 1))
-;; ---------------------------------------------------------
 
 (setq org-agenda-files
       '("~/project/org/journal/journal.org"
@@ -389,7 +380,6 @@
 (use-package org-roam
   :ensure t
   :init
-;;  (setq org-roam-v2-ack t)
   :custom
   (org-roam-directory "~/project/org/roam")
   (org-roam-completion-everywhere t)
@@ -441,8 +431,8 @@
 (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs
                  '(python-mode . ("ruff")))
-;;    (with-eval-after-load 'eglot
-;;      (add-hook 'after-save-hook 'eglot-format))
+    (with-eval-after-load 'eglot
+    (add-hook 'after-save-hook 'eglot-format))
     )
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
@@ -581,19 +571,11 @@
 ;; (require 'slime-autoloads
 ;; (slime-setup)
 
-;; ;; Enable Paredit.
-;; (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
-;; (add-hook 'eval-expression-minibuffer-setup-hook 'enable-paredit-mode)
-;; (add-hook 'ielm-mode-hook 'enable-paredit-mode)
-;; (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
-;; (add-hook 'lisp-mode-hook 'enable-paredit-mode)
-;; (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
-;; (require 'paredit)
-
 ;; Enable Rainbow Delimiters.
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -666,10 +648,6 @@
  '(warning-suppress-log-types '((use-package))))
 
 '(python-shell-interpeter "$HOME/.pyenv/shims/python3")
-
-;; duplicate of above? add-hook is different than selected packages.
-;; below is for delimiters in all programming modes.
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (use-package flycheck
   :ensure t

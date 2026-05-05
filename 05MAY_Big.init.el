@@ -76,8 +76,8 @@
 
 (use-package org-extra-emphasis)
 
-(
- dolist (mode '(org-mode-hook
+
+(dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
                 eshell-mode-hook
@@ -580,6 +580,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(Info-additional-directory-list '("/opt/homebrew/share/info/"))
+ '(Info-default-directory-list '("/opt/homebrew/share/info"))
  '(backup-directory-alist '(("" . "~/.backups")))
  '(company-box-enable-icon t)
  '(company-box-icons-alist 'company-box-icons-images)
