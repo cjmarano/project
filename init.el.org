@@ -16,9 +16,21 @@
   (add-to-list 'package-archives
                     '("org" . "https://orgmode.org/elpa/")t)
 
-   (package-initialize)
+   (package-initialize) 
 
    (require 'use-package)
+
+  (defun packages-require (&rest packs)
+  "Install and load a package. If the package is not available installs it automaticaly."
+  (mapc  (lambda (package)
+           (unless (package-installed-p package)
+             (package-install package)
+             )
+	       )
+
+         packs
+
+         ))
 
   (setq package-native-compile t)
 #+end_src
@@ -31,17 +43,7 @@
    (when (memq window-system '(mac ns x))
       (exec-path-from-shell-initialize))) 
 
-(defun packages-require (&rest packs)
-  "Install and load a package. If the package is not available installs it automaticaly."
-  (mapc  (lambda (package)
-           (unless (package-installed-p package)
-             (package-install package)
-             )
-	       )
 
-         packs
-
-         ))
 #+end_src
 
 
@@ -489,148 +491,149 @@
 
 * Python
 #+begin_src emacs-lisp
+(setq python-indent-guess-indent-offset t)  
+(setq python-indent-guess-indent-offset-verbose nil)
+
+(setq python-python-command "$HOME/.pyenv/shims/python3")
+(setq python-shell-completion-native-enable nil)
+  
 (use-package eglot
-     :ensure nil
-     :defer t
-     :hook (python-mode . eglot-ensure)
-     :hook (rust-mode . eglot-ensure))
-    ;; could probably add ruby here
-    ;; :hook (ruby-mode . eglot-ensure)
+ :ensure nil
+ :defer t
+ :hook (python-mode . eglot-ensure)
+ :hook (rust-mode . eglot-ensure))
+;; could probably add ruby here
+;; :hook (ruby-mode . eglot-ensure)
 
-   (add-hook 'python-mode-hook 'eglot-ensure)
-   (with-eval-after-load 'eglot
-     (add-to-list 'eglot-server-programs
-                  '(python-mode . ("ruff"))
-     ))
-          
-        (with-eval-after-load 'eglot
-        (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
-        (with-eval-after-load 'eglot
-        (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
-        (with-eval-after-load 'eglot
-        (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer"))) 
-          
-      (require 'flymake-ruff)
-      (add-hook 'python-mode-hook #'flymake-ruff-load)
+(add-hook 'python-mode-hook 'eglot-ensure)
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '(python-mode . ("ruff"))
+  ))
+            
+ (with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
+  (with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
+  (with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer"))) 
 
-      (require 'ruff-format)
-      (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
-          
-      (add-hook 'rust-mode-hook
-                (lambda () (setq indent-tabs-mode nil)))
+(require 'flymake-ruff)
+(add-hook 'python-mode-hook #'flymake-ruff-load)
 
-      (add-hook 'rust-mode-hook
-                (lambda () (prettify-symbols-mode)))
+(require 'ruff-format)
+(add-hook 'python-mode-hook 'ruff-format-on-save-mode)
 
-      (setq rust-format-on-save t)
+(add-hook 'rust-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
 
-      (setq python-indent-guess-indent-offset t)  
-      (setq python-indent-guess-indent-offset-verbose nil)
+(add-hook 'rust-mode-hook
+          (lambda () (prettify-symbols-mode)))
 
-      (setq python-python-command "$HOME/.pyenv/shims/python3")
-      (setq python-shell-completion-native-enable nil)
+(setq rust-format-on-save t)
 
+
+
+#+end_src
+
+* Tree Sitter
+#+begin_src emacs-lisp
+(use-package 'tree-sitter)
+;; (require 'tree-sitter-langs)
+(add-hook 'rust-mode-hook #'tree-sitter-mode)
+(add-hook 'python-mode-hook #'tree-sitter-mode)
 #+end_src
 
 * Rust mode
 #+begin_src emacs-lisp
-        (use-package rustic
-          :ensure nil
-          :defer t
-          :bind (:map rustic-mode-map
-                      ("M-j" . lsp-ui-imenu)
-                      ("M-?" . lsp-find-references)
-                      ("C-c C-c l" . flycheck-list-errors)
-                      ("C-c C-c a" . lsp-execute-code-action)
-                      ("C-c C-c r" . lsp-rename)
-                      ("C-c C-c q" . lsp-workspace-restart)
-                      ("C-c C-c Q" . lsp-workspace-shutdown)
-                      ("C-c C-c s" . lsp-rust-analyzer-status)
-                      ("C-c C-c e" . lsp-rust-analyzer-expand-macro)
-                      ;;              ("C-c C-c d" . dap-hydra)
-                      ("C-c C-c h" . lsp-ui-doc-glance))
+  (use-package rust-mode
+   :defer t
+   :init
+   (setq rust-mode-treesitter-derive t))
+   ;; ;; or just for rust-mode
+   ;; ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+   ;; ;; Load the language definition for Rust, if it hasn't been loaded.
+   ;; ;; Return the language object.
+   (tree-sitter-require 'rust)
+   (tree-sitter-require 'python)
+   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+   (add-hook 'rust-mode-hook
+             (lambda () (setq indent-tabs-mode nil)))
+   (add-hook 'rust-mode-hook
+             (lambda () (prettify-symbols-mode)))
 
-          :config
-      ;; comment to disable rustfmt on save
-      (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
+    
+  (use-package rustic
+      :ensure nil
+      :defer t
+      :bind (:map rustic-mode-map
+                  ("M-j" . lsp-ui-imenu)
+                  ("M-?" . lsp-find-references)
+                  ("C-c C-c l" . flycheck-list-errors)
+                  ("C-c C-c a" . lsp-execute-code-action)
+                  ("C-c C-c r" . lsp-rename)
+                  ("C-c C-c q" . lsp-workspace-restart)
+                  ("C-c C-c Q" . lsp-workspace-shutdown)
+                  ("C-c C-c s" . lsp-rust-analyzer-status)
 
-      (defun rk/rustic-mode-hook ()
-      ;; so that run C-c C-c C-r works without having to confirm, but don't try to
-      ;; save rust buffers that are not file visiting. Once
-      ;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
-      ;; no longer be necessary.
-      (when buffer-file-name
-        (setq-local buffer-save-without-query t))
-      (add-hook 'before-save-hook 'lsp-format-buffer nil t))
+                  ("C-c C-c e" . lsp-rust-analyzer-expand-macro)
+                  ;;              ("C-c C-c d" . dap-hydra)
+                  ("C-c C-c h" . lsp-ui-doc-glance))
 
-  (use-package toml-mode
-  :ensure nil
-  :defer t)
+      :config
+      (setq rustic-format-on-save nil)
+
+#+end_src
+
+* toml mode
+#+begin_src emacs-lisp
+      (use-package toml-mode
+      :ensure nil
+      :defer t)
 
 #+end_src
 
 * lsp mode
-#+begin_src emacs-lisp
-  ;;  (setq-local lsp-inlay-hint-enable t)
-  ;; below from https://github.com/rksm/emacs-rust-config
-  (use-package lsp-mode
-    :ensure nil
-    :defer t
-    :commands lsp
-    :init
-    (setq lsp-keymap-prefix "C-c l")
-    :custom
-  ;; what to use when checking on-save. "check" is default, I prefer clippy
-  ;;   (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
-  (lsp-eldoc-render-all t)
-  (lsp-idle-delay 0.6)
-  ;; enable / disable the hints as you prefer:
-  (lsp-inlay-hint-enable t)
-  ;; These are optional configurations. See https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#lsp-rust-analyzer-display-chaining-hints for a full list
-  (lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
-  (lsp-rust-analyzer-display-chaining-hints t)
-  (lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
-  (lsp-rust-analyzer-display-closure-return-type-hints t)
-  (lsp-rust-analyzer-display-parameter-hints nil)
-  (lsp-rust-analyzer-display-reborrow-hints nil)
-  :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-  (lsp-enable-which-key-integration t))
+# #+begin_src emacs-lisp
+#   ;;  (setq-local lsp-inlay-hint-enable t)
+#   ;; below from https://github.com/rksm/emacs-rust-config
+#   (use-package lsp-mode
+#     :ensure nil
+#     :defer t
+#     :commands lsp
+#     :init
+#     (setq lsp-keymap-prefix "C-c l")
+#     :custom
+#   ;; what to use when checking on-save. "check" is default, I prefer clippy
+#   ;;   (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+#   (lsp-rust-analyzer-cargo-watch-command "clippy")
+#   (lsp-eldoc-render-all t)
+#   (lsp-idle-delay 0.6)
+#   ;; enable / disable the hints as you prefer:
+#   (lsp-inlay-hint-enable t)
+#   ;; These are optional configurations. See https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#lsp-rust-analyzer-display-chaining-hints for a full list
+#   (lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
+#   (lsp-rust-analyzer-display-chaining-hints t)
+#   (lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
+#   (lsp-rust-analyzer-display-closure-return-type-hints t)
+#   (lsp-rust-analyzer-display-parameter-hints nil)
+#   (lsp-rust-analyzer-display-reborrow-hints nil)
+#   :config
+#   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+#   (lsp-enable-which-key-integration t))
 
-  (use-package lsp-ui
-    :ensure nil
-    :defer t
-    :commands lsp-ui-mode
-    :custom
-  (lsp-ui-peek-always-show t)
-  (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-enable nil))
-  ;; end lsp-mode additions for rust
-#+end_src
+#   (use-package lsp-ui
+#     :ensure nil
+#     :defer t
+#     :commands lsp-ui-mode
+#     :custom
+#   (lsp-ui-peek-always-show t)
+#   (lsp-ui-sideline-show-hover t)
+#   (lsp-ui-doc-enable nil))
+#   ;; end lsp-mode additions for rust
+# #+end_src
 
-* Tree-sitter
-#+begin_src lisp
-  (require 'tree-sitter)
-  (require 'tree-sitter-langs)
-  (add-hook 'rust-mode-hook #'tree-sitter-mode)
-  (add-hook 'python-mode-hook #'tree-sitter-mode)
-
-  ;;   (global-tree-sitter-mode)
-
- (use-package rust-mode
-   :init
- (setq rust-mode-treesitter-derive t))
- ;; or just for rust-mode
- ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
- ;; Load the language definition for Rust, if it hasn't been loaded.
- ;; Return the language object.
- (tree-sitter-require 'rust)
- (tree-sitter-require 'python)
- (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
-#+end_src
-
+ 
 * Enable company-mode globally.
 #+begin_src emacs-lisp
 (add-hook 'after-init-hook 'global-company-mode)

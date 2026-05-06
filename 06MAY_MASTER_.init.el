@@ -14,25 +14,23 @@
 
 (require 'use-package)
 
+;; (setq package-native-compile t)
+
+;; (defun packages-require (&rest packs)
+;;   "Install & load a package . If package not available install automaticaly."
+;;   (mapc  (lambda (package)
+;;            (unless (package-installed-p package)
+;;              (package-install package)
+;;              )
+;; 	       )
+
 (setq package-native-compile t)
 
-(use-package exec-path-from-shell
-  :ensure t
-  :config
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize))) 
-
-(defun packages-require (&rest packs)
-  "Install & load a package . If package not available install automaticaly."
-  (mapc  (lambda (package)
-           (unless (package-installed-p package)
-             (package-install package)
-             )
-	       )
-
-         packs
-
-         ))
+;; (use-package exec-path-from-shell
+;;    :ensure t
+;;    :config
+;;    (when (memq window-system '(mac ns x))
+;;       (exec-path-from-shell-initialize)))
 
 (setq user-emacs-directory "~/.cache/emacs/")
 
@@ -93,8 +91,8 @@
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
 
-(when (string= system-type "darwin")
-  (setq dired-use-ls-dired nil))
+(when (string= system-type "darwin")       
+(setq dired-use-ls-dired nil))
 
 (add-hook 'dired-load-hook
           (lambda ()
@@ -339,10 +337,9 @@
 (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
   
 (defun efs/org-mode-setup ()
-"Second setup."
-(variable-pitch-mode 1)
-(visual-line-mode 1))
 
+  (variable-pitch-mode 1)
+  (visual-line-mode 1))
 (setq org-agenda-files
       '("~/project/org/journal/journal.org"
         "~/project/org/notes/notes.org"
@@ -447,38 +444,29 @@
 (use-package 'ruff-format)
 (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
 
-(add-hook 'rust-mode-hook
-          (lambda () (setq indent-tabs-mode nil)))
-
-(add-hook 'rust-mode-hook
-          (lambda () (prettify-symbols-mode)))
-
-(setq rust-format-on-save t)
-
 (setq python-indent-guess-indent-offset t)
 (setq python-indent-guess-indent-offset-verbose nil)
 
 (setq python-python-command "$HOME/.pyenv/shims/python3")
 (setq python-shell-completion-native-enable nil)
 
-(use-package rustic
-  :ensure nil
+(use-package rust-mode
   :defer t
-  :bind (:map rustic-mode-map
-              ("M-j" . lsp-ui-imenu)
-              ("M-?" . lsp-find-references)
-              ("C-c C-c l" . flycheck-list-errors)
-              ("C-c C-c a" . lsp-execute-code-action)
-              ("C-c C-c r" . lsp-rename)
-              ("C-c C-c q" . lsp-workspace-restart)
-              ("C-c C-c Q" . lsp-workspace-shutdown)
-              ("C-c C-c s" . lsp-rust-analyzer-status)
-              ("C-c C-c e" . lsp-rust-analyzer-expand-macro)
-              ("C-c C-c h" . lsp-ui-doc-glance))
+   :init
+(setq rust-mode-treesitter-derive t))
+;; ;; or just for rust-mode
+;; ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
+;; ;; Load the language definition for Rust, if it hasn't been loaded.
+;; ;; Return the language object.
+;; (tree-sitter-require 'rust)
+;; (tree-sitter-require 'python)
+;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;; (add-hook 'rust-mode-hook
+;;           (lambda () (setq indent-tabs-mode nil)))
 
   :config
 ;; comment to disable rustfmt on save
-(add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
+;; (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
 
 (defun rk/rustic-mode-hook ()
 ;; You can run C-c C-c C-r without having to confirm.  Don't try to
@@ -496,58 +484,86 @@
 
 ;; (setq-local lsp-inlay-hint-enable t)
 ;; below from https://github.com/rksm/emacs-rust-config
-(use-package lsp-mode
-  :ensure nil
-  :defer t
-  :commands lsp
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :custom
-  ;; what to use when checking on-save. "check" is default, I prefer clippy
+;; (use-package lsp-mode
+;;   :ensure nil
+;;   :defer t
+;;   :commands lsp
+;;   :init
+;;   (setq lsp-keymap-prefix "C-c l")
+;;   :custom
+;; what to use when checking on-save. "check" is default, I prefer clippy
 ;; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
-(lsp-rust-analyzer-cargo-watch-command "clippy")
-(lsp-eldoc-render-all t)
-(lsp-idle-delay 0.6)
-;; enable / disable the hints as you prefer:
-(lsp-inlay-hint-enable t)
-;; These are optional configurations. See https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#lsp-rust-analyzer-display-chaining-hints for a full list
-(lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
-(lsp-rust-analyzer-display-chaining-hints t)
-(lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
-(lsp-rust-analyzer-display-closure-return-type-hints t)
-(lsp-rust-analyzer-display-parameter-hints nil)
-(lsp-rust-analyzer-display-reborrow-hints nil)
-:config
-(add-hook 'lsp-mode-hook 'lsp-ui-mode)
-(lsp-enable-which-key-integration t))
+;; (lsp-rust-analyzer-cargo-watch-command "clippy")
+;; (lsp-eldoc-render-all t)
+;; (lsp-idle-delay 0.6)
+;; ;; enable / disable the hints as you prefer:
+;; (lsp-inlay-hint-enable t)
+;; ;; These are optional configurations. See https://emacs-lsp.github.io/lsp-mode/page/lsp-rust-analyzer/#lsp-rust-analyzer-display-chaining-hints for a full list
+;; (lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
+;; (lsp-rust-analyzer-display-chaining-hints t)
+;; (lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
+;; (lsp-rust-analyzer-display-closure-return-type-hints t)
+;; (lsp-rust-analyzer-display-parameter-hints nil)
+;; (lsp-rust-analyzer-display-reborrow-hints nil)
+;; :config
+;; (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+;; (lsp-enable-which-key-integration t))
 
-(use-package lsp-ui
-  :ensure nil
-  :defer t
-  :commands lsp-ui-mode
-  :custom
-(lsp-ui-peek-always-show t)
-(lsp-ui-sideline-show-hover t)
-(lsp-ui-doc-enable nil))
+;; (use-package lsp-ui
+;;   :ensure nil
+;;   :defer t
+;;   :commands lsp-ui-mode
+;;   :custom
+;; (lsp-ui-peek-always-show t)
+;; (lsp-ui-sideline-show-hover t)
+;; (lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
 (use-package 'tree-sitter)
 ;; (require 'tree-sitter-langs)
 (add-hook 'rust-mode-hook #'tree-sitter-mode)
 (add-hook 'python-mode-hook #'tree-sitter-mode)
-;; (global-tree-sitter-mode)
 
-;; (use-package rust-mode
-;;   :init
-;;   (setq rust-mode-treesitter-derive t))
+(use-package rust-mode
+:defer t
+:init
+(setq rust-mode-treesitter-derive t))
 ;; ;; or just for rust-mode
 ;; ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
 ;; ;; Load the language definition for Rust, if it hasn't been loaded.
 ;; ;; Return the language object.
-;; (tree-sitter-require 'rust)
-;; (tree-sitter-require 'python)
-;; (global-tree-sitter-mode)
+(tree-sitter-require 'rust)
+(tree-sitter-require 'python)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+(add-hook 'rust-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
+(add-hook 'rust-mode-hook
+          (lambda () (prettify-symbols-mode)))
+
+
+(use-package rustic
+   :ensure nil
+   :defer t
+   :bind (:map rustic-mode-map
+               ("M-j" . lsp-ui-imenu)
+               ("M-?" . lsp-find-references)
+               ("C-c C-c l" . flycheck-list-errors)
+               ("C-c C-c a" . lsp-execute-code-action)
+               ("C-c C-c r" . lsp-rename)
+               ("C-c C-c q" . lsp-workspace-restart)
+               ("C-c C-c Q" . lsp-workspace-shutdown)
+               ("C-c C-c s" . lsp-rust-analyzer-status)
+
+               ("C-c C-c e" . lsp-rust-analyzer-expand-macro)
+               ;;              ("C-c C-c d" . dap-hydra)
+               ("C-c C-c h" . lsp-ui-doc-glance))
+
+   :config
+   (setq rustic-format-on-save nil))
+
+(use-package toml-mode
+:ensure nil
+:defer t)
 
 (add-hook 'after-init-hook 'global-company-mode)
 (use-package company
@@ -565,11 +581,11 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
-(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
 (add-to-list 'load-path "~/.emacs.d/elpa/slime-20260329.2133")
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
-;; (require 'slime-autoloads
-;; (slime-setup)
+(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+(require 'slime-autoloads)
+(eval-after-load "slime" '(progn (slime-setup '(slime-fancy))))
 
 ;; Enable Rainbow Delimiters.
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
@@ -578,21 +594,21 @@
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:height 180 :family "JetBrainsMono Nerd Font"))))
- '(cursor ((t (:background "light green"))))
- '(org-headline-done ((t (:foreground "gray80"))))
- '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
- '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+  '(default ((t (:height 180 :family "JetBrainsMono Nerd Font"))))
+  '(cursor ((t (:background "light green"))))
+  '(org-headline-done ((t (:foreground "gray80"))))
+  '(org-level-1 ((t (:inherit outline-1 :background "gray22" :box (:line-width (1 . 1) :style released-button) :weight bold :height 1.3))))
+  '(org-level-2 ((t (:inherit outline-2 :background "gray23" :box (:line-width (1 . 1) :style released-button) :height 1.2)))))
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+;; custom-set-variables was added by Custom.
+;; If you edit it by hand, you could mess it up, so be careful.
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
  '(Info-additional-directory-list '("/opt/homebrew/share/info/"))
  '(Info-default-directory-list '("/opt/homebrew/share/info"))
  '(backup-directory-alist '(("" . "~/.backups")))
@@ -600,27 +616,26 @@
  '(company-box-icons-alist 'company-box-icons-images)
  '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
  '(custom-safe-themes
-   '("6dcc66a60dce37a5817d46e7b1f838ac5d95a79061119adeb7c04c7ae9f511d0"
-     "6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1"
+   '("6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1"
      "ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
      "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
      "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
      "04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f"
      default))
  '(denote-known-keywords '("emacs" "init" "general" "testing"))
- '(flycheck-checkers
-   '(lsp c/c++-clang c/c++-gcc c/c++-cppcheck emacs-lisp
-         emacs-lisp-checkdoc json-python-json json-jq
-         markdown-markdownlint-cli markdown-markdownlint-cli2
-         markdown-mdl markdown-pymarkdown org-lint python-flake8
-         python-ruff python-pylint python-pycompile python-pyright
-         python-mypy ruby-rubocop ruby-chef-cookstyle ruby-standard
-         ruby-reek ruby rust-cargo rust rust-clippy rustic-clippy
-         sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck
-         texinfo textlint yaml-actionlint yaml-jsyaml yaml-yamllint))
- '(flycheck-python-flake8-executable "python3")
- '(flycheck-python-pycompile-executable "python3")
- '(flycheck-python-pylint-executable "python3")
+ ;; '(flycheck-checkers
+ ;;   '(lsp c/c++-clang c/c++-gcc c/c++-cppcheck emacs-lisp
+ ;;         emacs-lisp-checkdoc json-python-json json-jq
+ ;;         markdown-markdownlint-cli markdown-markdownlint-cli2
+ ;;         markdown-mdl markdown-pymarkdown org-lint python-flake8
+ ;;         python-ruff python-pylint python-pycompile python-pyright
+ ;;         python-mypy ruby-rubocop ruby-chef-cookstyle ruby-standard
+ ;;         ruby-reek ruby rust-cargo rust rust-clippy rustic-clippy
+ ;;         sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck
+ ;;         texinfo textlint yaml-actionlint yaml-jsyaml yaml-yamllint))
+ ;; '(flycheck-python-flake8-executable "python3")
+ ;; '(flycheck-python-pycompile-executable "python3")
+ ;; '(flycheck-python-pylint-executable "python3")
  '(org-agenda-files '("~/project/org/3.org"))
  '(org-faces-easy-properties
    '((todo . :background) (tag . :foreground) (priority . :foreground)))
@@ -648,6 +663,10 @@
  '(warning-suppress-log-types '((use-package))))
 
 '(python-shell-interpeter "$HOME/.pyenv/shims/python3")
+
+;; duplicate of above? add-hook is different than selected packages.
+;; below is for delimiters in all programming modes.
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (use-package flycheck
   :ensure t

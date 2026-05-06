@@ -1,6 +1,5 @@
-!!May!!
+;;;  !!May!!
 * Start times down on New to < 3  and < 3 for Big over 4 for Plucky,_
-
 * !@>>>Data keeps getting corrupted in the project dir<<<_!@
 * WAITING sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: do comma- quit).
 * WAITING LISP. Using (ql:quickload "cl-project") then
@@ -145,44 +144,9 @@ Sttrangely ec command  works correctly.
 ** emacs on Big = /opt/homebrew//bin//emacs
 
 * DONE Adding to org-extra-emphasis:
-added !@red!@ and !!green1!! !%yellow!% also,  @!Test@! !&Background!&
-CLOSED: [2026-05-05 Tue 09:35]
-*** Background tags only activate when cursor is NOT on the line containing them. Odd.
-*** need to fool around with the colors more. background colors are tough.
-** Installed org-extra-emphasis on New. It blew out my org-emphasis-alist entries but does work.
-*** Note: the package didn't overwrite the alist, it just superceded it so I can always remove the package to
-change back to an earlier state.
-*** Line 77 on New's init.el pulls in org-extra-empasis. Lines 342-348 are my additions to org-empasis-alist in
-case I decide to remove them later if org-extra-emphasis works well.
-
-**  @!Test@!  Where the Hell is the copy of org-extra-emphasis.el I used? It's in ~/.emacs.d/elpa/ 
-@@Yellow@@   &&foo&& 
-**  &&FOO&& &&<-- gray19 -- fail! Too dark, doesn't show up. 
-** @@Bar@@  @@<-- yellow2
-** !! is !!GREEN!!
-** !@ is !@RED!@
-** !% is !%YELLOW!%
-** !& is !&Firebrick Bacground!&
-** @! is @!Grey Background@!
-** @@ is @@Yellow Background@@
-** && is &&Dark Orange Background&&
-*** or not? That's with the purple?
-** DONE Original org-emphasis
-CLOSED: [2026-05-05 Tue 09:32]
-
-_underline_  is _
-
-+test+  strike through is +
-
-*bold*  bold is *
-
-/italic/
-
-=verbatim=  = is verbatim
-
-~code~ = code
-
 * ISSUE list-packages on Big and New seem to stall or hang.
+* ISSUE Package-list-packages still stalls. Can't reach elps or melpa using a browser.
+CLOSED: [2026-05-06 Wed 09:31]
 * All !@changes to init.el!@ should be made on init.el.org then tangled to assure all same.!&
 ** init.el on Plucky, New and init.el.org  now almost the same as 28APR_MASTER_.init.el
 ** That said, I want to compare the modified init.el on Big with 28APR_MASTER_.init.el then see what
@@ -202,4 +166,8 @@ comparing to the modified init.el from Big. These slight changes have not made i
 init.el.og yet.
 ** 28APR_MASTER_.init.el changes overwritten bringing it back to match New's init.el
 
-* Basically whole programming part of init.el is different on Big.
+* NEXT  File on Desktop;  program_section_MASTER.txt
+I've regularized both of these files. will try plugging one of them in to their respective init.el and see if it makes a difference.
+** Basically whole programming part of init.el is different on Big. So boiled down the diffs.
+** now have to test by stuffing the above file into init.el on New. !%But see above tangling!%.
+
