@@ -8,3 +8,4 @@ Tab  Tab Tab. Don't like auto-completions here.
 It's Thursday 26MAR. 
 This is s test after swaping Apple keyboad on New for MS Sculpt.
 So, lot of data corruption on New. Things that worked one day breaking the next.
+Changed init.el to straight instead of package to fix :443 failure when updating.

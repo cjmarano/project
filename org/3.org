@@ -1,6 +1,6 @@
 ;;;  !!May!!
-* Start times down on New to < 2  and < 3 for Big over 4 for Plucky,_
-* !@>>>Data keeps getting corrupted in the project dir<<<_!@
+* Start times down on New and Big to < 2 with Straight. over 4 for Plucky.
+* Data keeps getting corrupted in the project dir.
 * WAITING sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: do comma- quit).
 * WAITING LISP. Using (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
@@ -15,13 +15,12 @@ drwxr-xr-x@    - charles.marano 25 Feb 12:55   tests
 .rw-r--r--@   41 charles.marano 25 Feb 12:55   README.org
 
 main.lisp looks like this:
-
+                                        
 (uiop:define-package my-project
    2 │   (:use #:cl))
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* DONE Adding to org-extra-emphasis:
 * !!misc!!
 ** COMPLETED Tried Prelude and it ruined emacs. Had to Restore older Dirs.
 CLOSED: [2026-04-14 Tue 10:03]
@@ -144,10 +143,11 @@ MacBook seems to think that /Applications//Emacs.app is correct and it should ha
 Sttrangely ec command  works correctly.
 ** emacs on Big = /opt/homebrew//bin//emacs
 
-* ISSUE !@Package!@-list-packages still stalls. Can't reach elpa or melpa using a browser.
+** DONE Adding to org-extra-emphasis:
+** ISSUE !@Package!@-list-packages still stalls. Can't reach elpa or melpa using a browser.
 CLOSED: [2026-05-06 Wed 09:31]
 ** ISSUE list-packages on Big and New seem to stall or hang.
-* ISSUE Changes to init.el should be made on init.el.org then tangled but not working well.
+** ISSUE Changes to init.el should be made on init.el.org then tangled but not working well.
 CLOSED: [2026-05-07 Thu 09:41]
 ** BROKEN Blew up init.el on New, Big, init.el.org currently using 05MAY_Big.init.org on Big.
 **  No idea what init.el New is using - too many tweaks after Big crash.
@@ -158,5 +158,18 @@ I've regularized both of these files. will try plugging one of them in to their 
 ** now have to test by stuffing the above file into init.el on New. !%But see above tangling!%.Tried tangling.
 Big mess. Hours sorting it out. 
 
-* BROKEN Vertico broken on Big. working, but not normally - show too many items. So...
+** BROKEN Vertico broken on Big. working, but not normally - show too many items. So...
 probably not working with orderless, and other completion frameworks? Don't know.
+** Syntax hilighting for elisp not working.
+** have to restore org mod customizations.
+** rainbow delimiters not loading on Big. Missing. So is helpful. Others?
+** Syntax hilighting working now BUT org mode broken. Also can't 2x click items in Dashboard.
+
+** How did we fix can't 2x click items in Dashboard last time?
+* So... moved ~/.emacs.d/elpa to ~/back_elpa/ then installed Straight Bootstrap.
+** removed all mention of package from init.el
+** lot of work to replace require with use-package commented out a lot of stuff to get a working init.
+** More work stil to be done. Left eglot intact but killed all lsp-mode stuff and a lot of Rust stuff.
+** 
+* New & Big moved to straight. Don't change init.el.org needed for Plucky & Ducky.
+* recent files wasn't working. Is now. same w/Org-mode & 2s-click in Dashboard.
