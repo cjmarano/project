@@ -1,6 +1,7 @@
 ;;;  !!May!!
 * Start times down on New and Big to < 2 with Straight. over 4 for Plucky.
 * Data keeps getting corrupted in the project dir.
+* 64 packages loaded in Straight so far vs. 93 in last package-based init.
 * WAITING sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: do comma- quit).
 * WAITING LISP. Using (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
@@ -166,10 +167,11 @@ probably not working with orderless, and other completion frameworks? Don't know
 ** Syntax hilighting working now BUT org mode broken. Also can't 2x click items in Dashboard.
 
 ** How did we fix can't 2x click items in Dashboard last time?
+** recent files wasn't working. Is now. same w/Org-mode & 2s-click in Dashboard.
 * So... moved ~/.emacs.d/elpa to ~/back_elpa/ then installed Straight Bootstrap.
 ** removed all mention of package from init.el
 ** lot of work to replace require with use-package commented out a lot of stuff to get a working init.
 ** More work stil to be done. Left eglot intact but killed all lsp-mode stuff and a lot of Rust stuff.
 ** 
 * New & Big moved to straight. Don't change init.el.org needed for Plucky & Ducky.
-* recent files wasn't working. Is now. same w/Org-mode & 2s-click in Dashboard.
+* Error; helpful (global-set-key) quicklisp (expand file name). <-- fixed?
