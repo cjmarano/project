@@ -175,3 +175,5 @@ probably not working with orderless, and other completion frameworks? Don't know
 ** 
 * New & Big moved to straight. Don't change init.el.org needed for Plucky & Ducky.
 * Error; helpful (global-set-key) quicklisp (expand file name). <-- fixed?
+* Rainbow delimiters error, even though the package was cloned to repos.
+** both big and new have rainbow-delimiters in straight/repos but init.el complains.
