@@ -168,12 +168,14 @@ probably not working with orderless, and other completion frameworks? Don't know
 
 ** How did we fix can't 2x click items in Dashboard last time?
 ** recent files wasn't working. Is now. same w/Org-mode & 2s-click in Dashboard.
-* So... moved ~/.emacs.d/elpa to ~/back_elpa/ then installed Straight Bootstrap.
+** So... moved ~/.emacs.d/elpa to ~/back_elpa/ then installed Straight Bootstrap.
 ** removed all mention of package from init.el
 ** lot of work to replace require with use-package commented out a lot of stuff to get a working init.
 ** More work stil to be done. Left eglot intact but killed all lsp-mode stuff and a lot of Rust stuff.
 ** 
 * New & Big moved to straight. Don't change init.el.org needed for Plucky & Ducky.
-* Error; helpful (global-set-key) quicklisp (expand file name). <-- fixed?
-* Rainbow delimiters error, even though the package was cloned to repos.
+* ISSUE Error; helpful (global-set-key) quicklisp (expand file name).
+* ISSUE Rainbow delimiters error, even though the package was cloned to repos.
 ** both big and new have rainbow-delimiters in straight/repos but init.el complains.
+* Both New and Big working w/ straight version of init.el
+** not all functionality restored but at least the load, emacs opens.
