@@ -1,4 +1,4 @@
-;;;  !!May!!
+;;; +May+
 * Start times down on New and Big to < 2 with Straight. over 4 for Plucky.
 * Data keeps getting corrupted in the project dir.
 * 64 packages loaded in Straight so far vs. 93 in last package-based init.
@@ -24,8 +24,8 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* !!misc!!
-** COMPLETED Tried Prelude and it ruined emacs. Had to Restore older Dirs.
+* +misc+
+COMPLETED Tried Prelude and it ruined emacs. Had to Restore older Dirs.
 CLOSED: [2026-04-14 Tue 10:03]
 *** Used Druva to restore to pre-Prelude state; .config, .cache, .emacs.d
 *** after restore things /seem/ to be back to normal. Will do more checking.
@@ -182,7 +182,21 @@ probably not working with orderless, and other completion frameworks? Don't know
 ** not all functionality restored but at least they load, emacs opens.
 ** rainbow delimiters working.
 *** tdsh theme not great for org.
-* New & Big moved to straight. Don't change init.el.org needed for Plucky & Ducky.
+** COMPLETED org-extra-emphasis appears broken (github issue?) <-- removed from init.el
+CLOSED: [2026-05-15 Fri 07:56]
+*** went back to changing org-emphasis-alist.
+
+* DONE emphasis
+CLOSED: [2026-05-15 Fri 11:02]
+ +  +green+
+ _  _red_
+ *  *BOLD* 
+ /  /italic/
+ ~  ~code~
+ =  =verbatim=
+
+* DONE New & Big moved to straight. Don't change init.el.org needed for Plucky & Ducky.
+CLOSED: [2026-05-15 Fri 11:02]
 * Python: syntax hiliting completion, flycheck. working. marginalia not.
 * Python: when starting eglot have to tell emacs where pylsp is even though...
 it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
@@ -190,5 +204,5 @@ it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
 marginalia not working?
 * elisp: marginalia working, syntax hilite working.
 * ISSUE Error; helpful (global-set-key).
-* org-extra-emphasis appears broken (github issue?) <-- removed from init.el
-** maybe go back to changing org-emphasis-alist.
+* Spent a lot of time faffing around w/ rainbow-delimiters on Big. Working now.
+** no idea what happened or what fixed it.
