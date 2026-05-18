@@ -1,7 +1,7 @@
 ;;; +May+
 * Start times down on New and Big to < 2 with Straight. over 4 for Plucky.
 * Data keeps getting corrupted in the project dir.
-* 64 packages loaded in Straight so far vs. 93 in last package-based init.
+* 69 packages loaded in Straight so far vs. 93 in last package-based init.
 * WAITING sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: do comma- quit).
 * Be sure add ' in (straight-use-package '<package>
 or emacs won't install/use the package.
