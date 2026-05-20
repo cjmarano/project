@@ -23,11 +23,9 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* +misc+
-COMPLETED Tried Prelude and it ruined emacs. Had to Restore older Dirs.
-CLOSED: [2026-04-14 Tue 10:03]
-*** Used Druva to restore to pre-Prelude state; .config, .cache, .emacs.d
-*** after restore things /seem/ to be back to normal. Will do more checking.
+* Misc
+** Used Druva to restore to pre-Prelude state; .config, .cache, .emacs.d
+** after restore things /seem/ to be back to normal. Will do more checking.
 ** COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
 CLOSED: [2026-03-27 Fri 08:35]
 ** COMPLETED Made .gitignore file in ~/project. Added .DS_Store. Did not fix issue. git clean -f did.
@@ -209,8 +207,7 @@ CLOSED: [2026-05-20 Wed 07:33]
 ** COMPLETED Copied New's init.el to ~/project/19MAY_FREEZE_New.init.el
 CLOSED: [2026-05-20 Wed 07:33]
 ** COMPLETED sbcl --script <filename.lisp> working correctly. _Note_: to quit slime: do comma- quit).
-CLOSED: [2026-05-20 Wed 07:34]
-* Python: syntax hiliting completion, flycheck. working. marginalia not.
+CLOSED: [2026-05-20 Wed 07:34* Python: syntax hiliting completion, flycheck. working. marginalia not.
 * Python: when starting eglot have to tell emacs where pylsp is even though...
 it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
 * ISSUE Lisp: syntax hilite, slime working. flycheck runs but doesn't find errors.
@@ -224,3 +221,4 @@ CLOSED: [2026-05-19 Tue 11:10]
 * Added (setq load-prefer-newer t) to early.init.el on New.
 * Completely removed helpful package since it kept throwing errors. -->
 Will try putting it back at some point but not missing it right now
+nnnn
