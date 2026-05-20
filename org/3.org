@@ -221,4 +221,6 @@ marginalia not working?
 CLOSED: [2026-05-19 Tue 11:10]
 * Org fonts section and org roam both commented out. Do we care?
 * Rust, Rustic, lsp, lspUI, tree-sitter
-* 
+* Added (setq load-prefer-newer t) to early.init.el on New.
+* Completely removed helpful package since it kept throwing errors. -->
+Will try putting it back at some point but not missing it right now
