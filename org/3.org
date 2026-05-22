@@ -2,7 +2,7 @@
 * Start times down on New and Big to < 2 with Straight and Plucky.
 * 69 packages loaded in Straight vs. 93 in package-based init. (77 in repo)
 65 on Big,
-* Be sure add ' in (straight-use-package '<package>
+* Be sure 2 use (straight-use-package '<package> but (use-package <package>)
 or emacs won't install/use the package.
 * WAITING LISP. Using (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
@@ -223,16 +223,17 @@ changes to Main Origin/Main and asked 'discard or stash'.
 ** don't make any changes until confirmed everything is working.
 ** COMPLETED Yazi blew up for no reason. ANother case of file corruption w/ no cause.
 CLOSED: [2026-05-22 Fri 11:07]
+*** on both New and Big - so probably some update somewhere, not data corruption.
 ** Consider migrating to Codeberg. <-- nope. Unless you contribute.
 * Python: when starting eglot have to tell emacs where pylsp is even though...
 it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
-* ISSUE Error; helpful (global-set-key).
-** ISSUE C-h F and C-c C-d (both helpful don't seem to work. Is this a set-key issue?
-CLOSED: [2026-05-19 Tue 11:10]
 * Org fonts section and org roam both commented out. Do we care?
 * Rust, Rustic, lsp, lspUI, tree-sitter
-* Re-installed helpful package w/o any keybinds and it looks like it's working now.
+* WAITING Re-installed helpful package w/o any keybinds and it looks like it's working now.
 ** ISSUE Completely removed helpful package since it kept throwing errors. -->
 CLOSED: [2026-05-20 Wed 13:27]
 Will try putting it back at some point but not missing it right now
 nnnn
+** ISSUE Error; helpful (global-set-key).
+** ISSUE C-h F and C-c C-d (both helpful don't seem to work. Is this a set-key issue?
+CLOSED: [2026-05-19 Tue 11:10]
