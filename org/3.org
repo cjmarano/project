@@ -210,13 +210,24 @@ CLOSED: [2026-05-20 Wed 07:33]
 CLOSED: [2026-05-20 Wed 07:34* Python: syntax hiliting completion, flycheck. working. marginalia not.
 ** COMPLETED Added (setq load-prefer-newer t) to early.init.el on New.
 CLOSED: [2026-05-20 Wed 13:27]
-* Python: when starting eglot have to tell emacs where pylsp is even though...
-it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
-* ISSUE Lisp: syntax hilite, slime working. flycheck runs but doesn't find errors.
+** ISSUE Lisp: syntax hilite, slime working. flycheck runs but doesn't find errors.
 CLOSED: [2026-05-18 Mon 13:47]
 marginalia not working?
+** COMPLETED Straight-pull-all on New completly f**ked init.el
+CLOSED: [2026-05-22 Fri 11:07]
+** Problem with sanityinc-tomorrow-theme after straight-pull complained about
+changes to Main Origin/Main and asked 'discard or stash'.
+*** Had to copy the +color-theme-sanityinc-tomorrow+ folder into ~/.emacs.d/themes/ to fix it.
+*** Have to look into this. Straight-pull also complained about rainow-delimiters.
+*** Init.el is working now, I think. Will need to test.
+** don't make any changes until confirmed everything is working.
+** COMPLETED Yazi blew up for no reason. ANother case of file corruption w/ no cause.
+CLOSED: [2026-05-22 Fri 11:07]
+** Consider migrating to Codeberg. <-- nope. Unless you contribute.
+* Python: when starting eglot have to tell emacs where pylsp is even though...
+it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
 * ISSUE Error; helpful (global-set-key).
-* ISSUE C-h F and C-c C-d (both helpful don't seem to work. Is this a set-key issue?
+** ISSUE C-h F and C-c C-d (both helpful don't seem to work. Is this a set-key issue?
 CLOSED: [2026-05-19 Tue 11:10]
 * Org fonts section and org roam both commented out. Do we care?
 * Rust, Rustic, lsp, lspUI, tree-sitter
@@ -225,10 +236,3 @@ CLOSED: [2026-05-19 Tue 11:10]
 CLOSED: [2026-05-20 Wed 13:27]
 Will try putting it back at some point but not missing it right now
 nnnn
-* Straight-pull-all on New completly f**ked init.el
-** Problem with sanityinc-tomorrow-theme after straight-pull complained about
-changes to Main Origin/Main and asked 'discard or stash'.
-*** Had to copy the +color-theme-sanityinc-tomorrow+ folder into ~/.emacs.d/themes/ to fix it.
-*** Have to look into this. Straight-pull also complained about rainow-delimiters.
-*** Init.el is working now, I think. Will need to test.
-** don't make any changes until confirmed everything is working.

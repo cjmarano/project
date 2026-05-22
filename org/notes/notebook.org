@@ -84,11 +84,11 @@ C-x 5 0 cose frame
 v, x, c (kill emacs, save buffers)
 
 * Eval expression
-C-x, e
-C-M, x
-Alt, n
-C-u, n
-M, n
+C-x, e  <-- bound to  kmacro-end-and-call-macro
+C-M, x <==== +WORKS+.
+Alt, n <-- undefined
+C-u, n  <-- Nope!
+M, n <-- undefined
 
 * find
 
