@@ -1,7 +1,7 @@
 ;;; +May+
 * Start times down on New and Big to < 2 with Straight and Plucky.
-* 69 packages loaded in Straight vs. 93 in package-based init. (77 in repo)
-65 on Big,
+* 71 (New) 67 (Big) packages loaded in Straight vs. 93 in package-based init.
+78 packages in New's repo, 63 in Big's repo (less than installed!)
 * Be sure 2 use (straight-use-package '<package> but (use-package <package>)
 or emacs won't install/use the package.
 * WAITING LISP. Using (ql:quickload "cl-project") then
@@ -237,3 +237,6 @@ nnnn
 ** ISSUE Error; helpful (global-set-key).
 ** ISSUE C-h F and C-c C-d (both helpful don't seem to work. Is this a set-key issue?
 CLOSED: [2026-05-19 Tue 11:10]
+* WAITING Python-mode/eglot broken on New, but not on Big!
+** Internet says it's because emacs is using project.el not project.elc
+** Rolling back init.el a week (17May) did not fix Python Problem on New.
