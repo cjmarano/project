@@ -8,7 +8,7 @@ M-x straight-pull-package-all
 M-x straight-check package
 M-X straight-check-all
 
-! reload newer pacakages (probably use pull instead).
+! reload newer packages (probably use pull instead).
 
 * Uninstalling with Straight
 remove the straight-use-package line for that package.
@@ -21,8 +21,15 @@ or
 
 if using the second method then :straight t on every package line not needed.
 
-straight-use-package '( <packaagename> :host github
-                                       :repo <user>/<packaagename>
+straight-use-package '( <packagename> :host github
+                                       :repo <user>/<packagename>
                                        :branch main))
 
-                                       
+for builtin packages use :straight nil to prevent emacs from loading another version.
+
+* Changed all (require '<packagename> to
+(use-package '<packagename)
+
+
+
+

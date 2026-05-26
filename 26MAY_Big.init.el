@@ -44,7 +44,6 @@
 (add-to-list 'load-path "~/opt/homebrew/bin")
 
 (use-package no-littering)
-;; (require 'no-littering)
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
@@ -76,9 +75,6 @@
 (file-name-shadow-mode)
 (setq-default create-lockfiles nil)
 (delete-selection-mode 1)
-
-
-;; (use-package org-extra-emphasis)
 
 (dolist (mode '(org-mode-hook
                 term-mode-hook
@@ -265,13 +261,17 @@
 
 (use-package helpful
   :straight t)
-;; Note that the built-in `describe-function' includes both functions
-;; and macros. `helpful-function' is functions only, so we provide
-;; `helpful-callable' as a drop-in replacement.
-;; (global-set-key (kbd "C-h f") #'helpful-callable)
-;; (global-set-key (kbd "C-h v") #'helpful-variable)
-;; (global-set-key (kbd "C-h k") #'helpful-key)
-;; (global-set-key (kbd "C-h x") #'helpful-command)
+;; ;; Note that the built-in `describe-function' includes both functions
+;; ;; and macros. `helpful-function' is functions only, so we provide
+;; ;; `helpful-callable' as a drop-in replacement.
+;; (keymap-global-set (kbd "C-h f") #'helpful-callable)
+;; (keymap-global-set (kbd "C-h v") #'helpful-variable)
+;; (keymap-global-set (kbd "C-h k") #'helpful-key)
+;; (keymap-global-set (kbd "C-h x") #'helpful-command)
+
+;; ;; Lookup the current symbol at point. C-c C-d is a common keybinding
+;; ;; for this in lisp modes.
+;; (keymap-global-set (kbd "C-c C-d") #'helpful-at-point)
 
 ;; Lookup the current symbol at point. C-c C-d is a common keybinding
 ;; for this in lisp modes.
@@ -282,7 +282,6 @@
 ;; By default, C-h F is bound to `Info-goto-emacs-command-node'. Helpful
 ;; already links to the manual, if a function is referenced there.
 ;; (global-set-key (kbd "C-h F") #'helpful-function)
-
 
 (use-package smartparens
   :hook (emacs-lisp-mode-hook common-lisp-mode-hook lisp-mode-hook)
@@ -306,15 +305,15 @@
 ;; )                                  
                       
 ;; Set faces for heading levels
-;; (with-eval-after-load 'org-faces
-;;   (dolist (face '((org-level-1 . 1.2)
-;;                   (org-level-2 . 1.1)
-;;                   (org-level-3 . 1.05)
-;;                   (org-level-4 . 1.0)
-;;                   (org-level-5 . 1.1)
-;;                   (org-level-6 . 1.1)
-;;                   (org-level-7 . 1.1)
-;;                   (org-level-8 . 1.1))))
+(with-eval-after-load 'org-faces
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))))
 ;;   (set-face-attribute (car face) nil :font "JetBrainsmono" :weight 'regular :height (cdr face)))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
@@ -331,6 +330,15 @@
 ;; (use-package 'org-indent)
 ;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
   
+(add-to-list 'org-emphasis-alist
+             '("_" (:foreground "red")
+               ))
+
+(add-to-list 'org-emphasis-alist
+             '("+" (:foreground "LightGreen")
+               ))
+
+
 (defun efs/org-mode-setup ()
 
   (variable-pitch-mode 1)
@@ -397,17 +405,17 @@
 ;; (keymap-set global-map "C-c c" 'org-capture)
 ;; (setq org-log-done 'time)
 
-;; (with-eval-after-load 'org
-;;       (org-babel-do-load-languages
-;;           'org-babel-load-languages
-;;           '((emacs-lisp . t)
-;;           (python . t)
-;;           (ruby . t)
-;;           (eshell . t)
-;;           (lisp . t)
-;;           (rust . t)
-;;           ))
-;;     (push '("conf-unix" . conf-unix) org-src-lang-modes))
+(with-eval-after-load 'org
+      (org-babel-do-load-languages
+          'org-babel-load-languages
+          '((emacs-lisp . t)
+          (python . t)
+;;          (ruby . t)
+          (eshell . t)
+          (lisp . t)
+;;          (rust . t)
+          ))
+    (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
 ;; (use-package 'org-tempo)
 
@@ -551,12 +559,9 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
-(use-package slime
-;; (add-to-list 'load-path "~/.emacs.d/elpa/slime-20260329.2133")
+(straight-use-package 'slime
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-;; (require 'slime-autoloads)
-;; (eval-after-load "slime" '(progn (slime-setup '(slime-fancy))))
 )
 
 (use-package rainbow-delimiters)
@@ -567,7 +572,6 @@
 (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -601,6 +605,11 @@
  '(custom-theme-directory "~/.emacs.d/themes/")
  '(denote-known-keywords '("emacs" "init" "general" "testing"))
  '(org-agenda-files '("~/project/org/3.org"))
+ '(org-emphasis-alist
+   '(("+" (:foreground "LightGreen")) ("_" (:foreground "red"))
+     ("*" bold) ("/" italic) ("_" (:foreground "red"))
+     ("=" org-verbatim verbatim) ("~" org-code verbatim)
+     ("+" (:strike-through t))))
  '(org-faces-easy-properties
    '((todo . :background) (tag . :foreground) (priority . :foreground)))
  '(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
@@ -611,13 +620,12 @@
  '(org-tempo-keywords-alist nil)
  '(savehist-additional-variables '(kill-ring register-alist\ ) t)
  '(sort-fold-case t)
- '(warning-suppress-log-types '((use-package))))
-
-'(python-shell-interpeter "$HOME/.pyenv/shims/python3")
+ '(warning-suppress-log-types '((org-element org-element-parser) (use-package)))
+ '(python-shell-interpeter "$HOME/.pyenv/shims/python3"))
 
 ;; duplicate of above? add-hook is different than selected packages.
 ;; below is for delimiters in all programming modes.
-;; (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (use-package flycheck
   :config
@@ -627,4 +635,3 @@
 (setq gc-cons-threshold (expt 2 23)) ;; 8MB
 (setq gc-cons-percentage 0.5)
 ;; end
-;;; 
