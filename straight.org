@@ -1,0 +1,28 @@
+* Updating with Straight
+M-x straight-pull-package
+M-x straight-pull-package-and-deps
+M-x straight-pull-package-all
+
+! Restart emacs after running any of above.
+
+M-x straight-check package
+M-X straight-check-all
+
+! reload newer pacakages (probably use pull instead).
+
+* Uninstalling with Straight
+remove the straight-use-package line for that package.
+M-x straight-remove-unused-repo
+
+* To use a package
+(straight-use-package 'use-package)  <-- forces use-package to straight.
+or
+(setq straight-use-package-by-default t)
+
+if using the second method then :straight t on every package line not needed.
+
+straight-use-package '( <packaagename> :host github
+                                       :repo <user>/<packaagename>
+                                       :branch main))
+
+                                       

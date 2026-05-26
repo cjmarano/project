@@ -240,3 +240,5 @@ CLOSED: [2026-05-19 Tue 11:10]
 * WAITING Python-mode/eglot broken on New, but not on Big!
 ** Internet says it's because emacs is using project.el not project.elc
 ** Rolling back init.el a week (17May) did not fix Python Problem on New.
+* ISSUE File mode specification error: (error Feature ‘project’ is now provided by a different file /Users/charles.marano/.emacs.d/straight/build/project/project.elc)
+* Lisp: Company: backend company-capf error "Not connected." with args (prefix)
