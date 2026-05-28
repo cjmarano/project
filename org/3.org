@@ -235,6 +235,7 @@ nnnn
 ** ISSUE Error; helpful (global-set-key).
 ** ISSUE C-h F and C-c C-d (both helpful don't seem to work. Is this a set-key issue?
 CLOSED: [2026-05-19 Tue 11:10]
+** .zshrc path checked on New and Big and a copy sent to ~/project/
 * Org fonts section and org roam both commented out. Do we care?
 * Rust, Rustic, lsp, lspUI, _tree-sitter_
 * ISSUE +Python+-mode/eglot broken on New, but not on Big!
@@ -250,8 +251,10 @@ it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
 ** json rpc message is from eglot - it can't find might be from closing progrs.
 * ISSUE File mode specification error: (error Feature ‘project’ is
 now provided by a different file /Users/charles.marano/.emacs.d/straight/build/project/project.elc)
-* _Lisp_ on New - can't complete capf not connected. But lisp on Big...
+* _Lisp_ on New - can't complete capf not connected. But lisp on Big can.
 is using company-dabbev-code company-gtags company-etags company-keywords.
 ** _Lisp_: Company: backend company-capf error "Not connected." with args (prefix)
-* C-h v then company-backends shows no backends for lisp or elisp on New.
+** C-h v then company-backends shows no backends for lisp or elisp on New.
 ** capf for lisp IS working on Big. see capf_lisp.txt for more.
+* You can force company to find dabbreve by using company-begin-backend
+and then choosing the dabbrev backend from the list that appears in the minibuffer.
