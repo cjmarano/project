@@ -1,4 +1,4 @@
-export PATH=/Users/charles.marano/.cache/emacs/:/Users/charles.marano/.cache/emacs/tree-sitter/:/Users/charles.marano/tree-sitter/:/opt/homebrew/opt/ruby/bin/:/opt/homebrew/lib/ruby/gems/4.0.0/bin/:/Users/charles.marano/.pyenv/versions/3.14.0/bin/:/Users/charles.marano/.pyenv/shims/:/Users/charles.marano/.pyenv/shims/pip/:/Users/charles.marano/.rbenv/shims/:/Users/charles.marano/.cargo/bin/:/Users/charles.marano/.local/bin/:/opt/homebrew/bin/:/opt/homebrew/sbin/:/usr/local/sbin/:/usr/local/bin/:/usr/sbin/:/usr/bin/:/bin/:/sbin/:/Users/charles.marano/.pyenv/versions/3.14.0/lib/python3.14/site-packages/:/opt/homebrew/opt/python-lsp-server/bin/:/Users/charles.marano/.pyenv/versions/3.14.0/lib/python3.14/site-packages/:/Users/charles.marano/.rbenv/bin/:/users/charles.marano/.pyenv/bin/:/Applications/Ghostty.app/Contents/Resources/ghostty/:/Users/charles.marano/project/rust/:/opt/homebrew/opt/rustup/bin/:/Users/charles.marano/.emacs.d/elpa/:/Applications/Emacs.app/Contents/Resources/site-lisp/:/opt/homebrew/Cellar/texinfo/:/opt/homebrew/bin/:
+export PATH=/Users/charles.marano/.cache/emacs/:/Users/charles.marano/.cache/emacs/tree-sitter/:/Users/charles.marano/tree-sitter/:/opt/homebrew/opt/ruby/bin/:/opt/homebrew/lib/ruby/gems/4.0.0/bin/:/Users/charles.marano/.pyenv/versions/3.14.0/bin/:/Users/charles.marano/.pyenv/shims/:/Users/charles.marano/.pyenv/shims/pip/:/Users/charles.marano/.rbenv/shims/:/Users/charles.marano/.cargo/bin/:/Users/charles.marano/.local/bin/:/opt/homebrew/bin/:/opt/homebrew/sbin/:/usr/local/sbin/:/usr/local/bin/:/usr/sbin/:/usr/bin/:/bin/:/sbin/:/Users/charles.marano/.pyenv/versions/3.14.0/lib/python3.14/site-packages/:/opt/homebrew/opt/python-lsp-server/bin/:/Users/charles.marano/.rbenv/bin/:/users/charles.marano/.pyenv/bin/:/Applications/Ghostty.app/Contents/Resources/ghostty/:/opt/homebrew/opt/rustup/bin/:/Applications/Emacs.app/Contents/Resources/site-lisp/:/opt/homebrew/Cellar/texinfo/:/opt/homebrew/bin/:
 
 HOMEBREW_NO_PATH_SHADOW_CHECK=1
 
@@ -67,13 +67,14 @@ alias bu='emacs -q -l ~/project/Prot/init.el &'
 alias ec='/opt/homebrew/Cellar/emacs/30.2_2/bin/emacsclient -n $1'
 alias ez="emacsclient --create-frame $1"
 alias ff='du -a ~/project/ 2>/dev/null | grep -i $1'
+
+FPATH=~/.rbenv/completions:"$FPATH"
+
 # pyenv config
 export PYENV_ROOT="$HOME/.pyenv"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-
-FPATH=~/.rbenv/completions:"$FPATH"
 
 # export EDITOR=emacs
 

@@ -1,8 +1,8 @@
 ;;; +May+
 * Start times down on New and Big to < 2 with Straight and Plucky.
-* 71 (New) 67 (Big) packages loaded in Straight vs. 93 in package-based init.
+** 71 (New) 67 (Big) packages loaded in Straight vs. 93 in package-based init.
 78 packages in New's repo, 63 in Big's repo (less than installed!)
-* Be sure 2 use (straight-use-package '<package> but (use-package <package>)
+** Be sure 2 use (straight-use-package '<package> but (use-package <package>)
 or emacs won't install/use the package.
 * WAITING LISP. Using (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
@@ -236,18 +236,22 @@ nnnn
 ** ISSUE C-h F and C-c C-d (both helpful don't seem to work. Is this a set-key issue?
 CLOSED: [2026-05-19 Tue 11:10]
 * Org fonts section and org roam both commented out. Do we care?
-* Python: when starting eglot have to tell emacs where pylsp is even though...
-it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
-* Rust, Rustic, lsp, lspUI, tree-sitter
-* NEXT +Python+-mode/eglot broken on New, but not on Big!
+* Rust, Rustic, lsp, lspUI, _tree-sitter_
+* ISSUE +Python+-mode/eglot broken on New, but not on Big!
+** running M-x eglot prompts for localtion of pylsp...
+giving it /Users/charles.marano/.pyenv/shims/pylsp starts eglot and it seems to work.
 ** Internet says it's because emacs is using project.el not project.elc
 ** Rolling back init.el a week (17May) did not fix Python Problem on New.
 ** +Python+ on New - capf: HOMEBREW_NO_PATH_SHADOW_CHECK=1 in .zshrc to force emacs
 to use homebrew pylsp instead of shims/pylsp. Big was using /opt/homebrew//bin/pylsp and working.
 Which command in terminal still shows /Users/charles.marano/.pyenv/shims/pylsp which is odd.
+** Python: when starting eglot have to tell emacs where pylsp is even though...
+it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
+** json rpc message is from eglot - it can't find might be from closing progrs.
 * ISSUE File mode specification error: (error Feature ‘project’ is
 now provided by a different file /Users/charles.marano/.emacs.d/straight/build/project/project.elc)
 * _Lisp_ on New - can't complete capf not connected. But lisp on Big...
 is using company-dabbev-code company-gtags company-etags company-keywords.
 ** _Lisp_: Company: backend company-capf error "Not connected." with args (prefix)
-* json rpc message is from eglot - it can't find
+* C-h v then company-backends shows no backends for lisp or elisp on New.
+** capf for lisp IS working on Big. see capf_lisp.txt for more.

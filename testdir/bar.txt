@@ -6,3 +6,5 @@ This line is flush with left border.
           Two tabs, whoo-hoo.
               This is two tabs.
                    This is three.
+               You can't tab backwards.
+               Tabs are four spaces.

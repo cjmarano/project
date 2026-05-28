@@ -539,12 +539,12 @@ specified in `org-extra-emphasis-alist'."
   :group 'org-extra-emphasis-faces)
 
 (defface org-extra-emphasis-05
-  '((t (:inherit org-extra-emphasis  :background "seagreen3")))
+  '((t (:inherit org-extra-emphasis  :background "grey40")))
   "A face for Org Extra Emphasis."
   :group 'org-extra-emphasis-faces)
 
 (defface org-extra-emphasis-06
-  '((t (:inherit org-extra-emphasis)))
+  '((t (:inherit org-extra-emphasis   :background "yellow2")))
   "A face for Org Extra Emphasis."
   :group 'org-extra-emphasis-faces)
 
@@ -594,7 +594,388 @@ specified in `org-extra-emphasis-alist'."
   :group 'org-extra-emphasis-faces)
 
 (defface org-extra-emphasis-16
-  '((t (:inherit org-extra-emphasis)))
+  '((t (:inherit org-extra-emphasis  :background "purple1")))
+  "A face for Org Extra Emphasis."
+  :group 'org-extra-emphasis-faces)
+;; Configuring your own Emphasis Markers
+;; =====================================
+;;
+;; 16 numbers of emphasis markers should suffice in practice.
+;; However, if none of the above emphasis markers resonate with you,
+;; you can customize `org-extra-emphasis-alist', and plug in your own
+;; markers.  When choosing your own marker, ensure that you exercise
+;; some care.  For example, if you choose `#' as a marker you are
+;; likely to get malformed `html' and `odt' files.
+;;
+;; Configuring Extra Emphasis Faces
+;; ===============================
+;;
+;; You can use `M-x customize-group RET org-extra-emphasis-faces RET'
+;; to configure the extra emphasis faces.
+;;
+;; Disabling the Extra Emphasis
+;; =============================
+;;
+;; You can use `M-x org-extra-emphasis-mode' to toggle this feature.
+;;
+;; Adding additional export backends
+;; =================================
+;;
+;; To add additional backends, modify `org-extra-emphasis-formatter'
+;; and `org-extra-emphasis-build-backend-regexp'.
+
+;;; Code:
+
+(require 'org)
+(require 'ox-odt)
+(require 'rx)
+(require 'htmlfontify)
+(require 'map)
+
+;;; PART-1: `org-extra-emphasis-mode'
+
+;;;; Internal Variables
+
+(defvar org-extra-emphasis-backends
+  '(html odt ods latex))
+
+(defvar org-extra-emphasis-info
+  (list :enabled nil))
+
+;; Helper snippets to convert a Emacs Face to Inine CSS and ODT Text Properties
+;;
+;; (defun org-extra-emphasis-emacs-face->inline-css (face)
+;;   (let ((s (cdr (hfy-face-to-css-default face))))
+;;     (when (string-match (rx-to-string '(and "{" (group (zero-or-more any)) "}")) s)
+;;       (format "<span style=\"%s\">%%s</span>" (match-string 1 s)))))
+;;
+;; (org-extra-emphasis-emacs-face->inline-css 'hi-yellow)
+;; (org-extra-emphasis-emacs-face->inline-css 'hi-red-b)
+;;
+;; (defun org-extra-emphasis-emacs-face->odt-text-properties (face)
+;;   (org-odt--lisp-to-xml
+;;    (assoc 'style:text-properties
+;;	  (org-odt--xml-to-lisp
+;;	   (cdr (org-odt-hfy-face-to-css face))))))
+;;
+;; (org-extra-emphasis-emacs-face->odt-text-properties 'hi-yellow)
+;; (org-extra-emphasis-emacs-face->odt-text-properties 'hi-red-b)
+
+(defun org-extra-emphasis-update (&rest _ignored)
+  "Workhorse function that responds to configuration changes.
+
+Current state is maintined in `org-extra-emphasis-info', a plist."
+  ;; When `org-extra-emaphasis' is ON, override use
+  ;; `org-extra-emphasis-org-do-emphasis-faces'.
+  ;; Otherwise, use `org-do-emphasis-faces'.
+  (cond
+   ((plist-get org-extra-emphasis-info :enabled)
+    (advice-add 'org-do-emphasis-faces :override
+		'org-extra-emphasis-org-do-emphasis-faces))
+   (t
+    (advice-remove 'org-do-emphasis-faces
+		   'org-extra-emphasis-org-do-emphasis-faces)))
+  ;; `org-extra-emphasis-alist' is effective only if
+  ;; `org-extra-emphasis' is enabled.
+  (plist-put org-extra-emphasis-info :work-alist
+	     (when (plist-get org-extra-emphasis-info :enabled)
+	       (plist-get org-extra-emphasis-info :alist)))
+  ;; Set properties that control fontification.
+  ;; The property names and their values mimics the corresponding
+  ;; variables in `org-set-emph-re'.
+  (plist-put org-extra-emphasis-info :org-emphasis-alist
+	     (when (and (boundp 'org-emphasis-regexp-components)
+			org-emphasis-alist org-emphasis-regexp-components)
+	       (append (plist-get org-extra-emphasis-info :work-alist)
+		       org-emphasis-alist)))
+  (plist-put org-extra-emphasis-info :org-emph-re-template
+	     (when (and (boundp 'org-emphasis-regexp-components)
+			org-emphasis-alist org-emphasis-regexp-components)
+	       (pcase-let*
+		   ((`(,pre ,post ,border ,body ,nl) org-emphasis-regexp-components)
+		    (body (if (<= nl 0) body
+			    (format "%s*?\\(?:\n%s*?\\)\\{0,%d\\}" body body nl))))
+		 (format (concat "\\([%s]\\|^\\)" ;before markers
+				 "\\(\\(%%s\\)\\([^%s]\\|[^%s]%s[^%s]\\)\\3\\)"
+				 "\\([%s]\\|$\\)") ;after markers
+			 pre border border body border post))))
+  (plist-put org-extra-emphasis-info :org-emph-re
+	     (format (plist-get org-extra-emphasis-info :org-emph-re-template)
+		     (rx-to-string
+		      `(or ,@(mapcar #'car
+				     (cl-remove-if (lambda (l)
+						     (eq 'verbatim (nth 2 l)))
+						   (plist-get org-extra-emphasis-info :org-emphasis-alist)))))))
+  (plist-put org-extra-emphasis-info :org-verbatim-re
+	     (format (plist-get org-extra-emphasis-info :org-emph-re-template)
+		     (rx-to-string
+		      `(or ,@(mapcar #'car
+				     (cl-remove-if-not (lambda (l)
+							 (eq 'verbatim (nth 2 l)))
+						       (plist-get org-extra-emphasis-info :org-emphasis-alist)))))
+		     (rx-to-string
+		      `(or ,@(mapcar #'car
+				     (cl-remove-if-not (lambda (l)
+							 (eq 'verbatim (nth 2 l)))
+						       (plist-get org-extra-emphasis-info :org-emphasis-alist)))))))
+  ;; Set properties that control Export backends
+  ;; - Regexp to search for in the final exported document
+  (plist-put org-extra-emphasis-info :export-alist
+	     (org-extra-emphasis-build-backend-regexp))
+
+  ;; - Generate ODT character styles for the extra emphasis faces and
+  ;;   dump those in `org-odt-extra-styles' and `org-ods-automatic-styles'.
+  (plist-put org-extra-emphasis-info :odt-extra-styles
+	     (let* ((odt-styles
+		     (concat (mapconcat #'identity
+					(cl-loop for (_marker face) in (plist-get org-extra-emphasis-info :alist)
+						 collect (cdr (org-odt-hfy-face-to-css face)))
+					"\n\n"))))
+	       (with-no-warnings
+		 (unless (boundp 'org-odt-extra-styles)
+		   (message "`org-odt-extra-styles' not found.  Upgrade to `ox-odt-9.5.3.467' or later.")
+		   ;; (sleep-for 2)
+		   (setq org-odt-extra-styles nil))
+		 (setq org-odt-extra-styles
+		       (concat (or (when (boundp 'org-odt-extra-styles)
+				     (get 'org-odt-extra-styles 'saved-value))
+				   "")
+			       "\n\n"
+			       odt-styles))
+		 (setq org-ods-automatic-styles
+		       (concat (or (when (boundp 'org-ods-automatic-styles)
+				     (get 'org-ods-automatic-styles 'saved-value))
+				   "")
+			       "\n\n"
+			       odt-styles))
+		 (message "`org-odt-extra-styles' and `org-ods-automatic-styles' is updated for this session")
+		 ;; (sleep-for 1)
+		 )
+	       odt-styles))
+  ;; Re-fontify all Org buffers based on current configuration.
+  (dolist (buffer (buffer-list))
+    (with-current-buffer buffer
+      (when (derived-mode-p 'org-mode)
+	(font-lock-flush)))))
+
+;;;; Fontify Extra Emphasis Markers
+
+(defun org-extra-emphasis-org-do-emphasis-faces (limit)
+  "Workhorse function that does fontification This function is
+based on `org-do-emphasis-faces'.  The property names and values
+correspond to the variables used in `org-do-emphasis-faces'.  Key
+differences are:
+
+    - `:org-emphasis-alist' includes entries for both standard
+      emphasis markers and extra emphasis markers.
+
+    - The regexes used for search-based fontification allow for
+      the possibility that the emphasis markers _in all
+      likelihood_ are multi-char strings, as opposed to single
+      chars."
+  (let* ((quick-re (format "\\([%s]\\|^\\)\\(%s\\)"
+			   (car org-emphasis-regexp-components)
+			   (rx-to-string
+			    `(or ,@(mapcar #'car (plist-get org-extra-emphasis-info :org-emphasis-alist)))))))
+    (catch :exit
+      (while (re-search-forward quick-re limit t)
+	(let* ((marker (match-string 2))
+	       (verbatim? (member marker '("~" "="))))
+	  (when (save-excursion
+		  (goto-char (match-beginning 0))
+		  (and
+		   ;; Do not match table hlines.
+		   (not (and (equal marker "+")
+			     (org-match-line
+			      "[ \t]*\\(|[-+]+|?\\|\\+[-+]+\\+\\)[ \t]*$")))
+		   ;; Do not match headline stars.  Do not consider
+		   ;; stars of a headline as closing marker for bold
+		   ;; markup either.
+		   (not (and (equal marker "*")
+			     (save-excursion
+			       (forward-char)
+			       (skip-chars-backward "*")
+			       (looking-at-p org-outline-regexp-bol))))
+		   ;; Match full emphasis markup regexp.
+		   (looking-at (if verbatim? (plist-get org-extra-emphasis-info :org-verbatim-re)
+				 (plist-get org-extra-emphasis-info :org-emph-re)))
+		   ;; Do not span over paragraph boundaries.
+		   (not (string-match-p org-element-paragraph-separate
+					(match-string 2)))
+		   ;; Do not span over cells in table rows.
+		   (not (and (save-match-data (org-match-line "[ \t]*|"))
+			     (string-match-p "|" (match-string 4))))))
+	    (pcase-let ((`(,_ ,face ,_) (assoc marker (plist-get org-extra-emphasis-info :org-emphasis-alist)))
+			(m (if org-hide-emphasis-markers 4 2)))
+	      (font-lock-prepend-text-property
+	       (match-beginning m) (match-end m) 'face face)
+	      (when verbatim?
+		(org-remove-flyspell-overlays-in
+		 (match-beginning 0) (match-end 0))
+		(remove-text-properties (match-beginning 2) (match-end 2)
+					'(display t invisible t intangible t)))
+	      (add-text-properties (match-beginning 2) (match-end 2)
+				   '(font-lock-multiline t org-emphasis t))
+	      (when (and org-hide-emphasis-markers
+			 (not (org-at-comment-p)))
+		(add-text-properties (match-end 4) (match-beginning 5)
+				     '(invisible t))
+		(add-text-properties (match-beginning 3) (match-end 3)
+				     '(invisible t)))
+	      (throw :exit t))))))))
+
+;; There is no `:set' function for `deffaces'.  So, when the extra
+;; faces `org-extra-emphasis-01', `org-extra-emphasis-02' reconfigured,
+;; we don't get a notification.  The following export hook ensures
+;; that `org-extra-emphasis-info' is in sync with user configuration.
+(add-hook 'org-export-before-processing-hook 'org-extra-emphasis-update)
+
+;;;; Export Extra Emphasis Markers
+
+(defun org-extra-emphasis-formatter (marker text backend)
+  "Style TEXT in the same font face as the face MARKER is mapped to.
+Note that TEXT is in BACKEND format.
+
+This currently supports HTML and ODT backends.
+
+See `org-extra-emphasis-alist' for MARKER to face mappings."
+  (let* ((face (car (assoc-default marker (plist-get org-extra-emphasis-info :work-alist))))
+         (encode-attribute-value
+	  (lambda (text)
+	    (dolist (pair '(("&" . "&amp;")
+			    ("<" . "&lt;")
+			    (">" . "&gt;")
+			    ("'" . "&apos;")
+			    ("\"" . "&quot;")))
+	      (setq text (replace-regexp-in-string (car pair) (cdr pair) text t t)))
+	    text)))
+    (cl-case backend
+      ((odt ods)
+       (format "<text:span text:style-name=\"%s\">%s</text:span>"
+	       (car (org-odt-hfy-face-to-css face)) text))
+      (latex
+       ;; See `org-extra-emphasis-build-latex-commands'
+       (format "\\text%s{%s}"
+               (org-extra-emphasis-stringify-face face 'latex)
+               text))
+      (html
+       (format "<span class=\"%s\" style=\"%s\">%s</span>"
+	       face
+	       ;; An alternate implementation of
+	       ;; `hfy-face-to-css-default' which performs correctly
+	       ;; when a face specifies a `:family', and/or inherits
+	       ;; some attributes from other faces.  Note that the
+	       ;; flattening (or non-duplication) of face attributes
+	       ;; here is done by Emacs itself.
+	       (mapconcat (lambda (x)
+			    (when (cdr x)
+			      (format "%s: %s;" (car x)
+                                      (funcall encode-attribute-value (cdr x)))))
+			  (hfy-face-to-style-i
+			   (cl-loop with props = (mapcar #'car face-attribute-name-alist)
+				    for prop in props
+				    for value = (face-attribute face prop nil 'default)
+				    unless (eq prop :inherit)
+				    append (list prop value)))
+			  " ")
+	       text))
+      (_ text))))
+
+(defun org-extra-emphasis-build-backend-regexp ()
+  "Regexp to search for emphasized text in exported file.
+This function transcode an emphasis MARKER which is in plain text
+format, to the BACKEND format.  That is, if you use `<<' as an
+emphasis marker, you need to search for `&lt;&lt;' in the
+exported HTML file.
+
+See `org-extra-emphasis-alist' for more information"
+  (cl-loop for (marker . spec) in (plist-get org-extra-emphasis-info :work-alist) collect
+	   (cons marker
+		 (cl-loop for backend in org-extra-emphasis-backends collect
+			  (cons backend
+				(rx-to-string `(and ,(org-export-data-with-backend marker backend nil)
+						    (group (minimal-match
+							    (zero-or-more (or any "\n"))))
+						    ,(org-export-data-with-backend marker backend nil))))))))
+
+(defun org-extra-emphasis-plain-text-filter (text backend _info)
+  "Transcode TEXT in to BACKEND format.
+Uses `org-extra-emphasis-formatter' to do the transcoding.
+
+Search TEXT for one or more transcoded MARKERs, and mark it up as
+specified in `org-extra-emphasis-alist'."
+  (with-temp-buffer
+    (insert text)
+    (cl-loop for (marker . spec) in (plist-get org-extra-emphasis-info :export-alist)
+	     for regex = (assoc-default backend spec)
+	     do (goto-char (point-min))
+	     (if (not regex) text
+	       (while (re-search-forward regex nil t)
+		 (let* ((contents (match-string 1))
+			(emphasized-contents (save-match-data
+					       (org-extra-emphasis-formatter
+						marker contents backend))))
+		   (replace-match emphasized-contents t t)))))
+    (buffer-substring-no-properties (point-min) (point-max))))
+
+;; Install export filter for transcoding extra emphasis markers.
+(defun org-extra-emphasis-update-filter-functions (&optional export-filter-functions)
+  (let* ((all-filter-functions (thread-last org-export-filters-alist
+					    (seq-map #'cdr)
+					    (seq-sort #'string<))))
+    (dolist (filter-fn '(org-extra-emphasis-plain-text-filter org-extra-emphasis-strip-zws-maybe))
+      (dolist (it all-filter-functions)
+        (set it (delq filter-fn (symbol-value it))))
+      (dolist (it export-filter-functions)
+        (add-to-list it filter-fn)))))
+
+;;;; User Options & Commands
+
+;;;;; Custom Groups
+
+(defgroup org-extra-emphasis nil
+  "Options for highlighting and exporting extra emphasis markers in Org files."
+  :tag "Org Extra Emphasis"
+  :group 'org)
+
+(defgroup org-extra-emphasis-faces nil
+  "Faces for Org Extra Emphasis."
+  :group 'org-extra-emphasis
+  :group 'faces)
+
+;;;; Custom Faces
+
+(defface org-extra-emphasis nil
+  "A face for Org Extra Emphasis."
+  :group 'org-extra-emphasis-faces)
+
+(defface org-extra-emphasis-01
+  '((t (:inherit org-extra-emphasis :foreground "green1")))
+  "A face for Org Extra Emphasis."
+  :group 'org-extra-emphasis-faces)
+
+(defface org-extra-emphasis-02
+  '((t (:inherit org-extra-emphasis :foreground "red")))
+  "A face for Org Extra Emphasis."
+  :group 'org-extra-emphasis-faces)
+
+(defface org-extra-emphasis-03
+  '((t (:inherit org-extra-emphasis  :foreground "yellow1")))
+  "A face for Org Extra Emphasis."
+  :group 'org-extra-emphasis-faces)
+
+(defface org-extra-emphasis-04
+  '((t (:inherit org-extra-emphasis  :background "firebrick3")))
+  "A face for Org Extra Emphasis."
+  :group 'org-extra-emphasis-faces)
+
+(defface org-extra-emphasis-05
+  '((t (:inherit org-extra-emphasis  :background "grey40")))
+  "A face for Org Extra Emphasis."
+  :group 'org-extra-emphasis-faces)
+
+(defface org-extra-emphasis-06
+  '((t (:inherit org-extra-emphasis   :background "DarkOrange1")))
   "A face for Org Extra Emphasis."
   :group 'org-extra-emphasis-faces)
 
