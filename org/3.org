@@ -236,8 +236,10 @@ nnnn
 ** ISSUE C-h F and C-c C-d (both helpful don't seem to work. Is this a set-key issue?
 CLOSED: [2026-05-19 Tue 11:10]
 ** .zshrc path checked on New and Big and a copy sent to ~/project/
-* Org fonts section and org roam both commented out. Do we care?
+** Org fonts section and org roam both commented out. Do we care?
 * Rust, Rustic, lsp, lspUI, _tree-sitter_
+* ISSUE File mode specification error: (error Feature ‘project’ is
+now provided by a different file /Users/charles.marano/.emacs.d/straight/build/project/project.elc)
 * ISSUE +Python+-mode/eglot broken on New, but not on Big!
 ** running M-x eglot prompts for localtion of pylsp...
 giving it /Users/charles.marano/.pyenv/shims/pylsp starts eglot and it seems to work.
@@ -249,8 +251,6 @@ Which command in terminal still shows /Users/charles.marano/.pyenv/shims/pylsp w
 ** Python: when starting eglot have to tell emacs where pylsp is even though...
 it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
 ** json rpc message is from eglot - it can't find might be from closing progrs.
-* ISSUE File mode specification error: (error Feature ‘project’ is
-now provided by a different file /Users/charles.marano/.emacs.d/straight/build/project/project.elc)
 * _Lisp_ on New - can't complete capf not connected. But lisp on Big can.
 is using company-dabbev-code company-gtags company-etags company-keywords.
 ** _Lisp_: Company: backend company-capf error "Not connected." with args (prefix)
