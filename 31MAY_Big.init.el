@@ -35,16 +35,10 @@
 (load-file "~/.emacs.d/themes/color-theme-sanityinc-tomorrow-main/color-theme-sanityinc-tomorrow.el")
 (use-package color-theme-sanityinc-tomorrow)
 (color-theme-sanityinc-tomorrow--define-theme eighties)
-
-;; .emacs.d/elpa comment out per straight instructions.
-;; Setup loadcd ~/.em-path, autoloads and your lisp system
-;; (add-to-list 'load-path "~/.emacs.d/elpa")
-;; not sure why these aliases to binaries need to be on the load-path.
-;; probably because emacs couldn't find cmake. Still can't. 
+ 
 (add-to-list 'load-path "~/opt/homebrew/bin")
 
 (use-package no-littering)
-;; (require 'no-littering)
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
@@ -76,9 +70,6 @@
 (file-name-shadow-mode)
 (setq-default create-lockfiles nil)
 (delete-selection-mode 1)
-
-
-;; (use-package org-extra-emphasis)
 
 (dolist (mode '(org-mode-hook
                 term-mode-hook
@@ -159,8 +150,6 @@
 (setq doom-modeline-env-enable-ruby t)
 (setq doom-modeline-env-enable-rust t)
 (setq doom-modeline-minor-modes t)
-;; (setq doom-modeline-lsp t)
-;; (setq doom-modeline-lsp-icon t)
 (setq doom-modeline-buffer-name t)
 (setq doom-modeline-project-detection 'auto)
 
@@ -283,7 +272,6 @@
 ;; already links to the manual, if a function is referenced there.
 (global-set-key (kbd "C-h F") #'helpful-function)
 
-
 (use-package smartparens
   :hook (emacs-lisp-mode-hook common-lisp-mode-hook lisp-mode-hook)
   :config
@@ -306,16 +294,16 @@
 ;; )                                  
                       
 ;; Set faces for heading levels
-;; (with-eval-after-load 'org-faces
-;;   (dolist (face '((org-level-1 . 1.2)
-;;                   (org-level-2 . 1.1)
-;;                   (org-level-3 . 1.05)
-;;                   (org-level-4 . 1.0)
-;;                   (org-level-5 . 1.1)
-;;                   (org-level-6 . 1.1)
-;;                   (org-level-7 . 1.1)
-;;                   (org-level-8 . 1.1))))
-;;   (set-face-attribute (car face) nil :font "JetBrainsmono" :weight 'regular :height (cdr face)))
+(with-eval-after-load 'org-faces
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))))
+;;   (set-face-attribute (car face) nil :font "JetBrainsmono" :weight 'regular :height (cdr face))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 ;; (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
@@ -328,9 +316,14 @@
 
 (setq org-hide-emphasis-markers t)
 
-;; (use-package 'org-indent)
-;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
-  
+;; (add-to-list 'org-emphasis-alist
+;;              '("_" (:foreground "red")
+;;                ))
+
+;; (add-to-list 'org-emphasis-alist
+;;              '("+" (:foreground "LightGreen")
+;;                ))
+
 (defun efs/org-mode-setup ()
 
   (variable-pitch-mode 1)
@@ -392,22 +385,22 @@
 ;; org-roam end =====================================================
 
 ;; entries below seem to be additional, not required
-;; (keymap-set global-map "C-c l" 'org-store-link)
-;; (keymap-set global-map "C-c a" 'org-agenda)
-;; (keymap-set global-map "C-c c" 'org-capture)
-;; (setq org-log-done 'time)
+(keymap-set global-map "C-c l" 'org-store-link)
+(keymap-set global-map "C-c a" 'org-agenda)
+(keymap-set global-map "C-c c" 'org-capture)
+(setq org-log-done 'time)
 
-;; (with-eval-after-load 'org
-;;       (org-babel-do-load-languages
-;;           'org-babel-load-languages
-;;           '((emacs-lisp . t)
-;;           (python . t)
-;;           (ruby . t)
-;;           (eshell . t)
-;;           (lisp . t)
-;;           (rust . t)
-;;           ))
-;;     (push '("conf-unix" . conf-unix) org-src-lang-modes))
+(with-eval-after-load 'org
+      (org-babel-do-load-languages
+          'org-babel-load-languages
+          '((emacs-lisp . t)
+          (python . t)
+;;          (ruby . t)
+          (eshell . t)
+          (lisp . t)
+;;          (rust . t)
+          ))
+    (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
 ;; (use-package 'org-tempo)
 
@@ -433,10 +426,10 @@
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))
 
-;; (use-package 'flymake-ruff)
-;; (add-hook 'python-mode-hook #'flymake-ruff-load)
+(straight-use-package 'flymake-ruff)
+(add-hook 'python-mode-hook #'flymake-ruff-load)
 
-;; (use-package 'ruff-format)
+;; (straight-use-package 'ruff-format)
 ;; (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
 
 (setq python-indent-guess-indent-offset t)
@@ -537,6 +530,7 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 (use-package company
+  :straight t
   :defer
   :after lsp-mode
   :hook (lsp-mode . company-mode)
@@ -555,8 +549,6 @@
 ;; (add-to-list 'load-path "~/.emacs.d/elpa/slime-20260329.2133")
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-;; (require 'slime-autoloads)
-;; (eval-after-load "slime" '(progn (slime-setup '(slime-fancy))))
 )
 
 (use-package rainbow-delimiters)
@@ -565,9 +557,7 @@
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
-
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -601,6 +591,11 @@
  '(custom-theme-directory "~/.emacs.d/themes/")
  '(denote-known-keywords '("emacs" "init" "general" "testing"))
  '(org-agenda-files '("~/project/org/3.org"))
+ '(org-emphasis-alist
+   '(("+" (:foreground "LightGreen")) ("_" (:foreground "red"))
+     ("*" bold) ("/" italic) ("_" (:foreground "red"))
+     ("=" org-verbatim verbatim) ("~" org-code verbatim)
+     ("+" (:strike-through t))))
  '(org-faces-easy-properties
    '((todo . :background) (tag . :foreground) (priority . :foreground)))
  '(org-id-locations-file "$HOME/.cache/emacs/var/org/id-locations.el")
@@ -611,13 +606,14 @@
  '(org-tempo-keywords-alist nil)
  '(savehist-additional-variables '(kill-ring register-alist\ ) t)
  '(sort-fold-case t)
- '(warning-suppress-log-types '((use-package))))
+ '(warning-suppress-log-types '((org-element org-element-parser) (use-package)))
+ '(python-shell-interpeter "$HOME/.pyenv/shims/python3"))
 
 '(python-shell-interpeter "$HOME/.pyenv/shims/python3")
 
 ;; duplicate of above? add-hook is different than selected packages.
 ;; below is for delimiters in all programming modes.
-;; (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (use-package flycheck
   :config
