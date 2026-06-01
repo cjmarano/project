@@ -64,6 +64,8 @@ CLOSED: [2026-05-15 Fri 11:02]
 ** .zshrc path checked on New and Big and a copy sent to ~/project/
 ** Comparing Elpa and Repos to see what's in the old init that's not in the new.
 ** Do a diff on init.el for new and big to see what's different?
+** COMPLETED fixed org-empasis on Big;  _red_ +green+ *BOLD* /italic/ =verbatim= ~code~
+CLOSED: [2026-06-01 Mon 13:54]
 * COMPLETED Slime was _not_ installed on New or Big.
 CLOSED: [2026-06-01 Mon 13:06]
 ** elisp file - init.el - does connect to Company backends. Lisp files don't.
@@ -106,10 +108,15 @@ Which command in terminal still shows /Users/charles.marano/.pyenv/shims/pylsp w
 ** Python: when starting eglot have to tell emacs where pylsp is even though...
 it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
 ** json rpc message is from eglot - it can't find might be from closing progrs.
-* COMPLETED fixed org-empasis on Big;  _red_ +green+ *BOLD* /italic/ =verbatim= ~code~
-CLOSED: [2026-06-01 Mon 13:54]
-* Lisp connects on Big, not on New:
- Emacs 30.2 (aarch64-apple-darwin23.2.0) of 2025-12-05 on builder-m1-14.lan
+* Lisp connects on Big, not on New _unless_ slime run 1st.
+** if slime is running everything works on New, Company & Company-box.
+** make SLIME connect to your lisp when you open a lisp file: add this to your .emacs:
+(add-hook 'slime-mode-hook
+(lambda ()
+(unless (slime-connected-p)
+(save-excursion (slime)))))
+** company-diag from Big:
+Emacs 30.2 (aarch64-apple-darwin23.2.0) of 2025-12-05 on builder-m1-14.lan
    2 │ Company 1.0.2
    3 │
    4 │ company-backends: (company-bbdb company-semantic company-cmake company-capf
@@ -129,3 +136,5 @@ CLOSED: [2026-06-01 Mon 13:54]
   company-backends variable looks the same on both machines. Init.el same on both machines.
 
   company-mode repos are same on both machines.
+  -----------------------------------------
+  
