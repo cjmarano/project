@@ -81,3 +81,5 @@ is using company-dabbev-code company-gtags company-etags company-keywords.
 ** capf for lisp IS working on Big. see capf_lisp.txt for more.
 * You can force company to find dabbreve by using company-begin-backend
 and then choosing the dabbrev backend from the list that appears in the minibuffer.
+* Start using journal to organize thoughts.
+* Comparing Elpa and Repos to see what's in the old init that's not in the new.

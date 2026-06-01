@@ -16,7 +16,7 @@ Startup time went down by 3 seconds.
 *** 2025-06-18 Wednesday
 **** 08:23 AM - Journal                                             :journal:
 
-Playing around with terminals, KItty, Ghost, Weterm. Don't like weterm's Lua for config.
+Playing around with terminals, KItty, Ghost, Weterm. Don't like wezterm's Lua for config.
 Kitty seems useable. Ghosty may be nice but title issue on New, Big shows directory as title.
 Now I want to decide if Tmux is worth learning or if split panes, tabs, mutiple windows that
 terminal apps offer are enough.
@@ -39,11 +39,7 @@ Entered on [2025-12-18 Thu 07:57]
         ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
 * 2026
-** 2026-01 January
-*** 2026-01-29 Thursday
-**** This is a journal entry.
-Entered on [2026-01-29 Thu 14:06]
-  
+* Variable pitch mode?  
   [[file:~/.emacs.d/init.el::variable-pitch-mode 1]]
 **** 
 Entered on [2026-01-29 Thu 14:08]
@@ -75,15 +71,19 @@ Entered on [2026-02-12 Thu 08:44]
 Entered on [2026-03-16 Mon 10:30]
   
   [[file:~/project/org/3.org::*LISP. Using (ql:quickload "cl-project") then][LISP. Using (ql:quickload "cl-project") then]]
-** 2026-04 April
-*** 2026-04-09 Thursday
-**** This is C-c c then j org-capture journal
-this is some text
-here's some more
-* a Headline.
-** a subhead
-*** sub-sub heading
-**** now we're on level 4.
-Entered on [2026-04-09 Thu 09:34]
+* [[file:~/project/org/notes/notebook.org::*Misc][Misc]]
+**** After switch to straight startup times short, most things working but Python and Lisp not 100%
+have commented out Rust and Ruby from init.el
+   Lisp is having capf issues on New but _not_ on Big.
+   Python on Big, no pop-ups ruff is running.
+   Lisp on Big, capf connects but few abbreviations.
+
+   Python on New no pop ups, no ruff warnings, only syntax highlighting.
+Entered on [2026-05-29 Fri 08:58]
   
-  [[file:~/project/org/3.org::*native compile does NOT work on Ducky. Missing libgccjit.][native compile does NOT work on Ducky. Missing libgccjit.]]
+  [[file:~/project/org/journal/journal.org::*2026-05-29 Friday][2026-05-29 Friday]]
+**** Keep getting json errors on New with Python files.
+Also, doing an M-x python-ts-mode throws a can't find python dylib error.
+Entered on [2026-05-29 Fri 09:18]
+  
+  [[file:~/project/python/helloworld/main.py]]
