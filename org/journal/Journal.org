@@ -39,6 +39,15 @@ Entered on [2025-12-18 Thu 07:57]
         ("j" "Journal" entry (file+olp+datetree "~/project/org/journal/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
 * 2026
+** 2026-06 June
+*** 2026-06-03 Wednesday
+**** Long Term ToDo:
+1. Pretty up org-mode. Better colors? Differect fonts?
+2. Get Python 100% on New and Big (currently working on this with New.)
+3. Get Lisp working on New without having enable Slime manually and also test Big w/ lisp.
+Entered on [2026-06-03 Wed 09:45]
+  
+  [[file:~/project/org/3.org::*Start using journal to organize thoughts.][Start using journal to organize thoughts.]]
 * Variable pitch mode?  
   [[file:~/.emacs.d/init.el::variable-pitch-mode 1]]
 **** 

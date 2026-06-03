@@ -66,7 +66,7 @@ CLOSED: [2026-05-15 Fri 11:02]
 ** Do a diff on init.el for new and big to see what's different?
 ** COMPLETED fixed org-empasis on Big;  _red_ +green+ *BOLD* /italic/ =verbatim= ~code~
 CLOSED: [2026-06-01 Mon 13:54]
-* COMPLETED Slime was _not_ installed on New or Big.
+** COMPLETED Slime was _not_ installed on New or Big.
 CLOSED: [2026-06-01 Mon 13:06]
 ** elisp file - init.el - does connect to Company backends. Lisp files don't.
 ** Changed use-package slime to straight-use-package 'slime  and it installed.
@@ -78,7 +78,7 @@ is using company-dabbev-code company-gtags company-etags company-keywords.
 ** _Lisp_: Company: backend company-capf error "Not connected." with args (prefix)
 ** C-h v then company-backends shows no backends for lisp or elisp on New.
 ** capf for lisp IS working on Big. see capf_lisp.txt for more.
-* COMPLETED Global-company-mode was _not_ working. Fixed on New and Big.
+** COMPLETED Global-company-mode was _not_ working. Fixed on New and Big.
 CLOSED: [2026-06-01 Mon 13:06]
 ** commented out some lines and moved global-company-mode below use-package:
 (use-package company
@@ -95,26 +95,6 @@ CLOSED: [2026-06-01 Mon 13:06]
 
 ** You can force company to find dabbreve by using company-begin-backend
 and then choosing the dabbrev backend from the list that appears in the minibuffer.
-* Rust, Rustic, lsp, lspUI, _tree-sitter_
-* Start using journal to organize thoughts.
-* ISSUE +Python+-mode/eglot broken on New, but not on Big!
-** running M-x eglot prompts for localtion of pylsp...
-giving it /Users/charles.marano/.pyenv/shims/pylsp starts eglot and it seems to work.
-** Internet says it's because emacs is using project.el not project.elc
-** Rolling back init.el a week (17May) did not fix Python Problem on New.
-** +Python+ on New - capf: HOMEBREW_NO_PATH_SHADOW_CHECK=1 in .zshrc to force emacs
-to use homebrew pylsp instead of shims/pylsp. Big was using /opt/homebrew//bin/pylsp and working.
-Which command in terminal still shows /Users/charles.marano/.pyenv/shims/pylsp which is odd.
-** Python: when starting eglot have to tell emacs where pylsp is even though...
-it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
-** json rpc message is from eglot - it can't find might be from closing progrs.
-* Lisp connects on Big, not on New _unless_ slime run 1st.
-** if slime is running everything works on New, Company & Company-box.
-** make SLIME connect to your lisp when you open a lisp file: add this to your .emacs:
-(add-hook 'slime-mode-hook
-(lambda ()
-(unless (slime-connected-p)
-(save-excursion (slime)))))
 ** company-diag from Big:
 Emacs 30.2 (aarch64-apple-darwin23.2.0) of 2025-12-05 on builder-m1-14.lan
    2 │ Company 1.0.2
@@ -137,4 +117,31 @@ Emacs 30.2 (aarch64-apple-darwin23.2.0) of 2025-12-05 on builder-m1-14.lan
 
   company-mode repos are same on both machines.
   -----------------------------------------
-  
+** if slime is running everything works on New, Company & Company-box.
+** make SLIME connect to your lisp when you open a lisp file: add this to your .emacs:
+(add-hook 'slime-mode-hook
+(lambda ()
+(unless (slime-connected-p)
+(save-excursion (slime)))))
+* Rust, Rustic, wait. lsp, lspUI not needed.
+* ISSUE +Python+-mode/eglot broken on New, but not on Big!
+** running M-x eglot prompts for localtion of pylsp...
+giving it /Users/charles.marano/.pyenv/shims/pylsp starts eglot and it seems to work.
+** Internet says it's because emacs is using project.el not project.elc
+** Rolling back init.el a week (17May) did not fix Python Problem on New.
+** +Python+ on New - capf: HOMEBREW_NO_PATH_SHADOW_CHECK=1 in .zshrc to force emacs
+to use homebrew pylsp instead of shims/pylsp. Big was using /opt/homebrew//bin/pylsp and working.
+Which command in terminal still shows /Users/charles.marano/.pyenv/shims/pylsp which is odd.
+** Python: when starting eglot have to tell emacs where pylsp is even though...
+it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
+** json rpc message is from eglot - it can't find might be from closing progrs.
+* Long Term:
+** Make org mode files look nicer.
+** Finish setting up Python w/ tree-sitter and eglot, no lsp and whatever that
+Python app is that sets up the whole structure.
+** Lisp mode working on Big but have to start Slime first on New. Why?  
+** NEXT Lisp connects on Big, not on New _unless_ slime run 1st.
+* Start using journal to organize thoughts.
+** I do not like the sort order that journal entries have.
+** org-roam /might/ be better but I don't want to bother.
+** Maybe Denote?
