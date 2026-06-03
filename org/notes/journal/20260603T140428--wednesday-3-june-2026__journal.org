@@ -1,0 +1,7 @@
+#+title:      Wednesday 3 June 2026
+#+date:       [2026-06-03 Wed 14:04]
+#+filetags:   :journal:
+#+identifier: 20260603T140428
+
+This is the second denote-journal entry.
+FOr some reason can't bind to this although C-h f does show it as a callable function.

@@ -135,13 +135,23 @@ Which command in terminal still shows /Users/charles.marano/.pyenv/shims/pylsp w
 ** Python: when starting eglot have to tell emacs where pylsp is even though...
 it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
 ** json rpc message is from eglot - it can't find might be from closing progrs.
+* Got denote-journal set up:
+S-i to make new entry.
+S-r to open entry or make new one.
+C-c n t to add like to an ex
+** Don't use journal to organize thoughts.
+*** Even if opened on emacs in org-mode it mixes up time/date info.
+*** I want last in at bottom or top and sorted by create date.
+*** I do not like the sort order that journal entries have.
+*** if you open the journal.org file in emacs it does sort by date.
+*** org-roam /might/ be better but I don't want to bother.
+*** Maybe Denote. To open denote files can C-x, C-f then use orderless to search for
+names fron the vertico list in the minibuffer.
+*** Denote notes will bet harder to search as more are created with similar names. Prot is extending
+Denote all the time so this may NOT be a big deal.
 * Long Term:
 ** Make org mode files look nicer.
 ** Finish setting up Python w/ tree-sitter and eglot, no lsp and whatever that
 Python app is that sets up the whole structure.
 ** Lisp mode working on Big but have to start Slime first on New. Why?  
 ** NEXT Lisp connects on Big, not on New _unless_ slime run 1st.
-* Start using journal to organize thoughts.
-** I do not like the sort order that journal entries have.
-** org-roam /might/ be better but I don't want to bother.
-** Maybe Denote?

@@ -1,0 +1,7 @@
+#+title:      Don't like Journal
+#+date:       [2026-06-03 Wed 12:06]
+#+filetags:   :general:
+#+identifier: 20260603T120606
+
+Journal files (C-c c, j) are not properly organized by time (newest last) and are a mess.
+It's annoying to open the journal file in anything but org-mode. Org-mode does sort by date.

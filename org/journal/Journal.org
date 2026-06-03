@@ -48,6 +48,11 @@ Entered on [2025-12-18 Thu 07:57]
 Entered on [2026-06-03 Wed 09:45]
   
   [[file:~/project/org/3.org::*Start using journal to organize thoughts.][Start using journal to organize thoughts.]]
+**** So journal may be the answer to note taking after all since is does sort by date if opened
+in org-mode will have to see. Also need to check denote developments to see if anything there.
+Entered on [2026-06-03 Wed 12:16]
+  
+  [[file:~/project/org/3.org::*Probably need to spend more time with creating journal entries and then looking at][Probably need to spend more time with creating journal entries and then looking at]]
 * Variable pitch mode?  
   [[file:~/.emacs.d/init.el::variable-pitch-mode 1]]
 **** 

@@ -1,0 +1,8 @@
+#+title:      Wednesday 3 June 2026
+#+date:       [2026-06-03 Wed 14:11]
+#+filetags:   :journal:
+#+identifier: 20260603T141106
+finally got denote-journal key-bindings working.
+
+had to do global-set-key *outside* of the denote-journal section.
+[[denote:20260603T140428][Wednesday 3 June 2026]]

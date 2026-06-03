@@ -1,0 +1,6 @@
+#+title:      Wednesday 3 June 2026
+#+date:       [2026-06-03 Wed 13:46]
+#+filetags:   :journal:
+#+identifier: 20260603T134647
+
+This is a denote-journal file.
