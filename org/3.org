@@ -151,7 +151,6 @@ names fron the vertico list in the minibuffer.
 Denote all the time so this may NOT be a big deal.
 * Long Term:
 ** Make org mode files look nicer.
-** Finish setting up Python w/ tree-sitter and eglot, no lsp and whatever that
-Python app is that sets up the whole structure.
+** Finish setting up Python w/ tree-sitter and eglot, no lsp. Yes to UV.
 ** Lisp mode working on Big but have to start Slime first on New. Why?  
 ** NEXT Lisp connects on Big, not on New _unless_ slime run 1st.
