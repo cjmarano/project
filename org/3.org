@@ -154,3 +154,6 @@ Denote all the time so this may NOT be a big deal.
 ** Finish setting up Python w/ tree-sitter and eglot, no lsp. Yes to UV.
 ** Lisp mode working on Big but have to start Slime first on New. Why?  
 ** NEXT Lisp connects on Big, not on New _unless_ slime run 1st.
+* Can NOT get org-tempo set up.
+** may be set up, will test. Blew up init.el on New, had to reset a LOT.
+* This version of emacs says NOT built with native compile. 

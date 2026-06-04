@@ -1,0 +1,8 @@
+#+title:      Thursday 4 June 2026
+#+date:       [2026-06-04 Thu 09:12]
+#+filetags:   :journal:
+#+identifier: 20260604T091222
+
+Thursday Morning. Looking at Python Youtube stuff.
+Had opne tree-sitter-langs pages open so what was I looking up?
+Had Eglot page open too. So time to check Python tools I guess?
