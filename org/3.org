@@ -1,3 +1,4 @@
+#+PROPERTY: folded
 ;;; +June.+
 * Start times down on New and Big to < 2 with Straight and Plucky.
 ** 71 (New) 67 (Big) packages loaded in Straight vs. 93 in package-based init.
@@ -141,15 +142,19 @@ names fron the vertico list in the minibuffer.
 *** Denote notes will bet harder to search as more are created with similar names. Prot is extending
 Denote all the time so this may NOT be a big deal.
 ** This version of emacs says NOT built with native compile. 
-* Rust, Rustic, wait. lsp, lspUI not needed.
+** lsp, lspUI not needed.
+* Rust, Rustic, wait.
 * Long Term:
 ** Make org mode files look nicer.
 ** Finish setting up Python w/ tree-sitter and eglot, no lsp. Yes to UV.
 ** Lisp mode working on Big but have to start Slime first on New. Why?  
 ** NEXT Lisp connects on Big, not on New _unless_ slime run 1st.
-* building Python language grammar w/ M-x trees-t-install-language-grammar
+* DONE building Python language grammar w/ M-x trees-t-install-language-grammar
+CLOSED: [2026-06-05 Fri 13:30]
 did re-enable syntax higlighting and getting some things in the minibuffer.
-* ISSUE +Python+-mode/eglot broken on New, but not on Big!
+* DONE eglot failing. Still can't find pylsp _maybe fixed?_.
+CLOSED: [2026-06-05 Fri 13:21]
+** ISSUE +Python+-mode/eglot broken on New, but not on Big!
 ** running M-x eglot prompts for localtion of pylsp...
 giving it /Users/charles.marano/.pyenv/shims/pylsp starts eglot and it seems to work.
 ** Internet says it's because emacs is using project.el not project.elc
@@ -160,4 +165,4 @@ Which command in terminal still shows /Users/charles.marano/.pyenv/shims/pylsp w
 ** Python: when starting eglot have to tell emacs where pylsp is even though...
 it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
 ** json rpc message is from eglot - it can't find might be from closing progrs.
-* eglot failing. Still can't find pylsp.
+* NEXT had to comment out (use-package flymake-ruff) Look into this.
