@@ -112,7 +112,7 @@ Emacs 30.2 (aarch64-apple-darwin23.2.0) of 2025-12-05 on builder-m1-14.lan
   versus New:
 
   company-call-backend-raw: Company: backend company-capf error "Not connected." with args (prefix)
-
+  
   company-backends variable looks the same on both machines. Init.el same on both machines.
 
   company-mode repos are same on both machines.
@@ -142,6 +142,13 @@ names fron the vertico list in the minibuffer.
 Denote all the time so this may NOT be a big deal.
 ** This version of emacs says NOT built with native compile. 
 * Rust, Rustic, wait. lsp, lspUI not needed.
+* Long Term:
+** Make org mode files look nicer.
+** Finish setting up Python w/ tree-sitter and eglot, no lsp. Yes to UV.
+** Lisp mode working on Big but have to start Slime first on New. Why?  
+** NEXT Lisp connects on Big, not on New _unless_ slime run 1st.
+* building Python language grammar w/ M-x trees-t-install-language-grammar
+did re-enable syntax higlighting and getting some things in the minibuffer.
 * ISSUE +Python+-mode/eglot broken on New, but not on Big!
 ** running M-x eglot prompts for localtion of pylsp...
 giving it /Users/charles.marano/.pyenv/shims/pylsp starts eglot and it seems to work.
@@ -153,8 +160,4 @@ Which command in terminal still shows /Users/charles.marano/.pyenv/shims/pylsp w
 ** Python: when starting eglot have to tell emacs where pylsp is even though...
 it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
 ** json rpc message is from eglot - it can't find might be from closing progrs.
-* Long Term:
-** Make org mode files look nicer.
-** Finish setting up Python w/ tree-sitter and eglot, no lsp. Yes to UV.
-** Lisp mode working on Big but have to start Slime first on New. Why?  
-** NEXT Lisp connects on Big, not on New _unless_ slime run 1st.
+* eglot failing. Still can't find pylsp.
