@@ -1,10 +1,6 @@
 #+PROPERTY: folded
 ;;; +June.+
-* Start times down on New and Big to < 2 with Straight and Plucky.
-** 71 (New) 67 (Big) packages loaded in Straight vs. 93 in package-based init.
-78 packages in New's repo, 63 in Big's repo (less than installed!)
-** Be sure 2 use (straight-use-package '<package> but (use-package <package>)
-or emacs won't install/use the package.
+* Start times down on New and Big to > 2 on New after fixing flymake-ruff.
 * WAITING LISP. Using (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
 got a skeleton for the project and a main.lisp in the scr subdir.
@@ -143,26 +139,36 @@ names fron the vertico list in the minibuffer.
 Denote all the time so this may NOT be a big deal.
 ** This version of emacs says NOT built with native compile. 
 ** lsp, lspUI not needed.
+** COMPLETED [#B] had to comment out (use-package flymake-ruff) Look into this.
+CLOSED: [2026-06-08 Mon 07:41]
+Problem was ' not needed before package name.
+** Ran straight-pull-all and broke init.el
+Issue was with Slime. Tried to edit instead of stash when told it was dirty.
+This broke init.el = santiy color theme gone from ~/.emacs.d/themes/ so I guess straight pull
+deletes items first then pulls them from git.
+** Failed: try M-x straight-normalize-package (or straight-normalize-all)
 * Rust, Rustic, wait.
-* Long Term:
-** Make org mode files look nicer.
-** Finish setting up Python w/ tree-sitter and eglot, no lsp. Yes to UV.
-** Lisp mode working on Big but have to start Slime first on New. Why?  
-** NEXT Lisp connects on Big, not on New _unless_ slime run 1st.
-* DONE building Python language grammar w/ M-x trees-t-install-language-grammar
-CLOSED: [2026-06-05 Fri 13:30]
-did re-enable syntax higlighting and getting some things in the minibuffer.
-* DONE eglot failing. Still can't find pylsp _maybe fixed?_.
-CLOSED: [2026-06-05 Fri 13:21]
+* Make org mode files look nicer.
+* ISSUE After flymake-ruff added start time went from < 1 to > 2 secs on New.
+CLOSED: [2026-06-08 Mon 11:01]
+* COMPLETED Python sytntax highlighting, marginalie and Company working on New and Big but,
+CLOSED: [2026-06-08 Mon 13:42]
+** DONE Python setup on New. _Maybe?_
+** DONE eglot failing. Still can't find pylsp _maybe fixed?_.
+CLOSED: [2026-06-08 Mon 07:58]
 ** ISSUE +Python+-mode/eglot broken on New, but not on Big!
-** running M-x eglot prompts for localtion of pylsp...
-giving it /Users/charles.marano/.pyenv/shims/pylsp starts eglot and it seems to work.
 ** Internet says it's because emacs is using project.el not project.elc
-** Rolling back init.el a week (17May) did not fix Python Problem on New.
+*** Rolling back init.el a week (17May) did not fix Python Problem on New.
 ** +Python+ on New - capf: HOMEBREW_NO_PATH_SHADOW_CHECK=1 in .zshrc to force emacs
 to use homebrew pylsp instead of shims/pylsp. Big was using /opt/homebrew//bin/pylsp and working.
 Which command in terminal still shows /Users/charles.marano/.pyenv/shims/pylsp which is odd.
 ** Python: when starting eglot have to tell emacs where pylsp is even though...
 it's on the $PATH /Users/charles.marano/.pyenv/shims/pylsp
+*** running M-x eglot prompts for localtion of pylsp...
+giving it /Users/charles.marano/.pyenv/shims/pylsp starts eglot and it seems to work.
 ** json rpc message is from eglot - it can't find might be from closing progrs.
-* NEXT had to comment out (use-package flymake-ruff) Look into this.
+** building Python language grammar w/ M-x trees-t-install-language-grammar
+did re-enable syntax higlighting and getting some things in the minibuffer.
+** Finish setting up Python w/tree-sitter and eglot, no lsp. Yes to UV.
+* NEXT Lisp connects on Big, not on New _unless_ slime run 1st.
+* NEXT Lisp mode working on Big but have to start Slime first on New. Why?  
