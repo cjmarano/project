@@ -170,5 +170,8 @@ giving it /Users/charles.marano/.pyenv/shims/pylsp starts eglot and it seems to 
 ** building Python language grammar w/ M-x trees-t-install-language-grammar
 did re-enable syntax higlighting and getting some things in the minibuffer.
 ** Finish setting up Python w/tree-sitter and eglot, no lsp. Yes to UV.
+* DONE Added (setq doom-modeline-project-name t) to init.el
+CLOSED: [2026-06-08 Mon 13:56]
+
 * NEXT Lisp connects on Big, not on New _unless_ slime run 1st.
 * NEXT Lisp mode working on Big but have to start Slime first on New. Why?  
