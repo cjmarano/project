@@ -91,8 +91,6 @@ C-u, n  <-- Nope!
 M, n <-- undefined
 
 * find
-
-
 Find <path> expression options, tests, actions
 -maxdepth (option)
 -name, -type, size (test)
@@ -423,7 +421,7 @@ Cu, C-spc prev mark
 M-y cycle kill ring
 M-shit-2 move mark forward one word
 M-@ move selection <--> one word
-C-x, C-p seect whole buffer
+C-x, C-p select whole buffer
 C-v, C-_ move point to previous mark
 C-x, C-x swap mark and point
 C-x, esc repeat last command
@@ -442,7 +440,7 @@ M-w copy selected region
 C-x, C-spc pop global makr ring
 C-u, C-j just to last mark in ring
 C-u, C-spc pop last mark off ring
-M-h select bock
+M-h  org-mark-element
 M-c, \   format region
 M-^ join prvious line
 M- \ delete whitespace
@@ -450,7 +448,7 @@ M-i insert whitespace
 C-<BKSPC> kill <--
 M-<SPC> only 1 space between chars.
 M-c, M-v, M-l Caps, upcase, lowercase
-C-x, C-, comment our current line
+C-x, C-, comment out current line
 C-M-\ re-indent region
 M-q fill paragraph
 M-d delete word M--, M-d delete word <--
