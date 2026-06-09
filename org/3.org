@@ -147,10 +147,16 @@ Issue was with Slime. Tried to edit instead of stash when told it was dirty.
 This broke init.el = santiy color theme gone from ~/.emacs.d/themes/ so I guess straight pull
 deletes items first then pulls them from git.
 ** Failed: try M-x straight-normalize-package (or straight-normalize-all)
-* Rust, Rustic, wait.
-* Make org mode files look nicer.
+** DONE Added (setq doom-modeline-project-name t) to init.el
+CLOSED: [2026-06-08 Mon 13:56]
+
+* DONE Created ~/project/Prot/straight_prot.el as backup in case init.el blows up.
+CLOSED: [2026-06-09 Tue 11:17]
+this is the straight version of ~/project/Prot/init.el and works.
 * ISSUE After flymake-ruff added start time went from < 1 to > 2 secs on New.
 CLOSED: [2026-06-08 Mon 11:01]
+* Rust, Rustic, wait.
+* Make org mode files look nicer.
 * COMPLETED Python sytntax highlighting, marginalie and Company working on New and Big but,
 CLOSED: [2026-06-08 Mon 13:42]
 ** DONE Python setup on New. _Maybe?_
@@ -170,8 +176,5 @@ giving it /Users/charles.marano/.pyenv/shims/pylsp starts eglot and it seems to 
 ** building Python language grammar w/ M-x trees-t-install-language-grammar
 did re-enable syntax higlighting and getting some things in the minibuffer.
 ** Finish setting up Python w/tree-sitter and eglot, no lsp. Yes to UV.
-* DONE Added (setq doom-modeline-project-name t) to init.el
-CLOSED: [2026-06-08 Mon 13:56]
-
 * NEXT Lisp connects on Big, not on New _unless_ slime run 1st.
-* NEXT Lisp mode working on Big but have to start Slime first on New. Why?  
+* NEXT Lisp mode working on Big but have to start Slime first on New. Why?
