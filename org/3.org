@@ -1,25 +1,9 @@
 #+PROPERTY: folded
 ;;; +June.+
 * Start times down on New and Big to > 2 on New after fixing flymake-ruff.
-* WAITING LISP. Using (ql:quickload "cl-project") then
-(cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
-got a skeleton for the project and a main.lisp in the scr subdir.
-looks like this:
-
-drwxr-xr-x@    - charles.marano 25 Feb 12:55   src
-drwxr-xr-x@    - charles.marano 25 Feb 12:55   tests
-.rw-r--r--@   68 charles.marano 25 Feb 12:55   .gitignore
-.rw-r--r--@  559 charles.marano 25 Feb 12:55   my-project.asd
-.rw-r--r--@   40 charles.marano 25 Feb 12:55   README.markdown
-.rw-r--r--@   41 charles.marano 25 Feb 12:55   README.org
-
-main.lisp looks like this:
-                                        
-(uiop:define-package my-project
-   2 │   (:use #:cl))
-   3 │ (in-package #:my-project)
-   4 │
-   5 │ ;; blah blah blah.
+** Start times up die to global-flycheck-mode - 16% of total startup time.
+** ISSUE After flymake-ruff added start time went from < 1 to > 2 secs on New.
+CLOSED: [2026-06-08 Mon 11:01]
 * Misc
 ** COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
 CLOSED: [2026-03-27 Fri 08:35]
@@ -173,11 +157,29 @@ did re-enable syntax higlighting and getting some things in the minibuffer.
 ** DONE Created ~/project/Prot/straight_prot.el as backup in case init.el blows up.
 CLOSED: [2026-06-09 Tue 11:17]
 this is the straight version of ~/project/Prot/init.el and works.
-* Rust, Rustic, wait.
-* Make org mode files look nicer.
-* DONE Could not find theme better than sanity-tomorrow-eighties.
+** ISSUE Make org mode files look nicer.
+CLOSED: [2026-06-10 Wed 13:28]
+** DONE Could not find theme better than sanity-tomorrow-eighties.
 CLOSED: [2026-06-10 Wed 13:20]
-* ISSUE After flymake-ruff added start time went from < 1 to > 2 secs on New.
-CLOSED: [2026-06-08 Mon 11:01]
+* Rust, Rustic, wait.
+* WAITING LISP. Using (ql:quickload "cl-project") then
+(cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
+got a skeleton for the project and a main.lisp in the scr subdir.
+looks like this:
+
+drwxr-xr-x@    - charles.marano 25 Feb 12:55   src
+drwxr-xr-x@    - charles.marano 25 Feb 12:55   tests
+.rw-r--r--@   68 charles.marano 25 Feb 12:55   .gitignore
+.rw-r--r--@  559 charles.marano 25 Feb 12:55   my-project.asd
+.rw-r--r--@   40 charles.marano 25 Feb 12:55   README.markdown
+.rw-r--r--@   41 charles.marano 25 Feb 12:55   README.org
+
+main.lisp looks like this:
+                                        
+(uiop:define-package my-project
+   2 │   (:use #:cl))
+   3 │ (in-package #:my-project)
+   4 │
+   5 │ ;; blah blah blah.
 * TODO Lisp mode working on Big but have to start Slime first on New. Why?
 ** WAITING Lisp connects on Big, not on New _unless_ slime run 1st.
