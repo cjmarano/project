@@ -1,8 +1,12 @@
 * More useful keybindings.
 
 Select whole buffer C-x h
+fwd a word M-f
+back a word M-b
 Kill word fwd M-d
+kill word back M-<del>
 Kill char fwd C-d
+kill to end of sentence M-k
 Kill white space M-\
 Fill paragraph M-q
 Xchange point and mark C-x, C-x
@@ -11,14 +15,15 @@ End of sentence M-e
 Select paragraph M-}
 Top, Middle, Bottom M-r
 
+M-h is mark element.
+
+C-x 5 2 new frame
+C-x 5 0 kill frame
+
+<esc> <esc> <esc> to get out of mini-buffer (escape recursive editing.)
+
 * fzf
 fzf start typing filename then ^t or ^r for history.
 
 * emacslient --create-frame $1 to launch GUI  +<--This+
 
-
-Now is the time for good men to come to the aid of their party.
-
-C-x 5 2 new frame
-
-<esc> <esc> <esc> to get out of mini-buffer (escape recursive editing.)
