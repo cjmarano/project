@@ -1,0 +1,24 @@
+* More useful keybindings.
+
+Select whole buffer C-x h
+Kill word fwd M-d
+Kill char fwd C-d
+Kill white space M-\
+Fill paragraph M-q
+Xchange point and mark C-x, C-x
+Delete selection C-w
+End of sentence M-e
+Select paragraph M-}
+Top, Middle, Bottom M-r
+
+* fzf
+fzf start typing filename then ^t or ^r for history.
+
+* emacslient --create-frame $1 to launch GUI  +<--This+
+
+
+Now is the time for good men to come to the aid of their party.
+
+C-x 5 2 new frame
+
+<esc> <esc> <esc> to get out of mini-buffer (escape recursive editing.)
