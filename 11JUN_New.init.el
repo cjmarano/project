@@ -28,9 +28,12 @@
 ;;    (when (memq window-system '(mac ns x))
 ;;       (exec-path-from-shell-initialize)))
 
+(add-to-list 'exec-path "/Users/charles.marano/.pyenv/shims/")
+
 ;; changed from ~/.cache/emacs
 (setq user-emacs-directory "~/.emacs.d/")
 
+;; (load-theme 'material t)
 ;; did this to get sanity themes back. Don't know if all lines were needed.
 (load-file "~/.emacs.d/themes/color-theme-sanityinc-tomorrow-main/color-theme-sanityinc-tomorrow.el")
 (use-package color-theme-sanityinc-tomorrow)
@@ -38,11 +41,14 @@
  
 (add-to-list 'load-path "~/opt/homebrew/bin")
 
+
+(use-package project)
+
 (use-package no-littering)
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-(add-to-list 'default-frame-alist '(height . 30))
+(add-to-list 'default-frame-alist '(height . 58))
 (add-to-list 'default-frame-alist '(width . 110))
 
 (server-start)
@@ -82,7 +88,7 @@
 (setq recentf-max-menu-items 10)
 (setq recentf-max-saved-items 25)
 (keymap-global-set "C-c r" 'recentf-save-list)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+(keymap-global-set "C-x C-r" 'recentf-open-files)
 
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
@@ -117,7 +123,7 @@
 
 (setq dashboard-show-shortcuts nil)
 (setq dashboard-center-contents nil)
-(setq dashboard-banner-logo-title "Big")
+(setq dashboard-banner-logo-title "New")
 (setq dashboard-set-file-icons t)
 (setq dashboard-set-heading-icons t)
 (setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
@@ -152,6 +158,7 @@
 (setq doom-modeline-minor-modes t)
 (setq doom-modeline-buffer-name t)
 (setq doom-modeline-project-detection 'auto)
+(setq doom-modeline-project-name t)
 
 (setq isearch-lazy-count t)
 (setq lazy-count-prefix-format "(%s/%s) ")
@@ -333,9 +340,14 @@
 
 (setq org-hide-emphasis-markers t)
 
-;; (use-package 'org-indent)
-;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
-  
+;; (add-to-list 'org-emphasis-alist
+;;              '("_" (:foreground "red")
+;;                ))
+
+;; (add-to-list 'org-emphasis-alist
+;;              '("+" (:foreground "LightGreen")
+;;                ))
+
 (defun efs/org-mode-setup ()
 
   (variable-pitch-mode 1)
@@ -438,10 +450,18 @@
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))
 
-;; (use-package 'flymake-ruff)
-;; (add-hook 'python-mode-hook #'flymake-ruff-load)
+(use-package flymake-ruff
+  :straight (flymake-ruff
+             :type git
+             :host github
+             :repo "erickgnavar/flymake-ruff"))
 
-;; (use-package 'ruff-format)
+(add-hook 'eglot-managed-mode-hook 'flymake-ruff-load)
+
+;; (use-package flymake-ruff)
+;;(add-hook 'python-mode-hook #'flymake-ruff-load)
+
+;; (straight-use-package 'ruff-format)
 ;; (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
 
 (setq python-indent-guess-indent-offset t)
@@ -516,10 +536,11 @@
 ;; (lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
-;; (use-package 'tree-sitter)
-;; (require 'tree-sitter-langs)
+(use-package tree-sitter)
+(use-package tree-sitter-langs)
 ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
-;; (add-hook 'python-mode-hook #'tree-sitter-mode)
+(add-hook 'python-mode-hook #'tree-sitter-mode)
+;; (global-tree-sitter-mode)
 
 ;; (use-package rustic
 ;;    :defer t
@@ -585,7 +606,8 @@
  '(company-box-icons-alist 'company-box-icons-images)
  '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
  '(custom-safe-themes
-   '("6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1"
+   '("76ddb2e196c6ba8f380c23d169cf2c8f561fd2013ad54b987c516d3cabc00216"
+     "6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1"
      "ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
      "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
      "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
