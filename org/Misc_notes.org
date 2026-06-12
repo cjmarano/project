@@ -20,6 +20,10 @@ M-h is mark element.
 C-x 5 2 new frame
 C-x 5 0 kill frame
 
+C-h b show all bindings for currect buffer.
+
+C-h m show all modes for current buffer.
+
 <esc> <esc> <esc> to get out of mini-buffer (escape recursive editing.)
 
 * fzf
