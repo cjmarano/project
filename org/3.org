@@ -162,6 +162,11 @@ CLOSED: [2026-06-10 Wed 13:28]
 ** DONE Could not find theme better than sanity-tomorrow-eighties.
 CLOSED: [2026-06-10 Wed 13:20]
 * Rust, Rustic, wait.
+* DONE Completion-Preview mode mode is now built in to emacs.
+CLOSED: [2026-06-12 Fri 12:09]
+<TAB> to accept M-i to complete up to longest common prefix.
+M-x completion-preview-next-candidate cycles fwd
+ M-x completion-preview-prev-candidate cycles back
 * WAITING LISP. Using (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
 got a skeleton for the project and a main.lisp in the scr subdir.
@@ -183,3 +188,4 @@ main.lisp looks like this:
    5 │ ;; blah blah blah.
 * TODO Lisp mode working on Big but have to start Slime first on New. Why?
 ** WAITING Lisp connects on Big, not on New _unless_ slime run 1st.
+* 
