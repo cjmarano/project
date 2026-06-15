@@ -1,5 +1,5 @@
-#+PROPERTY: folded
 ;;; +June.+
+#+PROPERTY: folded
 * Start times down on New and Big to > 2 on New after fixing flymake-ruff.
 ** Start times up die to global-flycheck-mode - 16% of total startup time.
 ** ISSUE After flymake-ruff added start time went from < 1 to > 2 secs on New.
@@ -161,9 +161,14 @@ this is the straight version of ~/project/Prot/init.el and works.
 CLOSED: [2026-06-10 Wed 13:28]
 ** DONE Could not find theme better than sanity-tomorrow-eighties.
 CLOSED: [2026-06-10 Wed 13:20]
+** C-c, C-d is bound to org-deadline in org files.
+Heldful at point in other docs.
 * Rust, Rustic, wait.
-* DONE Completion-Preview mode mode is now built in to emacs.
-CLOSED: [2026-06-12 Fri 12:09]
+* COMPLETED Installed uv on Big (was already on New). 
+CLOSED: [2026-06-15 Mon 08:36]
+* COMPLETED Completion-Preview mode mode is now built in to emacs.
+CLOSED: [2026-06-15 Mon 09:32]
+bind a key for it? 
 <TAB> to accept M-i to complete up to longest common prefix.
 M-x completion-preview-next-candidate cycles fwd
  M-x completion-preview-prev-candidate cycles back
@@ -188,4 +193,4 @@ main.lisp looks like this:
    5 │ ;; blah blah blah.
 * TODO Lisp mode working on Big but have to start Slime first on New. Why?
 ** WAITING Lisp connects on Big, not on New _unless_ slime run 1st.
-* 
+* Looking to see what else needs re-abling in init.el.  

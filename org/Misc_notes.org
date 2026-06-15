@@ -30,4 +30,7 @@ C-h m show all modes for current buffer.
 fzf start typing filename then ^t or ^r for history.
 
 * emacslient --create-frame $1 to launch GUI  +<--This+
+* package-install-from-buffer
+* toggle-debug-on-error
 
+_Go is not object oriented_
