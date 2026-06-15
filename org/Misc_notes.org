@@ -34,3 +34,6 @@ fzf start typing filename then ^t or ^r for history.
 * toggle-debug-on-error
 
 _Go is not object oriented_
+* git add -u to update, removing deleted files.
+
+* +reminder: C-, n t is Denote Journal+
