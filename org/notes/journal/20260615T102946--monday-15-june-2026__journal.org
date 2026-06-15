@@ -1,0 +1,7 @@
+#+title:      Monday 15 June 2026
+#+date:       [2026-06-15 Mon 10:29]
+#+filetags:   :journal:
+#+identifier: 20260615T102946
+
+Majority of init.el UN-commented and working as intended. Rust and Ruby still not enabled.
+That's fine. Concentrate on Python and Lisp for now.
