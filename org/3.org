@@ -74,8 +74,6 @@ CLOSED: [2026-06-01 Mon 13:06]
 
 (add-hook 'after-init-hook 'global-company-mode)
 
-** You can force company to find dabbreve by using company-begin-backend
-and then choosing the dabbrev backend from the list that appears in the minibuffer.
 ** company-diag from Big:
 Emacs 30.2 (aarch64-apple-darwin23.2.0) of 2025-12-05 on builder-m1-14.lan
    2 │ Company 1.0.2
@@ -99,11 +97,6 @@ Emacs 30.2 (aarch64-apple-darwin23.2.0) of 2025-12-05 on builder-m1-14.lan
   company-mode repos are same on both machines.
   -----------------------------------------
 ** if slime is running everything works on New, Company & Company-box.
-** make SLIME connect to your lisp when you open a lisp file: add this to your .emacs:
-(add-hook 'slime-mode-hook
-(lambda ()
-(unless (slime-connected-p)
-(save-excursion (slime)))))
 ** COMPLETED Can NOT get org-tempo set up.
 CLOSED: [2026-06-04 Thu 14:51]
 ** may be set up, will test. Blew up init.el on New, had to reset a LOT.
@@ -163,16 +156,31 @@ CLOSED: [2026-06-10 Wed 13:28]
 CLOSED: [2026-06-10 Wed 13:20]
 ** C-c, C-d is bound to org-deadline in org files.
 Heldful at point in other docs.
-* Rust, Rustic, wait.
-* COMPLETED Installed uv on Big (was already on New). 
+** COMPLETED Installed uv on Big (was already on New). 
 CLOSED: [2026-06-15 Mon 08:36]
+* Rust, Rustic, wait.
+* You can force company to find dabbreve by using company-begin-backend
+and then choosing the dabbrev backend from the list that appears in the minibuffer.
+* +Latest+ 15JUN.New.init.el w/ 08JUN_Big.init.el & 26MAY.zshrc
+* COMPLETED +tested+ make SLIME connect to your lisp when you open a lisp file: add this to your .emacs:
+CLOSED: [2026-06-16 Tue 13:35]
+(add-hook 'slime-mode-hook
+(lambda ()
+(unless (slime-connected-p)
+(save-excursion (slime)))))
+** above added to New's init.el fixed issue, now works.
+** TODO Lisp mode working on Big but have to start Slime first on New. Why?
+** WAITING Lisp connects on Big, not on New _unless_ slime run 1st.
 * COMPLETED Completion-Preview mode mode is now built in to emacs.
 CLOSED: [2026-06-15 Mon 09:32]
 bind a key for it? 
 <TAB> to accept M-i to complete up to longest common prefix.
 M-x completion-preview-next-candidate cycles fwd
  M-x completion-preview-prev-candidate cycles back
-* WAITING LISP. Using (ql:quickload "cl-project") then
+* Looking to see what else needs re-abling in init.el.  
+* ISSUE LISP.
+CLOSED: [2026-06-16 Tue 13:22]
+** cl-project does not work or is not installed/configured correctly.sing (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
 got a skeleton for the project and a main.lisp in the scr subdir.
 looks like this:
@@ -191,6 +199,3 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
-* TODO Lisp mode working on Big but have to start Slime first on New. Why?
-** WAITING Lisp connects on Big, not on New _unless_ slime run 1st.
-* Looking to see what else needs re-abling in init.el.  
