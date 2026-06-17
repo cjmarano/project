@@ -37,3 +37,5 @@ _Go is not object oriented_
 * git add -u to update, removing deleted files.
 
 * +reminder: C-, n t is Denote Journal+
+
+use-package infers :defer t so package does not load immediately.

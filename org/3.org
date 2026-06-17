@@ -4,6 +4,8 @@
 ** Start times up die to global-flycheck-mode - 16% of total startup time.
 ** ISSUE After flymake-ruff added start time went from < 1 to > 2 secs on New.
 CLOSED: [2026-06-08 Mon 11:01]
+* +Latest+ 15JUN.New.init.el w/ 08JUN_Big.init.el & 26MAY.zshrc
+* Rust, Rustic, wait.
 * Misc
 ** COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
 CLOSED: [2026-03-27 Fri 08:35]
@@ -52,7 +54,7 @@ CLOSED: [2026-06-01 Mon 13:06]
 ** elisp file - init.el - does connect to Company backends. Lisp files don't.
 ** Changed use-package slime to straight-use-package 'slime  and it installed.
 *** slime now works on both Macs.
-** I am getting full everything on init.el (which is elisp) but not on lisp files.
+** I am getting full features with init.el (which is elisp) but not on lisp files.
 ** COMPLETED _Lisp_ on New - can't complete capf not connected. But lisp on Big can.
 CLOSED: [2026-06-01 Mon 11:16]
 is using company-dabbev-code company-gtags company-etags company-keywords.
@@ -128,7 +130,7 @@ deletes items first then pulls them from git.
 CLOSED: [2026-06-08 Mon 13:56]
 
 ** NEXT Cleaned up notebook.org - need to spend time using emacs to edit.
-** COMPLETED Python sytntax highlighting, marginalie and Company working on New and Big but,
+* COMPLETED Python sytntax highlighting, marginalie and Company working on New and Big but,
 CLOSED: [2026-06-08 Mon 13:42]
 ** DONE Python setup on New. _Maybe?_
 ** DONE eglot failing. Still can't find pylsp _maybe fixed?_.
@@ -147,7 +149,7 @@ giving it /Users/charles.marano/.pyenv/shims/pylsp starts eglot and it seems to 
 ** building Python language grammar w/ M-x trees-t-install-language-grammar
 did re-enable syntax higlighting and getting some things in the minibuffer.
 ** Finish setting up Python w/tree-sitter and eglot, no lsp. Yes to UV.
-** DONE Created ~/project/Prot/straight_prot.el as backup in case init.el blows up.
+* COMPLETED Created ~/project/Prot/straight_prot.el as backup in case init.el blows up.
 CLOSED: [2026-06-09 Tue 11:17]
 this is the straight version of ~/project/Prot/init.el and works.
 ** ISSUE Make org mode files look nicer.
@@ -158,27 +160,41 @@ CLOSED: [2026-06-10 Wed 13:20]
 Heldful at point in other docs.
 ** COMPLETED Installed uv on Big (was already on New). 
 CLOSED: [2026-06-15 Mon 08:36]
-* Rust, Rustic, wait.
-* You can force company to find dabbreve by using company-begin-backend
-and then choosing the dabbrev backend from the list that appears in the minibuffer.
-* +Latest+ 15JUN.New.init.el w/ 08JUN_Big.init.el & 26MAY.zshrc
-* COMPLETED +tested+ make SLIME connect to your lisp when you open a lisp file: add this to your .emacs:
-CLOSED: [2026-06-16 Tue 13:35]
+* COMPLETED +tested+ make SLIME connect to your lisp when you open a lisp file:
+** below added to New's init.el fixed issue, now works.
+add this to your .emacs:
 (add-hook 'slime-mode-hook
 (lambda ()
 (unless (slime-connected-p)
 (save-excursion (slime)))))
-** above added to New's init.el fixed issue, now works.
-** TODO Lisp mode working on Big but have to start Slime first on New. Why?
-** WAITING Lisp connects on Big, not on New _unless_ slime run 1st.
+CLOSED: [2026-06-16 Tue 13:35]
+
+
 * COMPLETED Completion-Preview mode mode is now built in to emacs.
 CLOSED: [2026-06-15 Mon 09:32]
 bind a key for it? 
 <TAB> to accept M-i to complete up to longest common prefix.
 M-x completion-preview-next-candidate cycles fwd
  M-x completion-preview-prev-candidate cycles back
-* Looking to see what else needs re-abling in init.el.  
-* ISSUE LISP.
+* COMPLETED Added font info to init.el on New:
+CLOSED: [2026-06-17 Wed 11:06]
+;; Font Configuration ----------------------------------------------------------
+
+(set-face-attribute 'default nil :font "JetBrainsmono Nerd Font" :height 180)
+
+;; Set the fixed pitch face
+(set-face-attribute 'fixed-pitch nil :font "JetBrainsmono Nerd Font" :height 180)
+
+;; Set the variable pitch face
+(set-face-attribute 'variable-pitch nil :font "Roboto" :height 180 :weight 'regular)
+* COMPLETED Nothing else needs re-enabling in init.el at this time.
+CLOSED: [2026-06-17 Wed 11:08]
+** Rust can be added back in later.
+* You can force company to find dabbreve by using company-begin-backend
+and then choosing the dabbrev backend from the list that appears in the minibuffer.
+* ISSUE quickproject keep putting new projects in ~/project/org
+CLOSED: [2026-06-17 Wed 12:54]
+** ISSUE LISP projects.
 CLOSED: [2026-06-16 Tue 13:22]
 ** cl-project does not work or is not installed/configured correctly.sing (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
@@ -199,3 +215,4 @@ main.lisp looks like this:
    3 │ (in-package #:my-project)
    4 │
    5 │ ;; blah blah blah.
+

@@ -1,0 +1,8 @@
+#+title:      Wednesday 17 June 2026
+#+date:       [2026-06-17 Wed 08:34]
+#+filetags:   :journal:
+#+identifier: 20260617T083434
+
+Did some cleanup of 3.org for June. Python appears to be working on New and Big.
+Need to look at lisp and elisp on both machines.
+Also need to use denote journal more.
