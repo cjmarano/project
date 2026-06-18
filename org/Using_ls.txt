@@ -1,0 +1,36 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with ‘C-x C-f’ and enter text in its buffer.
+
+
+ls -lt --time=birth created 
+
+ls -lt --time=ctime changed
+
+ls -lt --time=atime accessed last
+
+ls -lb --print C style escapes (shows non-printing chars in filenames
+
+ls -li  get inode number
+
+ls -lx by extension
+
+ls -l --full-time  show full time for the file
+
+eza --long --header --inode --git
+
+eza --absolute=on
+
+NOTE: eza on Plucky does not have git support.
+
+eza --long --header --inode --group-directories-first
+
+
+--
+uv add to add dependencies
+
+uv remove to remove dependencies
+
+uv add --workspace
+
+uv main.py
+
