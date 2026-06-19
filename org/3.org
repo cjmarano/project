@@ -1,7 +1,7 @@
 ;;; +June.+
 #+PROPERTY: folded
 * Start times down on New and Big to > 2 on New after fixing flymake-ruff.
-** Start times up die to global-flycheck-mode - 16% of total startup time.
+** Start times up due to global-flycheck-mode - 16% of total startup time.
 ** ISSUE After flymake-ruff added start time went from < 1 to > 2 secs on New.
 CLOSED: [2026-06-08 Mon 11:01]
 * +Latest+ 15JUN.New.init.el w/ 08JUN_Big.init.el & 26MAY.zshrc
@@ -23,7 +23,7 @@ while org roam dailies go into sepearte files (even if created on same day) with
 ** use-package infers :defer t so package does not load immediately.
 *** with straight can use :straight t
 ** _Note:_ did NOT change require statements that looked like part of fuctions (not sepearte on own line).
-*** COMPLETED Tried to install an info item.
+** COMPLETED Tried to install an info item.
 CLOSED: [2026-04-29 Wed 12:58]
 *** Secret was to add /opt/homebrew/share/info/ to info-additional-directory-list.
 install-info --info-dir=/opt/homebrew/share/info ~/Software/muse.info
@@ -46,20 +46,7 @@ CLOSED: [2026-05-15 Fri 11:02]
 ** .zshrc path checked on New and Big and a copy sent to ~/project/
 ** Comparing Elpa and Repos to see what's in the old init that's not in the new.
 ** Do a diff on init.el for new and big to see what's different?
-** COMPLETED fixed org-empasis on Big;  _red_ +green+ *BOLD* /italic/ =verbatim= ~code~
-CLOSED: [2026-06-01 Mon 13:54]
-** COMPLETED Slime was _not_ installed on New or Big.
-CLOSED: [2026-06-01 Mon 13:06]
-** elisp file - init.el - does connect to Company backends. Lisp files don't.
-** Changed use-package slime to straight-use-package 'slime  and it installed.
-*** slime now works on both Macs.
-** I am getting full features with init.el (which is elisp) but not on lisp files.
-** COMPLETED _Lisp_ on New - can't complete capf not connected. But lisp on Big can.
-CLOSED: [2026-06-01 Mon 11:16]
-is using company-dabbev-code company-gtags company-etags company-keywords.
-** _Lisp_: Company: backend company-capf error "Not connected." with args (prefix)
-** C-h v then company-backends shows no backends for lisp or elisp on New.
-** capf for lisp IS working on Big. see capf_lisp.txt for more.
+* break
 ** COMPLETED Global-company-mode was _not_ working. Fixed on New and Big.
 CLOSED: [2026-06-01 Mon 13:06]
 ** commented out some lines and moved global-company-mode below use-package:
@@ -190,7 +177,7 @@ M-x completion-preview-next-candidate cycles fwd
 * COMPLETED Nothing else needs re-enabling in init.el at this time.
 CLOSED: [2026-06-17 Wed 11:08]
 ** Rust can be added back in later.
-** Rust, Rustic, wait. <-- later for these.
+*** Rust, Rustic, wait. <-- later for these.
 * ISSUE quickproject keep putting new projects in ~/project/org
 CLOSED: [2026-06-17 Wed 12:54]
 ** ISSUE LISP projects.
@@ -215,3 +202,18 @@ main.lisp looks like this:
    4 │
    5 │ ;; blah blah blah.
 
+ Lisp and elisp
+** COMPLETED fixed org-empasis on Big;  _red_ +green+ *BOLD* /italic/ =verbatim= ~code~
+CLOSED: [2026-06-01 Mon 13:54]
+** COMPLETED Slime was _not_ installed on New or Big.
+CLOSED: [2026-06-01 Mon 13:06]
+** elisp file - init.el - does connect to Company backends. Lisp files don't.
+** Changed use-package slime to straight-use-package 'slime  and it installed.
+*** slime now works on both Macs.
+** I am getting full features with init.el (which is elisp) but not on lisp files.
+** COMPLETED _Lisp_ on New - can't complete capf not connected. But lisp on Big can.
+CLOSED: [2026-06-01 Mon 11:16]
+is using company-dabbev-code company-gtags company-etags company-keywords.
+** _Lisp_: Company: backend company-capf error "Not connected." with args (prefix)
+** C-h v then company-backends shows no backends for lisp or elisp on New.
+** capf for lisp IS working on Big. see capf_lisp.txt for more.
