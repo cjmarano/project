@@ -156,8 +156,6 @@ add this to your .emacs:
 (lambda ()
 (unless (slime-connected-p)
 (save-excursion (slime)))))
-CLOSED: [2026-06-16 Tue 13:35]
-
 ** COMPLETED Added font info to init.el on New:
 CLOSED: [2026-06-17 Wed 11:06]
 ;; Font Configuration ----------------------------------------------------------
@@ -184,15 +182,16 @@ CLOSED: [2026-06-10 Wed 13:28]
 CLOSED: [2026-06-10 Wed 13:20]
 ** C-c, C-d is bound to org-deadline in org files.
 Heldful at point in other docs.
-** COMPLETED Installed uv on Big (was already on New). 
+** COMPLETED Installed uv on Big (was already on New).
 CLOSED: [2026-06-15 Mon 08:36]
 * COMPLETED Completion-Preview mode mode is now built in to emacs.
 CLOSED: [2026-06-15 Mon 09:32]
-bind a key for it? 
+bind a key for it?
 <TAB> to accept M-i to complete up to longest common prefix.
 M-x completion-preview-next-candidate cycles fwd
  M-x completion-preview-prev-candidate cycles back
-* ISSUE quickproject keep putting new projects in ~/project/org
+* TODO Quickproject works but defaults to ~/project/org.
+** ISSUE quickproject keep putting new projects in ~/project/org
 ** cl-project issues. Throws debug error.
 ** ISSUE LISP projects.
 CLOSED: [2026-06-16 Tue 13:22]
