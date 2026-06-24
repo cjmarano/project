@@ -1,0 +1,11 @@
+
+> (asdf/source-registry:default-user-source-registry)
+(:SOURCE-REGISTRY (:TREE (:HOME "common-lisp/"))
+ (:DIRECTORY (:HOME ".sbcl/systems/"))
+ (:DIRECTORY #P"/Users/charles.marano/.local/share/common-lisp/systems/")  _<-- doesn't exist_
+ (:TREE #P"/Users/charles.marano/.local/share/common-lisp/source/") +<-- does exist+
+ :INHERIT-CONFIGURATION)
+
+
+> asdf:*central-registry*
+(#P"/Users/charles.marano/.quicklisp/quicklisp/")

@@ -1,5 +1,0 @@
-* Cl-Sample 
-
-** Usage
-
-** Installation
