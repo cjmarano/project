@@ -171,6 +171,10 @@ CLOSED: [2026-06-17 Wed 11:06]
 (set-face-attribute 'variable-pitch nil :font "Roboto" :height 180 :weight 'regular)
 ** You can force company to find dabbreve by using company-begin-backend
 and then choosing the dabbrev backend from the list that appears in the minibuffer.
+** COMPLETED Nothing else needs re-enabling in init.el at this time.
+CLOSED: [2026-06-17 Wed 11:08]
+** Rust can be added back in later.
+*** Rust, Rustic, wait. <-- later for these.
 * COMPLETED Created ~/project/Prot/straight_prot.el as backup in case init.el blows up.
 CLOSED: [2026-06-09 Tue 11:17]
 this is the straight version of ~/project/Prot/init.el and works.
@@ -188,12 +192,8 @@ bind a key for it?
 <TAB> to accept M-i to complete up to longest common prefix.
 M-x completion-preview-next-candidate cycles fwd
  M-x completion-preview-prev-candidate cycles back
-* COMPLETED Nothing else needs re-enabling in init.el at this time.
-CLOSED: [2026-06-17 Wed 11:08]
-** Rust can be added back in later.
-*** Rust, Rustic, wait. <-- later for these.
 * ISSUE quickproject keep putting new projects in ~/project/org
-CLOSED: [2026-06-17 Wed 12:54]
+** cl-project issues. Throws debug error.
 ** ISSUE LISP projects.
 CLOSED: [2026-06-16 Tue 13:22]
 ** cl-project does not work or is not installed/configured correctly.
