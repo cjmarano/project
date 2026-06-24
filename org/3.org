@@ -4,7 +4,7 @@
 ** Start times up due to global-flycheck-mode - 16% of total startup time.
 ** ISSUE After flymake-ruff added start time went from < 1 to > 2 secs on New.
 CLOSED: [2026-06-08 Mon 11:01]
-* +Latest+ 22JUN.New.init.el w/ 23JUN_Big.init.el & 26MAY.zshrc
+* +Latest+ 24JUN.New.init.el w/ 23JUN_Big.init.el & 26MAY.zshrc
 * Misc
 ** COMPLETED  C-c r is now bound to recentf-save-list because list wasn't reliably updating on New.
 CLOSED: [2026-03-27 Fri 08:35]
@@ -156,6 +156,8 @@ add this to your .emacs:
 (lambda ()
 (unless (slime-connected-p)
 (save-excursion (slime)))))
+
+
 ** COMPLETED Added font info to init.el on New:
 CLOSED: [2026-06-17 Wed 11:06]
 ;; Font Configuration ----------------------------------------------------------
@@ -190,12 +192,12 @@ bind a key for it?
 <TAB> to accept M-i to complete up to longest common prefix.
 M-x completion-preview-next-candidate cycles fwd
  M-x completion-preview-prev-candidate cycles back
-* TODO Quickproject works but defaults to ~/project/org.
-** ISSUE quickproject keep putting new projects in ~/project/org
-** cl-project issues. Throws debug error.
-** ISSUE LISP projects.
-CLOSED: [2026-06-16 Tue 13:22]
-** cl-project does not work or is not installed/configured correctly.
+* COMPLETED Quickproject works but need to create a dir and cd to it 1st.
+CLOSED: [2026-06-24 Wed 13:28]
+** example: in ~/project/lisp/ mkdir foobar cd foobar THEN run (quickproject:make-project "foobar")
+*** ISSUE LISP projects.
+** COMPLETED cl-project does not work or is not installed/configured correctly.
+CLOSED: [2026-06-24 Wed 13:42]
 (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
 got a skeleton for the project and a main.lisp in the scr subdir.
@@ -216,3 +218,7 @@ main.lisp looks like this:
    5 │ ;; blah blah blah.
 
  Lisp and elisp
+
+** cl-project throws errors. Use quickproject for now?
+*** throws an HTTPS statuse error 
+*** (cl-project:make-project #p"lib/cl-sample/")
