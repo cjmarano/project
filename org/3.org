@@ -52,3 +52,42 @@ main.lisp looks like this:
 ** cl-project throws errors. Use quickproject for now?
 *** throws an HTTPS statuse error 
 *** (cl-project:make-project #p"lib/cl-sample/")
+* TODO Running lisp programs:
+Create a file named hello (you can drop the .lisp extension) and add this:
+
+#!/usr/bin/env -S sbcl --script
+(require :uiop)
+(format t "hello ~a!~&" (uiop:getenv "USER"))
+Make the script executable (chmod +x hello) and run it:
+
+$ ./hello
+hello me!
+
+-------
+
+;; filename.lisp
+;; note the --script switch, not needed for raw code? NOPE, _doesn't display either way._
+(print "hello world")
+And then we run this in the terminal:
+
+$ sbcl --script filename.lisp
+"hello world"
+$
+===========
+--load
+If you use --load, then it will evaluate everything in your file, and then drop you into an interactive prompt so that you can interact with your program:
+
+So let’s say we have the following file:
+
+;; filename.lisp
+(defun sum (list)
+  (if list (+ (car list) (sum (cdr list))) 0))
+And we call --load in the terminal:
+
+$ sbcl --load filename.lisp
+#<some preamble about sbcl you can ignore>
+** (sum '(1 2 3 4 5))
+15
+---------
+clisp <filename> runs a lisp script.
+clisp -repl <filename> runs a script then drops to the repl.
