@@ -28,6 +28,8 @@
 ;;    (when (memq window-system '(mac ns x))
 ;;       (exec-path-from-shell-initialize)))
 
+(add-to-list 'exec-path "/Users/charles.marano/.pyenv/shims/")
+
 ;; changed from ~/.cache/emacs
 (setq user-emacs-directory "~/.emacs.d/")
 
@@ -35,16 +37,13 @@
 (load-file "~/.emacs.d/themes/color-theme-sanityinc-tomorrow-main/color-theme-sanityinc-tomorrow.el")
 (use-package color-theme-sanityinc-tomorrow)
 (color-theme-sanityinc-tomorrow--define-theme eighties)
-
-;; .emacs.d/elpa comment out per straight instructions.
-;; Setup loadcd ~/.em-path, autoloads and your lisp system
-;; (add-to-list 'load-path "~/.emacs.d/elpa")
-;; not sure why these aliases to binaries need to be on the load-path.
-;; probably because emacs couldn't find cmake. Still can't. 
+ 
 (add-to-list 'load-path "~/opt/homebrew/bin")
 
+
+(use-package project)
+
 (use-package no-littering)
-;; (require 'no-littering)
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
@@ -76,9 +75,6 @@
 (file-name-shadow-mode)
 (setq-default create-lockfiles nil)
 (delete-selection-mode 1)
-
-
-;; (use-package org-extra-emphasis)
 
 (dolist (mode '(org-mode-hook
                 term-mode-hook
@@ -159,8 +155,6 @@
 (setq doom-modeline-env-enable-ruby t)
 (setq doom-modeline-env-enable-rust t)
 (setq doom-modeline-minor-modes t)
-;; (setq doom-modeline-lsp t)
-;; (setq doom-modeline-lsp-icon t)
 (setq doom-modeline-buffer-name t)
 (setq doom-modeline-project-detection 'auto)
 
@@ -213,17 +207,20 @@
 (use-package denote
   :hook (dired-mode . denote-dired-mode)
   :bind
-  ;; (("C-c n r" . denote-rename-file)
-  ;;  ("C-c n l" . denote-link)
-  ;;  ("C-c n c" . denote-link-after-creating)
-  ;;  ("C-c n b" . denote-backlinks)
-  ;;   )
+  (("C-c n r" . denote-rename-file)
+   ("C-c n l" . denote-link)
+   ("C-c n c" . denote-link-after-creating)
+   ("C-c n b" . denote-backlinks)
+    )
   :config
 (setq denote-directory (expand-file-name "~/project/org/notes/"))
 (setq denotes-known-keywords '("emacs" "init" "general" "shell" "Broken"))
 (setq completion-styles '(substring basic))
 (setq denote-file-type nil))
 (keymap-global-set "s-b" 'denote)
+(keymap-global-set "s-i" 'denote-journal-new-entry)
+(keymap-global-set "s-r" 'denote-journal-new-or-existing-entry)
+(keymap-global-set "C-c n t" 'denote-journal-link-or-create-entry)
 
 (use-package consult
 ;; Replace bindings. Lazily loaded due by `use-package'.
@@ -283,7 +280,6 @@
 ;; already links to the manual, if a function is referenced there.
 (global-set-key (kbd "C-h F") #'helpful-function)
 
-
 (use-package smartparens
   :hook (emacs-lisp-mode-hook common-lisp-mode-hook lisp-mode-hook)
   :config
@@ -306,16 +302,16 @@
 ;; )                                  
                       
 ;; Set faces for heading levels
-;; (with-eval-after-load 'org-faces
-;;   (dolist (face '((org-level-1 . 1.2)
-;;                   (org-level-2 . 1.1)
-;;                   (org-level-3 . 1.05)
-;;                   (org-level-4 . 1.0)
-;;                   (org-level-5 . 1.1)
-;;                   (org-level-6 . 1.1)
-;;                   (org-level-7 . 1.1)
-;;                   (org-level-8 . 1.1))))
-;;   (set-face-attribute (car face) nil :font "JetBrainsmono" :weight 'regular :height (cdr face)))
+(with-eval-after-load 'org-faces
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))))
+;;   (set-face-attribute (car face) nil :font "JetBrainsmono" :weight 'regular :height (cdr face))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 ;; (set-face-attribute 'org-block unspecified :inherit 'fixed-pitch)
@@ -392,24 +388,24 @@
 ;; org-roam end =====================================================
 
 ;; entries below seem to be additional, not required
-;; (keymap-set global-map "C-c l" 'org-store-link)
-;; (keymap-set global-map "C-c a" 'org-agenda)
-;; (keymap-set global-map "C-c c" 'org-capture)
-;; (setq org-log-done 'time)
+(keymap-set global-map "C-c l" 'org-store-link)
+(keymap-set global-map "C-c a" 'org-agenda)
+(keymap-set global-map "C-c c" 'org-capture)
+(setq org-log-done 'time)
 
-;; (with-eval-after-load 'org
-;;       (org-babel-do-load-languages
-;;           'org-babel-load-languages
-;;           '((emacs-lisp . t)
-;;           (python . t)
-;;           (ruby . t)
-;;           (eshell . t)
-;;           (lisp . t)
-;;           (rust . t)
-;;           ))
-;;     (push '("conf-unix" . conf-unix) org-src-lang-modes))
+(with-eval-after-load 'org
+      (org-babel-do-load-languages
+          'org-babel-load-languages
+          '((emacs-lisp . t)
+          (python . t)
+;;          (ruby . t)
+          (eshell . t)
+          (lisp . t)
+;;          (rust . t)
+          ))
+    (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
-;; (use-package 'org-tempo)
+(require 'org-tempo)
 
 ;; (let ((org-confirm-babel-evaluate nil)))
 
@@ -433,10 +429,10 @@
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))
 
-;; (use-package 'flymake-ruff)
-;; (add-hook 'python-mode-hook #'flymake-ruff-load)
+(use-package flymake-ruff)
+(add-hook 'python-mode-hook #'flymake-ruff-load)
 
-;; (use-package 'ruff-format)
+;; (straight-use-package 'ruff-format)
 ;; (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
 
 (setq python-indent-guess-indent-offset t)
@@ -511,10 +507,11 @@
 ;; (lsp-ui-doc-enable nil))
 ;; end lsp-mode additions for rust
 
-;; (use-package 'tree-sitter)
-;; (require 'tree-sitter-langs)
+(use-package tree-sitter)
+(use-package tree-sitter-langs)
 ;; (add-hook 'rust-mode-hook #'tree-sitter-mode)
-;; (add-hook 'python-mode-hook #'tree-sitter-mode)
+(add-hook 'python-mode-hook #'tree-sitter-mode)
+;; (global-tree-sitter-mode)
 
 ;; (use-package rustic
 ;;    :defer t
@@ -537,28 +534,17 @@
 
 
 (use-package company
-   :straight t)
-;;   :bind (:map company-active-map
-;;               ("<tab>" . company-complete-selection))
-;;           (:map python-mode-map
-;;               ("<tab>" . company-indent-or-complete-common))
-;;   :custom
-;; (company-minimum-prefix-length 1)
-;; (company-idle-delay 0.5))
+  :straight t)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
-  (use-package company-box
+(use-package company-box
   :hook (company-mode . company-box-mode))
 
 (straight-use-package 'slime
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
 )
-(add-hook 'slime-mode-hook
-         (lambda ()
-           (unless (slime-connected-p)
-             (save-excursion (slime)))))
 
 (straight-use-package 'rainbow-delimiters)
 
@@ -566,9 +552,7 @@
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
-
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

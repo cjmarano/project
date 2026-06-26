@@ -91,3 +91,8 @@ $ sbcl --load filename.lisp
 ---------
 clisp <filename> runs a lisp script.
 clisp -repl <filename> runs a script then drops to the repl.
+* Homgulated init.el on Big and New. New slower load than Big.
+** Rainbow-delimiters installed by use-package on Big caused error
+when doing straight-pull-all. Deleted the package then changed use package line in init:
+(straight-use-package 'rainbow-delimiters)
+load-time went down by over 1/2 second and no errors. Will see if straight-pull-all now goes without error.
