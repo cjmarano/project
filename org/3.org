@@ -52,6 +52,9 @@ main.lisp looks like this:
 ** cl-project throws errors. Use quickproject for now?
 *** throws an HTTPS statuse error 
 *** (cl-project:make-project #p"lib/cl-sample/")
+* ISSUE ~/.emacs.d/straight/repos is a git dir on New, not on Big but...
+CLOSED: [2026-06-26 Fri 11:22]
+it's not synched and not found. Doesn't appear to affect function but weird.
 * TODO Running lisp programs:
 Create a file named hello (you can drop the .lisp extension) and add this:
 
@@ -91,7 +94,7 @@ $ sbcl --load filename.lisp
 ---------
 clisp <filename> runs a lisp script.
 clisp -repl <filename> runs a script then drops to the repl.
-* Homgulated init.el on Big and New. New slower load than Big.
+* Homogulated init.el on Big and New. New slower load than Big.
 ** Rainbow-delimiters installed by use-package on Big caused error
 when doing straight-pull-all. Deleted the package then changed use package line in init:
 (straight-use-package 'rainbow-delimiters)
