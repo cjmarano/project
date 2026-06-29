@@ -4,7 +4,13 @@
 ** Start times up due to global-flycheck-mode - 16% of total startup time.
 ** ISSUE After flymake-ruff added start time went from < 1 to > 2 secs on New.
 CLOSED: [2026-06-08 Mon 11:01]
-* +Latest+ 24JUN.New.init.el w/ 23JUN_Big.init.el & 26MAY.zshrc
+* +Latest+ 26JUN_FREEZE_init.el & 26MAY.zshrc
+** Homogulated init.el on Big and New. New slower load than Big.
+** Rainbow-delimiters installed by use-package on Big caused error
+when doing straight-pull-all. Deleted the package then changed use package line in init:
+(straight-use-package 'rainbow-delimiters)
+load-time went down by over 1/2 second and no errors. Will see if straight-pull-all now goes without error.
+* installed xmodmap on Plucky. Mostly empty.
 * COMPLETED Created ~/project/Prot/straight_prot.el as backup in case init.el blows up.
 CLOSED: [2026-06-09 Tue 11:17]
 this is the straight version of ~/project/Prot/init.el and works.
@@ -55,7 +61,8 @@ main.lisp looks like this:
 * ISSUE ~/.emacs.d/straight/repos is a git dir on New, not on Big but...
 CLOSED: [2026-06-26 Fri 11:22]
 it's not synched and not found. Doesn't appear to affect function but weird.
-* TODO Running lisp programs:
+* ISSUE Running lisp programs:
+CLOSED: [2026-06-29 Mon 11:05]
 Create a file named hello (you can drop the .lisp extension) and add this:
 
 #!/usr/bin/env -S sbcl --script
@@ -66,6 +73,7 @@ Make the script executable (chmod +x hello) and run it:
 $ ./hello
 hello me!
 
++above method works+
 -------
 
 ;; filename.lisp
@@ -76,6 +84,8 @@ And then we run this in the terminal:
 $ sbcl --script filename.lisp
 "hello world"
 $
+
++this also works+
 ===========
 --load
 If you use --load, then it will evaluate everything in your file, and then drop you into an interactive prompt so that you can interact with your program:
@@ -89,13 +99,12 @@ And we call --load in the terminal:
 
 $ sbcl --load filename.lisp
 #<some preamble about sbcl you can ignore>
+then you enter the following:
+
 ** (sum '(1 2 3 4 5))
 15
 ---------
 clisp <filename> runs a lisp script.
 clisp -repl <filename> runs a script then drops to the repl.
-* Homogulated init.el on Big and New. New slower load than Big.
-** Rainbow-delimiters installed by use-package on Big caused error
-when doing straight-pull-all. Deleted the package then changed use package line in init:
-(straight-use-package 'rainbow-delimiters)
-load-time went down by over 1/2 second and no errors. Will see if straight-pull-all now goes without error.
+
+(above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
