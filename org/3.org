@@ -111,6 +111,7 @@ clisp -repl <filename> runs a script then drops to the repl.
 
 (above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
 * +Removed Powerlevel 10K+ from .zshrc & added Starship. see 30JUN_FREEZE_.zshrc
+** Changed to Starship on New, Big and Plucky.
 
 ~starship preset tokyo-night -o ~~/.config/starship.toml~ <--run in terminal creates the .toml file in
 ~/.config/
