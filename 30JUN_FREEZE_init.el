@@ -33,6 +33,7 @@
 ;; changed from ~/.cache/emacs
 (setq user-emacs-directory "~/.emacs.d/")
 
+(add-to-list 'load-path "~/.emacs.d/themes/")
 ;; did this to get sanity themes back. Don't know if all lines were needed.
 (load-file "~/.emacs.d/themes/color-theme-sanityinc-tomorrow-main/color-theme-sanityinc-tomorrow.el")
 (use-package color-theme-sanityinc-tomorrow)
@@ -46,7 +47,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-(add-to-list 'default-frame-alist '(height . 30))
+(add-to-list 'default-frame-alist '(height . 58))
 (add-to-list 'default-frame-alist '(width . 110))
 
 (server-start)
@@ -86,7 +87,7 @@
 (setq recentf-max-menu-items 10)
 (setq recentf-max-saved-items 25)
 (keymap-global-set "C-c r" 'recentf-save-list)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+(keymap-global-set "C-x C-r" 'recentf-open-files)
 
 (setq delete-by-moving-to-trash t)
 (setq dired-dwim-target t)
@@ -121,7 +122,7 @@
 
 (setq dashboard-show-shortcuts nil)
 (setq dashboard-center-contents nil)
-(setq dashboard-banner-logo-title "Big")
+(setq dashboard-banner-logo-title "New")
 (setq dashboard-set-file-icons t)
 (setq dashboard-set-heading-icons t)
 (setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
@@ -587,7 +588,8 @@
  '(company-box-icons-alist 'company-box-icons-images)
  '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
  '(custom-safe-themes
-   '("6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1"
+   '("90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940"
+     "6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1"
      "ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
      "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
      "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
