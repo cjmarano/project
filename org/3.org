@@ -12,7 +12,7 @@ when doing straight-pull-all. Deleted the package then changed use package line 
 load-time went down by over 1/2 second and no errors. Will see if straight-pull-all now goes without error.
 * installed xmodmap on Plucky. Mostly empty.
 * COMPLETED Created ~/project/Prot/straight_prot.el as backup in case init.el blows up.
-CLOSED: [2026-06-09 Tue 11:17]
+CLOSED: [2026-06-30 Tue 09:23]
 this is the straight version of ~/project/Prot/init.el and works.
 ** ISSUE Make org mode files look nicer.
 CLOSED: [2026-06-10 Wed 13:28]
@@ -58,6 +58,8 @@ main.lisp looks like this:
 ** cl-project throws errors. Use quickproject for now?
 *** throws an HTTPS statuse error 
 *** (cl-project:make-project #p"lib/cl-sample/")
+* DONE Tried emacs-material-theme again. No advantage over Sanity-Tomorrow=Eighties.
+CLOSED: [2026-06-30 Tue 09:26]
 * ISSUE ~/.emacs.d/straight/repos is a git dir on New, not on Big but...
 CLOSED: [2026-06-26 Fri 11:22]
 it's not synched and not found. Doesn't appear to affect function but weird.
@@ -108,3 +110,14 @@ clisp <filename> runs a lisp script.
 clisp -repl <filename> runs a script then drops to the repl.
 
 (above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
+* +Removed Powerlevel 10K+ from .zshrc & added Starship. see 30JUN_FREEZE_.zshrc
+
+~starship preset tokyo-night -o ~~/.config/starship.toml~ <--run in terminal creates the .toml file in
+~/.config/
+
+to change this to the pure prompt delete the starship.toml file from ~/.config/ then run:
+~starship preset pure-preset -o ~~/.config/starship.toml~
+
+added eval ~"$(starship init zsh)"~ to .zshrc
+
++simple as.+
