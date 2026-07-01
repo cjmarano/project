@@ -10,8 +10,8 @@ CLOSED: [2026-06-08 Mon 11:01]
 when doing straight-pull-all. Deleted the package then changed use package line in init:
 (straight-use-package 'rainbow-delimiters)
 load-time went down by over 1/2 second and no errors. Will see if straight-pull-all now goes without error.
-* installed xmodmap on Plucky. Mostly empty.
-* COMPLETED Created ~/project/Prot/straight_prot.el as backup in case init.el blows up.
+** installed xmodmap on Plucky. Mostly empty.
+** COMPLETED Created ~/project/Prot/straight_prot.el as backup in case init.el blows up.
 CLOSED: [2026-06-30 Tue 09:23]
 this is the straight version of ~/project/Prot/init.el and works.
 ** ISSUE Make org mode files look nicer.
@@ -22,13 +22,7 @@ CLOSED: [2026-06-10 Wed 13:20]
 Heldful at point in other docs.
 ** COMPLETED Installed uv on Big (was already on New).
 CLOSED: [2026-06-15 Mon 08:36]
-* COMPLETED Completion-Preview mode mode is now built in to emacs.
-CLOSED: [2026-06-15 Mon 09:32]
-bind a key for it?
-<TAB> to accept M-i to complete up to longest common prefix.
-M-x completion-preview-next-candidate cycles fwd
- M-x completion-preview-prev-candidate cycles back
-* COMPLETED Quickproject works but need to create a dir and cd to it 1st.
+** COMPLETED Quickproject works but need to create a dir and cd to it 1st.
 CLOSED: [2026-06-24 Wed 13:28]
 ** example: in ~/project/lisp/ mkdir foobar cd foobar THEN run (quickproject:make-project "foobar")
 *** ISSUE LISP projects.
@@ -58,8 +52,36 @@ main.lisp looks like this:
 ** cl-project throws errors. Use quickproject for now?
 *** throws an HTTPS statuse error 
 *** (cl-project:make-project #p"lib/cl-sample/")
-* DONE Tried emacs-material-theme again. No advantage over Sanity-Tomorrow=Eighties.
+** COMPLETED got warning on Starship: commend timeout.
+CLOSED: [2026-07-01 Wed 13:09]
+[WARN] - (starship::utils): You can set command_timeout in your
+config to a higher value to allow longer-running commands to keep executing.
+
+** fixed it by doing: starship print-config | grep timeout then:
+doubling the command timeout:   starship config command_timeout 1000
+(was 500).
+** DONE Tried emacs-material-theme again. No advantage over Sanity-Tomorrow=Eighties.
 CLOSED: [2026-06-30 Tue 09:26]
+** +Removed Powerlevel 10K+ from .zshrc & added Starship. see 30JUN_FREEZE_.zshrc
+** Changed to Starship on New, Big and Plucky.
+
+~starship preset tokyo-night -o ~~/.config/starship.toml~ <--run in terminal creates the .toml file in
+~/.config/
+
+to change this to the pure prompt delete the starship.toml file from ~/.config/ then run:
+~starship preset pure-preset -o ~~/.config/starship.toml~
+
+added eval ~"$(starship init zsh)"~ to .zshrc
+
++simple as.+
+
+** why didn't Plucky update to 3.org get to Big?
+* COMPLETED Completion-Preview mode mode is now built in to emacs.
+CLOSED: [2026-06-15 Mon 09:32]
+bind a key for it?
+<TAB> to accept M-i to complete up to longest common prefix.
+M-x completion-preview-next-candidate cycles fwd
+ M-x completion-preview-prev-candidate cycles back
 * ISSUE ~/.emacs.d/straight/repos is a git dir on New, not on Big but...
 CLOSED: [2026-06-26 Fri 11:22]
 it's not synched and not found. Doesn't appear to affect function but weird.
@@ -110,17 +132,3 @@ clisp <filename> runs a lisp script.
 clisp -repl <filename> runs a script then drops to the repl.
 
 (above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
-* +Removed Powerlevel 10K+ from .zshrc & added Starship. see 30JUN_FREEZE_.zshrc
-** Changed to Starship on New, Big and Plucky.
-
-~starship preset tokyo-night -o ~~/.config/starship.toml~ <--run in terminal creates the .toml file in
-~/.config/
-
-to change this to the pure prompt delete the starship.toml file from ~/.config/ then run:
-~starship preset pure-preset -o ~~/.config/starship.toml~
-
-added eval ~"$(starship init zsh)"~ to .zshrc
-
-+simple as.+
-
-* why didn't Plucky update to 3.org get to Big?
