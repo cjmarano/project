@@ -122,3 +122,5 @@ to change this to the pure prompt delete the starship.toml file from ~/.config/ 
 added eval ~"$(starship init zsh)"~ to .zshrc
 
 +simple as.+
+
+* why didn't Plucky update to 3.org get to Big?
