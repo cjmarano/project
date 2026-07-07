@@ -4,7 +4,7 @@
 ** Start times up due to global-flycheck-mode - 16% of total startup time.
 ** ISSUE After flymake-ruff added start time went from < 1 to > 2 secs on New.
 CLOSED: [2026-06-08 Mon 11:01]
-* +Latest+ 26JUN_FREEZE_init.el & 26MAY.zshrc
+* +Latest+ 07JUL_FREEZE_init.el & 30JUN.zshrc
 ** Homogulated init.el on Big and New. New slower load than Big.
 ** Rainbow-delimiters installed by use-package on Big caused error
 when doing straight-pull-all. Deleted the package then changed use package line in init:
@@ -76,17 +76,14 @@ added eval ~"$(starship init zsh)"~ to .zshrc
 +simple as.+
 
 ** why didn't Plucky update to 3.org get to Big?
-* COMPLETED Completion-Preview mode mode is now built in to emacs.
+** COMPLETED Completion-Preview mode mode is now built in to emacs.
 CLOSED: [2026-06-15 Mon 09:32]
 bind a key for it?
 <TAB> to accept M-i to complete up to longest common prefix.
 M-x completion-preview-next-candidate cycles fwd
  M-x completion-preview-prev-candidate cycles back
-* ISSUE ~/.emacs.d/straight/repos is a git dir on New, not on Big but...
-CLOSED: [2026-06-26 Fri 11:22]
-it's not synched and not found. Doesn't appear to affect function but weird.* ISSUE Running lisp programs:
-CLOSED: [2026-06-29 Mon 11:05]
-Create a file named hello (you can drop the .lisp extension) and add this:
+* Lisp
+ Create a file named hello (you can drop the .lisp extension) and add this:
 
 #!/usr/bin/env -S sbcl --script
 (require :uiop)
