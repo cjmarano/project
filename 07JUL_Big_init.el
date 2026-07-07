@@ -222,6 +222,20 @@
 (keymap-global-set "s-r" 'denote-journal-new-or-existing-entry)
 (keymap-global-set "C-c n t" 'denote-journal-link-or-create-entry)
 
+(use-package denote-journal
+  :ensure t
+  ;; :hook (calendar-mode . denote-journal-calendar-mode)
+  :config
+  ;; Use the "journal" subdirectory of the `denote-directory'.  Set this
+  ;; to nil to use the `denote-directory' instead.
+  (setq denote-journal-directory
+        (expand-file-name "journal" denote-directory))
+  ;; Default keyword for new journal entries. It can also be a list of
+  ;; strings.
+  (setq denote-journal-keyword "journal")
+  ;; Read the doc string of `denote-journal-title-format'.
+  (setq denote-journal-title-format 'day-date-month-year))
+
 (use-package consult
 ;; Replace bindings. Lazily loaded due by `use-package'.
 :bind (;; C-c bindings in `mode-specific-map'

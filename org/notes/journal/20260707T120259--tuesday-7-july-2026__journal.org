@@ -1,0 +1,6 @@
+#+title:      Tuesday 7 July 2026
+#+date:       [2026-07-07 Tue 12:02]
+#+filetags:   :journal:
+#+identifier: 20260707T120259
+
+Oh, so this is a journal entry S-i and not S-b, which is a Denote Note.

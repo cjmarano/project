@@ -1,0 +1,9 @@
+#+title:      Tuesday 07JUL
+#+date:       [2026-07-07 Tue 11:28]
+#+filetags:   :general:
+#+identifier: 20260707T112820
+
+This /should/ be a denote journal entry.
+Cleanup of init.el and zshrc to Mystuff/Shell
+Diff of init.el on New and Big
+cp of ~/.emacs.d/init.el on New to 07JUL_FREEZE_init.el
