@@ -1,0 +1,11 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with ‘C-x C-f’ and enter text in its buffer.
+
+x86/cpu: VMX (outside TXT) disabled by BIOS
+x86/cpu: SGX disabled by BIOS.
+
+Transient Scheduler Attacks: MDS CPU bug present and SMT on, data leak possible. See https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/mds.html
+Plucky kernel: Transient Scheduler Attacks: MMIO
+Stale Data CPU bug present and SMT on, data leak possible. See https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/processor_mmio_stale_data.html
+Plucky kernel: Transient Scheduler Attacks: VMSCAPE: SMT on, STIBP is required for full protection. See https://www.kernel.org/ /doc/html/latest/admin-guide/hw-vuln/vmscape.html
+
