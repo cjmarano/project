@@ -84,8 +84,7 @@ M-x completion-preview-next-candidate cycles fwd
  M-x completion-preview-prev-candidate cycles back
 * ISSUE ~/.emacs.d/straight/repos is a git dir on New, not on Big but...
 CLOSED: [2026-06-26 Fri 11:22]
-it's not synched and not found. Doesn't appear to affect function but weird.
-* ISSUE Running lisp programs:
+it's not synched and not found. Doesn't appear to affect function but weird.* ISSUE Running lisp programs:
 CLOSED: [2026-06-29 Mon 11:05]
 Create a file named hello (you can drop the .lisp extension) and add this:
 
@@ -132,3 +131,29 @@ clisp <filename> runs a lisp script.
 clisp -repl <filename> runs a script then drops to the repl.
 
 (above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
+
+* Finding Stuff
+fd <-- will do a recursize search.
+
+find ~/ -type f -name ** -size +1G
+
+fd '.*s3$' <-- and file with 's' in second to last place.
+
+fd profile //etc//  <-- search for profile in Dir /etc
+
+fd . //src//  <-- show all files in /src
+
+fd -e md <-- show files w/ extension md
+
+fd -e js app <-- show files named app w/ js extension.
+
+fd -g libc.so /usr <-- g is glob tag, search for exact name.
+
+fd -H pre-commit <-- show Hidden files.
+
+fd -I abbrev <-- show git files that would normally be ignored.
+
+https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-find-command/
+
+
+
