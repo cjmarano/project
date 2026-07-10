@@ -82,6 +82,12 @@ bind a key for it?
 <TAB> to accept M-i to complete up to longest common prefix.
 M-x completion-preview-next-candidate cycles fwd
  M-x completion-preview-prev-candidate cycles back
+** COMPLETED Got Material theme to load. Now New's init.el different. Use the FREEZE.
+CLOSED: [2026-07-10 Fri 09:44]
+*** (load-file "~/.emacs.d/themes/emacs-material-theme-master/material-theme.el")
+*** but no particular advantage over sanity 80's.
+*** COMPLETED remove material theme load-file at ~line 36 to undo changes since freeze.
+CLOSED: [2026-07-10 Fri 09:44]
 * Lisp
 Create a file named hello (you can drop the .lisp extension) and add this:
 
@@ -151,7 +157,7 @@ fd -I abbrev <-- show git files that would normally be ignored.
 
 https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-find-command/
 
-* Got Material theme to load. Now New's init.el different. Use the FREEZE.
-(load-file "~/.emacs.d/themes/emacs-material-theme-master/material-theme.el")
-** but no particular advantage over sanity 80's.
-** remove material theme load=file at ~line 36 to undo changes since freeze.
+* (native-comp-available-p) nil, which means no native compile on New. Big,
+but eval withing the parens says t  - which is correct?
+* Building emacs on Ubuntu:
+https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
