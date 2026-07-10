@@ -83,7 +83,7 @@ bind a key for it?
 M-x completion-preview-next-candidate cycles fwd
  M-x completion-preview-prev-candidate cycles back
 * Lisp
- Create a file named hello (you can drop the .lisp extension) and add this:
+Create a file named hello (you can drop the .lisp extension) and add this:
 
 #!/usr/bin/env -S sbcl --script
 (require :uiop)
@@ -95,7 +95,6 @@ hello me!
 
 +above method works+
 -------
-
 ;; filename.lisp
 ;; note the --script switch, not needed for raw code? NOPE, _doesn't display either way._
 (print "hello world")
@@ -152,5 +151,7 @@ fd -I abbrev <-- show git files that would normally be ignored.
 
 https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-find-command/
 
-
-
+* Got Material theme to load. Now New's init.el different. Use the FREEZE.
+(load-file "~/.emacs.d/themes/emacs-material-theme-master/material-theme.el")
+** but no particular advantage over sanity 80's.
+** remove material theme load=file at ~line 36 to undo changes since freeze.
