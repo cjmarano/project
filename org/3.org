@@ -88,6 +88,39 @@ CLOSED: [2026-07-10 Fri 09:44]
 *** but no particular advantage over sanity 80's.
 *** COMPLETED remove material theme load-file at ~line 36 to undo changes since freeze.
 CLOSED: [2026-07-10 Fri 09:44]
+* DONE Experimental support for native compilation of Emacs Lisp code
+can be enabled in the latest main branch of the official Emacs repository (see gccemacs).
+When running on this version of Emacs, straight.el will perform native compilation of packages.
+CLOSED: [2026-07-10 Fri 12:30]
+
+** (native-comp-available-p) nil, which means no native compile on New. Big,
+but eval withing the parens says t  - which is correct?
+* Finding Stuff
+fd <-- will do a recursize search.
+
+find ~/ -type f -name ** -size +1G
+
+fd '.*s3$' <-- and file with 's' in second to last place.
+
+fd profile //etc//  <-- search for profile in Dir /etc
+
+fd . //src//  <-- show all files in /src
+
+fd -e md <-- show files w/ extension md
+
+fd -e js app <-- show files named app w/ js extension.
+
+fd -g libc.so /usr <-- g is glob tag, search for exact name.
+
+fd -H pre-commit <-- show Hidden files.
+
+fd -I abbrev <-- show git files that would normally be ignored.
+
+https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-find-command/
+
+* Building emacs on Ubuntu:
+https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
+
 * Lisp
 Create a file named hello (you can drop the .lisp extension) and add this:
 
@@ -134,30 +167,3 @@ clisp -repl <filename> runs a script then drops to the repl.
 
 (above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
 
-* Finding Stuff
-fd <-- will do a recursize search.
-
-find ~/ -type f -name ** -size +1G
-
-fd '.*s3$' <-- and file with 's' in second to last place.
-
-fd profile //etc//  <-- search for profile in Dir /etc
-
-fd . //src//  <-- show all files in /src
-
-fd -e md <-- show files w/ extension md
-
-fd -e js app <-- show files named app w/ js extension.
-
-fd -g libc.so /usr <-- g is glob tag, search for exact name.
-
-fd -H pre-commit <-- show Hidden files.
-
-fd -I abbrev <-- show git files that would normally be ignored.
-
-https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-find-command/
-
-* (native-comp-available-p) nil, which means no native compile on New. Big,
-but eval withing the parens says t  - which is correct?
-* Building emacs on Ubuntu:
-https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
