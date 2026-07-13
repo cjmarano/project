@@ -88,11 +88,9 @@ CLOSED: [2026-07-10 Fri 09:44]
 *** but no particular advantage over sanity 80's.
 *** COMPLETED remove material theme load-file at ~line 36 to undo changes since freeze.
 CLOSED: [2026-07-10 Fri 09:44]
-* DONE Experimental support for native compilation of Emacs Lisp code
+c* DONE Experimental support for native compilation of Emacs Lisp code
 can be enabled in the latest main branch of the official Emacs repository (see gccemacs).
 When running on this version of Emacs, straight.el will perform native compilation of packages.
-CLOSED: [2026-07-10 Fri 12:30]
-
 ** (native-comp-available-p) nil, which means no native compile on New. Big,
 but eval withing the parens says t  - which is correct?
 * Finding Stuff
@@ -124,9 +122,11 @@ https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
 * Lisp
 Create a file named hello (you can drop the .lisp extension) and add this:
 
-#!/usr/bin/env -S sbcl --script
+#+begin_src lisp
+  #!/usr/bin/env -S sbcl --script
 (require :uiop)
 (format t "hello ~a!~&" (uiop:getenv "USER"))
+#+end_src
 Make the script executable (chmod +x hello) and run it:
 
 $ ./hello
@@ -136,7 +136,7 @@ hello me!
 -------
 ;; filename.lisp
 ;; note the --script switch, not needed for raw code? NOPE, _doesn't display either way._
-(print "hello world")
+~(print "hello world")~
 And then we run this in the terminal:
 
 $ sbcl --script filename.lisp
@@ -146,13 +146,16 @@ $
 +this also works+
 ===========
 --load
-If you use --load, then it will evaluate everything in your file, and then drop you into an interactive prompt so that you can interact with your program:
+If you use --load, then it will evaluate everything in your file, and then drop you into
+an interactive prompt so that you can interact with your program:
 
 So let’s say we have the following file:
 
+#+begin_src lisp
 ;; filename.lisp
 (defun sum (list)
   (if list (+ (car list) (sum (cdr list))) 0))
+#+end_src
 And we call --load in the terminal:
 
 $ sbcl --load filename.lisp
@@ -167,3 +170,5 @@ clisp -repl <filename> runs a script then drops to the repl.
 
 (above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
 
+* 
+   
