@@ -16,17 +16,42 @@ CLOSED: [2026-06-30 Tue 09:23]
 this is the straight version of ~/project/Prot/init.el and works.
 ** ISSUE Make org mode files look nicer.
 CLOSED: [2026-06-10 Wed 13:28]
-** DONE Could not find theme better than sanity-tomorrow-eighties.
+*** DONE Could not find theme better than sanity-tomorrow-eighties.
 CLOSED: [2026-06-10 Wed 13:20]
 ** C-c, C-d is bound to org-deadline in org files.
 Heldful at point in other docs.
 ** COMPLETED Installed uv on Big (was already on New).
 CLOSED: [2026-06-15 Mon 08:36]
-** COMPLETED Quickproject works but need to create a dir and cd to it 1st.
+* Finding Stuff
+fd <-- will do a recursize search.
+
+find ~/ -type f -name ** -size +1G
+
+fd '.*s3$' <-- and file with 's' in second to last place.
+
+fd profile //etc//  <-- search for profile in Dir /etc
+
+fd . //src//  <-- show all files in /src
+
+fd -e md <-- show files w/ extension md
+
+fd -e js app <-- show files named app w/ js extension.
+
+fd -g libc.so /usr <-- g is glob tag, search for exact name.
+
+fd -H pre-commit <-- show Hidden files.
+
+fd -I abbrev <-- show git files that would normally be ignored.
+
+https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-find-command/
+
+* Building emacs on Ubuntu:
+https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
+
+* COMPLETED Quickproject works but need to create a dir and cd to it 1st.
 CLOSED: [2026-06-24 Wed 13:28]
-** example: in ~/project/lisp/ mkdir foobar cd foobar THEN run (quickproject:make-project "foobar")
-*** ISSUE LISP projects.
-** COMPLETED cl-project does not work or is not installed/configured correctly.
+*** example: in ~/project/lisp/ mkdir foobar cd foobar THEN run (quickproject:make-project "foobar")
+* ISSUE LISP projects. COMPLETED cl-project does not work or is not installed/configured correctly.
 CLOSED: [2026-06-24 Wed 13:42]
 (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
@@ -93,32 +118,6 @@ can be enabled in the latest main branch of the official Emacs repository (see g
 When running on this version of Emacs, straight.el will perform native compilation of packages.
 ** (native-comp-available-p) nil, which means no native compile on New. Big,
 but eval withing the parens says t  - which is correct?
-* Finding Stuff
-fd <-- will do a recursize search.
-
-find ~/ -type f -name ** -size +1G
-
-fd '.*s3$' <-- and file with 's' in second to last place.
-
-fd profile //etc//  <-- search for profile in Dir /etc
-
-fd . //src//  <-- show all files in /src
-
-fd -e md <-- show files w/ extension md
-
-fd -e js app <-- show files named app w/ js extension.
-
-fd -g libc.so /usr <-- g is glob tag, search for exact name.
-
-fd -H pre-commit <-- show Hidden files.
-
-fd -I abbrev <-- show git files that would normally be ignored.
-
-https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-find-command/
-
-* Building emacs on Ubuntu:
-https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
-
 * Lisp
 Create a file named hello (you can drop the .lisp extension) and add this:
 
@@ -170,5 +169,7 @@ clisp -repl <filename> runs a script then drops to the repl.
 
 (above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
 
-* 
-   
+* +NOTE:+ inserting code blocks - you can use <s followed by letter
+as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
+this is instead of C-c C-,   
+
