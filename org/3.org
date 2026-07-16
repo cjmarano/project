@@ -173,3 +173,5 @@ clisp -repl <filename> runs a script then drops to the repl.
 as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
 this is instead of C-c C-,   
 
+* init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
+/home/linuxbrew/.linuxbrew/bin//emacs
