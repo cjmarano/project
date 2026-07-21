@@ -51,6 +51,14 @@ https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
 * COMPLETED Quickproject works but need to create a dir and cd to it 1st.
 CLOSED: [2026-06-24 Wed 13:28]
 *** example: in ~/project/lisp/ mkdir foobar cd foobar THEN run (quickproject:make-project "foobar")
+* COMPLETED Added Split window w/ last buffer on New and Big:
+CLOSED: [2026-07-21 Tue 13:37]
+(defun my-split-window-func ()
+  (interactive)
+  (split-window-below)
+  (set-window-buffer (next-window) (other-buffer)))
+
+(global-set-key (kbd "C-x 4") #'my-split-window-func)
 * ISSUE LISP projects. COMPLETED cl-project does not work or is not installed/configured correctly.
 CLOSED: [2026-06-24 Wed 13:42]
 (ql:quickload "cl-project") then
