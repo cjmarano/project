@@ -22,7 +22,23 @@ CLOSED: [2026-06-10 Wed 13:20]
 Heldful at point in other docs.
 ** COMPLETED Installed uv on Big (was already on New).
 CLOSED: [2026-06-15 Mon 08:36]
-* Finding Stuff
+** COMPLETED Added Split window w/ last buffer on New and Big:
+CLOSED: [2026-07-21 Tue 13:37]
+(defun my-split-window-func ()
+  (interactive)
+  (split-window-below)
+  (set-window-buffer (next-window) (other-buffer)))
+
+(global-set-key (kbd "C-x 4") #'my-split-window-func)
+* ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
+CLOSED: [2026-07-22 Wed 11:36]
+/home/linuxbrew/.linuxbrew/bin//emacs
+
+* +NOTE:+ inserting code blocks - you can use <s followed by letter
+as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
+this is instead of C-c C-,   
+
+* +NOTE:+ Finding Stuff
 fd <-- will do a recursize search.
 
 find ~/ -type f -name ** -size +1G
@@ -45,21 +61,95 @@ fd -I abbrev <-- show git files that would normally be ignored.
 
 https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-find-command/
 
-* Building emacs on Ubuntu:
+* TODO Try Macro recording at some point.
+* Unicode chars.
+(mapc
+  (lambda (x)
+    (let ((nn (get-char-code-property x 'name)))
+      (when
+          (and (not (null nn))
+               (string-match "BULLET" nn))
+        (insert-char x)
+        (insert " " nn "\n") ) ) )
+  (number-sequence 0 (expt 2 16)))• BULLET
+‣ TRIANGULAR BULLET
+⁃ HYPHEN BULLET
+⁌ BLACK LEFTWARDS BULLET
+⁍ BLACK RIGHTWARDS BULLET
+∙ BULLET OPERATOR
+◘ INVERSE BULLET
+◦ WHITE BULLET
+☙ REVERSED ROTATED FLORAL HEART BULLET
+❥ ROTATED HEAVY BLACK HEART BULLET
+❧ ROTATED FLORAL HEART BULLET
+⦾ CIRCLED WHITE BULLET
+⦿ CIRCLED BULLET
+
+Alt+x insert-char 【Ctrl+x 8 Return] then character name or codepoint in hex
+
+* Org heading level bullets.
+ ** two
+*** three
+**** four
+***** five
+****** six
+******* seven
+******** eight <-- looks like it repeats here.
+** Building emacs on Ubuntu:
 https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
 
-* COMPLETED Quickproject works but need to create a dir and cd to it 1st.
-CLOSED: [2026-06-24 Wed 13:28]
-*** example: in ~/project/lisp/ mkdir foobar cd foobar THEN run (quickproject:make-project "foobar")
-* COMPLETED Added Split window w/ last buffer on New and Big:
-CLOSED: [2026-07-21 Tue 13:37]
-(defun my-split-window-func ()
-  (interactive)
-  (split-window-below)
-  (set-window-buffer (next-window) (other-buffer)))
+* Lisp
+Create a file named hello (you can drop the .lisp extension) and add this:
 
-(global-set-key (kbd "C-x 4") #'my-split-window-func)
-* ISSUE LISP projects. COMPLETED cl-project does not work or is not installed/configured correctly.
+#+begin_src lisp
+  #!/usr/bin/env -S sbcl --script
+(require :uiop)
+(format t "hello ~a!~&" (uiop:getenv "USER"))
+#+end_src
+Make the script executable (chmod +x hello) and run it:
+
+$ ./hello
+hello me!
+
++above method works+
+-------
+;; filename.lisp
+;; note the --script switch, not needed for raw code? NOPE, _doesn't display either way._
+~(print "hello world")~
+And then we run this in the terminal:
+
+$ sbcl --script filename.lisp
+"hello world"
+$
+
++this also works+
+===========
+--load
+If you use --load, then it will evaluate everything in your file, and then drop you into
+an interactive prompt so that you can interact with your program:
+
+So let’s say we have the following file:
+
+#+begin_src lisp
+;; filename.lisp
+(defun sum (list)
+  (if list (+ (car list) (sum (cdr list))) 0))
+#+end_src
+And we call --load in the terminal:
+
+$ sbcl --load filename.lisp
+#<some preamble about sbcl you can ignore>
+then you enter the following:
+
+** (sum '(1 2 3 4 5))
+15
+---------
+clisp <filename> runs a lisp script.
+clisp -repl <filename> runs a script then drops to the repl.
+
+(above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
+
+** ISSUE LISP projects. COMPLETED cl-project does not work or is not installed/configured correctly.
 CLOSED: [2026-06-24 Wed 13:42]
 (ql:quickload "cl-project") then
 (cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
@@ -126,60 +216,6 @@ can be enabled in the latest main branch of the official Emacs repository (see g
 When running on this version of Emacs, straight.el will perform native compilation of packages.
 ** (native-comp-available-p) nil, which means no native compile on New. Big,
 but eval withing the parens says t  - which is correct?
-* Lisp
-Create a file named hello (you can drop the .lisp extension) and add this:
-
-#+begin_src lisp
-  #!/usr/bin/env -S sbcl --script
-(require :uiop)
-(format t "hello ~a!~&" (uiop:getenv "USER"))
-#+end_src
-Make the script executable (chmod +x hello) and run it:
-
-$ ./hello
-hello me!
-
-+above method works+
--------
-;; filename.lisp
-;; note the --script switch, not needed for raw code? NOPE, _doesn't display either way._
-~(print "hello world")~
-And then we run this in the terminal:
-
-$ sbcl --script filename.lisp
-"hello world"
-$
-
-+this also works+
-===========
---load
-If you use --load, then it will evaluate everything in your file, and then drop you into
-an interactive prompt so that you can interact with your program:
-
-So let’s say we have the following file:
-
-#+begin_src lisp
-;; filename.lisp
-(defun sum (list)
-  (if list (+ (car list) (sum (cdr list))) 0))
-#+end_src
-And we call --load in the terminal:
-
-$ sbcl --load filename.lisp
-#<some preamble about sbcl you can ignore>
-then you enter the following:
-
-** (sum '(1 2 3 4 5))
-15
----------
-clisp <filename> runs a lisp script.
-clisp -repl <filename> runs a script then drops to the repl.
-
-(above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
-
-* +NOTE:+ inserting code blocks - you can use <s followed by letter
-as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
-this is instead of C-c C-,   
-
-* init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
-/home/linuxbrew/.linuxbrew/bin//emacs
+** COMPLETED Quickproject works but need to create a dir and cd to it 1st.
+CLOSED: [2026-06-24 Wed 13:28]
+*** example: in ~/project/lisp/ mkdir foobar cd foobar THEN run (quickproject:make-project "foobar")
