@@ -85,6 +85,10 @@ https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-f
 ⦾ CIRCLED WHITE BULLET
 ⦿ CIRCLED BULLET
 
+C-x 8 <ret> then Char Name as seen above.
+◦   <-- is White Bullet
+⦿  <-- is Circled Bullet
+
 Alt+x insert-char 【Ctrl+x 8 Return] then character name or codepoint in hex
 
 * Org heading level bullets.
