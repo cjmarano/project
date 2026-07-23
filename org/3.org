@@ -30,6 +30,9 @@ CLOSED: [2026-07-21 Tue 13:37]
   (set-window-buffer (next-window) (other-buffer)))
 
 (global-set-key (kbd "C-x 4") #'my-split-window-func)
+** Building emacs on Ubuntu:
+https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
+
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
 /home/linuxbrew/.linuxbrew/bin//emacs
@@ -61,8 +64,8 @@ fd -I abbrev <-- show git files that would normally be ignored.
 
 https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-find-command/
 
-* TODO Try Macro recording at some point.
-* Unicode chars.
+* DONE Unicode chars.
+CLOSED: [2026-07-23 Thu 08:02]
 (mapc
   (lambda (x)
     (let ((nn (get-char-code-property x 'name)))
@@ -91,17 +94,16 @@ C-x 8 <ret> then Char Name as seen above.
 
 Alt+x insert-char 【Ctrl+x 8 Return] then character name or codepoint in hex
 
-* Org heading level bullets.
- ** two
+* DONE Org heading level bullets.
+CLOSED: [2026-07-23 Thu 08:01]
+** two
 *** three
 **** four
 ***** five
 ****** six
 ******* seven
 ******** eight <-- looks like it repeats here.
-** Building emacs on Ubuntu:
-https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
-
+* TODO Try Macro recording at some point.
 * Lisp
 Create a file named hello (you can drop the .lisp extension) and add this:
 
