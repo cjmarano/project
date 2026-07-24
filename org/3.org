@@ -33,6 +33,17 @@ CLOSED: [2026-07-21 Tue 13:37]
 ** Building emacs on Ubuntu:
 https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
 
+** COMPLETED On New: removed F11 for Show Desktop.
+CLOSED: [2026-07-24 Fri 07:32]
+** DONE Org heading level bullets.
+CLOSED: [2026-07-23 Thu 08:01]
+** two
+*** three
+**** four
+***** five
+****** six
+******* seven
+******** eight <-- looks like it repeats here.
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
 /home/linuxbrew/.linuxbrew/bin//emacs
@@ -41,7 +52,7 @@ CLOSED: [2026-07-22 Wed 11:36]
 as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
 this is instead of C-c C-,   
 
-* +NOTE:+ Finding Stuff
+* +NOTE:+ Finding Stuff <-- now in misc_notes.org
 fd <-- will do a recursize search.
 
 find ~/ -type f -name ** -size +1G
@@ -94,15 +105,6 @@ C-x 8 <ret> then Char Name as seen above.
 
 Alt+x insert-char 【Ctrl+x 8 Return] then character name or codepoint in hex
 
-* DONE Org heading level bullets.
-CLOSED: [2026-07-23 Thu 08:01]
-** two
-*** three
-**** four
-***** five
-****** six
-******* seven
-******** eight <-- looks like it repeats here.
 * TODO Try Macro recording at some point.
 * Lisp
 Create a file named hello (you can drop the .lisp extension) and add this:
