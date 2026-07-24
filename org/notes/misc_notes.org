@@ -21,3 +21,25 @@ C-x, r, j jump back to registered window.
 
 //opt/homebrew/share/emacs//site-lisp/
 
+* fd command:
+fd <-- will do a recursize search.
+
+find ~/ -type f -name ** -size +1G
+
+fd '.*s3$' <-- and file with 's' in second to last place.
+
+fd profile //etc//  <-- search for profile in Dir /etc
+
+fd . //src//  <-- show all files in /src
+
+fd -e md <-- show files w/ extension md
+
+fd -e js app <-- show files named app w/ js extension.
+
+fd -g libc.so /usr <-- g is glob tag, search for exact name.
+
+fd -H pre-commit <-- show Hidden files.
+
+fd -I abbrev <-- show git files that would normally be ignored.
+
+https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-find-command/
