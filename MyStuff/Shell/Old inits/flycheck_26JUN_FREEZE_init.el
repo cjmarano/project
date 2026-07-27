@@ -75,6 +75,13 @@
 (setq-default create-lockfiles nil)
 (delete-selection-mode 1)
 
+(defun my-split-window-func ()
+  (interactive)
+  (split-window-below)
+  (set-window-buffer (next-window) (other-buffer)))
+
+(global-set-key (kbd "C-x 4") #'my-split-window-func)
+
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
