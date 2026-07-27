@@ -1,4 +1,4 @@
 ;;;; package.lisp
 
-(defpackage #:Whack
+(defpackage #:myproject
   (:use #:cl))

@@ -88,6 +88,34 @@ bind a key for it?
 <TAB> to accept M-i to complete up to longest common prefix.
 M-x completion-preview-next-candidate cycles fwd
  M-x completion-preview-prev-candidate cycles back
+** 27JUL Init.el on New and Big almost the same, minor diffs.
+** ISSUE LISP projects. COMPLETED cl-project does not work or is not installed/configured correctly.
+CLOSED: [2026-06-24 Wed 13:42]
+
+_Below doesn't work_
+
+In SBCL:
+(ql:quickload "cl-project") then
+(cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
+got a skeleton for the project and a main.lisp in the scr subdir.
+looks like this:
+drwxr-xr-x@    - charles.marano 25 Feb 12:55   src
+drwxr-xr-x@    - charles.marano 25 Feb 12:55   tests
+.rw-r--r--@   68 charles.marano 25 Feb 12:55   .gitignore
+.rw-r--r--@  559 charles.marano 25 Feb 12:55   my-project.asd
+.rw-r--r--@   40 charles.marano 25 Feb 12:55   README.markdown
+.rw-r--r--@   41 charles.marano 25 Feb 12:55   README.org
+
+main.lisp looks like this:
+                                        
+(uiop:define-package my-project
+   2 │   (:use #:cl))
+   3 │ (in-package #:my-project)
+   4 │
+   5 │ ;; blah blah blah.
+
+ Lisp and elisp
+
 * ISSUE Straight-pull-all keeps deleting my theme from ~/.emacs.d/themes/
 CLOSED: [2026-07-27 Mon 08:15]
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
@@ -153,6 +181,13 @@ https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-f
 
 * TODO Try Macro recording at some point.
 * Lisp
+** cl-project throws errors. Use quickproject for now?
+*** throws an HTTPS statuse error 
+*** (cl-project:make-project #p"lib/cl-sample/")
+
+(ql:quickload :quickproject)
+
+(quickproject:make-project #p"~/project/lisp/my-quickproject-test/")
 ** lisp scripts
 Create a file named hello (you can drop the .lisp extension) and add this:
 
@@ -205,33 +240,6 @@ clisp <filename> runs a lisp script.
 clisp -repl <filename> runs a script then drops to the repl.
 
 (above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
-
 ----------
 
 
-** ISSUE LISP projects. COMPLETED cl-project does not work or is not installed/configured correctly.
-CLOSED: [2026-06-24 Wed 13:42]
-(ql:quickload "cl-project") then
-(cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
-got a skeleton for the project and a main.lisp in the scr subdir.
-looks like this:
-drwxr-xr-x@    - charles.marano 25 Feb 12:55   src
-drwxr-xr-x@    - charles.marano 25 Feb 12:55   tests
-.rw-r--r--@   68 charles.marano 25 Feb 12:55   .gitignore
-.rw-r--r--@  559 charles.marano 25 Feb 12:55   my-project.asd
-.rw-r--r--@   40 charles.marano 25 Feb 12:55   README.markdown
-.rw-r--r--@   41 charles.marano 25 Feb 12:55   README.org
-
-main.lisp looks like this:
-                                        
-(uiop:define-package my-project
-   2 │   (:use #:cl))
-   3 │ (in-package #:my-project)
-   4 │
-   5 │ ;; blah blah blah.
-
- Lisp and elisp
-
-** cl-project throws errors. Use quickproject for now?
-*** throws an HTTPS statuse error 
-*** (cl-project:make-project #p"lib/cl-sample/")
