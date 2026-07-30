@@ -243,4 +243,16 @@ _^That's like sbcl --load^_
 
 (above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
 ----------
+(defconstant +year-size+ 365)
 
+(defun birthday-paradox (probability number-of-people)
+  (let ((new-probability (* (/ (- +year-size+ number-of-people)
+                               +year-size+)
+                            probability)))
+    (if (< new-probability 0.5)
+        (1+ number-of-people)
+        (birthday-paradox new-probability (1+ number-of-people)))))
+Calling the example function using the REPL (Read Eval Print Loop):
+
+CL-USER > (birthday-paradox 1.0 1)
+23
