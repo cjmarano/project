@@ -188,7 +188,7 @@ https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-f
 (ql:quickload :quickproject)
 
 (quickproject:make-project #p"~/project/lisp/my-quickproject-test/")
-** lisp scripts
+* lisp scripts
 Create a file named hello (you can drop the .lisp extension) and add this:
 
 #+begin_src lisp
@@ -238,8 +238,9 @@ then you enter the following:
 ---------
 clisp <filename> runs a lisp script.
 clisp -repl <filename> runs a script then drops to the repl.
+_^That's like sbcl --load^_
+
 
 (above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
 ----------
-
 
