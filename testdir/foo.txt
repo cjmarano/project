@@ -10,3 +10,4 @@ This is s test after swaping Apple keyboad on New for MS Sculpt.
 So, lot of data corruption on New. Things that worked one day breaking the next.
 Changed init.el to straight instead of package to fix :443 failure when updating.
 ALmost end of July and emacs on New still working.
+ec testdir/foo.txt also works on Plucky. Launches in Ghostty.
