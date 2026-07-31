@@ -257,6 +257,7 @@ Calling the example function using the REPL (Read Eval Print Loop):
 CL-USER > (birthday-paradox 1.0 1)
 23
 -----------
+
 (defclass person ()
   ((name :initarg :name :accessor person-name)
    (age  :initarg :age  :accessor person-age))
@@ -304,3 +305,4 @@ Chris (16)
           (char= (char line 0) #\/)
           (pathname
            (string-right-trim '(#\space #\tab) line))))))
+
