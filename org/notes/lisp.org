@@ -273,4 +273,129 @@ does-exist returns lin on and after value
 do-list
 when
 
-* 
+* Examples.
+Create a file named hello (you can drop the .lisp extension) and add this:
+
+#+begin_src lisp
+#!/opt/homebrew/bin/sbcl --script
+(require :uiop)
+(format t "hello ~a!~&" (uiop:getenv "USER"))
+#+end_src
+Make the script executable (chmod +x hello) and run it:
+
+$ ./hello
+hello me!
+
++above method works+
+-------
+;; filename.lisp
+;; note the --script switch, not needed for raw code? NOPE, _doesn't display either way._
+~(print "hello world")~
+And then we run this in the terminal:
+
+#+begin_src lisp
+sbcl --script filename.lisp
+"hello world"
+#+end_src
+
++this also works+
+===========
+--load
+If you use --load, then it will evaluate everything in your file, and then drop you into
+an interactive prompt so that you can interact with your program:
+
+So let’s say we have the following file:
+
+#+begin_src lisp
+;; filename.lisp
+(defun sum (list)
+  (if list (+ (car list) (sum (cdr list))) 0))
+#+end_src
+
+And we call --load in the terminal:
+
+$ sbcl --load filename.lisp
+#<some preamble about sbcl you can ignore>
+then you enter the following:
+
+*** (sum '(1 2 3 4 5))
+15
+
++Above works+
+---------
+clisp <filename> runs a lisp script.
+clisp -repl <filename> runs a script then drops to the repl.
+_^That's like sbcl --load^_
+
+
+(above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
+----------
+#+begin_src lisp
+(defconstant +year-size+ 365)
+
+(defun birthday-paradox (probability number-of-people)
+  (let ((new-probability (* (/ (- +year-size+ number-of-people)
+                               +year-size+)
+                            probability)))
+    (if (< new-probability 0.5)
+        (1+ number-of-people)
+        (birthday-paradox new-probability (1+ number-of-people)))))
+#+end_src
+
+Calling the example function using the REPL (Read Eval Print Loop):
+
+CL-USER > (birthday-paradox 1.0 1)
+23
+-----------
+#+begin_src lisp
+(defclass person ()
+  ((name :initarg :name :accessor person-name)
+   (age  :initarg :age  :accessor person-age))
+  (:documentation "The class PERSON with slots NAME and AGE."))
+
+(defmethod display ((object person) stream)
+  "Displaying a PERSON object to an output stream."
+  (with-slots (name age) object
+    (format stream "~a (~a)" name age)))
+
+(defparameter *group*
+  (list (make-instance 'person :name "Bob"   :age 33)
+        (make-instance 'person :name "Chris" :age 16)
+        (make-instance 'person :name "Ash"   :age 23))
+  "A list of PERSON objects.")
+
+(dolist (person (sort (copy-list *group*)
+                      #'>
+                      :key #'person-age))
+  (display person *standard-output*)
+  (terpri))
+#+end_src
+
+It prints the three names with descending age.
+
+Bob (33)
+Ash (23)
+Chris (16)
+
+#+begin_src lisp
+(defun list-matching-lines (file predicate)
+  "Returns a list of lines in file, for which the predicate applied to
+ the line returns T."
+  (with-open-file (stream file)
+    (loop for line = (read-line stream nil nil)
+          while line
+          when (funcall predicate line)
+          collect it)))
+#+end_src
+
+#+begin_src lisp
+(defun available-shells (&optional (file #p"/etc/shells"))
+  (list-matching-lines
+   file
+   (lambda (line)
+     (and (plusp (length line))
+          (char= (char line 0) #\/)
+          (pathname
+           (string-right-trim '(#\space #\tab) line))))))
+#+end_src
+
