@@ -188,7 +188,7 @@ https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-f
 (ql:quickload :quickproject)
 
 (quickproject:make-project #p"~/project/lisp/my-quickproject-test/")
-* lisp scripts
+** lisp scripts
 Create a file named hello (you can drop the .lisp extension) and add this:
 
 #+begin_src lisp
@@ -208,9 +208,10 @@ hello me!
 ~(print "hello world")~
 And then we run this in the terminal:
 
-$ sbcl --script filename.lisp
+#+begin_src lisp
+sbcl --script filename.lisp
 "hello world"
-$
+#+end_src
 
 +this also works+
 ===========
@@ -225,6 +226,7 @@ So let’s say we have the following file:
 (defun sum (list)
   (if list (+ (car list) (sum (cdr list))) 0))
 #+end_src
+
 And we call --load in the terminal:
 
 $ sbcl --load filename.lisp
@@ -243,6 +245,7 @@ _^That's like sbcl --load^_
 
 (above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
 ----------
+#+begin_src lisp
 (defconstant +year-size+ 365)
 
 (defun birthday-paradox (probability number-of-people)
@@ -252,12 +255,14 @@ _^That's like sbcl --load^_
     (if (< new-probability 0.5)
         (1+ number-of-people)
         (birthday-paradox new-probability (1+ number-of-people)))))
+#+end_src
+
 Calling the example function using the REPL (Read Eval Print Loop):
 
 CL-USER > (birthday-paradox 1.0 1)
 23
 -----------
-
+#+begin_src lisp
 (defclass person ()
   ((name :initarg :name :accessor person-name)
    (age  :initarg :age  :accessor person-age))
@@ -279,13 +284,15 @@ CL-USER > (birthday-paradox 1.0 1)
                       :key #'person-age))
   (display person *standard-output*)
   (terpri))
+#+end_src
+
 It prints the three names with descending age.
 
 Bob (33)
 Ash (23)
 Chris (16)
 
-
+#+begin_src lisp
 (defun list-matching-lines (file predicate)
   "Returns a list of lines in file, for which the predicate applied to
  the line returns T."
@@ -294,9 +301,9 @@ Chris (16)
           while line
           when (funcall predicate line)
           collect it)))
+#+end_src
 
-
-
+#+begin_src lisp
 (defun available-shells (&optional (file #p"/etc/shells"))
   (list-matching-lines
    file
@@ -305,4 +312,6 @@ Chris (16)
           (char= (char line 0) #\/)
           (pathname
            (string-right-trim '(#\space #\tab) line))))))
+#+end_src
 
+* Lisp cont.
