@@ -1,126 +1,16 @@
-;;; +July.+
+;;; +AUG+
 #+PROPERTY: folded
-* Start times down on New and Big to ~ 2 on New after fixing flymake-ruff.
-** Start times up due to global-flycheck-mode - 16% of total startup time.
-** ISSUE After flymake-ruff added start time went from < 1 to > 2 secs on New.
-CLOSED: [2026-06-08 Mon 11:01]
-* +Latest+ 07JUL_FREEZE_init.el & 30JUN.zshrc
-** Homogulated init.el on Big and New. New slower load than Big.
-** Rainbow-delimiters installed by use-package on Big caused error
-when doing straight-pull-all. Deleted the package then changed use package line in init:
-(straight-use-package 'rainbow-delimiters)
-load-time went down by over 1/2 second and no errors. Will see if straight-pull-all now goes without error.
-** installed xmodmap on Plucky. Mostly empty.
-** COMPLETED Created ~/project/Prot/straight_prot.el as backup in case init.el blows up.
-CLOSED: [2026-06-30 Tue 09:23]
-this is the straight version of ~/project/Prot/init.el and works.
-** ISSUE Make org mode files look nicer.
-CLOSED: [2026-06-10 Wed 13:28]
-*** DONE Could not find theme better than sanity-tomorrow-eighties.
-CLOSED: [2026-06-10 Wed 13:20]
-** C-c, C-d is bound to org-deadline in org files.
-Heldful at point in other docs.
-** COMPLETED Installed uv on Big (was already on New).
-CLOSED: [2026-06-15 Mon 08:36]
-** COMPLETED Added Split window w/ last buffer on New and Big:
-CLOSED: [2026-07-21 Tue 13:37]
-(defun my-split-window-func ()
-  (interactive)
-  (split-window-below)
-  (set-window-buffer (next-window) (other-buffer)))
-
-(global-set-key (kbd "C-x 4") #'my-split-window-func)
-** Building emacs on Ubuntu:
-https://batsov.com/articles/2021/12/19/building-emacs-from-source-with-pgtk/
-
-** COMPLETED On New: removed F11 for Show Desktop.
-CLOSED: [2026-07-24 Fri 07:32]
-** DONE Org heading level bullets.
-CLOSED: [2026-07-23 Thu 08:01]
-** two
-*** three
-**** four
-***** five
-****** six
-******* seven
-******** eight <-- looks like it repeats here.
-** COMPLETED Got Material theme to load. Now New's init.el different. Use the FREEZE.
-CLOSED: [2026-07-10 Fri 09:44]
-*** (load-file "~/.emacs.d/themes/emacs-material-theme-master/material-theme.el")
-*** but no particular advantage over sanity 80's.
-*** COMPLETED remove material theme load-file at ~line 36 to undo changes since freeze.
-CLOSED: [2026-07-10 Fri 09:44]
-c* DONE Experimental support for native compilation of Emacs Lisp code
-can be enabled in the latest main branch of the official Emacs repository (see gccemacs).
-When running on this version of Emacs, straight.el will perform native compilation of packages.
-** (native-comp-available-p) nil, which means no native compile on New. Big,
-but eval withing the parens says t  - which is correct?
-** COMPLETED Quickproject works but need to create a dir and cd to it 1st.
-CLOSED: [2026-06-24 Wed 13:28]
-*** example: in ~/project/lisp/ mkdir foobar cd foobar THEN run (quickproject:make-project "foobar")
-** DONE got warning on Starship: commend timeout.
-CLOSED: [2026-07-27 Mon 09:44]
-[WARN] - (starship::utils): You can set command_timeout in your
-config to a higher value to allow longer-running commands to keep executing.
-
-** fixed it by doing: starship print-config | grep timeout then:
-doubling the command timeout:   starship config command_timeout 1000
-(was 500).
-** DONE Tried emacs-material-theme again. No advantage over Sanity-Tomorrow=Eighties.
-CLOSED: [2026-06-30 Tue 09:26]
-** +Removed Powerlevel 10K+ from .zshrc & added Starship. see 30JUN_FREEZE_.zshrc
-** Changed to Starship on New, Big and Plucky.
-
-~starship preset tokyo-night -o ~~/.config/starship.toml~ <--run in terminal creates the .toml file in
-~/.config/
-
-to change this to the pure prompt delete the starship.toml file from ~/.config/ then run:
-~starship preset pure-preset -o ~~/.config/starship.toml~
-
-added eval ~"$(starship init zsh)"~ to .zshrc
-
-+simple as.+
-
-** why didn't Plucky update to 3.org get to Big?
-** COMPLETED Completion-Preview mode mode is now built in to emacs.
-CLOSED: [2026-06-15 Mon 09:32]
-bind a key for it?
-<TAB> to accept M-i to complete up to longest common prefix.
-M-x completion-preview-next-candidate cycles fwd
- M-x completion-preview-prev-candidate cycles back
-** 27JUL Init.el on New and Big almost the same, minor diffs.
-** ISSUE LISP projects. COMPLETED cl-project does not work or is not installed/configured correctly.
-CLOSED: [2026-06-24 Wed 13:42]
-
-_Below doesn't work_
-
-In SBCL:
-(ql:quickload "cl-project") then
-(cl-project:make-project #P"./quicklisp/local-projects/my-projects/")
-got a skeleton for the project and a main.lisp in the scr subdir.
-looks like this:
-drwxr-xr-x@    - charles.marano 25 Feb 12:55   src
-drwxr-xr-x@    - charles.marano 25 Feb 12:55   tests
-.rw-r--r--@   68 charles.marano 25 Feb 12:55   .gitignore
-.rw-r--r--@  559 charles.marano 25 Feb 12:55   my-project.asd
-.rw-r--r--@   40 charles.marano 25 Feb 12:55   README.markdown
-.rw-r--r--@   41 charles.marano 25 Feb 12:55   README.org
-
-main.lisp looks like this:
-                                        
-(uiop:define-package my-project
-   2 │   (:use #:cl))
-   3 │ (in-package #:my-project)
-   4 │
-   5 │ ;; blah blah blah.
-
- Lisp and elisp
-
+* +Latest+ 27JUL_FREEZE_init.el & 16JUL.zshrc
 * ISSUE Straight-pull-all keeps deleting my theme from ~/.emacs.d/themes/
 CLOSED: [2026-07-27 Mon 08:15]
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
 /home/linuxbrew/.linuxbrew/bin//emacs
+
+* ISSUE +NOTE:+ inserting code blocks: you can use <s then letter. Doesn't always work.
+CLOSED: [2026-08-03 Mon 10:02]
+as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
+this is instead of C-c C-,   
 
 * DONE Unicode chars.
 CLOSED: [2026-07-23 Thu 08:02]
@@ -151,33 +41,6 @@ C-x 8 <ret> then Char Name as seen above.
 ⦿  <-- is Circled Bullet
 
 Alt+x insert-char 【Ctrl+x 8 Return] then character name or codepoint in hex
-
-* +NOTE:+ inserting code blocks - you can use <s followed by letter
-as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
-this is instead of C-c C-,   
-
-* +NOTE:+ Finding Stuff <-- now in misc_notes.org
-fd <-- will do a recursize search.
-
-find ~/ -type f -name ** -size +1G
-
-fd '.*s3$' <-- and file with 's' in second to last place.
-
-fd profile //etc//  <-- search for profile in Dir /etc
-
-fd . //src//  <-- show all files in /src
-
-fd -e md <-- show files w/ extension md
-
-fd -e js app <-- show files named app w/ js extension.
-
-fd -g libc.so /usr <-- g is glob tag, search for exact name.
-
-fd -H pre-commit <-- show Hidden files.
-
-fd -I abbrev <-- show git files that would normally be ignored.
-
-https://www.geeksforgeeks.org/linux-unix/fd-simple-and-fast-alternative-to-the-find-command/
 
 * TODO Try Macro recording at some point.
 * Lisp
@@ -316,4 +179,3 @@ Chris (16)
 
 * Lisp cont.
 
-* almost broke git on Big by trying to commit git creds.
