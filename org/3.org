@@ -316,3 +316,4 @@ Chris (16)
 
 * Lisp cont.
 
+* almost broke git on Big by trying to commit git creds.
