@@ -12,6 +12,15 @@ CLOSED: [2026-08-03 Mon 10:02]
 as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
 this is instead of C-c C-,   
 
+* ISSUE +Fixed?+ _Sanity Tomorrow 80's Theme_ is still disappearing from ~/.emacs/themes.
+** did 
+#+begin_src
+  xattr -r -d com.apple.quarantine color-theme-sanityinc-tomorrow-main.
+
+  let com.apple.provenance
+#+end_src
+* ISSUE early-init.el vanished on New. Restored it from ~/project/
+CLOSED: [2026-08-05 Wed 11:39]
 * DONE Unicode chars.
 CLOSED: [2026-07-23 Thu 08:02]
 (mapc
