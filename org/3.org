@@ -3,6 +3,13 @@
 * +Latest+ 27JUL_FREEZE_init.el & 16JUL.zshrc
 * ISSUE Straight-pull-all keeps deleting my theme from ~/.emacs.d/themes/
 CLOSED: [2026-07-27 Mon 08:15]
+** ISSUE +Fixed?+ _Sanity Tomorrow 80's Theme_ is still disappearing from ~/.emacs/themes.
+** did 
+#+begin_src
+  xattr -r -d com.apple.quarantine color-theme-sanityinc-tomorrow-main.
+
+  let com.apple.provenance
+#+end_src
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
 /home/linuxbrew/.linuxbrew/bin//emacs
@@ -12,13 +19,6 @@ CLOSED: [2026-08-03 Mon 10:02]
 as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
 this is instead of C-c C-,   
 
-* ISSUE +Fixed?+ _Sanity Tomorrow 80's Theme_ is still disappearing from ~/.emacs/themes.
-** did 
-#+begin_src
-  xattr -r -d com.apple.quarantine color-theme-sanityinc-tomorrow-main.
-
-  let com.apple.provenance
-#+end_src
 * ISSUE early-init.el vanished on New. Restored it from ~/project/
 CLOSED: [2026-08-05 Wed 11:39]
 * DONE Unicode chars.
@@ -51,6 +51,7 @@ C-x 8 <ret> then Char Name as seen above.
 
 Alt+x insert-char 【Ctrl+x 8 Return] then character name or codepoint in hex
 
+* +emacs 31+... speedbar. Bind it to a function key maybe?
 * TODO Try Macro recording at some point.
 * Lisp
 ** cl-project throws errors. Use quickproject for now?
@@ -187,4 +188,3 @@ Chris (16)
 #+end_src
 
 * Lisp cont.
-
