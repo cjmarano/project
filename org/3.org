@@ -188,3 +188,24 @@ Chris (16)
 #+end_src
 
 * Lisp cont.
+
+* Disabled flycheck for emacs lisp on new:
+(with-eval-after-load 'flycheck
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+>> this is at line 634 near the bottom of the init.el file <<
+
+* Buffers
+(current-buffer)
+
+(get-buffer "scratch")
+
+(get-buffer-create "IjustGotMade")
+
+(progn
+  (set-buffer (get-buffer "*scratch*"))
+  (current-buffer))
+
+;; You can also pass the name of the buffer directly
+(progn
+  (set-buffer "*scratch*")
+  (current-buffer))
