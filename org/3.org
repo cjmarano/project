@@ -49,8 +49,78 @@ Alt+x insert-char 【Ctrl+x 8 Return] then character name or codepoint in hex
   (current-buffer))
 #+end_src
 
-* ISSUE Straight-pull-all keeps deleting my theme from ~/.emacs.d/themes/
-CLOSED: [2026-07-27 Mon 08:15]
+** ISSUE +NOTE:+ inserting code blocks: you can use <s then letter. Doesn't always work.
+CLOSED: [2026-08-03 Mon 10:02]
+as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
+this is instead of C-c C-,   
+
+* COMPLETED Macro instructions problem solved:
+CLOSED: [2026-08-12 Wed 07:34]
+#+begin_src emacs-lisp
+
+#+end_src
+Create a macro to remove the - from the following fruit list and replace it with an + (org-mode has still already setup, but for learning purpose, let’s do it with a macro).
+
+Place the cursor the banana section and start recording a macro. Remove the first - from Banana and replace it with +, move to the next line (apple) and stop recording the macro. Run C-u 0 C-x e to run the macro until EOF.
+
++Banana
++Apple
++Melon
++Grape
++Orange
++Watermelon
++Kiwi
+
+M-x apply-macro-to-region-lines works.
+
+-Banana
+-Apple
+-Melon
+-Grape
+-Orange
+-Watermelon
+-Kiwi
+
+C-u 0 C-s e doesn't work.
+adds a space every time.
+
++Banana
++Apple
++Melon
++Grape
++Orange
++Watermelon
++Kiwi++
+
+Almost... secrest was to move to next line then move curser to start of line before ending macro.
+(problem with last line see below)
+
++Banana
++Apple
++Melon
++Grape
++Orange
++Watermelon
++Kiwi+
+
+still doesn't handle last item correctly.
+(see below)
+
++Banana
++Apple
++Melon
++Grape
++Orange
++Watermelon
++Kiwi
++foo
+
+Okay.. added an item - foo - and now macro works with
+
+C-u 0 C-x e
+
+so... I don't know, maybe a line feed or return char at the bottom?
+* _Problem_ Straight-pull-all keeps deleting my theme from ~/.emacs.d/themes/
 ** ISSUE +Fixed?+ _Sanity Tomorrow 80's Theme_ is still disappearing from ~/.emacs/themes.
 ** did 
 #+begin_src
@@ -61,11 +131,6 @@ CLOSED: [2026-07-27 Mon 08:15]
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
 /home/linuxbrew/.linuxbrew/bin//emacs
-
-* ISSUE +NOTE:+ inserting code blocks: you can use <s then letter. Doesn't always work.
-CLOSED: [2026-08-03 Mon 10:02]
-as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
-this is instead of C-c C-,   
 
 * ISSUE early-init.el vanished on New. Restored it from ~/project/
 CLOSED: [2026-08-05 Wed 11:39]
@@ -218,68 +283,3 @@ Chris (16)
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
 #+end_src
 >> this is at line 634 near the bottom of the init.el file <<
-* Macro instructions problem solved:
-#+begin_src emacs-lisp
-
-#+end_src
-Create a macro to remove the - from the following fruit list and replace it with an + (org-mode has still already setup, but for learning purpose, let’s do it with a macro).
-
-Place the cursor the banana section and start recording a macro. Remove the first - from Banana and replace it with +, move to the next line (apple) and stop recording the macro. Run C-u 0 C-x e to run the macro until EOF.
-
-+Banana
-+Apple
-+Melon
-+Grape
-+Orange
-+Watermelon
-+Kiwi
-
-M-x apply-macro-to-region-lines works.
-
--Banana
--Apple
--Melon
--Grape
--Orange
--Watermelon
--Kiwi
-
-C-u 0 C-s e doesn't work.
-adds a space every time.
-
-+Banana
-+Apple
-+Melon
-+Grape
-+Orange
-+Watermelon
-+Kiwi++
-
-Almost... secrest was to move to next line then move curser to start of line before ending macro.
-(problem with last line see below)
-
-+Banana
-+Apple
-+Melon
-+Grape
-+Orange
-+Watermelon
-+Kiwi+
-
-still doesn't handle last item correctly.
-(see below)
-
-+Banana
-+Apple
-+Melon
-+Grape
-+Orange
-+Watermelon
-+Kiwi
-+foo
-
-Okay.. added an item - foo - and now macro works with
-
-C-u 0 C-x e
-
-so... I don't know, maybe a line feed or return char at the bottom?
