@@ -283,3 +283,5 @@ Chris (16)
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
 #+end_src
 >> this is at line 634 near the bottom of the init.el file <<
+* X11 or Wayland?
+https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-desktop/
