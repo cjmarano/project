@@ -120,6 +120,12 @@ Okay.. added an item - foo - and now macro works with
 C-u 0 C-x e
 
 so... I don't know, maybe a line feed or return char at the bottom?
+** Disabled flycheck for emacs lisp on new:
+#+begin_src emacs-lisp
+(with-eval-after-load 'flycheck
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+#+end_src
+>> this is at line 634 near the bottom of the init.el file <<
 * _Problem_ Straight-pull-all keeps deleting my theme from ~/.emacs.d/themes/
 ** ISSUE +Fixed?+ _Sanity Tomorrow 80's Theme_ is still disappearing from ~/.emacs/themes.
 ** did 
@@ -128,19 +134,19 @@ so... I don't know, maybe a line feed or return char at the bottom?
 
   let com.apple.provenance
 #+end_src
-* ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
-CLOSED: [2026-07-22 Wed 11:36]
-/home/linuxbrew/.linuxbrew/bin//emacs
-
-* ISSUE early-init.el vanished on New. Restored it from ~/project/
-CLOSED: [2026-08-05 Wed 11:39]
-* +emacs 31+... speedbar. Bind it to a function key maybe?
+* WAITING +emacs 31+... speedbar. Bind it to a function key maybe?
 * TODO Try Macro recording at some point.
 C-x ( starts recording a macro
 C-x ) stops recording a macro
 C-x e executes the macro
 C-u 37 C-x e executes the macro 37 times
 C-u 0 C-x e executes the macro an infinite number of times until EOF.
+* ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
+CLOSED: [2026-07-22 Wed 11:36]
+/home/linuxbrew/.linuxbrew/bin//emacs
+
+* ISSUE early-init.el vanished on New. Restored it from ~/project/
+CLOSED: [2026-08-05 Wed 11:39]
 * Lisp cont.
 
 ** Lisp
@@ -277,11 +283,7 @@ Chris (16)
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
 
-* Disabled flycheck for emacs lisp on new:
-#+begin_src emacs-lisp
-(with-eval-after-load 'flycheck
-  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
-#+end_src
->> this is at line 634 near the bottom of the init.el file <<
 * X11 or Wayland?
 https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-desktop/
+* Build emacs:
+https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
