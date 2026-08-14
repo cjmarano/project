@@ -289,7 +289,7 @@ https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-deskt
 * Build emacs:
 https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
 
-* Added my=split-window-func to New (was on Big)
+* Added my-split-window-func to New (was on Big)
 #+begin_src emacs-lisp
 (defun my-split-window-func ()
   (interactive)
