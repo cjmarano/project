@@ -1,6 +1,6 @@
 ;;; +AUG+
 #+PROPERTY: folded
-* +Latest+ 27JUL_FREEZE_init.el & 16JUL.zshrc
+* +Latest+ 10AUG_Big.init.el, 10AUG_New.init.el & 16JUL.zshrc
 ** DONE Unicode chars.
 CLOSED: [2026-07-23 Thu 08:02]
 (mapc
