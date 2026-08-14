@@ -288,3 +288,16 @@ Chris (16)
 https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-desktop/
 * Build emacs:
 https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
+
+* Added my=split-window-func to New (was on Big)
+#+begin_src emacs-lisp
+(defun my-split-window-func ()
+  (interactive)
+  (split-window-below)
+  (set-window-buffer (next-window) (other-buffer)))
+
+(global-set-key (kbd "C-x 4") #'my-split-window-func)
+#+end_src
+
+** This did NOT increase load time for init.el on New so...
+Longer load time for init.el on Big still needs investigating.
