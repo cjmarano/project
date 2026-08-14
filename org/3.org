@@ -142,7 +142,7 @@ C-x ) stops recording a macro
 C-x e executes the macro
 C-u 37 C-x e executes the macro 37 times
 C-u 0 C-x e executes the macro an infinite number of times until EOF.
-* ISSUE Start time for Big up to lamst 4 Seconds.
+* ISSUE Start time for Big up to > 3 Seconds.
 CLOSED: [2026-08-14 Fri 08:44]
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
@@ -301,3 +301,5 @@ https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
 
 ** This did NOT increase load time for init.el on New so...
 Longer load time for init.el on Big still needs investigating.
+
+* Copied rainbow-delimiters from ~/.emacs.d/straight/repos/
