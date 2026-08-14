@@ -54,7 +54,7 @@ CLOSED: [2026-08-03 Mon 10:02]
 as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
 this is instead of C-c C-,   
 
-* COMPLETED Macro instructions problem solved:
+** COMPLETED Macro instructions problem solved:
 CLOSED: [2026-08-12 Wed 07:34]
 #+begin_src emacs-lisp
 
@@ -126,7 +126,8 @@ so... I don't know, maybe a line feed or return char at the bottom?
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
 #+end_src
 >> this is at line 634 near the bottom of the init.el file <<
-* _Problem_ Straight-pull-all keeps deleting my theme from ~/.emacs.d/themes/
+** DONE _Problem_ Straight-pull-all keeps deleting my theme from ~/.emacs.d/themes/
+CLOSED: [2026-08-14 Fri 08:41]
 ** ISSUE +Fixed?+ _Sanity Tomorrow 80's Theme_ is still disappearing from ~/.emacs/themes.
 ** did 
 #+begin_src
@@ -135,21 +136,21 @@ so... I don't know, maybe a line feed or return char at the bottom?
   let com.apple.provenance
 #+end_src
 * WAITING +emacs 31+... speedbar. Bind it to a function key maybe?
-* TODO Try Macro recording at some point.
+* NEXT Try Macro recording at some point.
 C-x ( starts recording a macro
 C-x ) stops recording a macro
 C-x e executes the macro
 C-u 37 C-x e executes the macro 37 times
 C-u 0 C-x e executes the macro an infinite number of times until EOF.
+* ISSUE Start time for Big up to lamst 4 Seconds.
+CLOSED: [2026-08-14 Fri 08:44]
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
 /home/linuxbrew/.linuxbrew/bin//emacs
 
 * ISSUE early-init.el vanished on New. Restored it from ~/project/
 CLOSED: [2026-08-05 Wed 11:39]
-* Lisp cont.
-
-** Lisp
+* Lisp
 ** cl-project throws errors. Use quickproject for now?
 *** throws an HTTPS statuse error 
 *** (cl-project:make-project #p"lib/cl-sample/")
