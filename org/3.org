@@ -135,6 +135,28 @@ CLOSED: [2026-08-14 Fri 08:41]
 
   let com.apple.provenance
 #+end_src
+** Copied rainbow-delimiters from ~/.emacs.d/straight/repos/
+** ISSUE early-init.el vanished on New. Restored it from ~/project/
+CLOSED: [2026-08-05 Wed 11:39]
+** Added my-split-window-func to New (was on Big)
+#+begin_src emacs-lisp
+(defun my-split-window-func ()
+  (interactive)
+  (split-window-below)
+  (set-window-buffer (next-window) (other-buffer)))
+
+(global-set-key (kbd "C-x 4") #'my-split-window-func)
+#+end_src
+
+** This did NOT increase load time for init.el on New so...
+Longer load time for init.el on Big still needs investigating.
+
+* ISSUE Start time for Big up to > 3 Seconds.
+CLOSED: [2026-08-14 Fri 08:44]
+* ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
+CLOSED: [2026-07-22 Wed 11:36]
+/home/linuxbrew/.linuxbrew/bin//emacs
+
 * WAITING +emacs 31+... speedbar. Bind it to a function key maybe?
 * NEXT Try Macro recording at some point.
 C-x ( starts recording a macro
@@ -142,14 +164,6 @@ C-x ) stops recording a macro
 C-x e executes the macro
 C-u 37 C-x e executes the macro 37 times
 C-u 0 C-x e executes the macro an infinite number of times until EOF.
-* ISSUE Start time for Big up to > 3 Seconds.
-CLOSED: [2026-08-14 Fri 08:44]
-* ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
-CLOSED: [2026-07-22 Wed 11:36]
-/home/linuxbrew/.linuxbrew/bin//emacs
-
-* ISSUE early-init.el vanished on New. Restored it from ~/project/
-CLOSED: [2026-08-05 Wed 11:39]
 * Lisp
 ** cl-project throws errors. Use quickproject for now?
 *** throws an HTTPS statuse error 
@@ -289,17 +303,3 @@ https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-deskt
 * Build emacs:
 https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
 
-* Added my-split-window-func to New (was on Big)
-#+begin_src emacs-lisp
-(defun my-split-window-func ()
-  (interactive)
-  (split-window-below)
-  (set-window-buffer (next-window) (other-buffer)))
-
-(global-set-key (kbd "C-x 4") #'my-split-window-func)
-#+end_src
-
-** This did NOT increase load time for init.el on New so...
-Longer load time for init.el on Big still needs investigating.
-
-* Copied rainbow-delimiters from ~/.emacs.d/straight/repos/
