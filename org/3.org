@@ -298,8 +298,15 @@ Chris (16)
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
 
+* NOTE: Lisp scripts:
+#!/opt/homebrew/bin/sbcl _<-- needs to run with sbcl --script <filename>_
+
+#!/opt/homebrew/bin/sbcl --script +<-- can just do ./<filename>+
+
 * X11 or Wayland?
 https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-desktop/
 * Build emacs:
 https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
+* misc.
+Onani Master Kurosawa
 
