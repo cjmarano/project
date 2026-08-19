@@ -151,12 +151,18 @@ CLOSED: [2026-08-05 Wed 11:39]
 ** This did NOT increase load time for init.el on New so...
 Longer load time for init.el on Big still needs investigating.
 
+** COMPLETED X11 or Wayland?
+CLOSED: [2026-08-19 Wed 13:23]
+https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-desktop/
 * ISSUE Start time for Big up to > 3 Seconds.
 CLOSED: [2026-08-14 Fri 08:44]
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
 /home/linuxbrew/.linuxbrew/bin//emacs
 
+* ISSUE Build emacs:
+CLOSED: [2026-08-19 Wed 13:24]
+https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
 * WAITING +emacs 31+... speedbar. Bind it to a function key maybe?
 * NEXT Try Macro recording at some point.
 C-x ( starts recording a macro
@@ -164,7 +170,12 @@ C-x ) stops recording a macro
 C-x e executes the macro
 C-u 37 C-x e executes the macro 37 times
 C-u 0 C-x e executes the macro an infinite number of times until EOF.
-* Lisp
+* NOTE: Lisp scripts:
+#!/opt/homebrew/bin/sbcl _<-- needs to run with sbcl --script <filename>_
+
+#!/opt/homebrew/bin/sbcl --script +<-- can just do ./<filename>+
+
+** Lisp
 ** cl-project throws errors. Use quickproject for now?
 *** throws an HTTPS statuse error 
 *** (cl-project:make-project #p"lib/cl-sample/")
@@ -298,15 +309,6 @@ Chris (16)
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
 
-* NOTE: Lisp scripts:
-#!/opt/homebrew/bin/sbcl _<-- needs to run with sbcl --script <filename>_
-
-#!/opt/homebrew/bin/sbcl --script +<-- can just do ./<filename>+
-
-* X11 or Wayland?
-https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-desktop/
-* Build emacs:
-https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
 * misc.
 Onani Master Kurosawa
 
