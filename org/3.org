@@ -154,7 +154,7 @@ Longer load time for init.el on Big still needs investigating.
 ** COMPLETED X11 or Wayland?
 CLOSED: [2026-08-19 Wed 13:23]
 https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-desktop/
-* ISSUE Start time for Big up to > 3 Seconds.
+* ISSUE Start time for Big up to ~ 3.8 Seconds, 2.7 for New.
 CLOSED: [2026-08-14 Fri 08:44]
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
