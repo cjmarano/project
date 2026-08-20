@@ -49,11 +49,25 @@ Alt+x insert-char 【Ctrl+x 8 Return] then character name or codepoint in hex
   (current-buffer))
 #+end_src
 
-** ISSUE +NOTE:+ inserting code blocks: you can use <s then letter. Doesn't always work.
+** COMPLETED org-structure-templates are working as they should.
+CLOSED: [2026-08-20 Thu 08:12]
+<KEY then <TAB> produces code block. built in L, H, A, i are disabled.
+
+#+begin_src rust
+
+#+end_src
+
+#+begin_src emacs-lisp
+
+#+end_src
+
+#+begin_src python
+
+#+end_src
+*** ISSUE +NOTE:+ inserting code blocks: you can use <KEY then <TAB>.
 CLOSED: [2026-08-03 Mon 10:02]
 as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
 this is instead of C-c C-,   
-
 ** COMPLETED Macro instructions problem solved:
 CLOSED: [2026-08-12 Wed 07:34]
 #+begin_src emacs-lisp
@@ -120,25 +134,29 @@ Okay.. added an item - foo - and now macro works with
 C-u 0 C-x e
 
 so... I don't know, maybe a line feed or return char at the bottom?
-** Disabled flycheck for emacs lisp on new:
+** COMPLETED Disabled flycheck for emacs lisp on new:
+CLOSED: [2026-08-20 Thu 08:16]
 #+begin_src emacs-lisp
 (with-eval-after-load 'flycheck
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
 #+end_src
 >> this is at line 634 near the bottom of the init.el file <<
-** DONE _Problem_ Straight-pull-all keeps deleting my theme from ~/.emacs.d/themes/
+** COMPLETED _Problem_ Straight-pull-all keeps deleting my theme from ~/.emacs.d/themes/
 CLOSED: [2026-08-14 Fri 08:41]
-** ISSUE +Fixed?+ _Sanity Tomorrow 80's Theme_ is still disappearing from ~/.emacs/themes.
-** did 
+*** ISSUE +Fixed?+ _Sanity Tomorrow 80's Theme_ is still disappearing from ~/.emacs/themes.
+** COMPLETED xattr 
+CLOSED: [2026-08-20 Thu 08:15]
 #+begin_src
   xattr -r -d com.apple.quarantine color-theme-sanityinc-tomorrow-main.
 
   let com.apple.provenance
 #+end_src
-** Copied rainbow-delimiters from ~/.emacs.d/straight/repos/
+** COMPLETED Copied rainbow-delimiters from ~/.emacs.d/straight/repos/
+CLOSED: [2026-08-20 Thu 08:16]
 ** ISSUE early-init.el vanished on New. Restored it from ~/project/
 CLOSED: [2026-08-05 Wed 11:39]
-** Added my-split-window-func to New (was on Big)
+** COMPLETED Added my-split-window-func to New (was on Big)
+CLOSED: [2026-08-20 Thu 08:16]
 #+begin_src emacs-lisp
 (defun my-split-window-func ()
   (interactive)
@@ -148,7 +166,7 @@ CLOSED: [2026-08-05 Wed 11:39]
 (global-set-key (kbd "C-x 4") #'my-split-window-func)
 #+end_src
 
-** This did NOT increase load time for init.el on New so...
+*** This did NOT increase load time for init.el on New so...
 Longer load time for init.el on Big still needs investigating.
 
 ** COMPLETED X11 or Wayland?
@@ -311,4 +329,5 @@ Chris (16)
 
 * misc.
 Onani Master Kurosawa
+
 
