@@ -177,10 +177,12 @@ CLOSED: [2026-08-14 Fri 08:44]
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
 /home/linuxbrew/.linuxbrew/bin//emacs
-
 * ISSUE Build emacs:
 CLOSED: [2026-08-19 Wed 13:24]
 https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
+* misc.
+Onani Master Kurosawa
+
 * WAITING +emacs 31+... speedbar. Bind it to a function key maybe?
 * NEXT Try Macro recording at some point.
 C-x ( starts recording a macro
@@ -326,8 +328,4 @@ Chris (16)
           (pathname
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
-
-* misc.
-Onani Master Kurosawa
-
 
