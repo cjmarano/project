@@ -328,3 +328,19 @@ Chris (16)
           (pathname
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
+* NEXT flycheck and elisp files:
+** you can disable flycheck based on extension:
+(add-hook 'flycheck-mode-hook #'my-keep-flycheck-off)
+
+(defun my-keep-flycheck-off ()
+  (when (and (eq major-mode 'sh-mode)
+             (buffer-file-name)
+             (string= (file-name-extension (buffer-file-name)) "cfg"))
+    (flycheck-mode -1)))
+**  or (setq flycheck-disabled-checkers '(sh-shellscript sh-bash sh-zsh))
+** or, again:
+(add-to-list 'auto-mode-alist
+             '("\\.cfg\\'" . (lambda ()
+                               (setq flycheck-disabled-checkers  (append '(sh-shellscript sh-bash sh-zsh)
+                               flycheck-disabled-checkers))
+                               (shell-script-mode))))
