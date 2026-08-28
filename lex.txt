@@ -1,0 +1,12 @@
+ ■  Warning (files): Missing ‘lexical-binding’ cookie in "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-cl-indent.el".
+You can add one with ‘M-x elisp-enable-lexical-binding RET’.
+See ‘(elisp)Selecting Lisp Dialect’ and ‘(elisp)Converting to Lexical Binding
+
+/slime-v2.31/contrib/slime-fontifying-fu.el".
+You can add one with ‘M-x elisp-enable-lexical-binding RET’.
+See ‘(elisp)Selecting Lisp Dialect’ and ‘(elisp)Converting to Lexical Binding’
+for more information.
+ ■  Warning (files): Missing ‘lexical-binding’ cookie in "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-indentation.el".
+You can add one with ‘M-x elisp-enable-lexical-binding RET’.
+See ‘(elisp)Selecting Lisp Dialect’ and ‘(elisp)Converting to Lexical Binding’
+for more information.

@@ -1,7 +1,7 @@
-;;; +AUG+
-#+PROPERTY: folded
-* +Latest+ 10AUG_Big.init.el, 10AUG_New.init.el & 16JUL.zshrc
-** DONE Unicode chars.
+>;;; +aug+
+#+property: folded
+* +latest+ 10aug_big.init.el, 10aug_new.init.el & 16jul.zshrc
+** done Unicode chars.
 CLOSED: [2026-07-23 Thu 08:02]
 (mapc
   (lambda (x)
@@ -172,7 +172,7 @@ Longer load time for init.el on Big still needs investigating.
 ** COMPLETED X11 or Wayland?
 CLOSED: [2026-08-19 Wed 13:23]
 https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-desktop/
-* ISSUE Start time for Big up to ~ 3.8 Seconds, 2.7 for New.
+* issue Start time for Big up to ~ 3.8 Seconds, 2.7 for New.
 CLOSED: [2026-08-14 Fri 08:44]
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
@@ -344,3 +344,4 @@ Chris (16)
                                (setq flycheck-disabled-checkers  (append '(sh-shellscript sh-bash sh-zsh)
                                flycheck-disabled-checkers))
                                (shell-script-mode))))
+Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
