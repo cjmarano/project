@@ -345,3 +345,5 @@ Chris (16)
                                flycheck-disabled-checkers))
                                (shell-script-mode))))
 Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
+
+* https://en.wikipedia.org/wiki/Look-and-say_sequence
