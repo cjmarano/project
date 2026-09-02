@@ -3,7 +3,7 @@
 * +latest+ 10aug_big.init.el, 10aug_new.init.el & 16jul.zshrc
 ** done Unicode chars.
 CLOSED: [2026-07-23 Thu 08:02]
-(mapc
+>(mapc
   (lambda (x)
     (let ((nn (get-char-code-property x 'name)))
       (when
@@ -347,3 +347,4 @@ Chris (16)
 Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
 
 * https://en.wikipedia.org/wiki/Look-and-say_sequence
+* (add-to-list 'warning-suppress-types '(files missing-lexbind-cookies))
