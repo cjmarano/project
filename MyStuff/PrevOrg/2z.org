@@ -1,9 +1,16 @@
->;;; +aug+
+;;; +aug+
 #+property: folded
+* issue Start time for Big up to ~ 3.8 Seconds, 2.7 for New.
+CLOSED: [2026-08-14 Fri 08:44]
+* misc
+** Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
+
+** https://en.wikipedia.org/wiki/Look-and-say_sequence
+** Onani Master Kurosawa
 * +latest+ 10aug_big.init.el, 10aug_new.init.el & 16jul.zshrc
 ** done Unicode chars.
 CLOSED: [2026-07-23 Thu 08:02]
->(mapc
+(mapc
   (lambda (x)
     (let ((nn (get-char-code-property x 'name)))
       (when
@@ -196,13 +203,10 @@ CLOSED: [2026-09-01 Tue 11:15]
 disabled #(add-hook 'after-save-hook 'eglot-format))#
 ** COMPLETED Error: json rpc. per this site:
 CLOSED: [2026-09-01 Tue 12:35]
-* issue Start time for Big up to ~ 3.8 Seconds, 2.7 for New.
-CLOSED: [2026-08-14 Fri 08:44]
-* misc
-** Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
-
-** https://en.wikipedia.org/wiki/Look-and-say_sequence
-** Onani Master Kurosawa
+* DONE rpc error fix?
+CLOSED: [2026-09-02 Wed 09:36]
+(remove-hook 'after-save-hook #'eglot-format nil)
+** problem seems to be with eglot and is triggered by a save.
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
 /home/linuxbrew/.linuxbrew/bin//emacs
@@ -354,29 +358,3 @@ Chris (16)
           (pathname
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
-<<<<<<< Updated upstream
-* NEXT flycheck and elisp files:
-** you can disable flycheck based on extension:
-(add-hook 'flycheck-mode-hook #'my-keep-flycheck-off)
-
-(defun my-keep-flycheck-off ()
-  (when (and (eq major-mode 'sh-mode)
-             (buffer-file-name)
-             (string= (file-name-extension (buffer-file-name)) "cfg"))
-    (flycheck-mode -1)))
-**  or (setq flycheck-disabled-checkers '(sh-shellscript sh-bash sh-zsh))
-** or, again:
-(add-to-list 'auto-mode-alist
-             '("\\.cfg\\'" . (lambda ()
-                               (setq flycheck-disabled-checkers  (append '(sh-shellscript sh-bash sh-zsh)
-                               flycheck-disabled-checkers))
-                               (shell-script-mode))))
-Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
-
-* https://en.wikipedia.org/wiki/Look-and-say_sequence
-* (add-to-list 'warning-suppress-types '(files missing-lexbind-cookies))
-=======
-* rpc error fix?
-(remove-hook 'after-save-hook #'eglot-format nil)
-** problem seems to be with eglot and is triggered by a save.
->>>>>>> Stashed changes
