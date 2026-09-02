@@ -172,17 +172,43 @@ Longer load time for init.el on Big still needs investigating.
 ** COMPLETED X11 or Wayland?
 CLOSED: [2026-08-19 Wed 13:23]
 https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-desktop/
+** COMPLETED flycheck and elisp files:
+CLOSED: [2026-09-01 Tue 11:15]
+** you can disable flycheck based on extension:
+(add-hook 'flycheck-mode-hook #'my-keep-flycheck-off)
+
+(defun my-keep-flycheck-off ()
+  (when (and (eq major-mode 'sh-mode)
+             (buffer-file-name)
+             (string= (file-name-extension (buffer-file-name)) "cfg"))
+    (flycheck-mode -1)))
+**  or (setq flycheck-disabled-checkers '(sh-shellscript sh-bash sh-zsh))
+** or, again:
+(add-to-list 'auto-mode-alist
+             '("\\.cfg\\'" . (lambda ()
+                               (setq flycheck-disabled-checkers  (append '(sh-shellscript sh-bash sh-zsh)
+                               flycheck-disabled-checkers))
+                               (shell-script-mode))))
+
+** NOTE: For instance, the first syntax checker for Emacs Lisp is emacs-lisp which checks Emacs Lisp with Emacs’ own byte compiler. This syntax checker asks for emacs-lisp-checkdoc to run next, which checks for stylistic issues in Emacs Lisp docstrings. Thus Flycheck will first run the byte compiler and then checkdoc in an Emacs Lisp buffer.
+
+** https://danliden.com/posts/20250330-emacs-debugging.html
+disabled #(add-hook 'after-save-hook 'eglot-format))#
+** COMPLETED Error: json rpc. per this site:
+CLOSED: [2026-09-01 Tue 12:35]
 * issue Start time for Big up to ~ 3.8 Seconds, 2.7 for New.
 CLOSED: [2026-08-14 Fri 08:44]
+* misc
+** Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
+
+** https://en.wikipedia.org/wiki/Look-and-say_sequence
+** Onani Master Kurosawa
 * ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
 CLOSED: [2026-07-22 Wed 11:36]
 /home/linuxbrew/.linuxbrew/bin//emacs
 * ISSUE Build emacs:
 CLOSED: [2026-08-19 Wed 13:24]
 https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
-* misc.
-Onani Master Kurosawa
-
 * WAITING +emacs 31+... speedbar. Bind it to a function key maybe?
 * NEXT Try Macro recording at some point.
 C-x ( starts recording a macro
@@ -328,6 +354,7 @@ Chris (16)
           (pathname
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
+<<<<<<< Updated upstream
 * NEXT flycheck and elisp files:
 ** you can disable flycheck based on extension:
 (add-hook 'flycheck-mode-hook #'my-keep-flycheck-off)
@@ -348,3 +375,8 @@ Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
 
 * https://en.wikipedia.org/wiki/Look-and-say_sequence
 * (add-to-list 'warning-suppress-types '(files missing-lexbind-cookies))
+=======
+* rpc error fix?
+(remove-hook 'after-save-hook #'eglot-format nil)
+** problem seems to be with eglot and is triggered by a save.
+>>>>>>> Stashed changes
