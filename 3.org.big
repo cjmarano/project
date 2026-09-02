@@ -1,0 +1,382 @@
+>;;; +aug+
+#+property: folded
+* +latest+ 10aug_big.init.el, 10aug_new.init.el & 16jul.zshrc
+** done Unicode chars.
+CLOSED: [2026-07-23 Thu 08:02]
+>(mapc
+  (lambda (x)
+    (let ((nn (get-char-code-property x 'name)))
+      (when
+          (and (not (null nn))
+               (string-match "BULLET" nn))
+        (insert-char x)
+        (insert " " nn "\n") ) ) )
+  (number-sequence 0 (expt 2 16)))• BULLET
+‣ TRIANGULAR BULLET
+⁃ HYPHEN BULLET
+⁌ BLACK LEFTWARDS BULLET
+⁍ BLACK RIGHTWARDS BULLET
+∙ BULLET OPERATOR
+◘ INVERSE BULLET
+◦ WHITE BULLET
+☙ REVERSED ROTATED FLORAL HEART BULLET
+❥ ROTATED HEAVY BLACK HEART BULLET
+❧ ROTATED FLORAL HEART BULLET
+⦾ CIRCLED WHITE BULLET
+⦿ CIRCLED BULLET
+
+C-x 8 <ret> then Char Name as seen above.
+◦   <-- is White Bullet
+⦿  <-- is Circled Bullet
+
+Alt+x insert-char 【Ctrl+x 8 Return] then character name or codepoint in hex
+
+** Buffers
+#+begin_src emacs-lisp
+(current-buffer)
+
+(get-buffer "scratch")
+
+(get-buffer-create "IjustGotMade")
+
+(progn
+  (set-buffer (get-buffer "*scratch*"))
+  (current-buffer))
+
+;; You can also pass the name of the buffer directly
+(progn
+  (set-buffer "*scratch*")
+  (current-buffer))
+#+end_src
+
+** COMPLETED org-structure-templates are working as they should.
+CLOSED: [2026-08-20 Thu 08:12]
+<KEY then <TAB> produces code block. built in L, H, A, i are disabled.
+
+#+begin_src rust
+
+#+end_src
+
+#+begin_src emacs-lisp
+
+#+end_src
+
+#+begin_src python
+
+#+end_src
+*** ISSUE +NOTE:+ inserting code blocks: you can use <KEY then <TAB>.
+CLOSED: [2026-08-03 Mon 10:02]
+as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
+this is instead of C-c C-,   
+** COMPLETED Macro instructions problem solved:
+CLOSED: [2026-08-12 Wed 07:34]
+#+begin_src emacs-lisp
+
+#+end_src
+Create a macro to remove the - from the following fruit list and replace it with an + (org-mode has still already setup, but for learning purpose, let’s do it with a macro).
+
+Place the cursor the banana section and start recording a macro. Remove the first - from Banana and replace it with +, move to the next line (apple) and stop recording the macro. Run C-u 0 C-x e to run the macro until EOF.
+
++Banana
++Apple
++Melon
++Grape
++Orange
++Watermelon
++Kiwi
+
+M-x apply-macro-to-region-lines works.
+
+-Banana
+-Apple
+-Melon
+-Grape
+-Orange
+-Watermelon
+-Kiwi
+
+C-u 0 C-s e doesn't work.
+adds a space every time.
+
++Banana
++Apple
++Melon
++Grape
++Orange
++Watermelon
++Kiwi++
+
+Almost... secrest was to move to next line then move curser to start of line before ending macro.
+(problem with last line see below)
+
++Banana
++Apple
++Melon
++Grape
++Orange
++Watermelon
++Kiwi+
+
+still doesn't handle last item correctly.
+(see below)
+
++Banana
++Apple
++Melon
++Grape
++Orange
++Watermelon
++Kiwi
++foo
+
+Okay.. added an item - foo - and now macro works with
+
+C-u 0 C-x e
+
+so... I don't know, maybe a line feed or return char at the bottom?
+** COMPLETED Disabled flycheck for emacs lisp on new:
+CLOSED: [2026-08-20 Thu 08:16]
+#+begin_src emacs-lisp
+(with-eval-after-load 'flycheck
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+#+end_src
+>> this is at line 634 near the bottom of the init.el file <<
+** COMPLETED _Problem_ Straight-pull-all keeps deleting my theme from ~/.emacs.d/themes/
+CLOSED: [2026-08-14 Fri 08:41]
+*** ISSUE +Fixed?+ _Sanity Tomorrow 80's Theme_ is still disappearing from ~/.emacs/themes.
+** COMPLETED xattr 
+CLOSED: [2026-08-20 Thu 08:15]
+#+begin_src
+  xattr -r -d com.apple.quarantine color-theme-sanityinc-tomorrow-main.
+
+  let com.apple.provenance
+#+end_src
+** COMPLETED Copied rainbow-delimiters from ~/.emacs.d/straight/repos/
+CLOSED: [2026-08-20 Thu 08:16]
+** ISSUE early-init.el vanished on New. Restored it from ~/project/
+CLOSED: [2026-08-05 Wed 11:39]
+** COMPLETED Added my-split-window-func to New (was on Big)
+CLOSED: [2026-08-20 Thu 08:16]
+#+begin_src emacs-lisp
+(defun my-split-window-func ()
+  (interactive)
+  (split-window-below)
+  (set-window-buffer (next-window) (other-buffer)))
+
+(global-set-key (kbd "C-x 4") #'my-split-window-func)
+#+end_src
+
+*** This did NOT increase load time for init.el on New so...
+Longer load time for init.el on Big still needs investigating.
+
+** COMPLETED X11 or Wayland?
+CLOSED: [2026-08-19 Wed 13:23]
+https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-desktop/
+** COMPLETED flycheck and elisp files:
+CLOSED: [2026-09-01 Tue 11:15]
+** you can disable flycheck based on extension:
+(add-hook 'flycheck-mode-hook #'my-keep-flycheck-off)
+
+(defun my-keep-flycheck-off ()
+  (when (and (eq major-mode 'sh-mode)
+             (buffer-file-name)
+             (string= (file-name-extension (buffer-file-name)) "cfg"))
+    (flycheck-mode -1)))
+**  or (setq flycheck-disabled-checkers '(sh-shellscript sh-bash sh-zsh))
+** or, again:
+(add-to-list 'auto-mode-alist
+             '("\\.cfg\\'" . (lambda ()
+                               (setq flycheck-disabled-checkers  (append '(sh-shellscript sh-bash sh-zsh)
+                               flycheck-disabled-checkers))
+                               (shell-script-mode))))
+
+** NOTE: For instance, the first syntax checker for Emacs Lisp is emacs-lisp which checks Emacs Lisp with Emacs’ own byte compiler. This syntax checker asks for emacs-lisp-checkdoc to run next, which checks for stylistic issues in Emacs Lisp docstrings. Thus Flycheck will first run the byte compiler and then checkdoc in an Emacs Lisp buffer.
+
+** https://danliden.com/posts/20250330-emacs-debugging.html
+disabled #(add-hook 'after-save-hook 'eglot-format))#
+** COMPLETED Error: json rpc. per this site:
+CLOSED: [2026-09-01 Tue 12:35]
+* issue Start time for Big up to ~ 3.8 Seconds, 2.7 for New.
+CLOSED: [2026-08-14 Fri 08:44]
+* misc
+** Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
+
+** https://en.wikipedia.org/wiki/Look-and-say_sequence
+** Onani Master Kurosawa
+* ISSUE init.el on Plucky is a mess, so is emacs with versions at /usr/bin/emacs -nw %F and
+CLOSED: [2026-07-22 Wed 11:36]
+/home/linuxbrew/.linuxbrew/bin//emacs
+* ISSUE Build emacs:
+CLOSED: [2026-08-19 Wed 13:24]
+https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
+* WAITING +emacs 31+... speedbar. Bind it to a function key maybe?
+* NEXT Try Macro recording at some point.
+C-x ( starts recording a macro
+C-x ) stops recording a macro
+C-x e executes the macro
+C-u 37 C-x e executes the macro 37 times
+C-u 0 C-x e executes the macro an infinite number of times until EOF.
+* NOTE: Lisp scripts:
+#!/opt/homebrew/bin/sbcl _<-- needs to run with sbcl --script <filename>_
+
+#!/opt/homebrew/bin/sbcl --script +<-- can just do ./<filename>+
+
+** Lisp
+** cl-project throws errors. Use quickproject for now?
+*** throws an HTTPS statuse error 
+*** (cl-project:make-project #p"lib/cl-sample/")
+
+(ql:quickload :quickproject)
+
+(quickproject:make-project #p"~/project/lisp/my-quickproject-test/")
+** lisp scripts
+Create a file named hello (you can drop the .lisp extension) and add this:
+
+#+begin_src lisp
+#!/opt/homebrew/bin/sbcl --script
+(require :uiop)
+(format t "hello ~a!~&" (uiop:getenv "USER"))
+#+end_src
+Make the script executable (chmod +x hello) and run it:
+
+$ ./hello
+hello me!
+
++above method works+
+-------
+;; filename.lisp
+;; note the --script switch, not needed for raw code? NOPE, _doesn't display either way._
+~(print "hello world")~
+And then we run this in the terminal:
+
+#+begin_src lisp
+sbcl --script filename.lisp
+"hello world"
+#+end_src
+
++this also works+
+===========
+--load
+If you use --load, then it will evaluate everything in your file, and then drop you into
+an interactive prompt so that you can interact with your program:
+
+So let’s say we have the following file:
+
+#+begin_src lisp
+;; filename.lisp
+(defun sum (list)
+  (if list (+ (car list) (sum (cdr list))) 0))
+#+end_src
+
+And we call --load in the terminal:
+
+$ sbcl --load filename.lisp
+#<some preamble about sbcl you can ignore>
+then you enter the following:
+
+*** (sum '(1 2 3 4 5))
+15
+
++Above works+
+---------
+clisp <filename> runs a lisp script.
+clisp -repl <filename> runs a script then drops to the repl.
+_^That's like sbcl --load^_
+
+
+(above examples are from: https://comp-348.github.io/lisp-running-from-terminal.html)
+----------
+#+begin_src lisp
+(defconstant +year-size+ 365)
+
+(defun birthday-paradox (probability number-of-people)
+  (let ((new-probability (* (/ (- +year-size+ number-of-people)
+                               +year-size+)
+                            probability)))
+    (if (< new-probability 0.5)
+        (1+ number-of-people)
+        (birthday-paradox new-probability (1+ number-of-people)))))
+#+end_src
+
+Calling the example function using the REPL (Read Eval Print Loop):
+
+CL-USER > (birthday-paradox 1.0 1)
+23
+-----------
+#+begin_src lisp
+(defclass person ()
+  ((name :initarg :name :accessor person-name)
+   (age  :initarg :age  :accessor person-age))
+  (:documentation "The class PERSON with slots NAME and AGE."))
+
+(defmethod display ((object person) stream)
+  "Displaying a PERSON object to an output stream."
+  (with-slots (name age) object
+    (format stream "~a (~a)" name age)))
+
+(defparameter *group*
+  (list (make-instance 'person :name "Bob"   :age 33)
+        (make-instance 'person :name "Chris" :age 16)
+        (make-instance 'person :name "Ash"   :age 23))
+  "A list of PERSON objects.")
+
+(dolist (person (sort (copy-list *group*)
+                      #'>
+                      :key #'person-age))
+  (display person *standard-output*)
+  (terpri))
+#+end_src
+
+It prints the three names with descending age.
+
+Bob (33)
+Ash (23)
+Chris (16)
+
+#+begin_src lisp
+(defun list-matching-lines (file predicate)
+  "Returns a list of lines in file, for which the predicate applied to
+ the line returns T."
+  (with-open-file (stream file)
+    (loop for line = (read-line stream nil nil)
+          while line
+          when (funcall predicate line)
+          collect it)))
+#+end_src
+
+#+begin_src lisp
+(defun available-shells (&optional (file #p"/etc/shells"))
+  (list-matching-lines
+   file
+   (lambda (line)
+     (and (plusp (length line))
+          (char= (char line 0) #\/)
+          (pathname
+           (string-right-trim '(#\space #\tab) line))))))
+#+end_src
+<<<<<<< Updated upstream
+* NEXT flycheck and elisp files:
+** you can disable flycheck based on extension:
+(add-hook 'flycheck-mode-hook #'my-keep-flycheck-off)
+
+(defun my-keep-flycheck-off ()
+  (when (and (eq major-mode 'sh-mode)
+             (buffer-file-name)
+             (string= (file-name-extension (buffer-file-name)) "cfg"))
+    (flycheck-mode -1)))
+**  or (setq flycheck-disabled-checkers '(sh-shellscript sh-bash sh-zsh))
+** or, again:
+(add-to-list 'auto-mode-alist
+             '("\\.cfg\\'" . (lambda ()
+                               (setq flycheck-disabled-checkers  (append '(sh-shellscript sh-bash sh-zsh)
+                               flycheck-disabled-checkers))
+                               (shell-script-mode))))
+Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
+
+* https://en.wikipedia.org/wiki/Look-and-say_sequence
+* (add-to-list 'warning-suppress-types '(files missing-lexbind-cookies))
+=======
+* rpc error fix?
+(remove-hook 'after-save-hook #'eglot-format nil)
+** problem seems to be with eglot and is triggered by a save.
+>>>>>>> Stashed changes
