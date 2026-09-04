@@ -1,5 +1,6 @@
 ;;; +sep+
 #+property: folded
+* Start times on New up to 3.4 secs. 3.3 on Big.
 * misc
 ** Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
 
@@ -225,12 +226,25 @@ Chris (16)
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
 * Org speed keys.
-Speed Keys
-Single keystrokes can execute custom commands in an Org file when point is on a headline. Without the extra burden of a meta or modifier key, Speed Keys can speed navigation or execute custom commands. Besides faster navigation, Speed Keys may come in handy on small mobile devices that do not have full keyboards. Speed Keys may also work on TTY devices known for their problems when entering Emacs key chords.
+Speed Keys Single keystrokes can execute custom commands in an Org
+file when point is on a headline. Without the extra burden of a meta
+or modifier key, Speed Keys can speed navigation or execute custom
+commands. Besides faster navigation, Speed Keys may come in handy on
+small mobile devices that do not have full keyboards. Speed Keys may
+also work on TTY devices known for their problems when entering Emacs
+key chords.
 
-By default, Org has Speed Keys disabled. To activate Speed Keys, set the variable org-use-speed-commands to a non-nil value. To trigger a Speed Key, point must be at the beginning of an Org headline, before any of the stars.
+By default, Org has Speed Keys disabled. To activate Speed Keys, set
+the variable org-use-speed-commandsf to a non-nil value. To trigger a
+Speed Key, point must be at the beginning of an Org headline, before
+any of the stars.
 
-Org comes with a pre-defined list of Speed Keys. To add or modify Speed Keys, customize the option org-speed-commands. For more details, see the variable’s docstring. With Speed Keys activated, M-x org-speed-command-help, or ? when point is at the beginning of an Org headline, shows currently active Speed Keys, including the user-defined ones.
+Org comes with a pre-defined list of Speed Keys. To add or modify
+Speed Keys, customize the option org-speed-commands. For more details,
+see the variable’s docstring. With Speed Keys activated, M-x
+org-speed-command-help, or ? when point is at the beginning of an Org
+headline, shows currently active Speed Keys, including the
+user-defined ones.
 * Org structure templates
 Structure Templates ¶
 With just a few keystrokes, it is possible to insert empty structural blocks, such as ‘#+BEGIN_SRC’ … ‘#+END_SRC’, or to wrap existing text in such a block.
