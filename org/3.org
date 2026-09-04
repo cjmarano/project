@@ -22,10 +22,36 @@ CLOSED: [2026-08-20 Thu 08:12]
 #+begin_src python
 
 #+end_src
-*** ISSUE +NOTE:+ inserting code blocks: you can use <KEY then <TAB>.
-CLOSED: [2026-08-03 Mon 10:02]
-as in <s then l for Lisp, <s followed by L for emacs-lisp, etc.
+*** COMPLETED +NOTE:+ inserting code blocks: you can use <KEY then <TAB>.
+CLOSED: [2026-09-04 Fri 12:59]
+as in <s or <l for Lisp, or <L for emacs-lisp, etc.
 this is instead of C-c C-,   
+*** Org structure templates
+Structure Templates ¶ With just a few keystrokes, it is possible to
+insert empty structural blocks, such as ‘#+BEGIN_SRC’ … ‘#+END_SRC’,
+or to wrap existing text in such a block.
+
+C-c C-, (org-insert-structure-template) Prompt for a type of block
+structure, and insert the block at point. If the region is active, it
+is wrapped in the block. First prompts the user for keys, which are
+used to look up a structure type from the variable below. If the key
+is TAB, RET, or SPC, the user is prompted to enter a block type.
+
+Available structure types are defined in org-structure-template-alist,
+see the docstring for adding or changing values.
+
+Org Tempo expands snippets to structures defined in
+org-structure-template-alist and org-tempo-keywords-alist. For
+example, < s TAB creates a code block. Enable it by customizing
+org-modules or add ‘(require 'org-tempo)’ to your Emacs init file162.
+
+a ‘#+BEGIN_EXPORT ascii’ … ‘#+END_EXPORT’ c ‘#+BEGIN_CENTER’ …
+‘#+END_CENTER’ C ‘#+BEGIN_COMMENT’ … ‘#+END_COMMENT’ e
+‘#+BEGIN_EXAMPLE’ … ‘#+END_EXAMPLE’ E ‘#+BEGIN_EXPORT’ …
+‘#+END_EXPORT’ h ‘#+BEGIN_EXPORT html’ … ‘#+END_EXPORT’ l
+‘#+BEGIN_EXPORT latex’ … ‘#+END_EXPORT’ q ‘#+BEGIN_QUOTE’ …
+‘#+END_QUOTE’ s ‘#+BEGIN_SRC’ … ‘#+END_SRC’ v ‘#+BEGIN_VERSE’ …
+‘#+END_VERSE’
 ** COMPLETED flycheck and elisp files:
 CLOSED: [2026-09-01 Tue 11:15]
 *** COMPLETED Disabled flycheck for emacs lisp on new:
@@ -71,10 +97,31 @@ CLOSED: [2026-08-20 Thu 08:16]
 *** This did NOT increase load time for init.el on New so...
 Longer load time for init.el on Big still needs investigating.
 
-* DONE rpc error fix?
+** DONE rpc error fix?
 CLOSED: [2026-09-02 Wed 09:36]
 (remove-hook 'after-save-hook #'eglot-format nil)
 ** problem seems to be with eglot and is triggered by a save.
+* ISSUE [#B] Org speed keys.
+CLOSED: [2026-09-04 Fri 11:45]
+Speed Keys Single keystrokes can execute custom commands in an Org
+file when point is on a headline. Without the extra burden of a meta
+or modifier key, Speed Keys can speed navigation or execute custom
+commands. Besides faster navigation, Speed Keys may come in handy on
+small mobile devices that do not have full keyboards. Speed Keys may
+also work on TTY devices known for their problems when entering Emacs
+key chords.
+
+By default, Org has Speed Keys disabled. To activate Speed Keys, set
+the variable org-use-speed-commandsf to a non-nil value. To trigger a
+Speed Key, point must be at the beginning of an Org headline, before
+any of the stars.
+
+Org comes with a pre-defined list of Speed Keys. To add or modify
+Speed Keys, customize the option org-speed-commands. For more details,
+see the variable’s docstring. With Speed Keys activated, M-x
+org-speed-command-help, or ? when point is at the beginning of an Org
+headline, shows currently active Speed Keys, including the
+user-defined ones.
 * ISSUE init.el on Plucky is a mess.
 * ISSUE emacs versions @ /usr/bin/emacs -nw %F & home/linuxbrew/.linuxbrew/bin//emacs
 * ISSUE Build emacs:
@@ -225,44 +272,3 @@ Chris (16)
           (pathname
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
-* Org speed keys.
-Speed Keys Single keystrokes can execute custom commands in an Org
-file when point is on a headline. Without the extra burden of a meta
-or modifier key, Speed Keys can speed navigation or execute custom
-commands. Besides faster navigation, Speed Keys may come in handy on
-small mobile devices that do not have full keyboards. Speed Keys may
-also work on TTY devices known for their problems when entering Emacs
-key chords.
-
-By default, Org has Speed Keys disabled. To activate Speed Keys, set
-the variable org-use-speed-commandsf to a non-nil value. To trigger a
-Speed Key, point must be at the beginning of an Org headline, before
-any of the stars.
-
-Org comes with a pre-defined list of Speed Keys. To add or modify
-Speed Keys, customize the option org-speed-commands. For more details,
-see the variable’s docstring. With Speed Keys activated, M-x
-org-speed-command-help, or ? when point is at the beginning of an Org
-headline, shows currently active Speed Keys, including the
-user-defined ones.
-* Org structure templates
-Structure Templates ¶
-With just a few keystrokes, it is possible to insert empty structural blocks, such as ‘#+BEGIN_SRC’ … ‘#+END_SRC’, or to wrap existing text in such a block.
-
-C-c C-, (org-insert-structure-template)
-Prompt for a type of block structure, and insert the block at point. If the region is active, it is wrapped in the block. First prompts the user for keys, which are used to look up a structure type from the variable below. If the key is TAB, RET, or SPC, the user is prompted to enter a block type.
-
-Available structure types are defined in org-structure-template-alist, see the docstring for adding or changing values.
-
-Org Tempo expands snippets to structures defined in org-structure-template-alist and org-tempo-keywords-alist. For example, < s TAB creates a code block. Enable it by customizing org-modules or add ‘(require 'org-tempo)’ to your Emacs init file162.
-
-a	‘#+BEGIN_EXPORT ascii’ … ‘#+END_EXPORT’
-c	‘#+BEGIN_CENTER’ … ‘#+END_CENTER’
-C	‘#+BEGIN_COMMENT’ … ‘#+END_COMMENT’
-e	‘#+BEGIN_EXAMPLE’ … ‘#+END_EXAMPLE’
-E	‘#+BEGIN_EXPORT’ … ‘#+END_EXPORT’
-h	‘#+BEGIN_EXPORT html’ … ‘#+END_EXPORT’
-l	‘#+BEGIN_EXPORT latex’ … ‘#+END_EXPORT’
-q	‘#+BEGIN_QUOTE’ … ‘#+END_QUOTE’
-s	‘#+BEGIN_SRC’ … ‘#+END_SRC’
-v	‘#+BEGIN_VERSE’ … ‘#+END_VERSE’
