@@ -1,6 +1,6 @@
 ;;; +sep+
 #+property: folded
-* Start times on New up to 3.4 secs. 3.3 on Big.
+* Start times on New down to 2.4 secs. after recompile. Up to 3.7 on Big.
 * misc
 ** Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
 
@@ -272,3 +272,9 @@ Chris (16)
           (pathname
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
+* WAITING Changed 'after-init-hook to:
+(add-hook 'with-eval-after-load
+          (lambda ()
+            (require 'dired-x)))
+** changed on New, remcompiled. Start times down to 2.4
+Changed on Big, start time did NOT go down.

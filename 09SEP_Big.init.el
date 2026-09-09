@@ -445,10 +445,6 @@
 (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs
                  '(python-mode . ("ruff")))
-;;    (with-eval-after-load 'eglot
-    ;;    (add-hook 'after-save-hook 'eglot-format)))
-    )
-
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
     (with-eval-after-load 'eglot
@@ -642,5 +638,5 @@
 
 (setq gc-cons-threshold (expt 2 23)) ;; 8MB
 (setq gc-cons-percentage 0.5)
-;; end
+;; init.el ends here
 ;;; 
