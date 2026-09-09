@@ -1,6 +1,6 @@
 ;;; +sep+
 #+property: folded
-* Start times on New down to 2.4 secs. after recompile. Up to 3.7 on Big.
+* Start times on New down to 2.7 Big. Up to 3.4 on New.
 * misc
 ** Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
 
