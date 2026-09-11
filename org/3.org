@@ -278,3 +278,4 @@ Chris (16)
             (require 'dired-x)))
 ** changed on New, remcompiled. Start times down to 2.4
 Changed on Big, start time did NOT go down.
+* 
