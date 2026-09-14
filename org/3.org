@@ -1,12 +1,7 @@
 ;;; +sep+
 #+property: folded
 * Start times on New down to 2.7 Big, 2.5 on New.
-* misc
-** Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
-
-** https://en.wikipedia.org/wiki/Look-and-say_sequence
-** Onani Master Kurosawa
-* +latest+ 02SEP_Big.init.el, 02SEP_New.init.el & 16jul.zshrc
+* +latest+ 09SEP_Big.init.el, 11SEPFREEZE.init.el (New) & 14SEP.zshrc
 ** COMPLETED org-structure-templates are working as they should.
 CLOSED: [2026-08-20 Thu 08:12]
 <KEY then <TAB> produces code block. built in L, H, A, i are disabled.
@@ -128,18 +123,32 @@ see the variable’s docstring. With Speed Keys activated, M-x
 org-speed-command-help, or ? when point is at the beginning of an Org
 headline, shows currently active Speed Keys, including the
 user-defined ones.
+* misc
+** Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
+
+** https://en.wikipedia.org/wiki/Look-and-say_sequence
+** Onani Master Kurosawa
+** NEXT Try Macro recording at some point.
+C-x ( starts recording a macro
+C-x ) stops recording a macro
+C-x e executes the macro
+C-u 37 C-x e executes the macro 37 times
+C-u 0 C-x e executes the macro an infinite number of times until EOF.
+** _BROKEN_ init.el fail reason unclear.
+** Had to restore from ~/project/freeze then run check-parens repeatedly.
+*** Also commented out Vterm since it looked like it +might+ be hanging up compiling init.el
+and wasnt' ever being used anyway.
+** sanity 80's theme never loaded since unexpected end of file in init.el
+** emacs loaded but was not parsing entire init.el file due to missing parens.
+*** was this some sort of odd file corruption issue?
+** not the 1st time that init.el seemed to be corrupted on New.
+*** had to use older freeze, find missing parens then elisp-byte-compile-file to get a good init.elc
 * ISSUE init.el on Plucky is a mess.
 * ISSUE emacs versions @ /usr/bin/emacs -nw %F & home/linuxbrew/.linuxbrew/bin//emacs
 * ISSUE Build emacs:
 CLOSED: [2026-08-19 Wed 13:24]
 https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
 * WAITING +emacs 31+... speedbar. Bind it to a function key maybe?
-* NEXT Try Macro recording at some point.
-C-x ( starts recording a macro
-C-x ) stops recording a macro
-C-x e executes the macro
-C-u 37 C-x e executes the macro 37 times
-C-u 0 C-x e executes the macro an infinite number of times until EOF.
 * NOTE: Lisp scripts:
 #!/opt/homebrew/bin/sbcl _<-- needs to run with sbcl --script <filename>_
 
@@ -278,12 +287,3 @@ Chris (16)
           (pathname
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
-* _BROKEN_ init.el fail reason unclear.
-** Had to restore from ~/project/freeze then run check-parens repeatedly.
-*** Also commented out Vterm since it looked like it +might+ be hangin up compiling init.el
-and wasnt' ever being used anyway.
-** sanity 80's theme never loaded since unexpected end of file in init.el
-** emacs loaded but was not parsing entire init.el file due to missing parens.
-*** was this some sort of odd file corruption issue?
-** not the 1st time that init.el seemed to be corrupted on New.
-*** had to use older freeze, find missing parens then elisp-byte-compile-file to get a good init.elc
