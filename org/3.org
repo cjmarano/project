@@ -287,3 +287,5 @@ Chris (16)
           (pathname
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
+
+* https://www.gtk.org/docs/getting-started/hello-world/
