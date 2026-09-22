@@ -291,3 +291,5 @@ Chris (16)
 * https://www.gtk.org/docs/getting-started/hello-world/
 * https://docs.gtk.org/gtk4/compiling.html
 * https://askubuntu.com/questions/397432/fatal-error-gtk-gtk-h-no-such-file-or-directory-using-make
+* Things to dive on.
+** fd
