@@ -293,3 +293,7 @@ Chris (16)
 * https://askubuntu.com/questions/397432/fatal-error-gtk-gtk-h-no-such-file-or-directory-using-make
 * Things to dive on.
 ** fd
+** ripgrep
+** grep
+
+* https://unix.stackexchange.com/questions/86933/swap-alt-and-super
