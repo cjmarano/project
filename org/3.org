@@ -304,3 +304,13 @@ Chris (16)
 ** cleanup was confusing. removed C-x 4 b consult shortcut.
 removed other issues from warnings.
 slime still commented out. haven't found the file that's messing things up.
+** The problem starts here:
+
+#+begin_src emacs-lisp
+(straight-use-package 'slime
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+)  
+#+end_src
+
+*** sbcl and slime-helper appear to be okay. Problme is most likely in contribs.
