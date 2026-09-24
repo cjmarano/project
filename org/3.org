@@ -313,4 +313,5 @@ slime still commented out. haven't found the file that's messing things up.
 )  
 #+end_src
 
-*** sbcl and slime-helper appear to be okay. Problme is most likely in contribs.
+*** sbcl and slime-helper appear to be okay. Problme is most likely in contribs. 
+** try replacing entire contrib folder
