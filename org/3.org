@@ -295,5 +295,12 @@ Chris (16)
 ** fd
 ** ripgrep
 ** grep
-
+** +lexical binding on New as a test.+
 * https://unix.stackexchange.com/questions/86933/swap-alt-and-super
+* enabled lexical binding and byte compiled every file in contrib
+** ~/.quicklisp/dists/quicklist/software/Slimexxx/contrib
+* broke init.el - issue w/ slime file, but which one?
+** removale of refs to Slime fixe issue but will have to investigate.
+** cleanup was confusing. removed C-x 4 b consult shortcut.
+removed other issues from warnings.
+slime still commented out. haven't found the file that's messing things up.
