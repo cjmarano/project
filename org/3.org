@@ -328,4 +328,6 @@ CLOSED: [2026-09-25 Fri 09:18]
 https://emacs.stackexchange.com/questions/85745/how-to-totally-and-completely-remove-the-no-lexical-binding-warning
 https://forums.opensuse.org/t/updated-emacs-spews-lexical-binding-warnings/195790/8
 
-* 
+* there are 20 slime files (out of forty) w/ no  cookie. see lexical.txt
+
+

@@ -1,4 +1,6 @@
-  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-fancy.el".
+These .el files do NOT have lexial binding.
+
+"~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-fancy.el".
  
   "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-repl.el".
  
