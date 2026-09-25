@@ -1,0 +1,40 @@
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-fancy.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-repl.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-parse.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-autodoc.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-c-p-c.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-editing-commands.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-fancy-inspector.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-fancy-trace.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-fuzzy.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-mdot-fu.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-enclosing-context.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-macrostep.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-presentations.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-scratch.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-references.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-compiler-notes-tree.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-package-fu.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-fontifying-fu.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-indentation.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.32/contrib/slime-cl-indent.el".
+ 
