@@ -161,12 +161,16 @@ slime still commented out. haven't found the file that's messing things up.
 *** sbcl and slime-helper appear to be okay. Problme is most likely in contribs. 
 ** COMPLETED try replacing entire contrib folder
 CLOSED: [2026-09-25 Fri 07:30]
+** ISSUE enabled lexical binding and byte compiled every file in contrib
+CLOSED: [2026-09-25 Fri 09:16]
+** ~/.quicklisp/dists/quicklist/software/Slimexxx/contrib
 * ISSUE init.el on Plucky is a mess.
 * ISSUE emacs versions @ /usr/bin/emacs -nw %F & home/linuxbrew/.linuxbrew/bin//emacs
 * ISSUE Build emacs:
 CLOSED: [2026-08-19 Wed 13:24]
 https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
-* WAITING +emacs 31+... speedbar. Bind it to a function key maybe?
+* ISSUE +emacs 31+... speedbar. Bind it to a function key maybe?
+CLOSED: [2026-09-25 Fri 09:17]
 * NOTE: Lisp scripts:
 #!/opt/homebrew/bin/sbcl _<-- needs to run with sbcl --script <filename>_
 
@@ -306,16 +310,22 @@ Chris (16)
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
 
-* https://www.gtk.org/docs/getting-started/hello-world/
-* https://docs.gtk.org/gtk4/compiling.html
-* https://askubuntu.com/questions/397432/fatal-error-gtk-gtk-h-no-such-file-or-directory-using-make
 * Things to dive on.
 ** fd
 ** ripgrep
 ** grep
-** +lexical binding on New as a test.+
+** BROKEN +lexical binding on New as a test.+
+CLOSED: [2026-09-25 Fri 09:18]
 * https://unix.stackexchange.com/questions/86933/swap-alt-and-super
-* enabled lexical binding and byte compiled every file in contrib
-** ~/.quicklisp/dists/quicklist/software/Slimexxx/contrib
+* GTK for emacs GUI
+** https://www.gtk.org/docs/getting-started/hello-world/
+** https://docs.gtk.org/gtk4/compiling.html
+** https://askubuntu.com/questions/397432/fatal-error-gtk-gtk-h-no-such-file-or-directory-using-make
 * Terminal emacs on New allows clicks <RET> to open items, Plucky doesn't
 ** this is a X-windows thing.
+* lexical.txt is list of all slime contribs that are not lexical from New.
+* 'fix' for lexical binding cookie warning:
+https://emacs.stackexchange.com/questions/85745/how-to-totally-and-completely-remove-the-no-lexical-binding-warning
+https://forums.opensuse.org/t/updated-emacs-spews-lexical-binding-warnings/195790/8
+
+* 
