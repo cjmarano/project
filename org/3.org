@@ -143,6 +143,24 @@ and wasnt' ever being used anyway.
 *** was this some sort of odd file corruption issue?
 ** not the 1st time that init.el seemed to be corrupted on New.
 *** had to use older freeze, find missing parens then elisp-byte-compile-file to get a good init.elc
+** BROKEN broke init.el - issue w/ slime file, but which one?
+CLOSED: [2026-09-25 Fri 07:30]
+** removale of refs to Slime fixe issue but will have to investigate.
+** cleanup was confusing. removed C-x 4 b consult shortcut.
+removed other issues from warnings.
+slime still commented out. haven't found the file that's messing things up.
+** The problem starts here:
+
+#+begin_src emacs-lisp
+(straight-use-package 'slime
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+)  
+#+end_src
+
+*** sbcl and slime-helper appear to be okay. Problme is most likely in contribs. 
+** COMPLETED try replacing entire contrib folder
+CLOSED: [2026-09-25 Fri 07:30]
 * ISSUE init.el on Plucky is a mess.
 * ISSUE emacs versions @ /usr/bin/emacs -nw %F & home/linuxbrew/.linuxbrew/bin//emacs
 * ISSUE Build emacs:
@@ -299,19 +317,5 @@ Chris (16)
 * https://unix.stackexchange.com/questions/86933/swap-alt-and-super
 * enabled lexical binding and byte compiled every file in contrib
 ** ~/.quicklisp/dists/quicklist/software/Slimexxx/contrib
-* broke init.el - issue w/ slime file, but which one?
-** removale of refs to Slime fixe issue but will have to investigate.
-** cleanup was confusing. removed C-x 4 b consult shortcut.
-removed other issues from warnings.
-slime still commented out. haven't found the file that's messing things up.
-** The problem starts here:
-
-#+begin_src emacs-lisp
-(straight-use-package 'slime
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
-)  
-#+end_src
-
-*** sbcl and slime-helper appear to be okay. Problme is most likely in contribs. 
-** try replacing entire contrib folder
+* Terminal emacs on New allows clicks <RET> to open items, Plucky doesn't
+** this is a X-windows thing.
