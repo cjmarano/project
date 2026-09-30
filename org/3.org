@@ -330,3 +330,9 @@ CLOSED: [2026-09-25 Fri 09:18]
 ** 'fix' for lexical binding cookie warning:
 https://emacs.stackexchange.com/questions/85745/how-to-totally-and-completely-remove-the-no-lexical-binding-warning
 https://forums.opensuse.org/t/updated-emacs-spews-lexical-binding-warnings/195790/8
+* after Apple update Super and Alt (M-x and S-) failed.
+** Spent a LOT of time playing with this. After moving a copy of init.el from New
+to Big and elisp-byte-compile-file and some other follishness both M-x and S- AREW working but...
+they are set Linux style (M- on the right, S- on the left). Despite the fact that they are switched
+in System Setting, Kyboard Shortcutes.
+** M- and S- still work normally on New after same update.
