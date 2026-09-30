@@ -1,7 +1,7 @@
 ;;; +sep+
 #+property: folded
 * Start times on New down to 2.7 Big, 2.5 on New.
-* +latest+ 09SEP_Big.init.el, 11SEPFREEZE.init.el (New) & 14SEP.zshrc
+* +latest+ 09SEP_Big.init.el, 29SEPFREEZE.init.el (New) & 14SEP.zshrc
 ** COMPLETED org-structure-templates are working as they should.
 CLOSED: [2026-08-20 Thu 08:12]
 <KEY then <TAB> produces code block. built in L, H, A, i are disabled.
@@ -168,13 +168,13 @@ CLOSED: [2026-09-25 Fri 09:16]
 CLOSED: [2026-09-28 Mon 07:27]
 ** emacs-gtk does allow click in GUI but is NOT most recent version of emacs.
 ** this is a X-windows thing.
+* ISSUE +emacs 31+... speedbar. Bind it to a function key maybe?
+CLOSED: [2026-09-25 Fri 09:17]
 * ISSUE init.el on Plucky is a mess.
 * ISSUE emacs versions @ /usr/bin/emacs -nw %F & home/linuxbrew/.linuxbrew/bin//emacs
 * ISSUE Build emacs:
 CLOSED: [2026-08-19 Wed 13:24]
 https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
-* ISSUE +emacs 31+... speedbar. Bind it to a function key maybe?
-CLOSED: [2026-09-25 Fri 09:17]
 * NOTE: Lisp scripts:
 #!/opt/homebrew/bin/sbcl _<-- needs to run with sbcl --script <filename>_
 
@@ -314,7 +314,7 @@ Chris (16)
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
 
-* Things to dive on.
+* NEXT Things to dive on.
 ** fd
 ** ripgrep
 ** grep
