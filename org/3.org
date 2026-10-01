@@ -339,5 +339,5 @@ in System Setting, Kyboard Shortcutes.
 ** M- and S- still work normally on New after same update.
 ** finally used Apple keyboard on Big with keyboard shortcuts set to normal
 *** Command = Command, Option = Option and that restored 'normal' function.
-
-
+** Fixed on New, no idea how swapped then swapped back in keyboard shortcuts.
+emacs rebuilt itself - Straight - without prompting by me. Whatever.
