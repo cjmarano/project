@@ -1,0 +1,24 @@
+Eleven slime contribs that do NOT have lexical binding.
+
+"~/.quicklisp/dists/quicklisp/software/slime-v2.31/lib/hyperspec.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-fancy.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-repl.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-parse.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-autodoc.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-c-p-c.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-editing-commands.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-fancy-inspector.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-fancy-trace.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-fuzzy.el".
+ 
+  "~/.quicklisp/dists/quicklisp/software/slime-v2.31/contrib/slime-mdot-fu.el".
+ 
