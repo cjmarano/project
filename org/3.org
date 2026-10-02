@@ -341,3 +341,5 @@ in System Setting, Kyboard Shortcutes.
 *** Command = Command, Option = Option and that restored 'normal' function.
 ** Fixed on New, no idea how swapped then swapped back in keyboard shortcuts.
 emacs rebuilt itself - Straight - without prompting by me. Whatever.
+
+http://tinyurl.com/helloEmacs
