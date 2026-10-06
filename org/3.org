@@ -1,7 +1,8 @@
+
 ;;; +sep+
 #+property: folded
-* Start times on New down to 2.7 Big, 2.5 on New.
-* +latest+ 09SEP_Big.init.el, 29SEPFREEZE.init.el (New) & 14SEP.zshrc
+* Start times on New down to 4.4 Big, 2.5 on New.
+* +latest+ 05OCT_Big.init.el, 05OCTFREEZE.init.el (New) & 14SEP.zshrc
 ** COMPLETED org-structure-templates are working as they should.
 CLOSED: [2026-08-20 Thu 08:12]
 <KEY then <TAB> produces code block. built in L, H, A, i are disabled.
@@ -173,8 +174,7 @@ CLOSED: [2026-09-28 Mon 07:27]
 ** ripgrep
 ** grep
 ** BROKEN +lexical binding on New as a test.+
-CLOSED: [2026-09-25 Fri 09:18]
-* COMPLETED after Apple update Super and Alt (M- and S-) failed.
+CLOSED: [2026-09-25 Fri  COMPLETED after Apple update Super and Alt (M- and S-) failed.
 CLOSED: [2026-10-02 Fri 09:21]
 ** Now New is doing it too!
 ** Spent a LOT of time playing with this. After moving a copy of init.el from New
@@ -191,10 +191,10 @@ http://tinyurl.com/helloEmacs
 * ISSUE +emacs 31+... speedbar. Bind it to a function key maybe?
 CLOSED: [2026-09-25 Fri 09:17]
 * ISSUE init.el on Plucky is a mess.
-* ISSUE emacs versions @ /usr/bin/emacs -nw %F & home/linuxbrew/.linuxbrew/bin//emacs
 * ISSUE Build emacs:
 CLOSED: [2026-08-19 Wed 13:24]
 https://deepwiki.com/emacsmirror/emacs/6-building-and-extending-emacs
+** ISSUE emacs versions @ /usr/bin/emacs -nw %F & home/linuxbrew/.linuxbrew/bin//emacs
 * NOTE: Lisp scripts:
 #!/opt/homebrew/bin/sbcl _<-- needs to run with sbcl --script <filename>_
 
@@ -339,8 +339,14 @@ Chris (16)
 ** https://www.gtk.org/docs/getting-started/hello-world/
 ** https://docs.gtk.org/gtk4/compiling.html
 ** https://askubuntu.com/questions/397432/fatal-error-gtk-gtk-h-no-such-file-or-directory-using-make
-* there are 20 slime files (out of forty) w/ no  cookie. see lexical.txt
-** lexical.txt is list of all slime contribs that are not lexical from New.
+* COMPLETED +Solved+ there are 20 slime files (out of forty) w/ no  cookie. see lexical.txt
+CLOSED: [2026-10-06 Tue 12:29]
+** DONE lexical.txt is list of all slime contribs that are not lexical from New.
+CLOSED: [2026-10-06 Tue 12:30]
+** did M-x elisp-enable-lexical-binding to all the files in lexical.txt
+this silenced the warnings (in both GUI and Terminal emacs on new).
 ** 'fix' for lexical binding cookie warning:
 https://emacs.stackexchange.com/questions/85745/how-to-totally-and-completely-remove-the-no-lexical-binding-warning
 https://forums.opensuse.org/t/updated-emacs-spews-lexical-binding-warnings/195790/8
+** copied entire contrib folder to Big.
+elisp-byte-compile-file init.el on Big. Reloaded. 
