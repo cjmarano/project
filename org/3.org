@@ -126,7 +126,6 @@ headline, shows currently active Speed Keys, including the
 user-defined ones.
 * misc
 ** Super Special Science Daisakuso-naku Kubo Monogatari - Earth SOS
-
 ** https://en.wikipedia.org/wiki/Look-and-say_sequence
 ** Onani Master Kurosawa
 ** NEXT Try Macro recording at some point.
@@ -188,6 +187,27 @@ in System Setting, Kyboard Shortcutes.
 emacs rebuilt itself - Straight - without prompting by me. Whatever.
 
 http://tinyurl.com/helloEmacs
+** COMPLETED +Solved+ there are 20 slime files (out of forty) w/ no  cookie. see lexical.txt
+CLOSED: [2026-10-06 Tue 12:29]
+** DONE lexical.txt is list of all slime contribs that are not lexical from New.
+CLOSED: [2026-10-06 Tue 12:30]
+** did M-x elisp-enable-lexical-binding to all the files in lexical.txt
+this silenced the warnings (in both GUI and Terminal emacs on new).
+** 'fix' for lexical binding cookie warning:
+https://emacs.stackexchange.com/questions/85745/how-to-totally-and-completely-remove-the-no-lexical-binding-warning
+https://forums.opensuse.org/t/updated-emacs-spews-lexical-binding-warnings/195790/8
+** copied entire contrib folder to Big.
+elisp-byte-compile-file init.el on Big. Reloaded. 
+** had to enable lexical binding in additonal files on Big, including in:
+~/.quicklisp/dists/quicklisp/software/slime-v2.32/lib/ files were:
+
+lib/macrostep.el
+lib/hyperspace.el
+slime-autoloads.el
+~/.quicklisp/slime-helper.el
+~/.emacs.d/early-init.el
+*** enabling lexical binding on the above stopped all error messages when loading emacs from Terminal.
+
 * ISSUE +emacs 31+... speedbar. Bind it to a function key maybe?
 CLOSED: [2026-09-25 Fri 09:17]
 * ISSUE init.el on Plucky is a mess.
@@ -339,14 +359,3 @@ Chris (16)
 ** https://www.gtk.org/docs/getting-started/hello-world/
 ** https://docs.gtk.org/gtk4/compiling.html
 ** https://askubuntu.com/questions/397432/fatal-error-gtk-gtk-h-no-such-file-or-directory-using-make
-* COMPLETED +Solved+ there are 20 slime files (out of forty) w/ no  cookie. see lexical.txt
-CLOSED: [2026-10-06 Tue 12:29]
-** DONE lexical.txt is list of all slime contribs that are not lexical from New.
-CLOSED: [2026-10-06 Tue 12:30]
-** did M-x elisp-enable-lexical-binding to all the files in lexical.txt
-this silenced the warnings (in both GUI and Terminal emacs on new).
-** 'fix' for lexical binding cookie warning:
-https://emacs.stackexchange.com/questions/85745/how-to-totally-and-completely-remove-the-no-lexical-binding-warning
-https://forums.opensuse.org/t/updated-emacs-spews-lexical-binding-warnings/195790/8
-** copied entire contrib folder to Big.
-elisp-byte-compile-file init.el on Big. Reloaded. 
