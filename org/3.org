@@ -359,3 +359,8 @@ Chris (16)
 ** https://www.gtk.org/docs/getting-started/hello-world/
 ** https://docs.gtk.org/gtk4/compiling.html
 ** https://askubuntu.com/questions/397432/fatal-error-gtk-gtk-h-no-such-file-or-directory-using-make
+* Fourteen .el files in contrib do NOT have lexical binding t but...
+aren't flagged by emacs during startup, meaning they either aren't loaded or they're
+not a problem for some other reason.
+* emacs 31.1 working w/ no errors in terminal on New and Big.
+** GUI version is 30.2 on New and Big.

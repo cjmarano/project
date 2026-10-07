@@ -1,0 +1,29 @@
+find -H . -type d \( -path \*/SCCS -o -path \*/RCS -o -path \*/CVS -o -path \*/MCVS -o -path \*/.src -o -path \*/.svn -o -path \*/.git -o -path \*/.hg -o -path \*/.bzr -o -path \*/_MTN -o -path \*/_darcs -o -path \*/\{arch\} \) -prune -o  -type f \( -iname \*.el \) \! \( -name .\#\* -o -name \*.o -o -name \*\~ -o -name \*.bin -o -name \*.lbin -o -name \*.so -o -name \*.a -o -name \*.ln -o -name \*.blg -o -name \*.bbl -o -name \*.elc -o -name \*.lof -o -name \*.glo -o -name \*.idx -o -name \*.lot -o -name \*.fmt -o -name \*.tfm -o -name \*.class -o -name \*.fas -o -name \*.lib -o -name \*.mem -o -name \*.x86f -o -name \*.sparcf -o -name \*.dfsl -o -name \*.pfsl -o -name \*.d64fsl -o -name \*.p64fsl -o -name \*.lx64fsl -o -name \*.lx32fsl -o -name \*.dx64fsl -o -name \*.dx32fsl -o -name \*.fx64fsl -o -name \*.fx32fsl -o -name \*.sx64fsl -o -name \*.sx32fsl -o -name \*.wx64fsl -o -name \*.wx32fsl -o -name \*.fasl -o -name \*.ufsl -o -name \*.fsl -o -name \*.dxl -o -name \*.lo -o -name \*.la -o -name \*.gmo -o -name \*.mo -o -name \*.toc -o -name \*.aux -o -name \*.cp -o -name \*.fn -o -name \*.ky -o -name \*.pg -o -name \*.tp -o -name \*.vr -o -name \*.cps -o -name \*.fns -o -name \*.kys -o -name \*.pgs -o -name \*.tps -o -name \*.vrs -o -name \*.pyc -o -name \*.pyo \) -exec grep --color=auto -i -nH --null -e lexical-binding \{\} +
+./slime-presentations.el:1:;; -*- lexical-binding: t; -*-
+./slime-trace-dialog.el:1:;;; -*- coding: utf-8; lexical-binding: t -*-
+./slime-tramp.el:1:;;;; -*- lexical-binding: t -*-
+./slime-cl-indent.el:1:;;; slime-cl-indent.el --- enhanced lisp-indent mode  -*- lexical-binding: t; -*-
+./slime-fancy.el:1:;; -*- lexical-binding: t; -*-
+./slime-mdot-fu.el:1:;; -*- lexical-binding: t; -*-
+./slime-indentation.el:1:;; -*- lexical-binding: t; -*-
+./slime-fuzzy.el:1:;; -*- lexical-binding: t; -*-
+./slime-fontifying-fu.el:1:;; -*- lexical-binding: t; -*-
+./slime-clipboard.el:1:;;;; -*- lexical-binding: t -*-
+./slime-c-p-c.el:1:;; -*- lexical-binding: t; -*-
+./slime-scratch.el:1:;;; slime-scratch.el  -*- lexical-binding: t; -*-
+./slime-fancy-inspector.el:1:;; -*- lexical-binding: t; -*-
+./slime-references.el:1:;; -*- lexical-binding: t; -*-
+./slime-asdf.el:1:;; -*- lexical-binding: t; -*-
+./slime-parse.el:1:;; -*- lexical-binding: t; -*-
+./slime-enclosing-context.el:1:;; -*- lexical-binding: t; -*-
+./slime-compiler-notes-tree.el:1:;; -*- lexical-binding: t; -*-
+./slime-macrostep.el:1:;;; slime-macrostep.el -- fancy macro-expansion via macrostep.el  -*- lexical-binding: t; -*-
+./slime-autodoc.el:1:;; -*- lexical-binding: t; -*-
+./slime-hyperdoc.el:1:;;;; -*- lexical-binding: t -*-
+./slime-sprof.el:1:;;;; -*- lexical-binding: t -*-
+./slime-package-fu.el:1:;; -*- lexical-binding: t; -*-
+./slime-editing-commands.el:1:;; -*- lexical-binding: t; -*-
+./slime-repl.el:1:;;; slime-repl.el ---  -*- lexical-binding: t; -*-
+./slime-fancy-trace.el:1:;; -*- lexical-binding: t; -*-
+
+Grep finished with 26 matches found at Wed Oct  7 12:26:40, duration 0.38 s
