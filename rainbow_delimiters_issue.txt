@@ -1,0 +1,4 @@
+$ cd /Users/charles.marano/.emacs.d/straight/repos/rainbow-delimiters/
+$ git --no-pager branch -r
+
+fatal: not a git repository (or any of the parent directories): .git
