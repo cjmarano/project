@@ -1,0 +1,3 @@
+$ /opt/homebrew/bin/makeinfo /Users/charles.marano/.emacs.d/straight/repos/company-mode/doc/company.texi -o /Users/charles.marano/.emacs.d/straight/build/company/company.info
+
+/Users/charles.marano/.emacs.d/straight/repos/company-mode/doc/company.texi:1590: `@end' expected `defopt', but saw `defun'

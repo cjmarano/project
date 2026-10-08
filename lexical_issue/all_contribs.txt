@@ -1,17 +1,18 @@
-39 lime-files, some w/ lexical binding cookie.
+All slime files in contrib.
+
 slime-asdf.el
 slime-autodoc.el
 slime-banner.el
 slime-buffer-streams.el
+slime-c-p-c.el
 slime-cl-indent.el
 slime-clipboard.el
 slime-compiler-notes-tree.el
-slime-c-p-c.el
 slime-editing-commands.el
 slime-enclosing-context.el
-slime-fancy.el
 slime-fancy-inspector.el
 slime-fancy-trace.el
+slime-fancy.el
 slime-fontifying-fu.el
 slime-fuzzy.el
 slime-highlight-edits.el
@@ -24,8 +25,8 @@ slime-media.el
 slime-mrepl.el
 slime-package-fu.el
 slime-parse.el
-slime-presentations.el
 slime-presentation-streams.el
+slime-presentations.el
 slime-quicklisp.el
 slime-references.el
 slime-repl.el

@@ -1,10 +1,40 @@
-;;; early-init.el --- early bird  -*- no-byte-compile: t -*-
-(setq package-enable-at-startup nil)
-
-(setq gc-cons-threshold most-positive-fixnum)
-;; (setq load-prefer-newer t)
-;; (add-to-list 'load-path "/Users/charles.marano/.emacs.d/elpa/auto-compile-20260101.1821")
-;; (require 'auto-compile)
-;; (auto-compile-on-load-mode)
-;; (auto-compile-on-save-mode)
-;;; early-init.el ends here
+39 lime-files, some w/ lexical binding cookie.
+slime-asdf.el
+slime-autodoc.el
+slime-banner.el
+slime-buffer-streams.el
+slime-cl-indent.el
+slime-clipboard.el
+slime-compiler-notes-tree.el
+slime-c-p-c.el
+slime-editing-commands.el
+slime-enclosing-context.el
+slime-fancy.el
+slime-fancy-inspector.el
+slime-fancy-trace.el
+slime-fontifying-fu.el
+slime-fuzzy.el
+slime-highlight-edits.el
+slime-hyperdoc.el
+slime-indentation.el
+slime-listener-hooks.el
+slime-macrostep.el
+slime-mdot-fu.el
+slime-media.el
+slime-mrepl.el
+slime-package-fu.el
+slime-parse.el
+slime-presentations.el
+slime-presentation-streams.el
+slime-quicklisp.el
+slime-references.el
+slime-repl.el
+slime-sbcl-exts.el
+slime-scheme.el
+slime-scratch.el
+slime-snapshot.el
+slime-sprof.el
+slime-trace-dialog.el
+slime-tramp.el
+slime-typeout-frame.el
+slime-xref-browser.el
