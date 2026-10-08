@@ -1,7 +1,7 @@
 
 ;;; +sep+
 #+property: folded
-* Start times on New down to 4.4 Big, 2.5 on New.
+* Start times on New down to 4.4 Big, 2.4 on New.
 * +latest+ 05OCT_Big.init.el, 05OCTFREEZE.init.el (New) & 14SEP.zshrc
 ** COMPLETED org-structure-templates are working as they should.
 CLOSED: [2026-08-20 Thu 08:12]
