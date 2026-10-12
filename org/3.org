@@ -363,3 +363,5 @@ aren't flagged by emacs during startup, meaning they either aren't loaded or the
 not a problem for some other reason.
 * emacs 31.1 working w/ no errors in terminal on New and Big.
 ** GUI version is 30.2 on New and Big.
+
+https://getartcraft.com/apps/photocraft
