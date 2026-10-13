@@ -365,3 +365,5 @@ not a problem for some other reason.
 ** GUI version is 30.2 on New and Big.
 
 https://getartcraft.com/apps/photocraft
+
+* https://packages.debian.org/trixie/emacs-gtk?pow_referer=https%3A%2F%2Fwww.google.com%2F
