@@ -87,7 +87,7 @@
                 term-mode-hook
                 shell-mode-hook
                 eshell-mode-hook
-                vterm-mode-hook))
+''                vterm-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (recentf-mode 1)
@@ -102,7 +102,7 @@
 (when (string= system-type "darwin")       
 (setq dired-use-ls-dired nil))
 
-(add-hook 'dired-load-hook
+(add-hook 'with-eval-after-load
           (lambda ()
             (require 'dired-x)))
 
@@ -199,10 +199,10 @@
   (which-key-mode)
   (setq which-key-idle-delay .9))
 
-(setq vterm-always-compile-module t)
+;; (setq vterm-always-compile-module t)
 
-(use-package vterm
-  :defer t)
+;; (use-package vterm
+;;  :defer t)
 
 (use-package vertico
  :init
@@ -229,6 +229,20 @@
 (keymap-global-set "s-r" 'denote-journal-new-or-existing-entry)
 (keymap-global-set "C-c n t" 'denote-journal-link-or-create-entry)
 
+(use-package denote-journal
+  :ensure t
+  ;; :hook (calendar-mode . denote-journal-calendar-mode)
+  :config
+  ;; Use the "journal" subdirectory of the `denote-directory'.  Set this
+  ;; to nil to use the `denote-directory' instead.
+  (setq denote-journal-directory
+        (expand-file-name "journal" denote-directory))
+  ;; Default keyword for new journal entries. It can also be a list of
+  ;; strings.
+  (setq denote-journal-keyword "journal")
+  ;; Read the doc string of `denote-journal-title-format'.
+  (setq denote-journal-title-format 'day-date-month-year))
+
 (use-package consult
 ;; Replace bindings. Lazily loaded due by `use-package'.
 :bind (;; C-c bindings in `mode-specific-map'
@@ -241,7 +255,7 @@
        ;; C-x bindings in `ctl-x-map'
        ("C-x M-:" . consult-complex-command)
        ("C-x b" . consult-buffer)
-       ("C-x 4 b" . consult-buffer-other-window)
+;;       ("C-x 4 b" . consult-buffer-other-window)
        ("C-x 5 b" . consult-buffer-other-frame)
        ("C-x t b" . consult-buffer-other-tab)
        ("C-x r b" . consult-bookmark)
@@ -427,14 +441,11 @@
     (add-to-list 'eglot-server-programs
                  '(python-mode . ("ruff")))
     (with-eval-after-load 'eglot
-    (add-hook 'after-save-hook 'eglot-format))
-    )
-    (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
     (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs '((python-mode python-ts-mode) "pylsp")))
     (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer")))
+    (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer"))))
 
 (use-package flymake-ruff)
 (add-hook 'python-mode-hook #'flymake-ruff-load)
@@ -622,5 +633,4 @@
 
 (setq gc-cons-threshold (expt 2 23)) ;; 8MB
 (setq gc-cons-percentage 0.5)
-;; end
-;;; 
+;; init.el ends here

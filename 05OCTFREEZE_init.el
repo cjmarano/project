@@ -345,14 +345,9 @@
 
 (setq org-hide-emphasis-markers t)
 
-;; (add-to-list 'org-emphasis-alist
-;;              '("_" (:foreground "red")
-;;                ))
-
-;; (add-to-list 'org-emphasis-alist
-;;              '("+" (:foreground "LightGreen")
-;;                ))
-
+;; (use-package 'org-indent)
+;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+  
 (defun efs/org-mode-setup ()
 
   (variable-pitch-mode 1)
