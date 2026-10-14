@@ -207,8 +207,22 @@ slime-autoloads.el
 ~/.emacs.d/early-init.el
 *** enabling lexical binding on the above stopped all error messages when loading emacs from Terminal.
 
-* ISSUE +emacs 31+... speedbar. Bind it to a function key maybe?
+** COMPLETED Synched init.el on Big and New for the last time.
+CLOSED: [2026-10-14 Wed 10:32]
+** Fourteen .el files in contrib do NOT have lexical binding t but...
+aren't flagged by emacs during startup, meaning they either aren't loaded or they're
+not a problem for some other reason.
+* emacs 31.1 working w/ no errors in terminal on New and Big. but...
+** GUI version is 30.2 on New and Big.
+
+https://getartcraft.com/apps/photocraft
+
+** ISSUE +emacs 31+... speedbar. Bind it to a function key maybe?
 CLOSED: [2026-09-25 Fri 09:17]
+* GTK for emacs GUI
+** https://www.gtk.org/docs/getting-started/hello-world/
+** https://docs.gtk.org/gtk4/compiling.html
+** https://askubuntu.com/questions/397432/fatal-error-gtk-gtk-h-no-such-file-or-directory-using-make
 * ISSUE init.el on Plucky is a mess.
 * ISSUE Build emacs:
 CLOSED: [2026-08-19 Wed 13:24]
@@ -353,17 +367,5 @@ Chris (16)
            (string-right-trim '(#\space #\tab) line))))))
 #+end_src
 
-* NEXT https://unix.stackexchange.com/questions/86933/swap-alt-and-super
-* GTK for emacs GUI
-** https://www.gtk.org/docs/getting-started/hello-world/
-** https://docs.gtk.org/gtk4/compiling.html
-** https://askubuntu.com/questions/397432/fatal-error-gtk-gtk-h-no-such-file-or-directory-using-make
-* Fourteen .el files in contrib do NOT have lexical binding t but...
-aren't flagged by emacs during startup, meaning they either aren't loaded or they're
-not a problem for some other reason.
-* emacs 31.1 working w/ no errors in terminal on New and Big.
-** GUI version is 30.2 on New and Big.
-
-https://getartcraft.com/apps/photocraft
-
+* NEXT +action+ https://unix.stackexchange.com/questions/86933/swap-alt-and-super
 * https://packages.debian.org/trixie/emacs-gtk?pow_referer=https%3A%2F%2Fwww.google.com%2F
