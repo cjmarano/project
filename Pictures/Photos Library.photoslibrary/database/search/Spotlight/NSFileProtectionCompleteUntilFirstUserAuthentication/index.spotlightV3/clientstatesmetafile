@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>clientStates</key>
+	<dict>
+		<key>com.apple.photolibraryd</key>
+		<dict/>
+	</dict>
+	<key>cookie</key>
+	<string>007AE4A2-1C14-4957-96E5-029738BADCFE</string>
+	<key>deferSyncCount</key>
+	<integer>1</integer>
+	<key>journalSerialNumber</key>
+	<integer>4</integer>
+	<key>syncCount</key>
+	<integer>4</integer>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
