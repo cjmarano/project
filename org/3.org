@@ -369,3 +369,4 @@ Chris (16)
 
 * NEXT +action+ https://unix.stackexchange.com/questions/86933/swap-alt-and-super
 * https://packages.debian.org/trixie/emacs-gtk?pow_referer=https%3A%2F%2Fwww.google.com%2F
+* maybe take init.el.org in ~/project and update for Ducky and Plucky.
