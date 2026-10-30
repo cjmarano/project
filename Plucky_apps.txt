@@ -1,0 +1,110 @@
+aisleriot                      GNOME solitaire card game collection
+asunder                        Graphical audio CD ripper and encoder
+audacity                       fast, cross-platform audio editor
+baobab                         GNOME disk usage analyzer
+blueman                        Graphical bluetooth manager
+bulky                          Bulk Renamer
+calibre                        powerful and easy to use e-book manager
+captain                        Collection of APT tools
+celluloid                      simple GTK+ frontend for mpv
+chocolate-doom                 Doom engines closely-compatible with Vanilla Doom
+clamtk                         graphical front-end for ClamAV
+clementine                     modern music player and library organizer
+cmatrix                        simulates the display from "The Matrix"
+conky-all                      highly configurable system monitor (all features enabled)
+conky-manager2                 Utility for managing Conky configuration files
+darktable                      virtual lighttable and darkroom for photographers
+drawing                        simple drawing application for the GNOME desktop
+dsda-doom                      Doom source port with a focus on demo recording and speedrunning
+emacs-common                   GNU Emacs editor's shared, architecture independent infrastructure
+emacs-gtk                      GNU Emacs editor (with GTK+ GUI support)
+epsonscan2                     This is scanner driver.
+evolution-data-server          evolution database backend server
+file-roller                    archive manager for GNOME
+fingwit                        Fingerprint Configuration Tool
+firefox                        The Firefox web browser
+font-manager                   font management application for the GNOME desktop
+font-viewer                    Full-featured font preview application for GTK Environments
+freedoom                       two single player campaigns for Doom-compatible engines
+gcolor3                        Simple GTK3 color selector and picker
+gcr                            GNOME crypto services (daemon and tools)
+geoclue-2.0                    geoinformation service
+ghostty                        Fast, feature-rich, and cross-platform terminal emulator.
+gimp                           GNU Image Manipulation Program
+gkbd-capplet                   GNOME control center tools for libgnomekbd
+gnome-calculator               GNOME desktop calculator
+gnome-calendar                 Calendar application for GNOME
+gnome-disk-utility             manage and configure disk drives and media
+gnome-mahjongg                 classic Eastern tile game for GNOME
+gnome-online-accounts          service to manage online accounts for the GNOME desktop
+gnome-online-accounts-gtk      GUI Utility for logging into online accounts for the
+gnome-panel                    traditional panel, used in GNOME Flashback
+gnome-power-manager            power management tool for the GNOME desktop
+gnome-screenshot               screenshot application for GNOME
+gnome-software                 Software Center for GNOME
+gnome-system-monitor           Process viewer and system resource monitor for GNOME
+gnome-terminal                 GNOME terminal emulator application
+gnome-tweaks                   tool to adjust advanced configuration settings for GNOME
+gucharmap                      Unicode character picker and font browser
+gufw                           graphical user interface for ufw
+hexchat                        IRC client for X based on X-Chat 2
+htop                           interactive processes viewer
+hypnotix                       IPTV Player
+imagemagick-6.q16              image manipulation programs -- quantum depth Q16
+info                           Standalone GNU Info documentation browser
+input-remapper-gtk             Input device button mapping tool (GUI)
+keepassxc                      KeePass Cross-Platform Community Edition
+le                             Text editor with block and binary operations
+librewolf                      The LibreWolf browser for privacy, with uBlock and tweaked settings.
+lightdm-settings               LightDM configuration tool
+lynis                          security auditing tool for Unix based systems
+mcomix                         GTK+ image viewer for comic books
+metacity                       lightweight GTK window manager
+mintbackup                     Home Directory Backup Tool
+mintdrivers                    Driver Manager
+mintinstall                    Software Manager
+mintlocale                     Language selection tool
+mintreport                     Troubleshooting tool for Linux Mint
+mintsources                    Software Sources configuration tool
+mintstick                      write .img and .iso files to USB sticks
+mintsysadm                     System Administration tool
+mintupdate                     The Linux Mint Update Manager
+mintupgrade                    Upgrade Tool
+mintwelcome                    Welcome screen for Linux Mint
+mpv                            video player based on MPlayer/mplayer2
+muffin                         window and compositing manager
+nemo                           file manager and graphical shell for Cinnamon
+network-manager-gnome          network management framework (GNOME frontend)
+nvidia-settings                Tool for configuring the NVIDIA graphics driver
+onboard                        Simple On-screen Keyboard
+openjdk-11-jre                 OpenJDK Java runtime, using Hotspot JIT
+openjdk-21-jre                 OpenJDK Java runtime, using Hotspot JIT
+pix                            image viewer and browser
+python3.12                     Interactive high-level object-oriented language (version 3.12)
+redshift                       Adjusts the color temperature of your screen
+rhythmbox                      music player and organizer for GNOME
+rmlint-gui                     GTK+ frontend to rmlint
+seahorse                       GNOME front end for GnuPG
+signal-desktop                 Private messaging from your desktop
+simple-scan                    Simple Scanning Utility
+snapd                          Daemon and tooling that enable snap packages
+soundconverter                 GNOME application to convert audio files into other formats
+steam-installer                Valve's Steam digital software delivery system
+sticky                         Sticky Notes app
+system-config-printer          graphical interface to configure the printing system
+terminator                     multiple GNOME terminals in one window
+thingy                         Document Manager
+thunderbird                    Email, RSS and newsgroup client with integrated spam filter
+timeshift                      System restore utility
+transmission-gtk               lightweight BitTorrent client (GTK+ interface)
+vim-common                     Vi IMproved - Common files
+vlc                            multimedia player and streamer
+vuescan                        VueScan Scanner Software
+warpinator                     Allows simple local network file sharing.
+webapp-manager                 Web Application Manager
+xed                            Text editor
+xournal                        GTK+ Application for note taking
+xreader                        Document viewer
+xviewer                        Image viewer
+xwayland                       X server for running X clients under Wayland
+yelp                           Help browser for GNOME
