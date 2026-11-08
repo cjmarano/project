@@ -3,3 +3,6 @@
 effect was couldn't open any photos (But other files displayed ?)
 Tried running testdisk but sudo e2fsk -y /dev/sdc1 did the trick.
 ** Ran it twice. Took a while.
+
+* Adnauseam
+
